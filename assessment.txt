@@ -1,0 +1,52 @@
+/*
+    Name: assessment == QuestionaireResponse
+    Algebra: assessment X message = Operad[PAC(CareService) \ Questionaire]
+        partOf(Procedure)
+        questionnaire(Questionnaire)
+            uri
+            id
+            version
+            context
+            type
+
+        status
+        authored
+        item.<> == Questionnaire/question.<>
+*/
+
+Grammar:		DataElement 5.0
+Namespace:		assessment
+Description:	"Assessment represents an IMPACT-DEL defined message.  This is associated to a standard Questionaire, and indexed by a kind of PAC operation."
+Uses:			shr.core, shr.base
+
+EntryElement:   Assessment
+Description:    "A response to questionnaire based on standard clinical measure."
+1..1    id
+1..1    dateTime
+1..1    status
+0..*    question.answer
+0..1    assessmentSchema
+0..1    assessmentOperand
+
+    Element:        id
+    Description:    "Identifier for the assessment response."
+    Value:          id
+
+    Element:        dateTime
+    Description:    "Date for the gathered answer set."
+    Value:          dateTime
+
+    Element:        status
+    Description:    "Status of the assessment: started, completed, amended, error."
+    Value:          status
+    // QuestionnaireResponseStatus: https://www.hl7.org/fhir/valueset-questionnaire-answers-status.html
+
+    Element:        question
+    Description:    "Standard question in a questionnaire."
+    Value:          question
+
+        Element:        answer
+        Description:    "Standard answer setting for a question."
+        Value:          answer
+        // Needs a slice assigning answer sets to questions
+        // QUESTION: How to reference various DEL.questions.answers? 
