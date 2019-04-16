@@ -1,0 +1,16 @@
+{
+  "name": "cimpl-del",
+  "version": "1.0.0",
+  "description": "CIMPL stuff for DEL",
+  "main": "index.js",
+  "author": "Tim Shaffer <tshaffer@mitre.org>",
+  "license": "Apache-2.0",
+  "private": true,
+  "scripts": {
+    "shr-cli": "node node_modules/shr-cli/app.js spec -o out",
+    "ig-gen": "java ${JAVA_OPTS} -jar out/fhir/guide/org.hl7.fhir.igpublisher.jar -ig out/fhir/guide/ig.json"
+  },
+  "dependencies": {
+    "shr-cli": "5.10.0"
+  }
+}

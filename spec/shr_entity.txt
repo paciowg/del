@@ -1,0 +1,12 @@
+Grammar:		DataElement 5.0
+Namespace:		shr.entity
+Description:	"The SHR Entity domain contains definitions for objects, people and organizations that are involved with the person of record, in some capacity. Entities are things that have separate and distinct existence and objective or conceptual reality. Includes information items, physical objects, health states, and parties."
+Uses:			shr.core, shr.base
+
+Element:		Patient
+Concept:		MTH#C1299487
+Description:	"A person in the role of a patient, including extended demographic information about the subject of this health record."
+
+Element:		Practitioner
+Concept: 		MTH#C1306754
+Description:	"A person in the role of a practitioner."
