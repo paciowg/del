@@ -1,0 +1,20 @@
+// Outline: docSections == derivation(Questionaire)
+// [bundle] Response Item Set
+
+/* Commenting Out - Instances Questionaire Section Elements
+TODO: Incorporate into Assessment with bundles & composite
+MAYBE: Add Compartment Encounter, http://hl7.org/fhir/compartment/Encounter
+    TODO: Slice QuestionForm dependent on Encounter or Provider
+
+Grammar:		DataElement 5.0
+Namespace:		documentSection
+Description:	"Includes document section within an document for questionnaire response. Configured "
+Uses:			assessment
+
+Element: GG-IRF-Contents
+Description: "Section GG Contents - IRF"
+1..1 GG-IRF-Section
+
+Element: GG-IRF-Section
+Description: "Section GG Contents - IRF"
+*/
