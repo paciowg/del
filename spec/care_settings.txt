@@ -1,6 +1,0 @@
-Element: GG-IRF-Contents
-Description: "Section GG Contents - IRF"
-1..1 GG-IRF-Section
-
-Element: GG-IRF-Section
-Description: "Section GG Contents - IRF"

@@ -1,0 +1,9 @@
+Grammar:    ValueSet 5.0
+Namespace:  shr.assessment
+
+ValueSet: AssessmentContextVS // Major classes of operational assessment for context
+#InitialAssessment  "Direct patient engagement"
+#PostCare           "Coming from care discharge"
+#Nursing            "Long-term nursing care"
+#HomeCare           "In-home care provision"
+#CareProvider       "Other service-specific care provider"
