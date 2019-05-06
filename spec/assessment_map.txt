@@ -1,0 +1,36 @@
+/*
+    Name: assessment == QuestionaireResponse
+    Algebra: assessment X message = Operad[PAC(CareService) \ Questionaire]
+        partOf(Procedure)
+        questionnaire(Questionnaire)
+            uri
+            id
+            version
+            context
+            type
+
+        status
+        authored
+        item.<> == Questionnaire/question.<>
+*/
+
+Grammar:	Map 5.0
+Namespace:	assessment
+Target:     FHIR_STU_3
+
+Assessment maps to QuestionnaireResponse:
+//    AssessmentIdentifier maps to identifier
+    TimeStamp maps to authored
+    Status maps to status
+    Answer maps to item
+//    assessmentSchema maps to questionnaire
+//    assessmentOperand maps to partOf
+
+/*
+AssessmentDocument maps to Questionnaire
+    ResourceLocation maps to url
+    DocumentId maps to identifier
+    DocumentVersion maps to version
+
+    //question maps to item
+*/
