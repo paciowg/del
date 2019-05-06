@@ -61,9 +61,9 @@ async function main(url) {
   const ig = getImplementationGuide()
   const resources = getResources(ig)
 
-  await uploadResource(url, ig)
-
   for (const resource of resources) {
     await uploadResource(url, resource)
   }
+
+  await uploadResource(url, ig)
 }
