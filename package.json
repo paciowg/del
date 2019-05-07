@@ -9,7 +9,7 @@
   "scripts": {
     "shr-cli": "node node_modules/shr-cli/app.js spec -o out",
     "ig-gen": "java ${JAVA_OPTS} -jar out/fhir/guide/org.hl7.fhir.igpublisher.jar -ig out/fhir/guide/ig.json",
-    "upload": "node upload.js"
+    "upload": "node src/upload.js"
   },
   "dependencies": {
     "request": "2.88.0",
