@@ -23,3 +23,11 @@ Then run this to build the HTML implementation guide.
 Congrats. Your guide is now located here:
 
     out/fhir/guide/output/index.html
+
+## Upload
+
+You can automatically upload the StrucuteDefinition and ImplementationGuide resources to a FHIR server.
+
+Run this command after generating the implementation guide:
+
+    yarn upload
