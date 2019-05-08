@@ -54,12 +54,17 @@ async function uploadResource(url, resource) {
   return response;
 }
 
-function logIssues(issues) {
-  for (const issue of issues) {
-    for (const location of issue.location) {
-      console.error(`${location} = ${issue.severity} = ${issue.diagnostics}`);
+function logError(error) {
+  if (error.response && error.response.body && error.response.body.issue) {
+    for (const issue of error.response.body.issue) {
+      for (const location of issue.location) {
+        console.error(`${issue.severity.toUpperCase()} = ${location} = ${issue.diagnostics}`);
 
+      }
     }
+  }
+  else {
+    console.error(error);
   }
 }
 
@@ -75,14 +80,14 @@ async function main(url) {
   for (const resource of resources) {
     try {
       await uploadResource(url, resource);
-    } catch (err) {
-      logIssues(err.response.body.issue);
+    } catch (error) {
+      logError(error);
     }
   }
 
   try {
     await uploadResource(url, ig);
-  } catch (err) {
-    logIssues(err.response.body.issue);
+  } catch (error) {
+    logError(error);
   }
 }
