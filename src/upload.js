@@ -1,7 +1,7 @@
 const program = require('commander');
 const request = require('request-promise-native');
 
-const BASE_DIR = './out/fhir/guide/resources';
+const BASE_DIR = '../out/fhir/guide/resources';
 const DEFAULT_URL = 'localhost:8080/dstu3';
 
 let baseUrl;
@@ -54,17 +54,35 @@ async function uploadResource(url, resource) {
   return response;
 }
 
+function logIssues(issues) {
+  for (const issue of issues) {
+    for (const location of issue.location) {
+      console.error(`${location} = ${issue.severity} = ${issue.diagnostics}`);
+
+    }
+  }
+}
+
 /**
  * Run the main process.
  * @param {*} url
  */
 async function main(url) {
   const ig = getImplementationGuide();
+
   const resources = getResources(ig);
 
   for (const resource of resources) {
-    await uploadResource(url, resource);
+    try {
+      await uploadResource(url, resource);
+    } catch (err) {
+      logIssues(err.response.body.issue);
+    }
   }
 
-  await uploadResource(url, ig);
+  try {
+    await uploadResource(url, ig);
+  } catch (err) {
+    logIssues(err.response.body.issue);
+  }
 }
