@@ -8,7 +8,7 @@
   "private": true,
   "scripts": {
     "shr-cli": "node node_modules/shr-cli/app.js spec -o out",
-    "ig-gen": "java ${JAVA_OPTS} -jar out/fhir/guide/org.hl7.fhir.publisher.cli-0.9.5-20190505.003301-1.jar -ig out/fhir/guide/ig.json",
+    "ig-gen": "java ${JAVA_OPTS} -jar out/fhir/guide/org.hl7.fhir.publisher.jar -ig out/fhir/guide/ig.json",
     "upload": "node src/upload.js",
     "migrate": "node src/migrate.js"
   },
@@ -16,7 +16,7 @@
     "pg": "7.10.0",
     "request": "2.88.0",
     "request-promise-native": "1.0.7",
-    "shr-cli": "https://github.com/standardhealth/shr-cli.git#5.17.4"
+    "shr-cli": "https://github.com/standardhealth/shr-cli.git#5.18.0"
   },
   "devDependencies": {
     "eslint": "5.16.0",

@@ -1,6 +1,6 @@
 Grammar: Map 5.0
 Namespace: shr.core
-Target: FHIR_STU_3
+Target: FHIR_R4
 
 Coding maps to Coding:
   Value maps to code
@@ -15,3 +15,9 @@ CodeableConcept maps to CodeableConcept:
 TimePeriod maps to Period:
   TimePeriodStart maps to start
   TimePeriodEnd maps to end
+/*
+Identifier maps to Identifier
+  Type maps to type
+  System maps to system
+  Value maps to value
+  */

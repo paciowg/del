@@ -1885,9 +1885,9 @@ shr-adl-bmm-export@^1.0.1:
     dedent-js "^1.0.1"
     eslint "^4.19.1"
 
-"shr-cli@https://github.com/standardhealth/shr-cli.git#5.17.4":
-  version "5.17.4"
-  resolved "https://github.com/standardhealth/shr-cli.git#d275114e7823328bf86c520fced4787c51c7cfda"
+"shr-cli@https://github.com/standardhealth/shr-cli.git#5.18.0":
+  version "5.18.0"
+  resolved "https://github.com/standardhealth/shr-cli.git#29483cbde265f98cfc3e3f097a80c56d5c5e29af"
   dependencies:
     "@ojolabs/bunyan-prettystream" "^0.1.6"
     bunyan "^1.8.12"
@@ -1895,19 +1895,19 @@ shr-adl-bmm-export@^1.0.1:
     fs-extra "^7.0.0"
     mkdirp "^0.5.1"
     shr-adl-bmm-export "^1.0.1"
-    shr-es6-export "^5.5.2"
+    shr-es6-export "^5.6.0"
     shr-expand "^5.8.1"
-    shr-fhir-export "^5.13.4"
+    shr-fhir-export "^5.14.0"
     shr-json-export "^5.1.5"
     shr-json-javadoc "^1.4.5"
     shr-json-schema-export "^5.3.2"
     shr-models "^5.8.0"
-    shr-text-import "^5.7.0"
+    shr-text-import "^5.7.1"
 
-shr-es6-export@^5.5.2:
-  version "5.5.2"
-  resolved "https://registry.yarnpkg.com/shr-es6-export/-/shr-es6-export-5.5.2.tgz#1ef57181f055464ae623605ea2dfc32dedc893cb"
-  integrity sha512-atlSvoENsTbFT+YxklAnn7ytNAjKbkL3j0oN0Ya/FpSDhv/F9H9IHXLz7NP8jFy02jukD0X3N3B2SlGP7umjPA==
+shr-es6-export@^5.6.0:
+  version "5.6.0"
+  resolved "https://registry.yarnpkg.com/shr-es6-export/-/shr-es6-export-5.6.0.tgz#dc039efdcffed51f085bcf32dd49e4439088280e"
+  integrity sha512-oSm6MR0Pk9n/tx/WjK/Jz/qE7hDcyc+ndg4b3VbVOrorU3jGbBBEPVe85Gdwf3El7ToBh/uh0KLnj65D9FKlWg==
   dependencies:
     reserved-words "^0.1.2"
 
@@ -1916,10 +1916,10 @@ shr-expand@^5.8.1:
   resolved "https://registry.yarnpkg.com/shr-expand/-/shr-expand-5.8.1.tgz#99aa50b7c9d8dfbe7d2c996740b8770e3d23527c"
   integrity sha512-UyfJ9r0awLOtTdGrfJxo4q4pxp9yYQdItIKkmQTY1rywRBU6BH/CcJtox4XqAbVR+FPlL7xYngM77qGtMY+a9Q==
 
-shr-fhir-export@^5.13.4:
-  version "5.13.4"
-  resolved "https://registry.yarnpkg.com/shr-fhir-export/-/shr-fhir-export-5.13.4.tgz#d02208b981b6e8f5e87494a6cad217959035fbf8"
-  integrity sha512-HswXTG0keulFEFKTk0ohYMvG3AT5PM/EELVOlTw3UCu8hFcTm4IYqIQIv6aWC+4kayGpl0PR7jH4U56hFck8rw==
+shr-fhir-export@^5.14.0:
+  version "5.14.0"
+  resolved "https://registry.yarnpkg.com/shr-fhir-export/-/shr-fhir-export-5.14.0.tgz#1217931ebfb736059f2b5c4c9e943a932881ae54"
+  integrity sha512-og/dmL5Gp+tTr390TzzBx1ZUrIl1od3lLnVAd9Jvo+xQVxzyRf2l3ZbW9xWb3qLUQQYkWo+Nk0OjuxO1LulqeA==
   dependencies:
     fs-extra "^2.0.0"
     lodash "^4.17.5"
@@ -1949,10 +1949,10 @@ shr-models@^5.8.0:
   resolved "https://registry.yarnpkg.com/shr-models/-/shr-models-5.8.0.tgz#b2438c52340f1e167513334169d51c88bdcef5e7"
   integrity sha512-2s5aHeXUptIfrCWPKPw27weIV5GCVyy3yXRXCxUJ+EOAJDQpyHiH54sxvCWaJ8hnRKVC+XSfx1qTMerV+T2itA==
 
-shr-text-import@^5.7.0:
-  version "5.7.0"
-  resolved "https://registry.yarnpkg.com/shr-text-import/-/shr-text-import-5.7.0.tgz#e2ab11b1fa183aa5a06b4b751205da8e1800b307"
-  integrity sha512-58PQXDA/JWoVDNGmnAbZM/bQyD6C/QLfp2B6HfDR6dCuixa2M9fpDnInnzfIKd6wFi3OLv3Z8jJtb4NjnnykZA==
+shr-text-import@^5.7.1:
+  version "5.7.1"
+  resolved "https://registry.yarnpkg.com/shr-text-import/-/shr-text-import-5.7.1.tgz#81d1c54be5eba751a9849e9f368618a3762097b0"
+  integrity sha512-eA22DcZqSHYaH3ri7anpdErhcFGVD7VyLchuf11HaUMHYoO63lys4+D1LhMzzUV1+YOCLRl/sZwodi6LPZBezA==
   dependencies:
     antlr4 "~4.6.0"
 

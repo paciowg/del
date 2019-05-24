@@ -4,7 +4,7 @@ const { Client } = require('pg');
 
 const { run: assessmentMigrator } = require('./migrators/assessment');
 
-const DEFAULT_URL = 'localhost:8080/dstu3';
+const DEFAULT_URL = 'http://localhost:8080/r4';
 const DATABASE = {
   user: 'postgres',
   database: 'postgres',

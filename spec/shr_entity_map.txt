@@ -1,6 +1,6 @@
 Grammar:	Map 5.0
 Namespace:	shr.entity
-Target:		FHIR_STU_3
+Target:		FHIR_R4
 
 Patient maps to http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient:
 Practitioner maps to http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner:

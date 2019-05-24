@@ -21,15 +21,10 @@ Uses:			shr.core, shr.base
 
 EntryElement:   Assessment
 Description:    "A response to questionnaire based on standard clinical measure."
-1..1    AssessmentIdentifier
 1..1    TimeStamp
 1..1    Status
 1..1    Answer
 //0..1    ref(Quentionnaire)
-
-    Element:        AssessmentIdentifier
-    Description:    "Identifier for the assessment response."
-    Value:          id
 
     Element:        TimeStamp
     Description:    "Date for the gathered answer set."

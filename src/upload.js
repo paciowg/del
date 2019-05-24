@@ -2,7 +2,7 @@ const program = require('commander');
 const request = require('request-promise-native');
 
 const BASE_DIR = '../out/fhir/guide/resources';
-const DEFAULT_URL = 'localhost:8080/dstu3';
+const DEFAULT_URL = 'localhost:8080/r4';
 
 let baseUrl;
 program
@@ -85,9 +85,9 @@ async function main(url) {
     }
   }
 
-  try {
-    await uploadResource(url, ig);
-  } catch (error) {
-    logError(error);
-  }
+  // try {
+  //   await uploadResource(url, ig);
+  // } catch (error) {
+  //   logError(error);
+  // }
 }

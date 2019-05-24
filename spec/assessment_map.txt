@@ -16,10 +16,9 @@
 
 Grammar:	Map 5.0
 Namespace:	assessment
-Target:     FHIR_STU_3
+Target:     FHIR_R4
 
 Assessment maps to QuestionnaireResponse:
-//    AssessmentIdentifier maps to identifier
     TimeStamp maps to authored
     Status maps to status
     Answer maps to item
@@ -28,9 +27,8 @@ Assessment maps to QuestionnaireResponse:
 
 /*
 AssessmentDocument maps to Questionnaire
-    ResourceLocation maps to url
-    DocumentId maps to identifier
+//    ResourceLocation maps to url
+//    DocumentId maps to identifier
     DocumentVersion maps to version
-
     //question maps to item
 */
