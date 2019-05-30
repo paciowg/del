@@ -15,13 +15,14 @@
 */
 
 Grammar:	Map 5.0
-Namespace:	assessment
+Namespace:	del
 Target:     FHIR_R4
 
-Assessment maps to QuestionnaireResponse:
-    TimeStamp maps to authored
-    Status maps to status
-    Answer maps to item
+Assessment maps to Questionnaire:
+    // Name maps to name
+    // TimeStamp maps to authored
+    // Status maps to status
+    // Answer maps to item
 //    assessmentSchema maps to questionnaire
 //    assessmentOperand maps to partOf
 

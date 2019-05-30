@@ -2,7 +2,7 @@
     "projectName": "IMPACT Data Element Implementation Guide",
     "projectShorthand": "IMPACT",
     "projectURL": "http://cms.gov/impact",
-    "fhirURL": "http://cms.gov/impact",
+    "fhirURL": "https://impact-fhir.mitre.org/r4",
     "implementationGuide": {
         "npmName": "impact-fhir",
         "indexContent": "indexContent.html",

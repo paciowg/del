@@ -1,7 +1,7 @@
 const program = require('commander');
 const { Client } = require('pg');
-// const request = require('request-promise-native')
 
+const { logError } = require('./helpers');
 const { run: assessmentMigrator } = require('./migrators/assessment');
 
 const DEFAULT_URL = 'http://localhost:8080/r4';
@@ -37,8 +37,7 @@ async function main(url) {
   try {
     await assessmentMigrator(url, client);
   } catch (error) {
-    console.log('Error running migrators');
-    console.error(error);
+    logError(error);
   }
 
   // console.log(res.rows[0]);

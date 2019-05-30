@@ -10,7 +10,7 @@
     "shr-cli": "node node_modules/shr-cli/app.js spec -o out",
     "ig-gen": "java ${JAVA_OPTS} -jar out/fhir/guide/org.hl7.fhir.publisher.jar -ig out/fhir/guide/ig.json",
     "upload": "node src/upload.js",
-    "migrate": "node src/migrate.js"
+    "migrate": "NODE_TLS_REJECT_UNAUTHORIZED=0 node src/migrate.js"
   },
   "dependencies": {
     "pg": "7.10.0",

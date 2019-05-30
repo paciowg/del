@@ -1,5 +1,6 @@
 const program = require('commander');
-const request = require('request-promise-native');
+
+const { logError, putResource } = require('./helpers');
 
 const BASE_DIR = '../out/fhir/guide/resources';
 const DEFAULT_URL = 'localhost:8080/r4';
@@ -42,30 +43,9 @@ async function uploadResource(url, resource) {
   if (resource.resourceType === 'ImplementationGuide' && resource.id == 1) {
     resource.id = 'IG1';
   }
-  const fullUrl = `${url}/${resource.resourceType}/${resource.id}`;
-  console.log('Sending', fullUrl);
-  const response = await request({
-    method: 'PUT',
-    uri: fullUrl,
-    body: resource,
-    json: true,
-    headers: {},
-  });
+
+  const response = await putResource(url, resource);
   return response;
-}
-
-function logError(error) {
-  if (error.response && error.response.body && error.response.body.issue) {
-    for (const issue of error.response.body.issue) {
-      for (const location of issue.location) {
-        console.error(`${issue.severity.toUpperCase()} = ${location} = ${issue.diagnostics}`);
-
-      }
-    }
-  }
-  else {
-    console.error(error);
-  }
 }
 
 /**
