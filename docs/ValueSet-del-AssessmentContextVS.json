@@ -1,0 +1,59 @@
+{
+  "resourceType": "ValueSet",
+  "id": "del-AssessmentContextVS",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n<p><b>AssessmentContextVS ValueSet</b></p>\n<p></p>\n</div>"
+  },
+  "url": "http://cms.gov/impact/del/vs/AssessmentContextVS",
+  "identifier": [
+    {
+      "system": "http://cms.gov/impact",
+      "value": "del.AssessmentContextVS"
+    }
+  ],
+  "name": "AssessmentContextVS",
+  "title": "AssessmentContextVS",
+  "status": "draft",
+  "date": "2019-06-05",
+  "publisher": "The MITRE Corporation",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://mitre.org"
+        }
+      ]
+    }
+  ],
+  "compose": {
+    "include": [
+      {
+        "system": "http://cms.gov/impact/del/cs/AssessmentContextCS",
+        "concept": [
+          {
+            "code": "InitialAssessment",
+            "display": "Direct patient engagement"
+          },
+          {
+            "code": "PostCare",
+            "display": "Coming from care discharge"
+          },
+          {
+            "code": "Nursing",
+            "display": "Long-term nursing care"
+          },
+          {
+            "code": "HomeCare",
+            "display": "In-home care provision"
+          },
+          {
+            "code": "CareProvider",
+            "display": "Other service-specific care provider"
+          }
+        ]
+      }
+    ]
+  }
+}

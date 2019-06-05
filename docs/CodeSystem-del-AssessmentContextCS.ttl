@@ -1,0 +1,70 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://impact-fhir.mitre.org/r4/CodeSystem/del-AssessmentContextCS> a fhir:CodeSystem;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "del-AssessmentContextCS"];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n<p><b>AssessmentContextCS CodeSystem</b></p>\n<p></p>\n</div>"
+  ];
+  fhir:CodeSystem.url [ fhir:value "http://cms.gov/impact/del/cs/AssessmentContextCS"];
+  fhir:CodeSystem.identifier [
+     fhir:index 0;
+     fhir:Identifier.system [ fhir:value "http://cms.gov/impact" ];
+     fhir:Identifier.value [ fhir:value "del.AssessmentContextCS" ]
+  ];
+  fhir:CodeSystem.name [ fhir:value "AssessmentContextCS"];
+  fhir:CodeSystem.title [ fhir:value "AssessmentContextCS"];
+  fhir:CodeSystem.status [ fhir:value "draft"];
+  fhir:CodeSystem.date [ fhir:value "2019-06-05"^^xsd:date];
+  fhir:CodeSystem.publisher [ fhir:value "The MITRE Corporation"];
+  fhir:CodeSystem.contact [
+     fhir:index 0;
+     fhir:ContactDetail.telecom [
+       fhir:index 0;
+       fhir:ContactPoint.system [ fhir:value "url" ];
+       fhir:ContactPoint.value [ fhir:value "http://mitre.org" ]
+     ]
+  ];
+  fhir:CodeSystem.caseSensitive [ fhir:value "true"^^xsd:boolean];
+  fhir:CodeSystem.content [ fhir:value "complete"];
+  fhir:CodeSystem.count [ fhir:value "5"^^xsd:nonNegativeInteger];
+  fhir:CodeSystem.concept [
+     fhir:index 0;
+     fhir:CodeSystem.concept.code [ fhir:value "InitialAssessment" ];
+     fhir:CodeSystem.concept.display [ fhir:value "Direct patient engagement" ];
+     fhir:CodeSystem.concept.definition [ fhir:value "Direct patient engagement" ]
+  ], [
+     fhir:index 1;
+     fhir:CodeSystem.concept.code [ fhir:value "PostCare" ];
+     fhir:CodeSystem.concept.display [ fhir:value "Coming from care discharge" ];
+     fhir:CodeSystem.concept.definition [ fhir:value "Coming from care discharge" ]
+  ], [
+     fhir:index 2;
+     fhir:CodeSystem.concept.code [ fhir:value "Nursing" ];
+     fhir:CodeSystem.concept.display [ fhir:value "Long-term nursing care" ];
+     fhir:CodeSystem.concept.definition [ fhir:value "Long-term nursing care" ]
+  ], [
+     fhir:index 3;
+     fhir:CodeSystem.concept.code [ fhir:value "HomeCare" ];
+     fhir:CodeSystem.concept.display [ fhir:value "In-home care provision" ];
+     fhir:CodeSystem.concept.definition [ fhir:value "In-home care provision" ]
+  ], [
+     fhir:index 4;
+     fhir:CodeSystem.concept.code [ fhir:value "CareProvider" ];
+     fhir:CodeSystem.concept.display [ fhir:value "Other service-specific care provider" ];
+     fhir:CodeSystem.concept.definition [ fhir:value "Other service-specific care provider" ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://impact-fhir.mitre.org/r4/CodeSystem/del-AssessmentContextCS.ttl> a owl:Ontology;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

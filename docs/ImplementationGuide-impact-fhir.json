@@ -1,0 +1,110 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "impact-fhir",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>IMPACT_Data_Element_Implementation_Guide</h2><p>The official URL for this implementation guide is: </p><pre>https://impact-fhir.mitre.org/r4/ImplementationGuide/impact-fhir</pre></div>"
+  },
+  "url": "https://impact-fhir.mitre.org/r4/ImplementationGuide/impact-fhir",
+  "name": "IMPACT_Data_Element_Implementation_Guide",
+  "title": "IMPACT Data Element Implementation Guide",
+  "status": "draft",
+  "packageId": "impact-fhir",
+  "license": "CC0-1.0",
+  "fhirVersion": [
+    "4.0.0"
+  ],
+  "definition": {
+    "grouping": [
+      {
+        "name": "Profiles in this Implementation Guide",
+        "description": "Profiles in this Implementation Guide"
+      }
+    ],
+    "resource": [
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "StructureDefinition-del-Assessment.html"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/del-Assessment"
+        },
+        "name": "del-Assessment",
+        "exampleBoolean": false
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "StructureDefinition-del-StandardForm.html"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/del-StandardForm"
+        },
+        "name": "del-StandardForm",
+        "exampleBoolean": false
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "StructureDefinition-del-StandardFormQuestion.html"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/del-StandardFormQuestion"
+        },
+        "name": "del-StandardFormQuestion",
+        "exampleBoolean": false
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "StructureDefinition-del-StandardFormSection.html"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/del-StandardFormSection"
+        },
+        "name": "del-StandardFormSection",
+        "exampleBoolean": false
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "ValueSet-del-AssessmentContextVS.html"
+          }
+        ],
+        "reference": {
+          "reference": "ValueSet/del-AssessmentContextVS"
+        },
+        "name": "AssessmentContextVS",
+        "exampleBoolean": false
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "CodeSystem-del-AssessmentContextCS.html"
+          }
+        ],
+        "reference": {
+          "reference": "CodeSystem/del-AssessmentContextCS"
+        },
+        "name": "AssessmentContextCS",
+        "exampleBoolean": false
+      }
+    ],
+    "page": {
+      "nameUrl": "index.html",
+      "title": "IMPACT Data Element Implementation Guide",
+      "generation": "html"
+    }
+  }
+}

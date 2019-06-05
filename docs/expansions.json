@@ -1,0 +1,69 @@
+{
+  "resourceType" : "Bundle",
+  "id" : "dcab6b5a-605d-46c4-9b5f-c63b6392019d",
+  "meta" : {
+    "lastUpdated" : "2019-06-05T12:19:41.557-04:00"
+  },
+  "type" : "collection",
+  "entry" : [{
+    "fullUrl" : "http://cms.gov/impact/del/vs/AssessmentContextVS",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "id" : "del-AssessmentContextVS",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This value set contains 5 concepts</p><p>All codes from system <a href=\"CodeSystem-del-AssessmentContextCS.html\"><code>http://cms.gov/impact/del/cs/AssessmentContextCS</code></a></p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---cms.gov-impact-del-cs-AssessmentContextCS-InitialAssessment\"> </a><a href=\"CodeSystem-del-AssessmentContextCS.html#del-AssessmentContextCS-InitialAssessment\">InitialAssessment</a></td><td>Direct patient engagement</td><td>Direct patient engagement</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---cms.gov-impact-del-cs-AssessmentContextCS-PostCare\"> </a><a href=\"CodeSystem-del-AssessmentContextCS.html#del-AssessmentContextCS-PostCare\">PostCare</a></td><td>Coming from care discharge</td><td>Coming from care discharge</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---cms.gov-impact-del-cs-AssessmentContextCS-Nursing\"> </a><a href=\"CodeSystem-del-AssessmentContextCS.html#del-AssessmentContextCS-Nursing\">Nursing</a></td><td>Long-term nursing care</td><td>Long-term nursing care</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---cms.gov-impact-del-cs-AssessmentContextCS-HomeCare\"> </a><a href=\"CodeSystem-del-AssessmentContextCS.html#del-AssessmentContextCS-HomeCare\">HomeCare</a></td><td>In-home care provision</td><td>In-home care provision</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---cms.gov-impact-del-cs-AssessmentContextCS-CareProvider\"> </a><a href=\"CodeSystem-del-AssessmentContextCS.html#del-AssessmentContextCS-CareProvider\">CareProvider</a></td><td>Other service-specific care provider</td><td>Other service-specific care provider</td></tr></table></div>"
+      },
+      "url" : "http://cms.gov/impact/del/vs/AssessmentContextVS",
+      "identifier" : [{
+        "system" : "http://cms.gov/impact",
+        "value" : "del.AssessmentContextVS"
+      }],
+      "name" : "AssessmentContextVS",
+      "title" : "AssessmentContextVS",
+      "status" : "draft",
+      "date" : "2019-06-05T00:00:00-04:00",
+      "publisher" : "The MITRE Corporation",
+      "contact" : [{
+        "telecom" : [{
+          "system" : "url",
+          "value" : "http://mitre.org"
+        }]
+      }],
+      "expansion" : {
+        "identifier" : "urn:uuid:4e4790f0-63e8-43f7-84a4-cac2adb0d9a6",
+        "timestamp" : "2019-06-05T12:19:50-04:00",
+        "total" : 5,
+        "parameter" : [{
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        }],
+        "contains" : [{
+          "system" : "http://cms.gov/impact/del/cs/AssessmentContextCS",
+          "code" : "InitialAssessment",
+          "display" : "Direct patient engagement"
+        },
+        {
+          "system" : "http://cms.gov/impact/del/cs/AssessmentContextCS",
+          "code" : "PostCare",
+          "display" : "Coming from care discharge"
+        },
+        {
+          "system" : "http://cms.gov/impact/del/cs/AssessmentContextCS",
+          "code" : "Nursing",
+          "display" : "Long-term nursing care"
+        },
+        {
+          "system" : "http://cms.gov/impact/del/cs/AssessmentContextCS",
+          "code" : "HomeCare",
+          "display" : "In-home care provision"
+        },
+        {
+          "system" : "http://cms.gov/impact/del/cs/AssessmentContextCS",
+          "code" : "CareProvider",
+          "display" : "Other service-specific care provider"
+        }]
+      }
+    }
+  }]
+}

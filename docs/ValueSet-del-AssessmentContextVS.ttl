@@ -1,0 +1,68 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://impact-fhir.mitre.org/r4/ValueSet/del-AssessmentContextVS> a fhir:ValueSet;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "del-AssessmentContextVS"];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n<p><b>AssessmentContextVS ValueSet</b></p>\n<p></p>\n</div>"
+  ];
+  fhir:ValueSet.url [ fhir:value "http://cms.gov/impact/del/vs/AssessmentContextVS"];
+  fhir:ValueSet.identifier [
+     fhir:index 0;
+     fhir:Identifier.system [ fhir:value "http://cms.gov/impact" ];
+     fhir:Identifier.value [ fhir:value "del.AssessmentContextVS" ]
+  ];
+  fhir:ValueSet.name [ fhir:value "AssessmentContextVS"];
+  fhir:ValueSet.title [ fhir:value "AssessmentContextVS"];
+  fhir:ValueSet.status [ fhir:value "draft"];
+  fhir:ValueSet.date [ fhir:value "2019-06-05"^^xsd:date];
+  fhir:ValueSet.publisher [ fhir:value "The MITRE Corporation"];
+  fhir:ValueSet.contact [
+     fhir:index 0;
+     fhir:ContactDetail.telecom [
+       fhir:index 0;
+       fhir:ContactPoint.system [ fhir:value "url" ];
+       fhir:ContactPoint.value [ fhir:value "http://mitre.org" ]
+     ]
+  ];
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://cms.gov/impact/del/cs/AssessmentContextCS" ];
+       fhir:ValueSet.compose.include.concept [
+         fhir:index 0;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "InitialAssessment" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Direct patient engagement" ]
+       ], [
+         fhir:index 1;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "PostCare" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Coming from care discharge" ]
+       ], [
+         fhir:index 2;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "Nursing" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Long-term nursing care" ]
+       ], [
+         fhir:index 3;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "HomeCare" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "In-home care provision" ]
+       ], [
+         fhir:index 4;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "CareProvider" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Other service-specific care provider" ]
+       ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://impact-fhir.mitre.org/r4/ValueSet/del-AssessmentContextVS.ttl> a owl:Ontology;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

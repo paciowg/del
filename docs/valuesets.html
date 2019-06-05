@@ -1,0 +1,359 @@
+<!DOCTYPE HTML>
+
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8" />
+  <title>IMPACT Data Element Implementation Guide</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="IMPACT Data Element Implementation Guide" />
+
+  <link href="fhir.css" rel="stylesheet" />
+
+  <!-- Bootstrap core CSS -->
+  <link href="dist/css/bootstrap.css" rel="stylesheet" />
+  <link href="assets/css/bootstrap-fhir.css" rel="stylesheet" />
+  <link href="assets/css/bootstrap-glyphicons.css" rel="stylesheet">
+
+  <!-- Project extras -->
+  <link href="assets/css/project.css" rel="stylesheet" />
+  <link href="assets/css/pygments-manni.css" rel="stylesheet" />
+  <link href="jquery-ui.css" rel="stylesheet" />
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png" />
+  <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png" />
+  <link rel="shortcut icon" href="assets/ico/favicon.png" />
+</head>
+
+<body>
+
+  
+
+
+<div id="segment-header" class="segment">
+  <!-- segment-header -->
+  <div class="container">
+    <!-- container -->
+    <a id="logo" no-external="true" href="http://hl7.org/fhir">
+      <img alt="HL7 FHIR Homepage" class="img-responsive logo" src="assets/images/fhir-logo-www.png" />
+    </a>
+    <div id="hl7-status" class="hl7-status">
+      <b>IMPACT Data Element Implementation Guide</b>
+    </div>
+
+    <div id="hl7-nav">
+      <a id="hl7-logo" no-external="true" href="http://www.hl7.org">
+        <img height="50" alt="visit the hl7 website" width="42" src="assets/images/hl7-logo.png" />
+      </a>
+    </div>
+  </div>
+  <div class="container">
+    <!-- container -->
+  </div>
+</div>
+<!-- /segment-header -->
+
+<div id="segment-navbar" class="segment">
+  <!-- segment-navbar -->
+  <div id="stripe"> </div>
+  <div class="container">
+    <!-- container -->
+    <!-- HEADER CONTENT -->
+
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+        <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+      <span class="icon-bar"> </span>
+      <span class="icon-bar"> </span>
+      <span class="icon-bar"> </span>
+     </button>
+        <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+        <div class="nav-collapse collapse navbar-inverse-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <!-- no logical models -->
+            <li><a href="profiles.html">Profiles</a></li>
+            <li><a href="extensions.html">Extensions</a></li>
+            <li><a href="valuesets.html">Value Sets</a></li>
+            <li><a href="codesystems.html">Code Systems</a></li>
+            <li><a href="downloads.html">Downloads</a></li>
+            <!-- no reference model -->
+            
+          </ul>
+
+        </div>
+        <!-- /.nav-collapse -->
+      </div>
+      <!-- /.container -->
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- /HEADER CONTENT -->
+  </div>
+  <!-- /container -->
+</div>
+<!-- /segment-navbar -->
+
+<!-- ============BreadCrumb=============== -->
+<div id="segment-breadcrumb" class="segmnt">
+  <!-- segment-breadcrumb -->
+  <div class="container">
+    <!-- container -->
+    <ul class="breadcrumb">
+      <li title="home"><a href="index.html"><b>Home</b></a></li>
+      <li><b>Value Sets</b></li>
+    </ul>
+  </div>
+  <!-- /container -->
+</div>
+<!-- /segment-breadcrumb -->
+
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-breadcrumb -->
+
+ <div id="segment-content" class="segment">  <!-- segment-content -->
+ <div class="container">  <!-- container -->
+   <div class="row">
+     <div class="inner-wrapper">
+       <div class="col-12">
+       <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
+
+<!-- ============CONTENT CONTENT=============== -->
+
+<h2>Local value sets used in this Implementation Guide</h2>
+
+<table class="codes local">
+  <thead>
+    <tr>
+      <td>
+        <b>Name</b>
+      </td>
+      <td>
+        <b>Definition</b>
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+          <td><a href="ValueSet-del-AssessmentContextVS.html">AssessmentContextVS</a></td>
+          <td></td>
+        </tr>
+        
+  </tbody>
+</table>
+
+<h2>External value sets used in this Implementation Guide</h2>
+
+<table class="codes external">
+  <thead>
+    <tr>
+      <td>
+        <b>Name</b>
+      </td>
+      <td>
+        <b>Definition</b>
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td><a href="http://hl7.org/fhir/ValueSet/languages">CommonLanguages</a></td>
+        <td><p>This value set includes common codes from BCP-47 (http://tools.ietf.org/html/bcp47)</p>
+</td>
+      </tr>
+      <tr>
+        <td><a href="http://hl7.org/fhir/ValueSet/data-absent-reason">DataAbsentReason</a></td>
+        <td><p>Used to specify why the normally expected content of the data element is missing.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a href="http://hl7.org/fhir/ValueSet/document-classcodes">DocumentClassValueSet</a></td>
+        <td><p>This is the code specifying the high-level kind of document (e.g. Prescription, Discharge Summary, Report, etc.). Note: Class code for documents comes from LOINC, and is based upon one of the following:The type of service described by the document. It is described at a very high level in Section 7.3 of the LOINC Manual. The type study performed. It was determined by identifying modalities for study reports. The section of the chart where the document is placed. It was determined from the SETs created for Claims Attachment requests.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a href="http://hl7.org/fhir/ValueSet/doc-section-codes">DocumentSectionCodes</a></td>
+        <td><p>Document section codes (LOINC codes used in CCDA sections).</p>
+</td>
+      </tr>
+      <tr>
+        <td><a href="http://hl7.org/fhir/ValueSet/doc-typecodes">FHIRDocumentTypeCodes</a></td>
+        <td><p>FHIR Document Codes - all LOINC codes where scale type = ‘DOC’.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a href="http://hl7.org/fhir/ValueSet/jurisdiction">Jurisdiction ValueSet</a></td>
+        <td><p>This value set defines a base set of codes for country, country subdivision and region    for indicating where a resource is intended to be used.</p>
+
+<p>Note: The codes for countries and country subdivisions are taken from    <a href="https://www.iso.org/iso-3166-country-codes.html">ISO 3166</a>    while the codes for “supra-national” regions are from    <a href="http://unstats.un.org/unsd/methods/m49/m49.htm">UN Standard country or area codes for statistical use (M49)</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a href="http://hl7.org/fhir/ValueSet/observation-codes">LOINCCodes</a></td>
+        <td><p>This value set includes all LOINC codes</p>
+</td>
+      </tr>
+      <tr>
+        <td><a href="http://hl7.org/fhir/ValueSet/list-empty-reason">ListEmptyReasons</a></td>
+        <td><p>General reasons for a list to be empty. Reasons are either related to a summary list (i.e. problem or medication list) or to a workflow related list (i.e. consultation list).</p>
+</td>
+      </tr>
+      <tr>
+        <td><a href="http://hl7.org/fhir/ValueSet/list-order">ListOrderCodes</a></td>
+        <td><p>Base values for the order of the items in a list resource.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a href="http://hl7.org/fhir/ValueSet/observation-category">ObservationCategoryCodes</a></td>
+        <td><p>Observation Category codes.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a href="http://hl7.org/fhir/ValueSet/observation-interpretation">ObservationInterpretationCodes</a></td>
+        <td><p>A categorical assessment, providing a rough qualitative interpretation of the observation value,    such as “normal”/ “abnormal”,”low” / “high”, “better” / “worse”, “susceptible” / “resistant”, “expected”/ “not expected”.    The value set is intended to be for ANY use where coded representation of an interpretation is needed.</p>
+
+<p>Notes:</p>
+
+<p>This is being communicated in v2.x in OBX-8 (Observation Interpretation), in v3 in ObservationInterpretation (CWE) in R1 (Representative Realm) and in FHIR in    Observation.interpretation. Historically these values come from the laboratory domain, and these codes are extensively    used. The value set binding is extensible, so codes outside the value set that are needed for interpretation concepts    (i.e. particular meanings) that are not included in the value set can be used, and these new codes may also be added to    the value set and published in a future version.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a href="http://hl7.org/fhir/ValueSet/observation-methods">ObservationMethods</a></td>
+        <td><p>Observation Method codes from <a href="http://snomed.info/sct">SNOMED CT</a> where concept is-a 272394005 (Technique (qualifier value)) or is-a 129264002 (Action (qualifier value)) or is-a 386053000 (Evaluation procedure(procedure))</p>
+</td>
+      </tr>
+      <tr>
+        <td><a href="http://hl7.org/fhir/ValueSet/referencerange-appliesto">ObservationReferenceRangeAppliesToCodes</a></td>
+        <td><p>This value set defines a set of codes that can be used to indicate the particular target population the reference range applies to.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a href="http://hl7.org/fhir/ValueSet/referencerange-meaning">ObservationReferenceRangeMeaningCodes</a></td>
+        <td><p>This value set defines a set of codes that can be used to indicate the meaning/use of a reference range for a particular target population.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a href="http://hl7.org/fhir/ValueSet/questionnaire-answers">QuestionnaireAnswerCodes</a></td>
+        <td><p>Example list of codes for answers to questions. (Not complete or necessarily appropriate.)</p>
+</td>
+      </tr>
+      <tr>
+        <td><a href="http://hl7.org/fhir/ValueSet/questionnaire-questions">QuestionnaireQuestionCodes</a></td>
+        <td><p>Example list of codes for questions and groups of questions. (Not necessarily complete or appropriate.)</p>
+</td>
+      </tr>
+      <tr>
+        <td><a href="http://hl7.org/fhir/ValueSet/body-site">SNOMEDCTBodyStructures</a></td>
+        <td><p>This value set includes all codes from <a href="http://snomed.info/sct">SNOMED CT</a> where concept is-a 442083009 (Anatomical or acquired body site (body structure)).</p>
+</td>
+      </tr>
+      <tr>
+        <td><a href="http://hl7.org/fhir/ValueSet/composition-attestation-mode|4.0.0">http://hl7.org/fhir/ValueSet/composition-attestation-mode|4.0.0</a></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a href="http://hl7.org/fhir/ValueSet/composition-status|4.0.0">http://hl7.org/fhir/ValueSet/composition-status|4.0.0</a></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a href="http://hl7.org/fhir/ValueSet/document-relationship-type|4.0.0">http://hl7.org/fhir/ValueSet/document-relationship-type|4.0.0</a></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a href="http://hl7.org/fhir/ValueSet/item-type|4.0.0">http://hl7.org/fhir/ValueSet/item-type|4.0.0</a></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a href="http://hl7.org/fhir/ValueSet/list-mode|4.0.0">http://hl7.org/fhir/ValueSet/list-mode|4.0.0</a></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a href="http://hl7.org/fhir/ValueSet/observation-status|4.0.0">http://hl7.org/fhir/ValueSet/observation-status|4.0.0</a></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a href="http://hl7.org/fhir/ValueSet/publication-status|4.0.0">http://hl7.org/fhir/ValueSet/publication-status|4.0.0</a></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a href="http://hl7.org/fhir/ValueSet/questionnaire-answers-status|4.0.0">http://hl7.org/fhir/ValueSet/questionnaire-answers-status|4.0.0</a></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a href="http://hl7.org/fhir/ValueSet/questionnaire-enable-behavior|4.0.0">http://hl7.org/fhir/ValueSet/questionnaire-enable-behavior|4.0.0</a></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a href="http://hl7.org/fhir/ValueSet/questionnaire-enable-operator|4.0.0">http://hl7.org/fhir/ValueSet/questionnaire-enable-operator|4.0.0</a></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a href="http://hl7.org/fhir/ValueSet/resource-types|4.0.0">http://hl7.org/fhir/ValueSet/resource-types|4.0.0</a></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a href="http://terminology.hl7.org/ValueSet/v3-ActCode">http://terminology.hl7.org/ValueSet/v3-ActCode</a></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a href="http://terminology.hl7.org/ValueSet/v3-ConfidentialityClassification|4.0.0">http://terminology.hl7.org/ValueSet/v3-ConfidentialityClassification|4.0.0</a></td>
+        <td></td>
+      </tr>
+      
+  </tbody>
+</table>
+
+<!-- ==============END CONTENT END CONTENT=================== -->
+
+        </div>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /row -->
+  </div>  <!-- /container -->
+</div>  <!-- /segment-content -->
+
+        </div>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /row -->
+  </div>  <!-- /container -->
+</div>  <!-- /segment-content -->
+
+<div id="segment-footer" class="segment" igtool="footer">  <!-- segment-footer -->
+  <div class="container">  <!-- container -->
+   <div class="inner-wrapper">
+    <p>
+      
+      Package impact-fhir# based on <a style="color: #81BEF7" href="http://hl7.org/fhir/R4/">FHIR &copy; v4.0.0</a>.
+      Generated <span title="Wed, Jun 5, 2019 12:19-0400">2019-06-05</span>.
+    </p>
+   </div>  <!-- /inner-wrapper -->
+  </div>  <!-- /container -->
+</div>  <!-- /segment-footer -->
+
+<div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+  <div class="container">  <!-- container -->
+  </div>  <!-- /container -->
+</div>  <!-- /segment-post-footer -->
+
+<!-- JS and analytics only. -->
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="./assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+<script src="./dist/js/bootstrap.min.js"> </script>
+<script src="./assets/js/respond.min.js"> </script>
+
+<script src="./assets/js/fhir.js"> </script>
+
+<!-- Analytics Below
+================================================== -->
+
+</body>
+</html>
