@@ -1,51 +1,17 @@
-Grammar:       DataElement 5.0
-Namespace:	   del
-Description:   "Assessment represents a DEL assessment."
-Uses:          shr.core
+Grammar: DataElement 5.0
+Namespace: del
+Description: "StandardForm represents a DEL standard form."
+Uses: shr.core, shr.base
 
-EntryElement:  Assessment
-Description:   "A definition of an assessment."
-// 1..1   Name
-// 1..1    TimeStamp
-// 1..1    Status
-// 1..1    Answer
-// //0..1    ref(Quentionnaire)
+EntryElement: StandardForm
+Description: "A definition of an standard form."
+// 0..1 name
 
-//     Element:        TimeStamp
-//     Description:    "Date for the gathered answer set."
-//     Value:          dateTime
+EntryElement: Assessment
+Description: "A definition of an assessment (standard form response)."
 
-//     Element:        Status
-//     Description:    "Status of the assessment: draft, active, retired, unknown."
-//     Value:          code from http://hl7.org/fhir/ValueSet/questionnaire-answers-status
+EntryElement: StandardFormSection
+Description: "A defintiion of a standard form section."
 
-//     Element:        Answer
-//     Description:    "Standard question in a questionnaire."
-//     Value:          string
-
-/*
-EntryElement:   AssessmentDocument
-Description:    "A standard presentation for the assessment data."
-1..1    ResourceLocation
-1..1    DocumentId
-1..1    Version
-1..1    ClinicalContext
-
-    Element:        ResourceLocation
-    Description:    "Web location for document resource structure."
-    Value:          uri
-    // Should point to code assignment to document form resource
-
-    Element:        DocumentId
-    Description:    "Identifier for the questionnaire."
-    Value:          id
-    // Is there a registry for questionnaire formats?  Hosting structure sufficient?
-
-    Element:        Version
-    Description:    "Current version for the questionnaire."
-    Value:          string
-
-    Element:        ClinicalContext
-    Description:    "Operational concept underlying the questionnaire context."
-    Value:          CodeableConcept from AssessmentContextVS
-*/
+EntryElement: StandardFormQuestion
+Description: "A defintiion of a standard form question."

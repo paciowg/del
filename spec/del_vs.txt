@@ -1,7 +1,7 @@
-Grammar:    ValueSet 5.0
-Namespace:	del
+Grammar: ValueSet 5.0
+Namespace: del
 
-ValueSet: AssessmentContextVS // Major classes of operational assessment for context
+ValueSet: AssessmentContextVS
 #InitialAssessment  "Direct patient engagement"
 #PostCare           "Coming from care discharge"
 #Nursing            "Long-term nursing care"

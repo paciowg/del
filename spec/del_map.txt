@@ -1,35 +1,32 @@
-/*
-    Name: assessment == QuestionaireResponse
-    Algebra: assessment X message = Operad[PAC(CareService) \ Questionaire]
-        partOf(Procedure)
-        questionnaire(Questionnaire)
-            uri
-            id
-            version
-            context
-            type
+Grammar: Map 5.0
+Namespace: del
+Target: FHIR_R4
 
-        status
-        authored
-        item.<> == Questionnaire/question.<>
-*/
+// Hybrid approach...
+// A standard form maps to Questionnaire
+// A standard form question is a Questionnaire item and Composition
+// A standard form question is Questionnaire item and Observation
 
-Grammar:	Map 5.0
-Namespace:	del
-Target:     FHIR_R4
+StandardForm maps to Questionnaire:
+    constrain name to 1..1
+    constrain version to 1..1
+    constrain title to 1..1
+    constrain description to 1..1
+    constrain item to 1..*
+    constrain item.id to 1..1
+    constrain item.text to 1..1
 
-Assessment maps to Questionnaire:
-    // Name maps to name
-    // TimeStamp maps to authored
-    // Status maps to status
-    // Answer maps to item
-//    assessmentSchema maps to questionnaire
-//    assessmentOperand maps to partOf
+Assessment maps to QuestionnaireResponse:
+    constrain questionnaire to 1..1
+    constrain subject to 1..1
+    constrain item to 1..*
 
-/*
-AssessmentDocument maps to Questionnaire
-//    ResourceLocation maps to url
-//    DocumentId maps to identifier
-    DocumentVersion maps to version
-    //question maps to item
-*/
+StandardFormSection maps to Composition:
+    constrain section to 1..*
+
+StandardFormQuestion maps to Observation:
+    constrain identifier to 1..*
+    constrain note to 1..*
+
+    // TODO: constrain code
+    // TODO: constrain value[x]

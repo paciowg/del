@@ -1,1 +1,28 @@
 <p>This is the FHIR Implementation Guide for CMS Data Element Library</p>
+
+<p>We are attempting to take a hybrid approach. This means the following...</p>
+
+<p>
+    Each standard form will be represented by a Questionnaire resource.
+    The sections, subsections, and questions will be represented as items within the questionnaire.
+</p>
+
+<p>
+    Since it's not always easy or possible to find specific items within a questionnaire,
+    standard forms will have an additional representation as Composition and Observation resources.
+</p>
+
+<p>
+    Each standard form section will be represented by a Composition.
+    Each standard form question will be represented by an Observation resource.
+</p>
+
+<p>
+    Using this approach, each standard form should be able to be reconstituted using the Questionnaire resource.
+    You can query easily for individual questions by using the Observation resource.
+</p>
+
+<p>
+    <b>Note:</b> Right now the profiles are very generic. Eventually we hope to have a separate Questionnaire profile
+    for each standard form, and a separate Composition profile for each standard form section.
+</p>
