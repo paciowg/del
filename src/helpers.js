@@ -24,18 +24,4 @@ function logError(error) {
   }
 }
 
-function groupBy(data, field) {
-  const groups = {};
-
-  for (const item of data) {
-    const list = groups[item[field]];
-    if (list) {
-      list.push(item);
-    } else {
-      groups[item[field]] = [item];
-    }
-  }
-  return groups;
-}
-
-module.exports = { putResource, logError, groupBy };
+module.exports = { putResource, logError };
