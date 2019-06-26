@@ -1,3 +1,5 @@
+<h1>CMS Data Element Library - FHIR Implementation Guide</h1>
+
 <p>This is the FHIR Implementation Guide for CMS Data Element Library</p>
 
 <p>We are attempting to take a hybrid approach. This means the following...</p>
@@ -9,20 +11,105 @@
 
 <p>
     Since it's not always easy or possible to find specific items within a questionnaire,
-    standard forms will have an additional representation as Composition and Observation resources.
+    standard forms will have an additional representation as Library and Measure resources.
 </p>
 
 <p>
-    Each standard form section will be represented by a Composition.
-    Each standard form question will be represented by an Observation resource.
+    Each standard form will be represented by a Library.
+    Each standard form question will be represented by a Measure resource.
 </p>
 
 <p>
     Using this approach, each standard form should be able to be reconstituted using the Questionnaire resource.
-    You can query easily for individual questions by using the Observation resource.
+    You can query for individual questions by using the Measure resource.
 </p>
 
+<h2>Questionnaire Resource</h2>
+
 <p>
-    <b>Note:</b> Right now the profiles are very generic. Eventually we hope to have a separate Questionnaire profile
-    for each standard form, and a separate Composition profile for each standard form section.
+    Each record in asmt_vrsn will become one Questionnaire resource in FHIR.
+    The sections, subsections, and questions will be represented as items within the questionnaire.
 </p>
+
+<table class="table table-bordered">
+    <tr>
+        <th>FHIR Field</th>
+        <th>DEL Field(s)</th>
+        <th>Notes</th>
+    </tr>
+    <tr>
+        <td>Questionnaire.name</td>
+        <td>asmt.asmt_shrt_name<br>asmt.asmt_vrsn_id</td>
+        <td>Fields are joined using a dash (-). Example: LCDS-1.01.</td>
+    </tr>
+    <tr>
+        <td>Questionnaire.status</td>
+        <td>asmt_vrsn.asmt_stus_id</td>
+        <td>1 = active, 4 = retired, all others = draft</td>
+    </tr>
+    <tr>
+        <td>Questionnaire.date</td>
+        <td>asmt.creat_ts</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Questionnaire.name</td>
+        <td>asmt.asmt_shrt_name</td>
+        <td>All characters except letters and numbers are removed.</td>
+    </tr>
+    <tr>
+        <td>Questionnaire.version</td>
+        <td>asmt.asmt_vrsn_id</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Questionnaire.publisher</td>
+        <td>org.org_name</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Questionnaire.title</td>
+        <td>asmt.asmt_name</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Questionnaire.description</td>
+        <td>asmt.asmt_desc</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Questionnaire.approvalDate</td>
+        <td>asmt_vrsn.pblctn_dt</td>
+        <td>Only populated if field value is not null.</td>
+    </tr>
+    <tr>
+        <td>Questionnaire.effectivePeriod.start</td>
+        <td>asmt_vrsn.efctv_strt_dt</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Questionnaire.effectivePeriod.end</td>
+        <td>asmt_vrsn.efctv_end_dt</td>
+        <td>Only populated if field value is not null.</td>
+    </tr>
+</table>
+
+<h2>Library Resource</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>FHIR Field</th>
+        <th>DEL Field(s)</th>
+        <th>Notes</th>
+    </tr>
+</table>
+
+<h2>Measure Resource</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>FHIR Field</th>
+        <th>DEL Field(s)</th>
+        <th>Notes</th>
+    </tr>
+</table>

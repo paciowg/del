@@ -21,7 +21,7 @@
   fhir:CodeSystem.name [ fhir:value "AssessmentContextCS"];
   fhir:CodeSystem.title [ fhir:value "AssessmentContextCS"];
   fhir:CodeSystem.status [ fhir:value "draft"];
-  fhir:CodeSystem.date [ fhir:value "2019-06-05"^^xsd:date];
+  fhir:CodeSystem.date [ fhir:value "2019-06-26"^^xsd:date];
   fhir:CodeSystem.publisher [ fhir:value "The MITRE Corporation"];
   fhir:CodeSystem.contact [
      fhir:index 0;
