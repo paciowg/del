@@ -1,8 +1,10 @@
 const program = require('commander');
 const { Client } = require('pg');
 
-const { logError } = require('./helpers');
-const { run: assessmentMigrator } = require('./migrators/assessment');
+const { logError, putResource } = require('./helpers');
+const { run: questionnaireMigrator } = require('./migrators/questionnaire');
+const { run: measureMigrator } = require('./migrators/measure');
+const { run: libraryMigrator } = require('./migrators/library');
 
 const DEFAULT_URL = 'http://localhost:8080/r4';
 const DATABASE = {
@@ -35,7 +37,22 @@ async function main(url) {
   await client.connect();
 
   try {
-    await assessmentMigrator(url, client);
+    const questionnaires = await questionnaireMigrator(client);
+    for (const resource of questionnaires) {
+      await putResource(url, resource);
+    }
+
+    // const libraries = await libraryMigrator(client);
+    // for (const resource of libraries) {
+    //   await putResource(url, resource);
+    // }
+
+    // const measures = await measureMigrator(client);
+    // let idx = 1;
+    // for (const resource of measures) {
+    //   await putResource(url, resource);
+    // }
+
   } catch (error) {
     logError(error);
   }
