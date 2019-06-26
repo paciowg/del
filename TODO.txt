@@ -1,0 +1,7 @@
+Make sure library is working properly with all fields.
+Make sure measure migrator is working properly with all fields.
+Add mapping from measure back to libraries.
+Add response options to measures.
+Document field mapping in IG.
+If response type is ICD, put the actual ICD code in responseCoding.
+Check response type dates for YYYYMM and YYYYMMDD.
