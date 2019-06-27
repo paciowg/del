@@ -15,16 +15,17 @@ StandardForm maps to Questionnaire:
     constrain item to 1..*
     constrain item.id to 1..1
     constrain item.text to 1..1
+    constrain derivedFrom to 0..0
 
 Assessment maps to QuestionnaireResponse:
     constrain questionnaire to 1..1
     constrain subject to 1..1
     constrain item to 1..*
 
-StandardFormSection maps to Composition:
+StandardFormDefinition maps to Library:
     constrain section to 1..*
 
-StandardFormQuestion maps to Observation:
+StandardFormQuestion maps to Measure:
     constrain identifier to 1..*
     constrain note to 1..*
 
