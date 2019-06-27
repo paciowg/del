@@ -16,6 +16,15 @@
   fhir:ImplementationGuide.name [ fhir:value "IMPACT_Data_Element_Implementation_Guide"];
   fhir:ImplementationGuide.title [ fhir:value "IMPACT Data Element Implementation Guide"];
   fhir:ImplementationGuide.status [ fhir:value "draft"];
+  fhir:ImplementationGuide.publisher [ fhir:value "The MITRE Corporation"];
+  fhir:ImplementationGuide.contact [
+     fhir:index 0;
+     fhir:ContactDetail.telecom [
+       fhir:index 0;
+       fhir:ContactPoint.system [ fhir:value "url" ];
+       fhir:ContactPoint.value [ fhir:value "http://mitre.org" ]
+     ]
+  ];
   fhir:ImplementationGuide.packageId [ fhir:value "impact-fhir"];
   fhir:ImplementationGuide.license [ fhir:value "CC0-1.0"];
   fhir:ImplementationGuide.fhirVersion [

@@ -9,6 +9,17 @@
   "name": "IMPACT_Data_Element_Implementation_Guide",
   "title": "IMPACT Data Element Implementation Guide",
   "status": "draft",
+  "publisher": "The MITRE Corporation",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://mitre.org"
+        }
+      ]
+    }
+  ],
   "packageId": "impact-fhir",
   "license": "CC0-1.0",
   "fhirVersion": [

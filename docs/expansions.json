@@ -1,8 +1,8 @@
 {
   "resourceType" : "Bundle",
-  "id" : "7e759cae-1369-47ec-927c-3d056e446543",
+  "id" : "cdb93b5a-9590-4a35-8509-4aa01d79420e",
   "meta" : {
-    "lastUpdated" : "2019-06-26T14:20:30.766-04:00"
+    "lastUpdated" : "2019-06-27T12:08:43.910-04:00"
   },
   "type" : "collection",
   "entry" : [{
@@ -22,7 +22,7 @@
       "name" : "AssessmentContextVS",
       "title" : "AssessmentContextVS",
       "status" : "draft",
-      "date" : "2019-06-26T00:00:00-04:00",
+      "date" : "2019-06-27T00:00:00-04:00",
       "publisher" : "The MITRE Corporation",
       "contact" : [{
         "telecom" : [{
@@ -31,8 +31,8 @@
         }]
       }],
       "expansion" : {
-        "identifier" : "urn:uuid:aec64104-fb69-4c20-93a4-d855f835eeae",
-        "timestamp" : "2019-06-26T14:20:36-04:00",
+        "identifier" : "urn:uuid:9fb02891-90b3-47cd-a3ec-d1c771495a56",
+        "timestamp" : "2019-06-27T12:08:51-04:00",
         "total" : 5,
         "parameter" : [{
           "name" : "excludeNested",

@@ -1,16 +1,16 @@
 ﻿IMPACT_Data_Element_Implementation_Guide : Validation Results
 =========================================
 
-err = 20, warn = 8, info = 0
-Generated Wed Jun 26 14:20:41 EDT 2019. FHIR version 4.0.0 for impact-fhir# (canonical = https://impact-fhir.mitre.org/r4)
+err = 12, warn = 8, info = 0
+Generated Thu Jun 27 12:08:56 EDT 2019. FHIR version 4.0.0 for impact-fhir# (canonical = https://impact-fhir.mitre.org/r4)
 
  Build Errors : 0 / 1
  /Users/tshaffer/Developer/del/out/fhir/guide/resources/codesystem-del-AssessmentContextCS : 0 / 0
  /Users/tshaffer/Developer/del/out/fhir/guide/resources/ig : 0 / 0
- /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-Assessment : 2 / 1
- /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-StandardForm : 3 / 1
- /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-StandardFormQuestion : 2 / 1
- /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-StandardFormSection : 3 / 1
+ /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-Assessment : 1 / 1
+ /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-StandardForm : 2 / 1
+ /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-StandardFormQuestion : 1 / 1
+ /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-StandardFormSection : 2 / 1
  /Users/tshaffer/Developer/del/out/fhir/guide/resources/valueset-del-AssessmentContextVS : 0 / 0
 </table>
 == n/a ==
@@ -19,20 +19,16 @@ WARNING: ImplementationGuide.id: The Implementation Guide Resource id should be 
 == /Users/tshaffer/Developer/del/out/fhir/guide/resources/ig.xml ==
 == /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-Assessment.json ==
 ERROR: StructureDefinition/del-Assessment: StructureDefinition.mapping[1].uri: URL value 'http://hl7.org/fhir/workflow' does not resolve
-ERROR: StructureDefinition/del-Assessment: StructureDefinition.mapping[3].uri: URL value 'http://hl7.org/fhir/fivews' does not resolve
 WARNING: https://impact-fhir.mitre.org/r4/StructureDefinition/del-Assessment: Profiles SHOULD state their own version
 == /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-StandardForm.json ==
 ERROR: StructureDefinition/del-StandardForm: StructureDefinition.mapping[1].uri: URL value 'http://hl7.org/fhir/workflow' does not resolve
-ERROR: StructureDefinition/del-StandardForm: StructureDefinition.mapping[3].uri: URL value 'http://hl7.org/fhir/fivews' does not resolve
 ERROR: StructureDefinition/del-StandardForm: StructureDefinition.mapping[4].uri: URL value 'http://hl7.org/fhir/object-implementation' does not resolve
 WARNING: https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardForm: Profiles SHOULD state their own version
 == /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-StandardFormQuestion.json ==
 ERROR: StructureDefinition/del-StandardFormQuestion: StructureDefinition.mapping[1].uri: URL value 'http://hl7.org/fhir/workflow' does not resolve
-ERROR: StructureDefinition/del-StandardFormQuestion: StructureDefinition.mapping[5].uri: URL value 'http://hl7.org/fhir/fivews' does not resolve
 WARNING: https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardFormQuestion: Profiles SHOULD state their own version
 == /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-StandardFormSection.json ==
 ERROR: StructureDefinition/del-StandardFormSection: StructureDefinition.mapping[1].uri: URL value 'http://hl7.org/fhir/workflow' does not resolve
 ERROR: StructureDefinition/del-StandardFormSection: StructureDefinition.mapping[4].uri: URL value 'http://hl7.org/fhir/documentreference' does not resolve
-ERROR: StructureDefinition/del-StandardFormSection: StructureDefinition.mapping[5].uri: URL value 'http://hl7.org/fhir/fivews' does not resolve
 WARNING: https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardFormSection: Profiles SHOULD state their own version
 == /Users/tshaffer/Developer/del/out/fhir/guide/resources/valueset-del-AssessmentContextVS.json ==

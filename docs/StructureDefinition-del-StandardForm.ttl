@@ -21,7 +21,7 @@
   fhir:StructureDefinition.name [ fhir:value "StandardForm"];
   fhir:StructureDefinition.title [ fhir:value "del-StandardForm"];
   fhir:StructureDefinition.status [ fhir:value "draft"];
-  fhir:StructureDefinition.date [ fhir:value "2019-06-26"^^xsd:date];
+  fhir:StructureDefinition.date [ fhir:value "2019-06-27"^^xsd:date];
   fhir:StructureDefinition.publisher [ fhir:value "The MITRE Corporation"];
   fhir:StructureDefinition.contact [
      fhir:index 0;
