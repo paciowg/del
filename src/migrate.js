@@ -37,9 +37,10 @@ async function main(url) {
   await client.connect();
 
   try {
-    const questionnaires = await questionnaireMigrator(client);
+    const questionnaires = await questionnaireMigrator(url, client);
     for (const resource of questionnaires) {
-      await putResource(url, resource);
+      // await putResource(url, resource);
+      console.log(resource.url);
     }
 
     // const libraries = await libraryMigrator(client);

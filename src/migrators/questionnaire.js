@@ -4,13 +4,13 @@ const groupBy = require('lodash.groupby');
 const { QUESTIONNAIRES_SQL, QUESTIONS_SQL } = require('../sql');
 const { getResponseMap } = require('../helpers');
 
-function buildQuestionnaire({
+function buildQuestionnaire(baseUrl, {
   asmtid, version, status, date, name, description, title, publisher, startdate, enddate, approvaldate
 }) {
   const resource = {
     resourceType: 'Questionnaire',
     id: asmtid,
-    url: `http://cms.gov/impact/Questionnaire/${asmtid}`,
+    url: `${baseUrl}/Questionnaire/${asmtid}`,
     // meta: {
     //   profile: ''
     // },
@@ -58,6 +58,16 @@ function buildQuestion({ datatype, label, sectionid, text, typename, maxlength }
 
     // Filter by only responses that are not blank.
     item.answerOption = responses.filter(resp => resp.responsecode).map(resp => {
+
+      if (resp.responsetext == 'Maximum value') {
+        maxvalue = resp.responsecode;
+      }
+      if (resp.responsetext == 'Minimum value') {
+        minvalue = resp.responsecode;
+      }
+
+
+
       return {
         valueCoding: {
           code: resp.responsecode,
@@ -142,9 +152,10 @@ function applyQuestions(resource, questions, responses) {
 /**
  * Build all questionnaires and return then as a list of objects.
  *
+ * @param {string} url
  * @param {import('pg').Client} client
  */
-async function run(client) {
+async function run(url, client) {
   const questionnaireResults = await client.query(QUESTIONNAIRES_SQL);
 
   // Get all questions and group them by questionnaire.
@@ -157,7 +168,7 @@ async function run(client) {
   const output = [];
 
   for (const row of questionnaireResults.rows) {
-    const questionnaire = buildQuestionnaire(row);
+    const questionnaire = buildQuestionnaire(url, row);
 
     applyQuestions(questionnaire, groupedQuestions[questionnaire.id], responseMap[questionnaire.id]);
 
