@@ -9,7 +9,7 @@
         "primarySelectionStrategy": {
             "strategy": "namespace",
             "primary": [
-                "impact.settings"
+                "del"
             ]
         },
         "includeModelDoc": false,

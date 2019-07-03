@@ -10,8 +10,8 @@ Description: "A definition of an standard form."
 EntryElement: Assessment
 Description: "A definition of an assessment (standard form response)."
 
-EntryElement: StandardFormSection
-Description: "A defintiion of a standard form section."
+EntryElement: StandardFormLibrary
+Description: "A definition of a standard form section."
 
 EntryElement: StandardFormQuestion
-Description: "A defintiion of a standard form question."
+Description: "A definition of a standard form question."
