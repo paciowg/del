@@ -3,5 +3,74 @@ Make sure measure migrator is working properly with all fields.
 Add mapping from measure back to libraries.
 Add response options to measures.
 Document field mapping in IG.
-If response type is ICD, put the actual ICD code in responseCoding.
-Check response type dates for YYYYMM and YYYYMMDD.
+
+
+
+Exclude answerOption with code of "Text" or "ICD".
+Change type to "open-choice" if at least one answerOption.
+
+
+
+
+Leave these alone (for now) and change question type to open-choice.
+Client must figure out minimum and maximum value by presence of these options.
+{
+    "valueCoding": {
+    "code": "00",
+    "display": "Minimum value"
+    }
+},
+{
+    "valueCoding": {
+    "code": "99",
+    "display": "Maximum value"
+    }
+}
+
+
+
+For things like {patient/resident}, how do we determine which one to display?
+Also things like {admission} which in OASIS would be SOC/ROC
+
+
+Record most recent height measure since SOC/ROC
+
+
+Can we validate ICD codes? Check if this works:
+"answerValueSet": {
+    "reference": "http://hl7.org/fhir/ValueSet/icd-10"
+},
+
+
+
+Date fields become open-choice.
+Client must determine if it's a date field by presence of MMDDYYYY choice.
+  {
+              "linkId": "Section-15/O0250B",
+              "prefix": "O0250B",
+              "text": "Date influenza vaccine received",
+              "type": "date",
+              "repeats": false,
+              "readOnly": false,
+              "answerOption": [
+                {
+                  "valueCoding": {
+                    "code": "-",
+                    "display": "Not assessed/no information"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "code": "^",
+                    "display": "Blank (skip pattern)"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "code": "MMDDYYYY",
+                    "display": "Date influenza vaccine received"
+                  }
+                }
+              ],
+              "maxLength": 8
+            },
