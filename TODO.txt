@@ -74,3 +74,31 @@ Client must determine if it's a date field by presence of MMDDYYYY choice.
               ],
               "maxLength": 8
             },
+
+
+
+if question type is "text" then display a text input (with maxLength)
+
+if question type is "integer" then display a number input (with maxLength)
+
+if question type is "choice" then display a dropdown and restrict options to those in answerOption
+
+if question type is "open-choice" then display a dropdown and allow free-text values (with maxLength)
+
+special cases for "open-choice". in all these cases, remove the mentioned answerOption from the
+list of available choices
+
+    if there is an answerOption with code of "YYYY" then
+    this is a date field and should allow picking a year
+
+    if there is an answerOption with code of "MMYYYY" then
+    this is a date field and should allow picking a month and year
+
+    if there is an answerOption with code of "DDMMYYYY" then
+    this is a date field and should allow picking a day, month, and year
+
+    if there is an answerOption with display of "Maximum value" then
+    this is an integer field and the code is the maximum value
+
+    if there is an answerOption with display of "Minumum value" then
+    this is an integer field and the code is the minumum value
