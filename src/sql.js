@@ -18,6 +18,15 @@ async function getAllQuestionnaires(client) {
 }
 
 /**
+ * Get a flat list of all questionnaire versions (for libraries).
+ *
+ * @param {import('pg').Client} client
+ */
+async function getAllLibraries(client) {
+  return client.query(QUESTIONNAIRES_SQL);
+}
+
+/**
  * The query result is a flat list with at least these columns:
  *   asmtid, sectionid, questionid, ...
  *
@@ -101,6 +110,7 @@ module.exports = {
   getAllQuestionnaires,
   getQuestionnaireQuestions,
   getQuestionnaireResponses,
+  getAllLibraries,
 };
 
 // QUESTIONNAIRES_SQL: readFileSync(resolve('./src/sql/questionnaires.sql'), 'utf8'),

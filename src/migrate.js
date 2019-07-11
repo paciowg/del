@@ -52,10 +52,11 @@ async function main(url) {
       // await putResource(url, resource);
     }
 
-    // const libraries = await libraryMigrator(client);
-    // for (const resource of libraries) {
-    //   await putResource(url, resource);
-    // }
+    const libraries = await libraryMigrator(url, client);
+    for (const resource of libraries) {
+      writeFileSync(`out/json/libraries/${resource.id}.json`, JSON.stringify(resource, null, 2));
+      // await putResource(url, resource);
+    }
 
     // const measures = await measureMigrator(client);
     // let idx = 1;
