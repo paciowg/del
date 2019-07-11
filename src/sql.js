@@ -1,7 +1,6 @@
 const { readFileSync } = require('fs');
 const { resolve } = require('path');
-
-let QUESTIONNAIRE_RESPONSE_MAP = null;
+const groupBy = require('json-groupby');
 
 const QUESTIONNAIRES_SQL = readFileSync(resolve('./src/sql/questionnaires.sql'), 'utf8');
 const QUESTIONS_SQL = readFileSync(resolve('./src/sql/questions.sql'), 'utf8');
@@ -14,7 +13,18 @@ const RESPONSES_SQL = readFileSync(resolve('./src/sql/responses.sql'), 'utf8');
  * @param {import('pg').Client} client
  */
 async function getAllQuestionnaires(client) {
-  return client.query(QUESTIONNAIRES_SQL);
+  const result = await client.query(QUESTIONNAIRES_SQL);
+  return result.rows;
+}
+
+/**
+ * Get a flat list of all questionnaire versions.
+ *
+ * @param {import('pg').Client} client
+ */
+async function getAllMeasures(client) {
+  const result = await client.query(MEASURES_SQL);
+  return result.rows;
 }
 
 /**
@@ -23,101 +33,44 @@ async function getAllQuestionnaires(client) {
  * @param {import('pg').Client} client
  */
 async function getAllLibraries(client) {
-  return client.query(QUESTIONNAIRES_SQL);
+  const result = await client.query(QUESTIONNAIRES_SQL);
+  return result.rows;
 }
 
 /**
  * The query result is a flat list with at least these columns:
  *   asmtid, sectionid, questionid, ...
  *
- * Convert it to a mapping that looks like this:
- * {
- *   asmtid: [{...row}, {...row}]
- * }
- *
+ * Group by the given attributes like this: getGroupedQuestions(client, ['asmtid'])
  * That way you can look it up like this: mapping[asmtid]
  *
  * @param {import('pg').Client} client
+ * @param {Array<string>} properties
  */
-async function getQuestionnaireQuestions(client) {
+async function getGroupedQuestions(client, properties) {
   const result = await client.query(QUESTIONS_SQL);
-
-  const map = {};
-  for (const row of result.rows) {
-    if (!map[row.asmtid]) {
-      map[row.asmtid] = [];
-    }
-    map[row.asmtid].push(row);
-  }
-  return map;
+  return groupBy(result.rows, properties);
 }
 
 /**
- * The query result is a flat list with these columns:
+ * The query result is a flat list with at least these columns:
  *   asmtid, questionid, responseid, responsecode, responsetext
  *
- * Convert it to a nested mapping that looks like this:
- * {
- *   asmtid: {
- *     questionid: [
- *       { responseid, responsecode, responsetext },
- *       { responseid, responsecode, responsetext },
- *     ],
- *     ...
- *   },
- *   ...
- * }
- *
+ * Group by the given attributes like this: getGroupedQuestions(client, ['asmtid', 'questionid'])
  * That way you can look it up like this: mapping[asmtid][questionid]
  *
- * Cache the results cause this could be slow-ish.
- *
  * @param {import('pg').Client} client
+ * @param {Array<string>} properties
  */
-async function getQuestionnaireResponses(client) {
-  if (QUESTIONNAIRE_RESPONSE_MAP) {
-    return QUESTIONNAIRE_RESPONSE_MAP;
-  }
-
-  QUESTIONNAIRE_RESPONSE_MAP = {};
-
+async function getGroupedResponses(client, properties) {
   const result = await client.query(RESPONSES_SQL);
-
-  for (const row of result.rows) {
-    // Add the assessment to the map if it's not there already.
-    if (!QUESTIONNAIRE_RESPONSE_MAP[row.asmtid]) {
-      QUESTIONNAIRE_RESPONSE_MAP[row.asmtid] = {};
-    }
-
-    // Add the question list to the assessment if it's not there already.
-    if (!QUESTIONNAIRE_RESPONSE_MAP[row.asmtid][row.questionid]) {
-      QUESTIONNAIRE_RESPONSE_MAP[row.asmtid][row.questionid] = [];
-    }
-
-    // Add the response to the proper assessment and question.
-    QUESTIONNAIRE_RESPONSE_MAP[row.asmtid][row.questionid].push({
-      responseid: row.responseid,
-      responsecode: row.responsecode,
-      responsetext: row.responsetext,
-    });
-  }
-
-  return QUESTIONNAIRE_RESPONSE_MAP;
+  return groupBy(result.rows, properties);
 }
-
 
 module.exports = {
   getAllQuestionnaires,
-  getQuestionnaireQuestions,
-  getQuestionnaireResponses,
+  getGroupedQuestions,
+  getGroupedResponses,
   getAllLibraries,
+  getAllMeasures,
 };
-
-// QUESTIONNAIRES_SQL: readFileSync(resolve('./src/sql/questionnaires.sql'), 'utf8'),
-// QUESTIONS_SQL: readFileSync(resolve('./src/sql/questions.sql'), 'utf8'),
-// MEASURES_SQL: readFileSync(resolve('./src/sql/measures.sql'), 'utf8'),
-// RESPONSES_SQL: readFileSync(resolve('./src/sql/responses.sql'), 'utf8'),
-
-// // This is intentionally the same as questionnaires for now.
-// LIBRARIES_SQL: readFileSync(resolve('./src/sql/questionnaires.sql'), 'utf8'),
-// };

@@ -1,5 +1,5 @@
 
-const { getAllQuestionnaires, getQuestionnaireQuestions, getQuestionnaireResponses } = require('../sql');
+const { getAllQuestionnaires, getGroupedQuestions, getGroupedResponses } = require('../sql');
 
 function buildQuestionnaire(baseUrl, {
   asmtid, version, status, date, name, description, title, publisher, startdate, enddate, approvaldate
@@ -170,12 +170,12 @@ function applyQuestions(resource, questions, responses) {
  */
 async function run(url, client) {
   const questionnaireResults = await getAllQuestionnaires(client);
-  const groupedQuestions = await getQuestionnaireQuestions(client);
-  const responseMap = await getQuestionnaireResponses(client);
+  const groupedQuestions = await getGroupedQuestions(client, ['asmtid']);
+  const responseMap = await getGroupedResponses(client, ['asmtid', 'questionid']);
 
   const output = [];
 
-  for (const row of questionnaireResults.rows) {
+  for (const row of questionnaireResults) {
     const questionnaire = buildQuestionnaire(url, row);
 
     applyQuestions(questionnaire, groupedQuestions[questionnaire.id], responseMap[questionnaire.id]);

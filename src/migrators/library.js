@@ -48,7 +48,7 @@ async function run(url, client) {
 
   const output = [];
 
-  for (const row of libraryResults.rows) {
+  for (const row of libraryResults) {
     const library = buildLibrary(url, row);
 
     output.push(library);

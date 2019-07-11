@@ -58,11 +58,11 @@ async function main(url) {
       // await putResource(url, resource);
     }
 
-    // const measures = await measureMigrator(client);
-    // let idx = 1;
-    // for (const resource of measures) {
-    //   await putResource(url, resource);
-    // }
+    const measures = await measureMigrator(url, client);
+    for (const resource of measures) {
+      writeFileSync(`out/json/measures/${resource.id}.json`, JSON.stringify(resource, null, 2));
+      // await putResource(url, resource);
+    }
 
   } catch (error) {
     logError(error);
