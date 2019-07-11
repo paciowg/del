@@ -46,10 +46,11 @@ async function getAllLibraries(client) {
  *
  * @param {import('pg').Client} client
  * @param {Array<string>} properties
+ * @param {Array<string>} attrs
  */
-async function getGroupedQuestions(client, properties) {
+async function getGroupedQuestions(client, properties, attrs = null) {
   const result = await client.query(QUESTIONS_SQL);
-  return groupBy(result.rows, properties);
+  return groupBy(result.rows, properties, attrs);
 }
 
 /**

@@ -1,18 +1,21 @@
-const { writeFileSync } = require('fs');
-// const groupBy = require('lodash.groupby');
+const { getAllMeasures, getGroupedQuestions } = require('../sql');
 
-const { getAllMeasures } = require('../sql');
-
-function buildMeasure(baseUrl, { questionid, label, name, text, }) {
+function buildMeasure(baseUrl, { questionid, label, name, text, }, questionnaireMap) {
   name = name.trim();
   label = label.trim();
   text = text.trim();
 
-  // TODO: put choices in here as well
+  // TODO: put choices in here as well?
   const description = `## ${label}\n\n${text}`;
 
-  // TODO: Link back to all questionnaires where this question is used!
-  const library = [];
+  // Link back to all questionnaires where this question is used!
+  let library = [];
+  const questionnaires = questionnaireMap[questionid];
+  if (questionnaires) {
+    library = questionnaires.asmtid.map(asmt => `Library/Questionnaire-${asmt}`);
+  }
+
+  // TODO: Figure out where to store responses and put them there!
 
   const resource = {
     resourceType: 'Measure',
@@ -26,6 +29,7 @@ function buildMeasure(baseUrl, { questionid, label, name, text, }) {
     title: name,
     status: 'active',
     description: description,
+    library,
   };
 
   return resource;
@@ -40,10 +44,12 @@ function buildMeasure(baseUrl, { questionid, label, name, text, }) {
 async function run(url, client) {
   const measureResults = await getAllMeasures(client);
 
+  const questionnaireMap = await getGroupedQuestions(client, ['questionid'], ['asmtid']);
+
   const output = [];
 
   for (const row of measureResults) {
-    const measure = buildMeasure(url, row);
+    const measure = buildMeasure(url, row, questionnaireMap);
     output.push(measure);
   }
 
