@@ -14,8 +14,6 @@
     "build-docs": "yarn shr-cli && yarn ig-gen && cp -Rv out/fhir/guide/output/* docs/"
   },
   "dependencies": {
-    "lodash.groupby": "4.6.0",
-    "lodash.orderby": "4.6.0",
     "pg": "7.10.0",
     "request": "2.88.0",
     "request-promise-native": "1.0.7",

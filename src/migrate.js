@@ -49,7 +49,7 @@ async function main(url) {
     const questionnaires = await questionnaireMigrator(url, client);
     for (const resource of questionnaires) {
       writeFileSync(`out/json/questionnaires/${resource.id}.json`, JSON.stringify(resource, null, 2));
-      await putResource(url, resource);
+      // await putResource(url, resource);
     }
 
     // const libraries = await libraryMigrator(client);

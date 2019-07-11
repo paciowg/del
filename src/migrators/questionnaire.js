@@ -1,7 +1,5 @@
-const groupBy = require('lodash.groupby');
 
-const { QUESTIONNAIRES_SQL, QUESTIONS_SQL } = require('../sql');
-const { getResponseMap } = require('../helpers');
+const { getAllQuestionnaires, getQuestionnaireQuestions, getQuestionnaireResponses } = require('../sql');
 
 function buildQuestionnaire(baseUrl, {
   asmtid, version, status, date, name, description, title, publisher, startdate, enddate, approvaldate
@@ -154,7 +152,6 @@ function applyQuestions(resource, questions, responses) {
 
     // Then add this question to parent.
     const newQuestion = buildQuestion(question, responses[question.questionid]);
-    // TODO: Build answerSet if needed.
     parent.item.push(newQuestion);
   }
 
@@ -172,14 +169,9 @@ function applyQuestions(resource, questions, responses) {
  * @param {import('pg').Client} client
  */
 async function run(url, client) {
-  const questionnaireResults = await client.query(QUESTIONNAIRES_SQL);
-
-  // Get all questions and group them by questionnaire.
-  const questionResults = await client.query(QUESTIONS_SQL);
-  const groupedQuestions = groupBy(questionResults.rows, 'asmtid');
-
-  // Get the response mapping for all questions.
-  const responseMap = await getResponseMap(client);
+  const questionnaireResults = await getAllQuestionnaires(client);
+  const groupedQuestions = await getQuestionnaireQuestions(client);
+  const responseMap = await getQuestionnaireResponses(client);
 
   const output = [];
 
@@ -189,7 +181,6 @@ async function run(url, client) {
     applyQuestions(questionnaire, groupedQuestions[questionnaire.id], responseMap[questionnaire.id]);
 
     output.push(questionnaire);
-
   }
 
   return output;
