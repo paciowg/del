@@ -24,7 +24,9 @@ inner join del_data.data_ele_qstn on data_ele_qstn.data_ele_qstn_id = asmt_qstn.
 inner join del_data.asmt_sect_rfrnc on asmt_sect_rfrnc.asmt_sect_id = asmt_qstn.asmt_sect_id
 inner join del_data.org on asmt.ownr_org_id = org.org_id
 left join del_data.data_ele_rspns on data_ele_rspns.data_ele_rspns_id = data_ele_qstn.data_ele_qstn_id
-where data_ele_qstn.qstn_stus_id = 1 -- only active questions
+where
+  -- only active questions
+  data_ele_qstn.qstn_stus_id = 1
 order by
   asmt.asmt_shrt_name,
   asmt_vrsn.asmt_vrsn_id,

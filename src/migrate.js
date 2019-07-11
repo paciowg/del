@@ -1,3 +1,5 @@
+const { mkdirSync, existsSync, writeFileSync } = require('fs');
+
 const program = require('commander');
 const { Client } = require('pg');
 
@@ -36,11 +38,18 @@ async function main(url) {
   const client = new Client(DATABASE);
   await client.connect();
 
+  // Make all the output directories.
+  for (const dir of ['questionnaires', 'libraries', 'measures']) {
+    if (!existsSync(`out/json/${dir}`)) {
+      mkdirSync(`out/json/${dir}`, { recursive: true });
+    }
+  }
+
   try {
     const questionnaires = await questionnaireMigrator(url, client);
     for (const resource of questionnaires) {
-      // await putResource(url, resource);
-      console.log(resource.url);
+      writeFileSync(`out/json/questionnaires/${resource.id}.json`, JSON.stringify(resource, null, 2));
+      await putResource(url, resource);
     }
 
     // const libraries = await libraryMigrator(client);
@@ -57,8 +66,6 @@ async function main(url) {
   } catch (error) {
     logError(error);
   }
-
-  // console.log(res.rows[0]);
 
   await client.end();
 }

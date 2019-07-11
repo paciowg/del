@@ -60,20 +60,19 @@ async function getResponseMap(client) {
 
   const result = await client.query(RESPONSES_SQL);
 
-  let asmtobj;
-  let questionlist;
   for (const row of result.rows) {
+    // Add the assessment to the map if it's not there already.
     if (!RESPONSE_MAP[row.asmtid]) {
       RESPONSE_MAP[row.asmtid] = {};
-      asmtobj = RESPONSE_MAP[row.asmtid];
     }
 
-    if (!asmtobj[row.questionid]) {
-      asmtobj[row.questionid] = [];
-      questionlist = asmtobj[row.questionid];
+    // Add the question list to the assessment if it's not there already.
+    if (!RESPONSE_MAP[row.asmtid][row.questionid]) {
+      RESPONSE_MAP[row.asmtid][row.questionid] = [];
     }
 
-    questionlist.push({
+    // Add the response to the proper assessment and question.
+    RESPONSE_MAP[row.asmtid][row.questionid].push({
       responseid: row.responseid,
       responsecode: row.responsecode,
       responsetext: row.responsetext,

@@ -17,7 +17,9 @@ inner join del_data.asmt_rspns_val on
   asmt_rspns_val.asmt_vrsn_id = asmt_vrsn.asmt_vrsn_id and
   asmt_rspns_val.asmt_id = asmt_vrsn.asmt_id
 inner join del_data.data_ele_rspns_val on data_ele_rspns_val.data_ele_rspns_val_id = asmt_rspns_val.data_ele_rspns_val_id
-where data_ele_qstn.qstn_stus_id = 1 -- only active questions
+where
+  -- only active questions
+  data_ele_qstn.qstn_stus_id = 1
 order by
   asmt.asmt_shrt_name,
   asmt_vrsn.asmt_vrsn_id,

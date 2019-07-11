@@ -1,4 +1,3 @@
-const { writeFileSync } = require('fs');
 const groupBy = require('lodash.groupby');
 
 const { QUESTIONNAIRES_SQL, QUESTIONS_SQL } = require('../sql');
@@ -43,7 +42,7 @@ function buildQuestion({ datatype, label, sectionid, text, typename, maxlength }
   let type = 'group';
   if (datatype === 'character') type = 'text';
   if (datatype === 'number') type = 'integer';
-  if (datatype === 'date') type = 'date';
+  if (datatype === 'date') type = 'open-choice';
 
   const item = {
     linkId: `Section-${sectionid}/${label}`,
@@ -55,19 +54,8 @@ function buildQuestion({ datatype, label, sectionid, text, typename, maxlength }
   };
 
   if (responses) {
-
     // Filter by only responses that are not blank.
-    item.answerOption = responses.filter(resp => resp.responsecode).map(resp => {
-
-      if (resp.responsetext == 'Maximum value') {
-        maxvalue = resp.responsecode;
-      }
-      if (resp.responsetext == 'Minimum value') {
-        minvalue = resp.responsecode;
-      }
-
-
-
+    const answerOptions = responses.filter(resp => resp.responsecode).map(resp => {
       return {
         valueCoding: {
           code: resp.responsecode,
@@ -75,15 +63,43 @@ function buildQuestion({ datatype, label, sectionid, text, typename, maxlength }
         }
       };
     });
+    if (answerOptions.length) {
+      item.answerOption = answerOptions;
+    }
+  }
 
-    // For text and integer fields, if none of the choices are "Text" or "ICD" then we can set it to choice mode.
-    if (item.type != 'date') {
-      const nonChoiceResponses = item.answerOption.filter(option => ['Text', 'ICD'].includes(option.valueCoding.code));
-      if (!nonChoiceResponses.length) {
-        item.type = 'choice';
-      }
+  if (item.answerOption) {
+    // For text and integer fields, then we can set it to choice mode if there are choices.
+    if (item.type === 'text' || item.type === 'integer') {
+      item.type = 'choice';
     }
 
+    // If it's a choice field and there are min/max options, change to open choice.
+    const valueOptions = item.answerOption.filter(option => {
+      return ['Minimum value', 'Maximum value'].includes(option.valueCoding.display);
+    });
+    if (valueOptions.length) {
+      item.type = 'open-choice';
+    }
+
+    // If it's a choice field and there are options of either Text or ICD,
+    // change to open choice and remove those options.
+    const textOptions = item.answerOption.filter(option => {
+      return ['Text', 'ICD'].includes(option.valueCoding.code);
+    });
+
+    if (textOptions.length) {
+      item.type = 'open-choice';
+      item.answerOption = item.answerOption.filter(option => {
+        return !(['Text', 'ICD'].includes(option.valueCoding.code));
+      });
+    }
+  }
+
+  // If it's choice or open choice and there are no options, make it text.
+  if (['choice', 'open-choice'].includes(item.type) && item.answerOption && !item.answerOption.length) {
+    item.type = 'text';
+    delete item.answerOption;
   }
 
   if (maxlength) {
@@ -174,7 +190,6 @@ async function run(url, client) {
 
     output.push(questionnaire);
 
-    writeFileSync(`out/json/questionnaires/${questionnaire.id}.json`, JSON.stringify(questionnaire, null, 2));
   }
 
   return output;
