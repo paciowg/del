@@ -1,12 +1,11 @@
-const { getAllMeasures, getGroupedQuestions } = require('../sql');
+const { getAllMeasures, getGroupedQuestions, getGroupedResponses } = require('../sql');
 
-function buildMeasure(baseUrl, { questionid, label, name, text, }, questionnaireMap) {
+function buildMeasure(baseUrl, { questionid, label, name, text, }, questionnaireMap, responseMap) {
   name = name.trim();
   label = label.trim();
   text = text.trim();
 
-  // TODO: put choices in here as well?
-  const description = `## ${label}\n\n${text}`;
+  let description = `${label} - ${text}`;
 
   // Link back to all questionnaires where this question is used!
   let library = [];
@@ -14,8 +13,6 @@ function buildMeasure(baseUrl, { questionid, label, name, text, }, questionnaire
   if (questionnaires) {
     library = questionnaires.asmtid.map(asmt => `Library/Questionnaire-${asmt}`);
   }
-
-  // TODO: Figure out where to store responses and put them there!
 
   const resource = {
     resourceType: 'Measure',
@@ -32,6 +29,17 @@ function buildMeasure(baseUrl, { questionid, label, name, text, }, questionnaire
     library,
   };
 
+  // Put all possible responses in supplementalData.
+  const responses = responseMap[questionid];
+  if (responses) {
+    resource.relatedArtifact = responses.filter(r => r.responsecode && r.responsetext).map(r => ({
+      type: 'documentation',
+      resource: `Library/Questionnaire-${r.asmtid}`,
+      label: r.responsecode,
+      display: r.responsetext,
+    }));
+  }
+
   return resource;
 }
 
@@ -45,11 +53,12 @@ async function run(url, client) {
   const measureResults = await getAllMeasures(client);
 
   const questionnaireMap = await getGroupedQuestions(client, ['questionid'], ['asmtid']);
+  const responseMap = await getGroupedResponses(client, ['questionid']);
 
   const output = [];
 
   for (const row of measureResults) {
-    const measure = buildMeasure(url, row, questionnaireMap);
+    const measure = buildMeasure(url, row, questionnaireMap, responseMap);
     output.push(measure);
   }
 
