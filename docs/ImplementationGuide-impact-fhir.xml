@@ -46,22 +46,22 @@
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-del-StandardFormLibrary.html"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/del-StandardFormLibrary"/>
+      </reference>
+      <name value="del-StandardFormLibrary"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
         <valueUri value="StructureDefinition-del-StandardFormQuestion.html"/>
       </extension>
       <reference>
         <reference value="StructureDefinition/del-StandardFormQuestion"/>
       </reference>
       <name value="del-StandardFormQuestion"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
-        <valueUri value="StructureDefinition-del-StandardFormSection.html"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/del-StandardFormSection"/>
-      </reference>
-      <name value="del-StandardFormSection"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>

@@ -3,7 +3,7 @@
   "id": "del-StandardForm",
   "text": {
     "status": "generated",
-    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>StandardForm Profile</b></p>\n  <p>A definition of an standard form.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.StandardForm maps to Questionnaire:\n  constrain name to 1..1\n  constrain version to 1..1\n  constrain title to 1..1\n  constrain description to 1..1\n  constrain item to 1..*\n  constrain item.id to 1..1\n  constrain item.text to 1..1\n</pre></p>\n</div>"
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>StandardForm Profile</b></p>\n  <p>A definition of an standard form.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.StandardForm maps to Questionnaire:\n  constrain name to 1..1\n  constrain version to 1..1\n  constrain title to 1..1\n  constrain description to 1..1\n  constrain item to 1..*\n  constrain item.id to 1..1\n  constrain item.text to 1..1\n  constrain identifier to 0..0\n  constrain derivedFrom to 0..1\n  constrain subjectType to 0..0\n  constrain useContext to 0..0\n  constrain contact to 0..0\n  constrain jurisdiction to 0..0\n  constrain purpose to 0..0\n  constrain copyright to 0..0\n  constrain url to 0..0\n</pre></p>\n</div>"
   },
   "url": "https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardForm",
   "identifier": [
@@ -15,7 +15,7 @@
   "name": "StandardForm",
   "title": "del-StandardForm",
   "status": "draft",
-  "date": "2019-06-27",
+  "date": "2019-07-12",
   "publisher": "The MITRE Corporation",
   "contact": [
     {
@@ -412,7 +412,7 @@
         "comment": "The name of the referenced questionnaire can be conveyed using the http://hl7.org/fhir/StructureDefinition/display extension.",
         "requirements": "…  This is the id that will be used to link a QuestionnaireResponse to the Questionnaire the response is for.",
         "min": 0,
-        "max": "1",
+        "max": "0",
         "base": {
           "path": "Questionnaire.url",
           "min": 0,
@@ -448,7 +448,7 @@
         "comment": "Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this questionnaire outside of FHIR, where it is not possible to use the logical URI.",
         "requirements": "Allows externally provided and/or usable business identifiers to be easily associated with the module.",
         "min": 0,
-        "max": "*",
+        "max": "0",
         "base": {
           "path": "Questionnaire.identifier",
           "min": 0,
@@ -584,7 +584,7 @@
         "definition": "The URL of a Questionnaire that this Questionnaire is based on.",
         "requirements": "Allows a Questionnaire to be created based on another Questionnaire.",
         "min": 0,
-        "max": "*",
+        "max": "1",
         "base": {
           "path": "Questionnaire.derivedFrom",
           "min": 0,
@@ -705,7 +705,7 @@
         "definition": "The types of subjects that can be the subject of responses created for the questionnaire.",
         "comment": "If none are specified, then the subject is unlimited.",
         "min": 0,
-        "max": "*",
+        "max": "0",
         "base": {
           "path": "Questionnaire.subjectType",
           "min": 0,
@@ -825,7 +825,7 @@
         "definition": "Contact details to assist a user in finding and communicating with the publisher.",
         "comment": "May be a web site, an email address, a telephone number, etc.",
         "min": 0,
-        "max": "*",
+        "max": "0",
         "base": {
           "path": "Questionnaire.contact",
           "min": 0,
@@ -888,7 +888,7 @@
         "comment": "When multiple useContexts are specified, there is no expectation that all or any of the contexts apply.",
         "requirements": "Assist in searching for appropriate content.",
         "min": 0,
-        "max": "*",
+        "max": "0",
         "base": {
           "path": "Questionnaire.useContext",
           "min": 0,
@@ -919,7 +919,7 @@
         "definition": "A legal or geographic region in which the questionnaire is intended to be used.",
         "comment": "It may be possible for the questionnaire to be used in jurisdictions other than those for which it was originally designed or intended.",
         "min": 0,
-        "max": "*",
+        "max": "0",
         "base": {
           "path": "Questionnaire.jurisdiction",
           "min": 0,
@@ -965,7 +965,7 @@
         "definition": "Explanation of why this questionnaire is needed and why it has been designed as it has.",
         "comment": "This element does not describe the usage of the questionnaire. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this questionnaire.",
         "min": 0,
-        "max": "1",
+        "max": "0",
         "base": {
           "path": "Questionnaire.purpose",
           "min": 0,
@@ -1008,7 +1008,7 @@
           "Restrictions"
         ],
         "min": 0,
-        "max": "1",
+        "max": "0",
         "base": {
           "path": "Questionnaire.copyright",
           "min": 0,
@@ -2533,6 +2533,18 @@
         "isSummary": false
       },
       {
+        "id": "Questionnaire:del-StandardForm.url",
+        "path": "Questionnaire.url",
+        "min": 0,
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire:del-StandardForm.identifier",
+        "path": "Questionnaire.identifier",
+        "min": 0,
+        "max": "0"
+      },
+      {
         "id": "Questionnaire:del-StandardForm.version",
         "path": "Questionnaire.version",
         "min": 1,
@@ -2551,10 +2563,52 @@
         "max": "1"
       },
       {
+        "id": "Questionnaire:del-StandardForm.derivedFrom",
+        "path": "Questionnaire.derivedFrom",
+        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Questionnaire:del-StandardForm.subjectType",
+        "path": "Questionnaire.subjectType",
+        "min": 0,
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire:del-StandardForm.contact",
+        "path": "Questionnaire.contact",
+        "min": 0,
+        "max": "0"
+      },
+      {
         "id": "Questionnaire:del-StandardForm.description",
         "path": "Questionnaire.description",
         "min": 1,
         "max": "1"
+      },
+      {
+        "id": "Questionnaire:del-StandardForm.useContext",
+        "path": "Questionnaire.useContext",
+        "min": 0,
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire:del-StandardForm.jurisdiction",
+        "path": "Questionnaire.jurisdiction",
+        "min": 0,
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire:del-StandardForm.purpose",
+        "path": "Questionnaire.purpose",
+        "min": 0,
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire:del-StandardForm.copyright",
+        "path": "Questionnaire.copyright",
+        "min": 0,
+        "max": "0"
       },
       {
         "id": "Questionnaire:del-StandardForm.item",

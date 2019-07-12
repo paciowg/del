@@ -63,6 +63,19 @@
         "extension": [
           {
             "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+            "valueUri": "StructureDefinition-del-StandardFormLibrary.html"
+          }
+        ],
+        "reference": {
+          "reference": "StructureDefinition/del-StandardFormLibrary"
+        },
+        "name": "del-StandardFormLibrary",
+        "exampleBoolean": false
+      },
+      {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
             "valueUri": "StructureDefinition-del-StandardFormQuestion.html"
           }
         ],
@@ -70,19 +83,6 @@
           "reference": "StructureDefinition/del-StandardFormQuestion"
         },
         "name": "del-StandardFormQuestion",
-        "exampleBoolean": false
-      },
-      {
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-            "valueUri": "StructureDefinition-del-StandardFormSection.html"
-          }
-        ],
-        "reference": {
-          "reference": "StructureDefinition/del-StandardFormSection"
-        },
-        "name": "del-StandardFormSection",
         "exampleBoolean": false
       },
       {

@@ -68,6 +68,19 @@
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "StructureDefinition-del-StandardFormLibrary.html" ]
+       ];
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardFormLibrary>;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/del-StandardFormLibrary" ]
+       ];
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "del-StandardFormLibrary" ];
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 3;
+       fhir:Element.extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
          fhir:Extension.valueUri [ fhir:value "StructureDefinition-del-StandardFormQuestion.html" ]
        ];
        fhir:ImplementationGuide.definition.resource.reference [
@@ -75,19 +88,6 @@
          fhir:Reference.reference [ fhir:value "StructureDefinition/del-StandardFormQuestion" ]
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "del-StandardFormQuestion" ];
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
-     ], [
-       fhir:index 3;
-       fhir:Element.extension [
-         fhir:index 0;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
-         fhir:Extension.valueUri [ fhir:value "StructureDefinition-del-StandardFormSection.html" ]
-       ];
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardFormSection>;
-         fhir:Reference.reference [ fhir:value "StructureDefinition/del-StandardFormSection" ]
-       ];
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "del-StandardFormSection" ];
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
        fhir:index 4;

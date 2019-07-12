@@ -21,7 +21,7 @@
   fhir:ValueSet.name [ fhir:value "AssessmentContextVS"];
   fhir:ValueSet.title [ fhir:value "AssessmentContextVS"];
   fhir:ValueSet.status [ fhir:value "draft"];
-  fhir:ValueSet.date [ fhir:value "2019-06-27"^^xsd:date];
+  fhir:ValueSet.date [ fhir:value "2019-07-12"^^xsd:date];
   fhir:ValueSet.publisher [ fhir:value "The MITRE Corporation"];
   fhir:ValueSet.contact [
      fhir:index 0;

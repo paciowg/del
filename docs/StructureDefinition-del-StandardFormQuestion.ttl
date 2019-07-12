@@ -10,7 +10,7 @@
   fhir:Resource.id [ fhir:value "del-StandardFormQuestion"];
   fhir:DomainResource.text [
      fhir:Narrative.status [ fhir:value "generated" ];
-     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>StandardFormQuestion Profile</b></p>\n  <p>A defintiion of a standard form question.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.StandardFormQuestion maps to Observation:\n  constrain identifier to 1..*\n  constrain note to 1..*\n</pre></p>\n</div>"
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>StandardFormQuestion Profile</b></p>\n  <p>A definition of a standard form question.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.StandardFormQuestion maps to Observation:\n  constrain identifier to 1..*\n  constrain note to 1..*\n</pre></p>\n</div>"
   ];
   fhir:StructureDefinition.url [ fhir:value "https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardFormQuestion"];
   fhir:StructureDefinition.identifier [
@@ -21,7 +21,7 @@
   fhir:StructureDefinition.name [ fhir:value "StandardFormQuestion"];
   fhir:StructureDefinition.title [ fhir:value "del-StandardFormQuestion"];
   fhir:StructureDefinition.status [ fhir:value "active"];
-  fhir:StructureDefinition.date [ fhir:value "2019-06-27"^^xsd:date];
+  fhir:StructureDefinition.date [ fhir:value "2019-07-12"^^xsd:date];
   fhir:StructureDefinition.publisher [ fhir:value "The MITRE Corporation"];
   fhir:StructureDefinition.contact [
      fhir:index 0;
@@ -31,7 +31,7 @@
        fhir:ContactPoint.value [ fhir:value "http://mitre.org" ]
      ]
   ];
-  fhir:StructureDefinition.description [ fhir:value "A defintiion of a standard form question."];
+  fhir:StructureDefinition.description [ fhir:value "A definition of a standard form question."];
   fhir:StructureDefinition.purpose [ fhir:value "Observations are a key aspect of healthcare.  This resource is used to capture those that do not require more sophisticated mechanisms."];
   fhir:StructureDefinition.fhirVersion [ fhir:value "4.0.0"];
   fhir:StructureDefinition.mapping [
@@ -79,7 +79,7 @@
        fhir:Element.id [ fhir:value "Observation:del-StandardFormQuestion" ];
        fhir:ElementDefinition.path [ fhir:value "Observation" ];
        fhir:ElementDefinition.short [ fhir:value "del-StandardFormQuestion" ];
-       fhir:ElementDefinition.definition [ fhir:value "A defintiion of a standard form question." ];
+       fhir:ElementDefinition.definition [ fhir:value "A definition of a standard form question." ];
        fhir:ElementDefinition.comment [ fhir:value "Used for simple observations such as device measurements, laboratory atomic results, vital signs, height, weight, smoking status, comments, etc.  Other resources are used to provide context for observations such as laboratory reports, etc." ];
        fhir:ElementDefinition.alias [
          fhir:value "Vital Signs";
@@ -2295,7 +2295,7 @@
        fhir:Element.id [ fhir:value "Observation:del-StandardFormQuestion" ];
        fhir:ElementDefinition.path [ fhir:value "Observation" ];
        fhir:ElementDefinition.short [ fhir:value "del-StandardFormQuestion" ];
-       fhir:ElementDefinition.definition [ fhir:value "A defintiion of a standard form question." ];
+       fhir:ElementDefinition.definition [ fhir:value "A definition of a standard form question." ];
        fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
        fhir:ElementDefinition.isSummary [ fhir:value "false"^^xsd:boolean ]
      ], [

@@ -15,6 +15,15 @@
   constrain item to 1..*
   constrain item.id to 1..1
   constrain item.text to 1..1
+  constrain identifier to 0..0
+  constrain derivedFrom to 0..1
+  constrain subjectType to 0..0
+  constrain useContext to 0..0
+  constrain contact to 0..0
+  constrain jurisdiction to 0..0
+  constrain purpose to 0..0
+  constrain copyright to 0..0
+  constrain url to 0..0
 </pre></p>
 </div>
   </text>
@@ -26,7 +35,7 @@
   <name value="StandardForm"/>
   <title value="del-StandardForm"/>
   <status value="draft"/>
-  <date value="2019-06-27"/>
+  <date value="2019-07-12"/>
   <publisher value="The MITRE Corporation"/>
   <contact>
     <telecom>
@@ -355,7 +364,7 @@
       <comment value="The name of the referenced questionnaire can be conveyed using the http://hl7.org/fhir/StructureDefinition/display extension."/>
       <requirements value="&#x2026;  This is the id that will be used to link a QuestionnaireResponse to the Questionnaire the response is for."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="0"/>
       <base>
         <path value="Questionnaire.url"/>
         <min value="0"/>
@@ -386,7 +395,7 @@
       <comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this questionnaire outside of FHIR, where it is not possible to use the logical URI."/>
       <requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="0"/>
       <base>
         <path value="Questionnaire.identifier"/>
         <min value="0"/>
@@ -500,7 +509,7 @@
       <definition value="The URL of a Questionnaire that this Questionnaire is based on."/>
       <requirements value="Allows a Questionnaire to be created based on another Questionnaire."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <base>
         <path value="Questionnaire.derivedFrom"/>
         <min value="0"/>
@@ -600,7 +609,7 @@
       <definition value="The types of subjects that can be the subject of responses created for the questionnaire."/>
       <comment value="If none are specified, then the subject is unlimited."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="0"/>
       <base>
         <path value="Questionnaire.subjectType"/>
         <min value="0"/>
@@ -699,7 +708,7 @@
       <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
       <comment value="May be a web site, an email address, a telephone number, etc."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="0"/>
       <base>
         <path value="Questionnaire.contact"/>
         <min value="0"/>
@@ -752,7 +761,7 @@
       <comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
       <requirements value="Assist in searching for appropriate content."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="0"/>
       <base>
         <path value="Questionnaire.useContext"/>
         <min value="0"/>
@@ -778,7 +787,7 @@
       <definition value="A legal or geographic region in which the questionnaire is intended to be used."/>
       <comment value="It may be possible for the questionnaire to be used in jurisdictions other than those for which it was originally designed or intended."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="0"/>
       <base>
         <path value="Questionnaire.jurisdiction"/>
         <min value="0"/>
@@ -815,7 +824,7 @@
       <definition value="Explanation of why this questionnaire is needed and why it has been designed as it has."/>
       <comment value="This element does not describe the usage of the questionnaire. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this questionnaire."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="0"/>
       <base>
         <path value="Questionnaire.purpose"/>
         <min value="0"/>
@@ -851,7 +860,7 @@
       <alias value="License"/>
       <alias value="Restrictions"/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="0"/>
       <base>
         <path value="Questionnaire.copyright"/>
         <min value="0"/>
@@ -2085,6 +2094,16 @@
       <isModifier value="false"/>
       <isSummary value="false"/>
     </element>
+    <element id="Questionnaire:del-StandardForm.url">
+      <path value="Questionnaire.url"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Questionnaire:del-StandardForm.identifier">
+      <path value="Questionnaire.identifier"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
     <element id="Questionnaire:del-StandardForm.version">
       <path value="Questionnaire.version"/>
       <min value="1"/>
@@ -2100,10 +2119,45 @@
       <min value="1"/>
       <max value="1"/>
     </element>
+    <element id="Questionnaire:del-StandardForm.derivedFrom">
+      <path value="Questionnaire.derivedFrom"/>
+      <min value="0"/>
+      <max value="1"/>
+    </element>
+    <element id="Questionnaire:del-StandardForm.subjectType">
+      <path value="Questionnaire.subjectType"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Questionnaire:del-StandardForm.contact">
+      <path value="Questionnaire.contact"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
     <element id="Questionnaire:del-StandardForm.description">
       <path value="Questionnaire.description"/>
       <min value="1"/>
       <max value="1"/>
+    </element>
+    <element id="Questionnaire:del-StandardForm.useContext">
+      <path value="Questionnaire.useContext"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Questionnaire:del-StandardForm.jurisdiction">
+      <path value="Questionnaire.jurisdiction"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Questionnaire:del-StandardForm.purpose">
+      <path value="Questionnaire.purpose"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Questionnaire:del-StandardForm.copyright">
+      <path value="Questionnaire.copyright"/>
+      <min value="0"/>
+      <max value="0"/>
     </element>
     <element id="Questionnaire:del-StandardForm.item">
       <path value="Questionnaire.item"/>

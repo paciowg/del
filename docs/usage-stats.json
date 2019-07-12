@@ -1,0 +1,60 @@
+{
+  "package": "impact-fhir",
+  "fhirVersion": "4.0.0",
+  "extensions": [],
+  "profiles": {
+    "QuestionnaireResponse": [
+      {
+        "url": "https://impact-fhir.mitre.org/r4/StructureDefinition/del-Assessment",
+        "title": "del-Assessment"
+      }
+    ],
+    "Questionnaire": [
+      {
+        "url": "https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardForm",
+        "title": "del-StandardForm"
+      }
+    ],
+    "Composition": [
+      {
+        "url": "https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardFormLibrary",
+        "title": "del-StandardFormLibrary"
+      }
+    ],
+    "Observation": [
+      {
+        "url": "https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardFormQuestion",
+        "title": "del-StandardFormQuestion"
+      }
+    ]
+  },
+  "usage": {
+    "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice": [
+      "StructureDefinition.snapshot.element.constraint"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation": [
+      "StructureDefinition.snapshot.element.constraint"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName": [
+      "StructureDefinition.snapshot.element.binding"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding": [
+      "StructureDefinition.snapshot.element.binding"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet": [
+      "StructureDefinition.snapshot.element.binding"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/structuredefinition-codegen-super": [
+      "StructureDefinition.baseDefinition"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint": [
+      "StructureDefinition.snapshot.element"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name": [
+      "StructureDefinition.snapshot.element"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status": [
+      "StructureDefinition.snapshot.element"
+    ]
+  }
+}

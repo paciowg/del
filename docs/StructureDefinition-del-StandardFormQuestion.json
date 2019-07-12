@@ -3,7 +3,7 @@
   "id": "del-StandardFormQuestion",
   "text": {
     "status": "generated",
-    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>StandardFormQuestion Profile</b></p>\n  <p>A defintiion of a standard form question.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.StandardFormQuestion maps to Observation:\n  constrain identifier to 1..*\n  constrain note to 1..*\n</pre></p>\n</div>"
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>StandardFormQuestion Profile</b></p>\n  <p>A definition of a standard form question.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.StandardFormQuestion maps to Observation:\n  constrain identifier to 1..*\n  constrain note to 1..*\n</pre></p>\n</div>"
   },
   "url": "https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardFormQuestion",
   "identifier": [
@@ -15,7 +15,7 @@
   "name": "StandardFormQuestion",
   "title": "del-StandardFormQuestion",
   "status": "active",
-  "date": "2019-06-27",
+  "date": "2019-07-12",
   "publisher": "The MITRE Corporation",
   "contact": [
     {
@@ -27,7 +27,7 @@
       ]
     }
   ],
-  "description": "A defintiion of a standard form question.",
+  "description": "A definition of a standard form question.",
   "purpose": "Observations are a key aspect of healthcare.  This resource is used to capture those that do not require more sophisticated mechanisms.",
   "fhirVersion": "4.0.0",
   "mapping": [
@@ -73,7 +73,7 @@
         "id": "Observation:del-StandardFormQuestion",
         "path": "Observation",
         "short": "del-StandardFormQuestion",
-        "definition": "A defintiion of a standard form question.",
+        "definition": "A definition of a standard form question.",
         "comment": "Used for simple observations such as device measurements, laboratory atomic results, vital signs, height, weight, smoking status, comments, etc.  Other resources are used to provide context for observations such as laboratory reports, etc.",
         "alias": [
           "Vital Signs",
@@ -2204,7 +2204,7 @@
         "id": "Observation:del-StandardFormQuestion",
         "path": "Observation",
         "short": "del-StandardFormQuestion",
-        "definition": "A defintiion of a standard form question.",
+        "definition": "A definition of a standard form question.",
         "isModifier": false,
         "isSummary": false
       },

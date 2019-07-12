@@ -5,7 +5,7 @@
   <text>
     <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml">
   <p><b>StandardFormQuestion Profile</b></p>
-  <p>A defintiion of a standard form question.</p>
+  <p>A definition of a standard form question.</p>
   <p><b>Mapping Summary</b></p>
   <p><pre>del.StandardFormQuestion maps to Observation:
   constrain identifier to 1..*
@@ -21,7 +21,7 @@
   <name value="StandardFormQuestion"/>
   <title value="del-StandardFormQuestion"/>
   <status value="active"/>
-  <date value="2019-06-27"/>
+  <date value="2019-07-12"/>
   <publisher value="The MITRE Corporation"/>
   <contact>
     <telecom>
@@ -29,7 +29,7 @@
       <value value="http://mitre.org"/>
     </telecom>
   </contact>
-  <description value="A defintiion of a standard form question."/>
+  <description value="A definition of a standard form question."/>
   <purpose value="Observations are a key aspect of healthcare.  This resource is used to capture those that do not require more sophisticated mechanisms."/>
   <fhirVersion value="4.0.0"/>
   <mapping>
@@ -71,7 +71,7 @@
     <element id="Observation:del-StandardFormQuestion">
       <path value="Observation"/>
       <short value="del-StandardFormQuestion"/>
-      <definition value="A defintiion of a standard form question."/>
+      <definition value="A definition of a standard form question."/>
       <comment value="Used for simple observations such as device measurements, laboratory atomic results, vital signs, height, weight, smoking status, comments, etc.  Other resources are used to provide context for observations such as laboratory reports, etc."/>
       <alias value="Vital Signs"/>
       <alias value="Measurement"/>
@@ -1835,7 +1835,7 @@
     <element id="Observation:del-StandardFormQuestion">
       <path value="Observation"/>
       <short value="del-StandardFormQuestion"/>
-      <definition value="A defintiion of a standard form question."/>
+      <definition value="A definition of a standard form question."/>
       <isModifier value="false"/>
       <isSummary value="false"/>
     </element>
