@@ -3,7 +3,7 @@
   "id": "del-StandardForm",
   "text": {
     "status": "generated",
-    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>StandardForm Profile</b></p>\n  <p>A definition of an standard form.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.StandardForm maps to Questionnaire:\n  constrain name to 1..1\n  constrain version to 1..1\n  constrain title to 1..1\n  constrain description to 1..1\n  constrain item to 1..*\n  constrain item.id to 1..1\n  constrain item.text to 1..1\n  constrain identifier to 0..0\n  constrain subjectType to 0..0\n  constrain useContext to 0..0\n  constrain contact to 0..0\n  constrain jurisdiction to 0..0\n  constrain purpose to 0..0\n  constrain copyright to 0..0\n  constrain url to 0..0\n</pre></p>\n</div>"
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>StandardForm Profile</b></p>\n  <p>A definition of an standard form and all of its contents.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.StandardForm maps to Questionnaire:\n  constrain name to 1..1\n  constrain version to 1..1\n  constrain title to 1..1\n  constrain description to 1..1\n  constrain item to 1..*\n  constrain item.id to 1..1\n  constrain item.text to 1..1\n  constrain identifier to 0..0\n  constrain subjectType to 0..0\n  constrain useContext to 0..0\n  constrain contact to 0..0\n  constrain jurisdiction to 0..0\n  constrain purpose to 0..0\n  constrain copyright to 0..0\n  constrain url to 0..0\n</pre></p>\n</div>"
   },
   "url": "https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardForm",
   "identifier": [
@@ -27,7 +27,7 @@
       ]
     }
   ],
-  "description": "A definition of an standard form.",
+  "description": "A definition of an standard form and all of its contents.",
   "purpose": "To support structured, hierarchical registration of data gathered using digital forms and other questionnaires.  Questionnaires provide greater control over presentation and allow capture of data in a domain-independent way (i.e. capturing information that would otherwise require multiple distinct types of resources).",
   "fhirVersion": "4.0.0",
   "mapping": [
@@ -76,7 +76,7 @@
         "id": "Questionnaire:del-StandardForm",
         "path": "Questionnaire",
         "short": "del-StandardForm",
-        "definition": "A definition of an standard form.",
+        "definition": "A definition of an standard form and all of its contents.",
         "alias": [
           "Form",
           "CRF",
@@ -2528,7 +2528,7 @@
         "id": "Questionnaire:del-StandardForm",
         "path": "Questionnaire",
         "short": "del-StandardForm",
-        "definition": "A definition of an standard form.",
+        "definition": "A definition of an standard form and all of its contents.",
         "isModifier": false,
         "isSummary": false
       },

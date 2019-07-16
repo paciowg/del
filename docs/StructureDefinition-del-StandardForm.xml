@@ -5,7 +5,7 @@
   <text>
     <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml">
   <p><b>StandardForm Profile</b></p>
-  <p>A definition of an standard form.</p>
+  <p>A definition of an standard form and all of its contents.</p>
   <p><b>Mapping Summary</b></p>
   <p><pre>del.StandardForm maps to Questionnaire:
   constrain name to 1..1
@@ -42,7 +42,7 @@
       <value value="http://mitre.org"/>
     </telecom>
   </contact>
-  <description value="A definition of an standard form."/>
+  <description value="A definition of an standard form and all of its contents."/>
   <purpose value="To support structured, hierarchical registration of data gathered using digital forms and other questionnaires.  Questionnaires provide greater control over presentation and allow capture of data in a domain-independent way (i.e. capturing information that would otherwise require multiple distinct types of resources)."/>
   <fhirVersion value="4.0.0"/>
   <mapping>
@@ -83,7 +83,7 @@
     <element id="Questionnaire:del-StandardForm">
       <path value="Questionnaire"/>
       <short value="del-StandardForm"/>
-      <definition value="A definition of an standard form."/>
+      <definition value="A definition of an standard form and all of its contents."/>
       <alias value="Form"/>
       <alias value="CRF"/>
       <alias value="Survey"/>
@@ -2089,7 +2089,7 @@
     <element id="Questionnaire:del-StandardForm">
       <path value="Questionnaire"/>
       <short value="del-StandardForm"/>
-      <definition value="A definition of an standard form."/>
+      <definition value="A definition of an standard form and all of its contents."/>
       <isModifier value="false"/>
       <isSummary value="false"/>
     </element>

@@ -10,7 +10,7 @@
   fhir:Resource.id [ fhir:value "del-StandardForm"];
   fhir:DomainResource.text [
      fhir:Narrative.status [ fhir:value "generated" ];
-     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>StandardForm Profile</b></p>\n  <p>A definition of an standard form.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.StandardForm maps to Questionnaire:\n  constrain name to 1..1\n  constrain version to 1..1\n  constrain title to 1..1\n  constrain description to 1..1\n  constrain item to 1..*\n  constrain item.id to 1..1\n  constrain item.text to 1..1\n  constrain identifier to 0..0\n  constrain subjectType to 0..0\n  constrain useContext to 0..0\n  constrain contact to 0..0\n  constrain jurisdiction to 0..0\n  constrain purpose to 0..0\n  constrain copyright to 0..0\n  constrain url to 0..0\n</pre></p>\n</div>"
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>StandardForm Profile</b></p>\n  <p>A definition of an standard form and all of its contents.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.StandardForm maps to Questionnaire:\n  constrain name to 1..1\n  constrain version to 1..1\n  constrain title to 1..1\n  constrain description to 1..1\n  constrain item to 1..*\n  constrain item.id to 1..1\n  constrain item.text to 1..1\n  constrain identifier to 0..0\n  constrain subjectType to 0..0\n  constrain useContext to 0..0\n  constrain contact to 0..0\n  constrain jurisdiction to 0..0\n  constrain purpose to 0..0\n  constrain copyright to 0..0\n  constrain url to 0..0\n</pre></p>\n</div>"
   ];
   fhir:StructureDefinition.url [ fhir:value "https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardForm"];
   fhir:StructureDefinition.identifier [
@@ -31,7 +31,7 @@
        fhir:ContactPoint.value [ fhir:value "http://mitre.org" ]
      ]
   ];
-  fhir:StructureDefinition.description [ fhir:value "A definition of an standard form."];
+  fhir:StructureDefinition.description [ fhir:value "A definition of an standard form and all of its contents."];
   fhir:StructureDefinition.purpose [ fhir:value "To support structured, hierarchical registration of data gathered using digital forms and other questionnaires.  Questionnaires provide greater control over presentation and allow capture of data in a domain-independent way (i.e. capturing information that would otherwise require multiple distinct types of resources)."];
   fhir:StructureDefinition.fhirVersion [ fhir:value "4.0.0"];
   fhir:StructureDefinition.mapping [
@@ -79,7 +79,7 @@
        fhir:Element.id [ fhir:value "Questionnaire:del-StandardForm" ];
        fhir:ElementDefinition.path [ fhir:value "Questionnaire" ];
        fhir:ElementDefinition.short [ fhir:value "del-StandardForm" ];
-       fhir:ElementDefinition.definition [ fhir:value "A definition of an standard form." ];
+       fhir:ElementDefinition.definition [ fhir:value "A definition of an standard form and all of its contents." ];
        fhir:ElementDefinition.alias [
          fhir:value "Form";
          fhir:index 0
@@ -2520,7 +2520,7 @@
        fhir:Element.id [ fhir:value "Questionnaire:del-StandardForm" ];
        fhir:ElementDefinition.path [ fhir:value "Questionnaire" ];
        fhir:ElementDefinition.short [ fhir:value "del-StandardForm" ];
-       fhir:ElementDefinition.definition [ fhir:value "A definition of an standard form." ];
+       fhir:ElementDefinition.definition [ fhir:value "A definition of an standard form and all of its contents." ];
        fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
        fhir:ElementDefinition.isSummary [ fhir:value "false"^^xsd:boolean ]
      ], [

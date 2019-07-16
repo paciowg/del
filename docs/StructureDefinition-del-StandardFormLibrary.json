@@ -3,7 +3,7 @@
   "id": "del-StandardFormLibrary",
   "text": {
     "status": "generated",
-    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>StandardFormLibrary Profile</b></p>\n  <p>A definition of a standard form section.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.StandardFormLibrary maps to Library:\n  constrain name to 1..1\n  constrain version to 1..1\n  constrain title to 1..1\n  constrain description to 1..1\n</pre></p>\n</div>"
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>StandardFormLibrary Profile</b></p>\n  <p>A definition of a standard form.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.StandardFormLibrary maps to Library:\n  constrain name to 1..1\n  constrain version to 1..1\n  constrain title to 1..1\n  constrain description to 1..1\n</pre></p>\n</div>"
   },
   "url": "https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardFormLibrary",
   "identifier": [
@@ -27,7 +27,7 @@
       ]
     }
   ],
-  "description": "A definition of a standard form section.",
+  "description": "A definition of a standard form.",
   "fhirVersion": "4.0.0",
   "mapping": [
     {
@@ -70,7 +70,7 @@
         "id": "Library:del-StandardFormLibrary",
         "path": "Library",
         "short": "del-StandardFormLibrary",
-        "definition": "A definition of a standard form section.",
+        "definition": "A definition of a standard form.",
         "min": 0,
         "max": "*",
         "base": {
@@ -1416,7 +1416,7 @@
         "id": "Library:del-StandardFormLibrary",
         "path": "Library",
         "short": "del-StandardFormLibrary",
-        "definition": "A definition of a standard form section.",
+        "definition": "A definition of a standard form.",
         "isModifier": false,
         "isSummary": false
       },

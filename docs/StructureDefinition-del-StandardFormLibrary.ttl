@@ -10,7 +10,7 @@
   fhir:Resource.id [ fhir:value "del-StandardFormLibrary"];
   fhir:DomainResource.text [
      fhir:Narrative.status [ fhir:value "generated" ];
-     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>StandardFormLibrary Profile</b></p>\n  <p>A definition of a standard form section.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.StandardFormLibrary maps to Library:\n  constrain name to 1..1\n  constrain version to 1..1\n  constrain title to 1..1\n  constrain description to 1..1\n</pre></p>\n</div>"
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>StandardFormLibrary Profile</b></p>\n  <p>A definition of a standard form.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.StandardFormLibrary maps to Library:\n  constrain name to 1..1\n  constrain version to 1..1\n  constrain title to 1..1\n  constrain description to 1..1\n</pre></p>\n</div>"
   ];
   fhir:StructureDefinition.url [ fhir:value "https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardFormLibrary"];
   fhir:StructureDefinition.identifier [
@@ -31,7 +31,7 @@
        fhir:ContactPoint.value [ fhir:value "http://mitre.org" ]
      ]
   ];
-  fhir:StructureDefinition.description [ fhir:value "A definition of a standard form section."];
+  fhir:StructureDefinition.description [ fhir:value "A definition of a standard form."];
   fhir:StructureDefinition.fhirVersion [ fhir:value "4.0.0"];
   fhir:StructureDefinition.mapping [
      fhir:index 0;
@@ -73,7 +73,7 @@
        fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary" ];
        fhir:ElementDefinition.path [ fhir:value "Library" ];
        fhir:ElementDefinition.short [ fhir:value "del-StandardFormLibrary" ];
-       fhir:ElementDefinition.definition [ fhir:value "A definition of a standard form section." ];
+       fhir:ElementDefinition.definition [ fhir:value "A definition of a standard form." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
        fhir:ElementDefinition.max [ fhir:value "*" ];
        fhir:ElementDefinition.base [
@@ -1384,7 +1384,7 @@
        fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary" ];
        fhir:ElementDefinition.path [ fhir:value "Library" ];
        fhir:ElementDefinition.short [ fhir:value "del-StandardFormLibrary" ];
-       fhir:ElementDefinition.definition [ fhir:value "A definition of a standard form section." ];
+       fhir:ElementDefinition.definition [ fhir:value "A definition of a standard form." ];
        fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
        fhir:ElementDefinition.isSummary [ fhir:value "false"^^xsd:boolean ]
      ], [

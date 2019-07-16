@@ -4,14 +4,14 @@ Description: "StandardForm represents a DEL standard form."
 Uses: shr.core, shr.base
 
 EntryElement: StandardForm
-Description: "A definition of an standard form."
+Description: "A definition of an standard form and all of its contents."
 // 0..1 name
 
 EntryElement: Assessment
 Description: "A definition of an assessment (standard form response)."
 
 EntryElement: StandardFormLibrary
-Description: "A definition of a standard form section."
+Description: "A definition of a standard form."
 
 EntryElement: StandardFormQuestion
 Description: "A definition of a standard form question."
