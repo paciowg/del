@@ -1,8 +1,8 @@
 ﻿IMPACT_Data_Element_Implementation_Guide : Validation Results
 =========================================
 
-err = 12, warn = 8, info = 0
-Generated Fri Jul 12 09:57:01 EDT 2019. FHIR version 4.0.0 for impact-fhir# (canonical = https://impact-fhir.mitre.org/r4)
+err = 14, warn = 8, info = 0
+Generated Tue Jul 16 11:32:02 EDT 2019. FHIR version 4.0.0 for impact-fhir# (canonical = https://impact-fhir.mitre.org/r4)
 
  Build Errors : 0 / 1
  /Users/tshaffer/Developer/del/out/fhir/guide/resources/codesystem-del-AssessmentContextCS : 0 / 0
@@ -10,7 +10,7 @@ Generated Fri Jul 12 09:57:01 EDT 2019. FHIR version 4.0.0 for impact-fhir# (can
  /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-Assessment : 1 / 1
  /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-StandardForm : 2 / 1
  /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-StandardFormLibrary : 2 / 1
- /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-StandardFormQuestion : 1 / 1
+ /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-StandardFormQuestion : 2 / 1
  /Users/tshaffer/Developer/del/out/fhir/guide/resources/valueset-del-AssessmentContextVS : 0 / 0
 </table>
 == n/a ==
@@ -25,10 +25,11 @@ ERROR: StructureDefinition/del-StandardForm: StructureDefinition.mapping[1].uri:
 ERROR: StructureDefinition/del-StandardForm: StructureDefinition.mapping[4].uri: URL value 'http://hl7.org/fhir/object-implementation' does not resolve
 WARNING: https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardForm: Profiles SHOULD state their own version
 == /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-StandardFormLibrary.json ==
-ERROR: StructureDefinition/del-StandardFormLibrary: StructureDefinition.mapping[1].uri: URL value 'http://hl7.org/fhir/workflow' does not resolve
-ERROR: StructureDefinition/del-StandardFormLibrary: StructureDefinition.mapping[4].uri: URL value 'http://hl7.org/fhir/documentreference' does not resolve
+ERROR: StructureDefinition/del-StandardFormLibrary: StructureDefinition.mapping[2].uri: URL value 'http://hl7.org/fhir/workflow' does not resolve
+ERROR: StructureDefinition/del-StandardFormLibrary: StructureDefinition.mapping[4].uri: URL value 'http://hl7.org/fhir/object-implementation' does not resolve
 WARNING: https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardFormLibrary: Profiles SHOULD state their own version
 == /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-StandardFormQuestion.json ==
 ERROR: StructureDefinition/del-StandardFormQuestion: StructureDefinition.mapping[1].uri: URL value 'http://hl7.org/fhir/workflow' does not resolve
+ERROR: StructureDefinition/del-StandardFormQuestion: StructureDefinition.mapping[3].uri: URL value 'http://hl7.org/fhir/object-implementation' does not resolve
 WARNING: https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardFormQuestion: Profiles SHOULD state their own version
 == /Users/tshaffer/Developer/del/out/fhir/guide/resources/valueset-del-AssessmentContextVS.json ==

@@ -17,7 +17,6 @@
       <sch:assert test="count(f:version) &gt;= 1">version: minimum cardinality of 'version' is 1</sch:assert>
       <sch:assert test="count(f:name) &gt;= 1">name: minimum cardinality of 'name' is 1</sch:assert>
       <sch:assert test="count(f:title) &gt;= 1">title: minimum cardinality of 'title' is 1</sch:assert>
-      <sch:assert test="count(f:derivedFrom) &lt;= 1">derivedFrom: maximum cardinality of 'derivedFrom' is 1</sch:assert>
       <sch:assert test="count(f:subjectType) &lt;= 0">subjectType: maximum cardinality of 'subjectType' is 0</sch:assert>
       <sch:assert test="count(f:contact) &lt;= 0">contact: maximum cardinality of 'contact' is 0</sch:assert>
       <sch:assert test="count(f:description) &gt;= 1">description: minimum cardinality of 'description' is 1</sch:assert>

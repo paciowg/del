@@ -10,7 +10,7 @@
   fhir:Resource.id [ fhir:value "del-StandardForm"];
   fhir:DomainResource.text [
      fhir:Narrative.status [ fhir:value "generated" ];
-     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>StandardForm Profile</b></p>\n  <p>A definition of an standard form.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.StandardForm maps to Questionnaire:\n  constrain name to 1..1\n  constrain version to 1..1\n  constrain title to 1..1\n  constrain description to 1..1\n  constrain item to 1..*\n  constrain item.id to 1..1\n  constrain item.text to 1..1\n  constrain identifier to 0..0\n  constrain derivedFrom to 0..1\n  constrain subjectType to 0..0\n  constrain useContext to 0..0\n  constrain contact to 0..0\n  constrain jurisdiction to 0..0\n  constrain purpose to 0..0\n  constrain copyright to 0..0\n  constrain url to 0..0\n</pre></p>\n</div>"
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>StandardForm Profile</b></p>\n  <p>A definition of an standard form.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.StandardForm maps to Questionnaire:\n  constrain name to 1..1\n  constrain version to 1..1\n  constrain title to 1..1\n  constrain description to 1..1\n  constrain item to 1..*\n  constrain item.id to 1..1\n  constrain item.text to 1..1\n  constrain identifier to 0..0\n  constrain subjectType to 0..0\n  constrain useContext to 0..0\n  constrain contact to 0..0\n  constrain jurisdiction to 0..0\n  constrain purpose to 0..0\n  constrain copyright to 0..0\n  constrain url to 0..0\n</pre></p>\n</div>"
   ];
   fhir:StructureDefinition.url [ fhir:value "https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardForm"];
   fhir:StructureDefinition.identifier [
@@ -21,7 +21,7 @@
   fhir:StructureDefinition.name [ fhir:value "StandardForm"];
   fhir:StructureDefinition.title [ fhir:value "del-StandardForm"];
   fhir:StructureDefinition.status [ fhir:value "draft"];
-  fhir:StructureDefinition.date [ fhir:value "2019-07-12"^^xsd:date];
+  fhir:StructureDefinition.date [ fhir:value "2019-07-16"^^xsd:date];
   fhir:StructureDefinition.publisher [ fhir:value "The MITRE Corporation"];
   fhir:StructureDefinition.contact [
      fhir:index 0;
@@ -591,7 +591,7 @@
        fhir:ElementDefinition.definition [ fhir:value "The URL of a Questionnaire that this Questionnaire is based on." ];
        fhir:ElementDefinition.requirements [ fhir:value "Allows a Questionnaire to be created based on another Questionnaire." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "1" ];
+       fhir:ElementDefinition.max [ fhir:value "*" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Questionnaire.derivedFrom" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -2555,66 +2555,60 @@
        fhir:ElementDefinition.max [ fhir:value "1" ]
      ], [
        fhir:index 6;
-       fhir:Element.id [ fhir:value "Questionnaire:del-StandardForm.derivedFrom" ];
-       fhir:ElementDefinition.path [ fhir:value "Questionnaire.derivedFrom" ];
-       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "1" ]
-     ], [
-       fhir:index 7;
        fhir:Element.id [ fhir:value "Questionnaire:del-StandardForm.subjectType" ];
        fhir:ElementDefinition.path [ fhir:value "Questionnaire.subjectType" ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
        fhir:ElementDefinition.max [ fhir:value "0" ]
      ], [
-       fhir:index 8;
+       fhir:index 7;
        fhir:Element.id [ fhir:value "Questionnaire:del-StandardForm.contact" ];
        fhir:ElementDefinition.path [ fhir:value "Questionnaire.contact" ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
        fhir:ElementDefinition.max [ fhir:value "0" ]
      ], [
-       fhir:index 9;
+       fhir:index 8;
        fhir:Element.id [ fhir:value "Questionnaire:del-StandardForm.description" ];
        fhir:ElementDefinition.path [ fhir:value "Questionnaire.description" ];
        fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
        fhir:ElementDefinition.max [ fhir:value "1" ]
      ], [
-       fhir:index 10;
+       fhir:index 9;
        fhir:Element.id [ fhir:value "Questionnaire:del-StandardForm.useContext" ];
        fhir:ElementDefinition.path [ fhir:value "Questionnaire.useContext" ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
        fhir:ElementDefinition.max [ fhir:value "0" ]
      ], [
-       fhir:index 11;
+       fhir:index 10;
        fhir:Element.id [ fhir:value "Questionnaire:del-StandardForm.jurisdiction" ];
        fhir:ElementDefinition.path [ fhir:value "Questionnaire.jurisdiction" ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
        fhir:ElementDefinition.max [ fhir:value "0" ]
      ], [
-       fhir:index 12;
+       fhir:index 11;
        fhir:Element.id [ fhir:value "Questionnaire:del-StandardForm.purpose" ];
        fhir:ElementDefinition.path [ fhir:value "Questionnaire.purpose" ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
        fhir:ElementDefinition.max [ fhir:value "0" ]
      ], [
-       fhir:index 13;
+       fhir:index 12;
        fhir:Element.id [ fhir:value "Questionnaire:del-StandardForm.copyright" ];
        fhir:ElementDefinition.path [ fhir:value "Questionnaire.copyright" ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
        fhir:ElementDefinition.max [ fhir:value "0" ]
      ], [
-       fhir:index 14;
+       fhir:index 13;
        fhir:Element.id [ fhir:value "Questionnaire:del-StandardForm.item" ];
        fhir:ElementDefinition.path [ fhir:value "Questionnaire.item" ];
        fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
        fhir:ElementDefinition.max [ fhir:value "*" ]
      ], [
-       fhir:index 15;
+       fhir:index 14;
        fhir:Element.id [ fhir:value "Questionnaire:del-StandardForm.item.id" ];
        fhir:ElementDefinition.path [ fhir:value "Questionnaire.item.id" ];
        fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
        fhir:ElementDefinition.max [ fhir:value "1" ]
      ], [
-       fhir:index 16;
+       fhir:index 15;
        fhir:Element.id [ fhir:value "Questionnaire:del-StandardForm.item.text" ];
        fhir:ElementDefinition.path [ fhir:value "Questionnaire.item.text" ];
        fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];

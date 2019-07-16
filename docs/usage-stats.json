@@ -15,13 +15,13 @@
         "title": "del-StandardForm"
       }
     ],
-    "Composition": [
+    "Library": [
       {
         "url": "https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardFormLibrary",
         "title": "del-StandardFormLibrary"
       }
     ],
-    "Observation": [
+    "Measure": [
       {
         "url": "https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardFormQuestion",
         "title": "del-StandardFormQuestion"
@@ -46,15 +46,6 @@
     ],
     "http://hl7.org/fhir/StructureDefinition/structuredefinition-codegen-super": [
       "StructureDefinition.baseDefinition"
-    ],
-    "http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint": [
-      "StructureDefinition.snapshot.element"
-    ],
-    "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name": [
-      "StructureDefinition.snapshot.element"
-    ],
-    "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status": [
-      "StructureDefinition.snapshot.element"
     ]
   }
 }

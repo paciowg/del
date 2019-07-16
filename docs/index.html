@@ -136,8 +136,9 @@
 </p>
 
 <p>
-    Since it's not always easy or possible to find specific items within a questionnaire,
-    standard forms will have an additional representation as Library and Measure resources.
+    Since it is not always easy or possible to search for specific items within a questionnaire or to search
+    for a questionnaire based on items within the questionnaire, standard forms will have an additional
+    representation as Library and Measure resources.
 </p>
 
 <p>
@@ -147,7 +148,8 @@
 
 <p>
     Using this approach, each standard form should be able to be reconstituted using the Questionnaire resource.
-    You can query for individual questions by using the Measure resource.
+    To question for specific questions, use the Measure resource.
+    Each Measure resource will have links back to the libraries in which the measure is used.
 </p>
 
 <h2>Questionnaire Resource</h2>
@@ -164,15 +166,16 @@
         <th>Notes</th>
     </tr>
     <tr>
-        <td>name</td>
+        <td>id</td>
         <td>asmt.asmt_shrt_name<br>asmt.asmt_vrsn_id</td>
-        <td>Fields are joined using a dash (-) in the format <code>{asmt_shrt_name}-{asmt_vrsn_id}</code>. Example:
-            LCDS-1.01.</td>
+        <td>
+            Fields are joined using a dash (-) in the format
+            <code>{asmt_shrt_name}-{asmt_vrsn_id}</code>. Example: LCDS-1.01.</td>
     </tr>
     <tr>
         <td>status</td>
         <td>asmt_vrsn.asmt_stus_id</td>
-        <td>1 = active, 4 = retired, all others = draft</td>
+        <td>If value is 1 then "active"<br>If value is 4 then "retired"<br>All others are "draft"</td>
     </tr>
     <tr>
         <td>date</td>
@@ -276,7 +279,7 @@
 
 <h3>Question Mapping</h3>
 
-<p>There are parent questions</p>
+<p>Questions may be nested within a section or within parent questions.</p>
 
 <table class="table table-bordered">
     <tr>
@@ -296,6 +299,11 @@
         </td>
     </tr>
     <tr>
+        <td>item[].prefix</td>
+        <td>data_ele_qstn.qstn_label_name</td>
+        <td>All characters except letters and numbers are removed from qstn_label_name.</td>
+    </tr>
+    <tr>
         <td>item[].text</td>
         <td>data_ele_qstn.qstn_txt</td>
         <td></td>
@@ -304,22 +312,38 @@
         <td>item[].type</td>
         <td>data_ele_rspns.rspns_dtype_name</td>
         <td>
-            character = text,
-            number = integer,
-            date = date,
-            all others = group
-            TODO: if choices
+            If this is a parent question, then "group"<br>
+            If value is "character" or "integer" with options, then "choice"<br>
+            If value is "character" without options then "text"<br>
+            If value is "number" without options then "integer"<br>
+            If value is "date" then "open-choice"
+        </td>
+    </tr>
+    <tr>
+        <td>item[].readOnly</td>
+        <td>data_ele_rspns.rspns_dtype_name</td>
+        <td>
+            If field is a group then "true"
+            <br>Otherwise "false".
         </td>
     </tr>
     <tr>
         <td>item[].repeats</td>
         <td>data_ele_rspns.rspns_type_name</td>
-        <td>If value is checklist then <i>true</i>, otherwise <i>false</i>.</td>
+        <td>
+            If value is checklist then "true"
+            <br>Otherwise "false".
+        </td>
     </tr>
     <tr>
-        <td>item[].readOnly</td>
-        <td>data_ele_rspns.rspns_dtype_name</td>
-        <td>If field is a group then <i>true</i>, otherwise <i>false</i>.</td>
+        <td>item[].maxLength</td>
+        <td></td>
+        <td>Populated with list of questions.</td>
+    </tr>
+    <tr>
+        <td>item[].item[]</td>
+        <td></td>
+        <td>Populated with list of questions.</td>
     </tr>
 </table>
 
@@ -330,6 +354,61 @@
         <th>FHIR Field</th>
         <th>DEL Field(s)</th>
         <th>Notes</th>
+    </tr>
+    <tr>
+        <td>name</td>
+        <td>asmt.asmt_shrt_name</td>
+        <td>All characters except letters and numbers are removed.</td>
+    </tr>
+    <tr>
+        <td>title</td>
+        <td>asmt.asmt_name</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>version</td>
+        <td>asmt.asmt_vrsn_id</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>status</td>
+        <td>asmt_vrsn.asmt_stus_id</td>
+        <td>If value is 1 then "active"<br>If value is 4 then "retired"<br>All others are "draft"</td>
+    </tr>
+    <tr>
+        <td>type.coding[].code</td>
+        <td><i>asset-collection</i></td>
+        <td>Hard-coded to value "asset-collection".</td>
+    </tr>
+    <tr>
+        <td>date</td>
+        <td>asmt.creat_ts</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>publisher</td>
+        <td>org.org_name</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>description</td>
+        <td>asmt.asmt_desc</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>effectivePeriod.start</td>
+        <td>asmt_vrsn.efctv_strt_dt</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>effectivePeriod.end</td>
+        <td>asmt_vrsn.efctv_end_dt</td>
+        <td>Only populated if field value is not null.</td>
+    </tr>
+    <tr>
+        <td>approvalDate</td>
+        <td>asmt_vrsn.pblctn_dt</td>
+        <td>Only populated if field value is not null.</td>
     </tr>
 </table>
 
@@ -365,7 +444,7 @@
       &copy;2019+
       <a style="color: #81BEF7" href="http://mitre.org">The MITRE Corporation</a>.
       Package impact-fhir# based on <a style="color: #81BEF7" href="http://hl7.org/fhir/R4/">FHIR 4.0.0</a>.
-      Generated <span title="Fri, Jul 12, 2019 09:56-0400">2019-07-12</span>.
+      Generated <span title="Tue, Jul 16, 2019 11:31-0400">2019-07-16</span>.
       <br/>
       <span style="color: #FFFF77">
         Links:

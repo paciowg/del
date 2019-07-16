@@ -16,7 +16,6 @@
   constrain item.id to 1..1
   constrain item.text to 1..1
   constrain identifier to 0..0
-  constrain derivedFrom to 0..1
   constrain subjectType to 0..0
   constrain useContext to 0..0
   constrain contact to 0..0
@@ -35,7 +34,7 @@
   <name value="StandardForm"/>
   <title value="del-StandardForm"/>
   <status value="draft"/>
-  <date value="2019-07-12"/>
+  <date value="2019-07-16"/>
   <publisher value="The MITRE Corporation"/>
   <contact>
     <telecom>
@@ -509,7 +508,7 @@
       <definition value="The URL of a Questionnaire that this Questionnaire is based on."/>
       <requirements value="Allows a Questionnaire to be created based on another Questionnaire."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <base>
         <path value="Questionnaire.derivedFrom"/>
         <min value="0"/>
@@ -2117,11 +2116,6 @@
     <element id="Questionnaire:del-StandardForm.title">
       <path value="Questionnaire.title"/>
       <min value="1"/>
-      <max value="1"/>
-    </element>
-    <element id="Questionnaire:del-StandardForm.derivedFrom">
-      <path value="Questionnaire.derivedFrom"/>
-      <min value="0"/>
       <max value="1"/>
     </element>
     <element id="Questionnaire:del-StandardForm.subjectType">

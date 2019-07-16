@@ -7,9 +7,10 @@
   <p><b>StandardFormQuestion Profile</b></p>
   <p>A definition of a standard form question.</p>
   <p><b>Mapping Summary</b></p>
-  <p><pre>del.StandardFormQuestion maps to Observation:
-  constrain identifier to 1..*
-  constrain note to 1..*
+  <p><pre>del.StandardFormQuestion maps to Measure:
+  constrain name to 1..1
+  constrain title to 1..1
+  constrain description to 1..1
 </pre></p>
 </div>
   </text>
@@ -20,8 +21,8 @@
   </identifier>
   <name value="StandardFormQuestion"/>
   <title value="del-StandardFormQuestion"/>
-  <status value="active"/>
-  <date value="2019-07-12"/>
+  <status value="draft"/>
+  <date value="2019-07-16"/>
   <publisher value="The MITRE Corporation"/>
   <contact>
     <telecom>
@@ -30,7 +31,6 @@
     </telecom>
   </contact>
   <description value="A definition of a standard form question."/>
-  <purpose value="Observations are a key aspect of healthcare.  This resource is used to capture those that do not require more sophisticated mechanisms."/>
   <fhirVersion value="4.0.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -38,49 +38,38 @@
     <name value="Workflow Pattern"/>
   </mapping>
   <mapping>
-    <identity value="sct-concept"/>
-    <uri value="http://snomed.info/conceptdomain"/>
-    <name value="SNOMED CT Concept Domain Binding"/>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
   </mapping>
   <mapping>
-    <identity value="v2"/>
-    <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <identity value="objimpl"/>
+    <uri value="http://hl7.org/fhir/object-implementation"/>
+    <name value="Object Implementation Information"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
     <name value="RIM Mapping"/>
   </mapping>
-  <mapping>
-    <identity value="w5"/>
-    <uri value="http://hl7.org/fhir/fivews"/>
-    <name value="FiveWs Pattern Mapping"/>
-  </mapping>
-  <mapping>
-    <identity value="sct-attr"/>
-    <uri value="http://snomed.org/attributebinding"/>
-    <name value="SNOMED CT Attribute Binding"/>
-  </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
-  <type value="Observation"/>
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+  <type value="Measure"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Measure">
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-codegen-super">
+      <valueString value="MetadataResource"/>
+    </extension>
+  </baseDefinition>
   <derivation value="constraint"/>
   <snapshot>
-    <element id="Observation:del-StandardFormQuestion">
-      <path value="Observation"/>
+    <element id="Measure:del-StandardFormQuestion">
+      <path value="Measure"/>
       <short value="del-StandardFormQuestion"/>
       <definition value="A definition of a standard form question."/>
-      <comment value="Used for simple observations such as device measurements, laboratory atomic results, vital signs, height, weight, smoking status, comments, etc.  Other resources are used to provide context for observations such as laboratory reports, etc."/>
-      <alias value="Vital Signs"/>
-      <alias value="Measurement"/>
-      <alias value="Results"/>
-      <alias value="Tests"/>
       <min value="0"/>
       <max value="*"/>
       <base>
-        <path value="Observation"/>
+        <path value="Measure"/>
         <min value="0"/>
         <max value="*"/>
       </base>
@@ -131,18 +120,18 @@
         <source value="DomainResource"/>
       </constraint>
       <constraint>
-        <key value="obs-7"/>
+        <key value="mea-1"/>
         <severity value="error"/>
-        <human value="If Observation.code is the same as an Observation.component.code then the value element associated with the code SHALL NOT be present"/>
-        <expression value="value.empty() or component.code.where( (coding.code = %resource.code.coding.code) and (coding.system = %resource.code.coding.system)).empty()"/>
-        <xpath value="not(f:*[starts-with(local-name(.), &#39;value&#39;)] and (for $coding in f:code/f:coding return f:component/f:code/f:coding[f:code/@value=$coding/f:code/@value] [f:system/@value=$coding/f:system/@value]))"/>
+        <human value="Stratifier SHALL be either a single criteria or a set of criteria components"/>
+        <expression value="group.stratifier.all((code | description | criteria).exists() xor component.exists())"/>
+        <xpath value="exists(f:group/stratifier/code) or exists(f:group/stratifier/component)"/>
       </constraint>
       <constraint>
-        <key value="obs-6"/>
-        <severity value="error"/>
-        <human value="dataAbsentReason SHALL only be present if Observation.value[x] is not present"/>
-        <expression value="dataAbsentReason.empty() or value.empty()"/>
-        <xpath value="not(exists(f:dataAbsentReason)) or (not(exists(*[starts-with(local-name(.), &#39;value&#39;)])))"/>
+        <key value="mea-0"/>
+        <severity value="warning"/>
+        <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
+        <expression value="name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
       </constraint>
       <isModifier value="false"/>
       <isSummary value="false"/>
@@ -152,23 +141,11 @@
       </mapping>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event"/>
-      </mapping>
-      <mapping>
-        <identity value="sct-concept"/>
-        <map value="&lt; 363787002 |Observable entity|"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="OBX"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="Observation[classCode=OBS, moodCode=EVN]"/>
+        <map value="Definition"/>
       </mapping>
     </element>
-    <element id="Observation:del-StandardFormQuestion.id">
-      <path value="Observation.id"/>
+    <element id="Measure:del-StandardFormQuestion.id">
+      <path value="Measure.id"/>
       <short value="Logical id of this artifact"/>
       <definition value="The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes."/>
       <comment value="The only time that a resource does not have an id is when it is being submitted to the server using a create operation."/>
@@ -185,8 +162,8 @@
       <isModifier value="false"/>
       <isSummary value="true"/>
     </element>
-    <element id="Observation:del-StandardFormQuestion.meta">
-      <path value="Observation.meta"/>
+    <element id="Measure:del-StandardFormQuestion.meta">
+      <path value="Measure.meta"/>
       <short value="Metadata about the resource"/>
       <definition value="The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource."/>
       <min value="0"/>
@@ -202,8 +179,8 @@
       <isModifier value="false"/>
       <isSummary value="true"/>
     </element>
-    <element id="Observation:del-StandardFormQuestion.implicitRules">
-      <path value="Observation.implicitRules"/>
+    <element id="Measure:del-StandardFormQuestion.implicitRules">
+      <path value="Measure.implicitRules"/>
       <short value="A set of rules under which this content was created"/>
       <definition value="A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc."/>
       <comment value="Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of it&#39;s narrative along with other profiles, value sets, etc."/>
@@ -221,8 +198,8 @@
       <isModifierReason value="This element is labeled as a modifier because the implicit rules may provide additional knowledge about the resource that modifies it&#39;s meaning or interpretation"/>
       <isSummary value="true"/>
     </element>
-    <element id="Observation:del-StandardFormQuestion.language">
-      <path value="Observation.language"/>
+    <element id="Measure:del-StandardFormQuestion.language">
+      <path value="Measure.language"/>
       <short value="Language of the resource content"/>
       <definition value="The base language in which the resource is written."/>
       <comment value="Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute)."/>
@@ -253,8 +230,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
       </binding>
     </element>
-    <element id="Observation:del-StandardFormQuestion.text">
-      <path value="Observation.text"/>
+    <element id="Measure:del-StandardFormQuestion.text">
+      <path value="Measure.text"/>
       <short value="Text summary of the resource, for human interpretation"/>
       <definition value="A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety."/>
       <comment value="Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative. In some cases, a resource may only have text with little or no additional discrete data (as long as all minOccurs=1 elements are satisfied).  This may be necessary for data from legacy systems where information is captured as a &quot;text blob&quot; or where text is additionally entered raw or narrated and encoded information is added later."/>
@@ -279,8 +256,8 @@
         <map value="Act.text?"/>
       </mapping>
     </element>
-    <element id="Observation:del-StandardFormQuestion.contained">
-      <path value="Observation.contained"/>
+    <element id="Measure:del-StandardFormQuestion.contained">
+      <path value="Measure.contained"/>
       <short value="Contained, inline Resources"/>
       <definition value="These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope."/>
       <comment value="This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again. Contained resources may have profiles and tags In their meta elements, but SHALL NOT have security labels."/>
@@ -304,8 +281,8 @@
         <map value="N/A"/>
       </mapping>
     </element>
-    <element id="Observation:del-StandardFormQuestion.extension">
-      <path value="Observation.extension"/>
+    <element id="Measure:del-StandardFormQuestion.extension">
+      <path value="Measure.extension"/>
       <short value="Additional content defined by implementations"/>
       <definition value="May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
       <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
@@ -328,8 +305,8 @@
         <map value="N/A"/>
       </mapping>
     </element>
-    <element id="Observation:del-StandardFormQuestion.modifierExtension">
-      <path value="Observation.modifierExtension"/>
+    <element id="Measure:del-StandardFormQuestion.modifierExtension">
+      <path value="Measure.modifierExtension"/>
       <short value="Extensions that cannot be ignored"/>
       <definition value="May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element&#39;s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.&#xA;&#xA;Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)."/>
       <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
@@ -354,15 +331,43 @@
         <map value="N/A"/>
       </mapping>
     </element>
-    <element id="Observation:del-StandardFormQuestion.identifier">
-      <path value="Observation.identifier"/>
-      <short value="Business Identifier for observation"/>
-      <definition value="A unique identifier assigned to this observation."/>
-      <requirements value="Allows observations to be distinguished and referenced."/>
-      <min value="1"/>
+    <element id="Measure:del-StandardFormQuestion.url">
+      <path value="Measure.url"/>
+      <short value="Canonical identifier for this measure, represented as a URI (globally unique)"/>
+      <definition value="An absolute URI that is used to identify this measure when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this measure is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the measure is stored on different servers."/>
+      <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
+      <requirements value="Allows the measure to be referenced by a single globally unique identifier."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Measure.url"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="uri"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.url"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.identifier">
+      <path value="Measure.identifier"/>
+      <short value="Additional identifier for the measure"/>
+      <definition value="A formal identifier that is used to identify this measure when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
+      <comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this measure outside of FHIR, where it is not possible to use the logical URI."/>
+      <requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
+      <min value="0"/>
       <max value="*"/>
       <base>
-        <path value="Observation.identifier"/>
+        <path value="Measure.identifier"/>
         <min value="0"/>
         <max value="*"/>
       </base>
@@ -373,108 +378,111 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.identifier"/>
+        <map value="Definition.identifier"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.identifier"/>
       </mapping>
       <mapping>
-        <identity value="v2"/>
-        <map value="OBX.21  For OBX segments from systems without OBX-21 support a combination of ORC/OBR and OBX must be negotiated between trading partners to uniquely identify the OBX segment. Depending on how V2 has been implemented each of these may be an option: 1) OBR-3 + OBX-3 + OBX-4 or 2) OBR-3 + OBR-4 + OBX-3 + OBX-4 or 2) some other way to uniquely ID the OBR/ORC + OBX-3 + OBX-4."/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="id"/>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
       </mapping>
     </element>
-    <element id="Observation:del-StandardFormQuestion.basedOn">
-      <path value="Observation.basedOn"/>
-      <short value="Fulfills plan, proposal or order"/>
-      <definition value="A plan, proposal or order that is fulfilled in whole or in part by this event.  For example, a MedicationRequest may require a patient to have laboratory test performed before  it is dispensed."/>
-      <requirements value="Allows tracing of authorization for the event and tracking whether proposals/recommendations were acted upon."/>
-      <alias value="Fulfills"/>
+    <element id="Measure:del-StandardFormQuestion.version">
+      <path value="Measure.version"/>
+      <short value="Business version of the measure"/>
+      <definition value="The identifier that is used to identify this version of the measure when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the measure author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts."/>
+      <comment value="There may be different measure instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the measure with the format [url]|[version]."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <base>
-        <path value="Observation.basedOn"/>
+        <path value="Measure.version"/>
         <min value="0"/>
-        <max value="*"/>
+        <max value="1"/>
       </base>
       <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+        <code value="string"/>
       </type>
       <isModifier value="false"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.basedOn"/>
+        <map value="Definition.version"/>
       </mapping>
       <mapping>
-        <identity value="v2"/>
-        <map value="ORC"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=COMP].source[moodCode=EVN]"/>
+        <identity value="w5"/>
+        <map value="FiveWs.version"/>
       </mapping>
     </element>
-    <element id="Observation:del-StandardFormQuestion.partOf">
-      <path value="Observation.partOf"/>
-      <short value="Part of referenced event"/>
-      <definition value="A larger event of which this particular Observation is a component or step.  For example,  an observation as part of a procedure."/>
-      <comment value="To link an Observation to an Encounter use `encounter`.  See the  [Notes](observation.html#obsgrouping) below for guidance on referencing another Observation."/>
-      <alias value="Container"/>
-      <min value="0"/>
-      <max value="*"/>
-      <base>
-        <path value="Observation.partOf"/>
-        <min value="0"/>
-        <max value="*"/>
-      </base>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationAdministration"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationDispense"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationStatement"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Immunization"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImagingStudy"/>
-      </type>
-      <isModifier value="false"/>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.partOf"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="Varies by domain"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=FLFS].target"/>
-      </mapping>
-    </element>
-    <element id="Observation:del-StandardFormQuestion.status">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint">
-        <valueString value="default: final"/>
-      </extension>
-      <path value="Observation.status"/>
-      <short value="registered | preliminary | final | amended +"/>
-      <definition value="The status of the result value."/>
-      <comment value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
-      <requirements value="Need to track the status of individual results. Some results are finalized before the whole report is finalized."/>
+    <element id="Measure:del-StandardFormQuestion.name">
+      <path value="Measure.name"/>
+      <short value="Name for this measure (computer friendly)"/>
+      <definition value="A natural language name identifying the measure. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
+      <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
+      <requirements value="Support human navigation and code generation."/>
       <min value="1"/>
       <max value="1"/>
       <base>
-        <path value="Observation.status"/>
+        <path value="Measure.name"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <condition value="inv-0"/>
+      <isModifier value="false"/>
+      <isSummary value="true"/>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.title">
+      <path value="Measure.title"/>
+      <short value="Name for this measure (human friendly)"/>
+      <definition value="A short, descriptive, user-friendly title for the measure."/>
+      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="Measure.title"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.title"/>
+      </mapping>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.subtitle">
+      <path value="Measure.subtitle"/>
+      <short value="Subordinate title of the measure"/>
+      <definition value="An explanatory or alternate title for the measure giving additional information about its content."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Measure.subtitle"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.status">
+      <path value="Measure.status"/>
+      <short value="draft | active | retired | unknown"/>
+      <definition value="The status of this measure. Enables tracking the life-cycle of the content."/>
+      <comment value="Allows filtering of measures that are appropriate for use versus not."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="Measure.status"/>
         <min value="1"/>
         <max value="1"/>
       </base>
@@ -482,470 +490,404 @@
         <code value="code"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="This element is labeled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ObservationStatus"/>
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
         </extension>
         <strength value="required"/>
-        <description value="Codes providing the status of an observation."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/observation-status|4.0.0"/>
+        <description value="The lifecycle status of an artifact."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|4.0.0"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.status"/>
+        <map value="Definition.status"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.status"/>
       </mapping>
-      <mapping>
-        <identity value="sct-concept"/>
-        <map value="&lt; 445584004 |Report by finality status|"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="OBX-11"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="status  Amended &amp; Final are differentiated by whether it is the subject of a ControlAct event with a type of &quot;revise&quot;"/>
-      </mapping>
     </element>
-    <element id="Observation:del-StandardFormQuestion.category">
-      <path value="Observation.category"/>
-      <short value="Classification of  type of observation"/>
-      <definition value="A code that classifies the general type of observation being made."/>
-      <comment value="In addition to the required category valueset, this element allows various categorization schemes based on the owner&#x2019;s definition of the category and effectively multiple categories can be used at once.  The level of granularity is defined by the category concepts in the value set."/>
-      <requirements value="Used for filtering what observations are retrieved and displayed."/>
+    <element id="Measure:del-StandardFormQuestion.experimental">
+      <path value="Measure.experimental"/>
+      <short value="For testing purposes, not real usage"/>
+      <definition value="A Boolean value to indicate that this measure is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
+      <comment value="Allows filtering of measures that are appropriate for use versus not."/>
+      <requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level measure."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <base>
-        <path value="Observation.category"/>
+        <path value="Measure.experimental"/>
         <min value="0"/>
-        <max value="*"/>
+        <max value="1"/>
       </base>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="boolean"/>
       </type>
       <isModifier value="false"/>
-      <isSummary value="false"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ObservationCategory"/>
-        </extension>
-        <strength value="preferred"/>
-        <description value="Codes for high level observation categories."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/observation-category"/>
-      </binding>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.experimental"/>
+      </mapping>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.class"/>
       </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=&quot;COMP].target[classCode=&quot;LIST&quot;, moodCode=&quot;EVN&quot;].code"/>
-      </mapping>
     </element>
-    <element id="Observation:del-StandardFormQuestion.code">
-      <path value="Observation.code"/>
-      <short value="Type of observation (code / type)"/>
-      <definition value="Describes what was observed. Sometimes this is called the observation &quot;name&quot;."/>
-      <comment value="*All* code-value and, if present, component.code-component.value pairs need to be taken into account to correctly understand the meaning of the observation."/>
-      <requirements value="Knowing what kind of observation is being made is essential to understanding the observation."/>
-      <alias value="Name"/>
-      <min value="1"/>
+    <element id="Measure:del-StandardFormQuestion.subject[x]">
+      <path value="Measure.subject[x]"/>
+      <short value="E.g. Patient, Practitioner, RelatedPerson, Organization, Location, Device"/>
+      <definition value="The intended subjects for the measure. If this element is not provided, a Patient subject is assumed, but the subject of the measure can be anything."/>
+      <comment value="The subject of the measure is critical in interpreting the criteria definitions, as the logic in the measures is evaluated with respect to a particular subject. This corresponds roughly to the notion of a Compartment in that it limits what content is available based on its relationship to the subject. In CQL, this corresponds to the context declaration."/>
+      <min value="0"/>
       <max value="1"/>
       <base>
-        <path value="Observation.code"/>
-        <min value="1"/>
+        <path value="Measure.subject[x]"/>
+        <min value="0"/>
         <max value="1"/>
       </base>
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+      </type>
+      <meaningWhenMissing value="Patient"/>
       <isModifier value="false"/>
-      <isSummary value="true"/>
+      <isSummary value="false"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ObservationCode"/>
+          <valueString value="SubjectType"/>
         </extension>
-        <strength value="example"/>
-        <description value="Codes identifying names of simple observations."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/observation-codes"/>
+        <strength value="extensible"/>
+        <description value="The possible types of subjects for a measure (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/subject-type"/>
       </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.code"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.what[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="sct-concept"/>
-        <map value="&lt; 363787002 |Observable entity| OR &lt; 386053000 |Evaluation procedure|"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="OBX-3"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="code"/>
-      </mapping>
-      <mapping>
-        <identity value="sct-attr"/>
-        <map value="116680003 |Is a|"/>
-      </mapping>
     </element>
-    <element id="Observation:del-StandardFormQuestion.subject">
-      <path value="Observation.subject"/>
-      <short value="Who and/or what the observation is about"/>
-      <definition value="The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation."/>
-      <comment value="One would expect this element to be a cardinality of 1..1. The only circumstance in which the subject can be missing is when the observation is made by a device that does not know the patient. In this case, the observation SHALL be matched to a patient through some context/channel matching technique, and at this point, the observation should be updated."/>
-      <requirements value="Observations have no value if you don&#39;t know who or what they&#39;re about."/>
+    <element id="Measure:del-StandardFormQuestion.date">
+      <path value="Measure.date"/>
+      <short value="Date last changed"/>
+      <definition value="The date  (and optionally time) when the measure was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the measure changes."/>
+      <comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the measure. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+      <alias value="Revision Date"/>
       <min value="0"/>
       <max value="1"/>
       <base>
-        <path value="Observation.subject"/>
-        <min value="0"/>
-        <max value="1"/>
-      </base>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
-      </type>
-      <isModifier value="false"/>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.subject"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="PID-3"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="participation[typeCode=RTGT]"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
-      </mapping>
-    </element>
-    <element id="Observation:del-StandardFormQuestion.focus">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
-      <path value="Observation.focus"/>
-      <short value="What the observation is about, when it is not about the subject of record"/>
-      <definition value="The actual focus of an observation when it is not the patient of record representing something or someone associated with the patient such as a spouse, parent, fetus, or donor. For example, fetus observations in a mother&#39;s record.  The focus of an observation could also be an existing condition,  an intervention, the subject&#39;s diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child&#39;s tracheostomy tube. In this example, the child is the patient of record and the mother is the focus."/>
-      <comment value="Typically, an observation is made about the subject - a patient, or group of patients, location, or device - and the distinction between the subject and what is directly measured for an observation is specified in the observation code itself ( e.g., &quot;Blood Glucose&quot;) and does not need to be represented separately using this element.  Use `specimen` if a reference to a specimen is required.  If a code is required instead of a resource use either  `bodysite` for bodysites or the standard extension [focusCode](extension-observation-focuscode.html)."/>
-      <min value="0"/>
-      <max value="*"/>
-      <base>
-        <path value="Observation.focus"/>
-        <min value="0"/>
-        <max value="*"/>
-      </base>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-      </type>
-      <isModifier value="false"/>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="OBX-3"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="participation[typeCode=SBJ]"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
-      </mapping>
-    </element>
-    <element id="Observation:del-StandardFormQuestion.encounter">
-      <path value="Observation.encounter"/>
-      <short value="Healthcare event during which this observation is made"/>
-      <definition value="The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made."/>
-      <comment value="This will typically be the encounter the event occurred within, but some events may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission laboratory tests)."/>
-      <requirements value="For some observations it may be important to know the link between an observation and a particular encounter."/>
-      <alias value="Context"/>
-      <min value="0"/>
-      <max value="1"/>
-      <base>
-        <path value="Observation.encounter"/>
-        <min value="0"/>
-        <max value="1"/>
-      </base>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
-      </type>
-      <isModifier value="false"/>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.context"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.context"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="PV1"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]"/>
-      </mapping>
-    </element>
-    <element id="Observation:del-StandardFormQuestion.effective[x]">
-      <path value="Observation.effective[x]"/>
-      <short value="Clinically relevant time/time-period for observation"/>
-      <definition value="The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the &quot;physiologically relevant time&quot;. This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself."/>
-      <comment value="At least a date should be present unless this observation is a historical report.  For recording imprecise or &quot;fuzzy&quot; times (For example, a blood glucose measurement taken &quot;after breakfast&quot;) use the [Timing](datatypes.html#timing) datatype which allow the measurement to be tied to regular life events."/>
-      <requirements value="Knowing when an observation was deemed true is important to its relevance as well as determining trends."/>
-      <alias value="Occurrence"/>
-      <min value="0"/>
-      <max value="1"/>
-      <base>
-        <path value="Observation.effective[x]"/>
+        <path value="Measure.date"/>
         <min value="0"/>
         <max value="1"/>
       </base>
       <type>
         <code value="dateTime"/>
       </type>
-      <type>
-        <code value="Period"/>
-      </type>
-      <type>
-        <code value="Timing"/>
-      </type>
-      <type>
-        <code value="instant"/>
-      </type>
       <isModifier value="false"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.occurrence[x]"/>
+        <map value="Definition.date"/>
       </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.done[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="OBX-14, and/or OBX-19 after v2.4  (depends on who observation made)"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="effectiveTime"/>
-      </mapping>
-    </element>
-    <element id="Observation:del-StandardFormQuestion.issued">
-      <path value="Observation.issued"/>
-      <short value="Date/Time this version was made available"/>
-      <definition value="The date and time this version of the observation was made available to providers, typically after the results have been reviewed and verified."/>
-      <comment value="For Observations that don&#x2019;t require review and verification, it may be the same as the [`lastUpdated` ](resource-definitions.html#Meta.lastUpdated) time of the resource itself.  For Observations that do require review and verification for certain updates, it might not be the same as the `lastUpdated` time of the resource itself due to a non-clinically significant update that doesn&#x2019;t require the new version to be reviewed and verified again."/>
-      <min value="0"/>
-      <max value="1"/>
-      <base>
-        <path value="Observation.issued"/>
-        <min value="0"/>
-        <max value="1"/>
-      </base>
-      <type>
-        <code value="instant"/>
-      </type>
-      <isModifier value="false"/>
-      <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.recorded"/>
       </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="OBR.22 (or MSH.7), or perhaps OBX-19 (depends on who observation made)"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="participation[typeCode=AUT].time"/>
-      </mapping>
     </element>
-    <element id="Observation:del-StandardFormQuestion.performer">
-      <path value="Observation.performer"/>
-      <short value="Who is responsible for the observation"/>
-      <definition value="Who was responsible for asserting the observed value as &quot;true&quot;."/>
-      <requirements value="May give a degree of confidence in the observation and also indicates where follow-up questions should be directed."/>
+    <element id="Measure:del-StandardFormQuestion.publisher">
+      <path value="Measure.publisher"/>
+      <short value="Name of the publisher (organization or individual)"/>
+      <definition value="The name of the organization or individual that published the measure."/>
+      <comment value="Usually an organization but may be an individual. The publisher (or steward) of the measure is the organization or individual primarily responsible for the maintenance and upkeep of the measure. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the measure. This item SHOULD be populated unless the information is available from context."/>
+      <requirements value="Helps establish the &quot;authority/credibility&quot; of the measure.  May also allow for contact."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <base>
-        <path value="Observation.performer"/>
+        <path value="Measure.publisher"/>
         <min value="0"/>
-        <max value="*"/>
+        <max value="1"/>
       </base>
       <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <code value="string"/>
       </type>
       <isModifier value="false"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.performer.actor"/>
+        <map value="Definition.publisher"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.actor"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="OBX.15 / (Practitioner)  OBX-16,  PRT-5:PRT-4=&#39;RO&#39; /  (Device)  OBX-18 , PRT-10:PRT-4=&#39;EQUIP&#39; / (Organization)  OBX-23,  PRT-8:PRT-4=&#39;PO&#39;"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="participation[typeCode=PRF]"/>
+        <map value="FiveWs.witness"/>
       </mapping>
     </element>
-    <element id="Observation:del-StandardFormQuestion.value[x]">
-      <path value="Observation.value[x]"/>
-      <short value="Actual result"/>
-      <definition value="The information determined as a result of making the observation, if the information has a simple value."/>
-      <comment value="An observation may have; 1)  a single value here, 2)  both a value and a set of related or component values,  or 3)  only a set of related or component values. If a value is present, the datatype for this element should be determined by Observation.code.  A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.  For additional guidance, see the [Notes section](observation.html#notes) below."/>
-      <requirements value="An observation exists to have a value, though it might not if it is in error, or if it represents a group of observations."/>
+    <element id="Measure:del-StandardFormQuestion.contact">
+      <path value="Measure.contact"/>
+      <short value="Contact details for the publisher"/>
+      <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
+      <comment value="May be a web site, an email address, a telephone number, etc."/>
       <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Measure.contact"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.contact"/>
+      </mapping>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.description">
+      <path value="Measure.description"/>
+      <short value="Natural language description of the measure"/>
+      <definition value="A free text natural language description of the measure from a consumer&#39;s perspective."/>
+      <comment value="This description can be used to capture details such as why the measure was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the measure as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the measure is presumed to be the predominant language in the place the measure was created)."/>
+      <min value="1"/>
       <max value="1"/>
       <base>
-        <path value="Observation.value[x]"/>
+        <path value="Measure.description"/>
         <min value="0"/>
         <max value="1"/>
       </base>
       <type>
-        <code value="Quantity"/>
+        <code value="markdown"/>
       </type>
+      <isModifier value="false"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.description"/>
+      </mapping>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.useContext">
+      <path value="Measure.useContext"/>
+      <short value="The context that the content is intended to support"/>
+      <definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate measure instances."/>
+      <comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
+      <requirements value="Assist in searching for appropriate content."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Measure.useContext"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="UsageContext"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.useContext"/>
+      </mapping>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.jurisdiction">
+      <path value="Measure.jurisdiction"/>
+      <short value="Intended jurisdiction for measure (if applicable)"/>
+      <definition value="A legal or geographic region in which the measure is intended to be used."/>
+      <comment value="It may be possible for the measure to be used in jurisdictions other than those for which it was originally designed or intended."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Measure.jurisdiction"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <isModifier value="false"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Jurisdiction"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Countries and regions within which this artifact is targeted for use."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.jurisdiction"/>
+      </mapping>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.purpose">
+      <path value="Measure.purpose"/>
+      <short value="Why this measure is defined"/>
+      <definition value="Explanation of why this measure is needed and why it has been designed as it has."/>
+      <comment value="This element does not describe the usage of the measure. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this measure."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Measure.purpose"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.purpose"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.why[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.usage">
+      <path value="Measure.usage"/>
+      <short value="Describes the clinical usage of the measure"/>
+      <definition value="A detailed description, from a clinical perspective, of how the measure is used."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Measure.usage"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
       <type>
         <code value="string"/>
       </type>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.copyright">
+      <path value="Measure.copyright"/>
+      <short value="Use and/or publishing restrictions"/>
+      <definition value="A copyright statement relating to the measure and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the measure."/>
+      <requirements value="Consumers must be able to determine any legal restrictions on the use of the measure and/or its content."/>
+      <alias value="License"/>
+      <alias value="Restrictions"/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Measure.copyright"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
       <type>
-        <code value="boolean"/>
+        <code value="markdown"/>
       </type>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.copyright"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.approvalDate">
+      <path value="Measure.approvalDate"/>
+      <short value="When the measure was approved by publisher"/>
+      <definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
+      <comment value="The &#39;date&#39; element may be more recent than the approval date because of minor changes or editorial corrections."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Measure.approvalDate"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
       <type>
-        <code value="integer"/>
+        <code value="date"/>
       </type>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.approvalDate"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.lastReviewDate">
+      <path value="Measure.lastReviewDate"/>
+      <short value="When the measure was last reviewed"/>
+      <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
+      <comment value="If specified, this date follows the original approval date."/>
+      <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Measure.lastReviewDate"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
       <type>
-        <code value="Range"/>
+        <code value="date"/>
       </type>
-      <type>
-        <code value="Ratio"/>
-      </type>
-      <type>
-        <code value="SampledData"/>
-      </type>
-      <type>
-        <code value="time"/>
-      </type>
-      <type>
-        <code value="dateTime"/>
-      </type>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.lastReviewDate"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.effectivePeriod">
+      <path value="Measure.effectivePeriod"/>
+      <short value="When the measure is expected to be used"/>
+      <definition value="The period during which the measure content was or is planned to be in active use."/>
+      <comment value="The effective period for a measure  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015."/>
+      <requirements value="Allows establishing a transition before a resource comes into effect and also allows for a sunsetting  process when new versions of the measure are or are expected to be used instead."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Measure.effectivePeriod"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
       <type>
         <code value="Period"/>
       </type>
-      <condition value="obs-7"/>
       <isModifier value="false"/>
       <isSummary value="true"/>
       <mapping>
-        <identity value="sct-concept"/>
-        <map value="&lt; 441742003 |Evaluation finding|"/>
+        <identity value="workflow"/>
+        <map value="Definition.effectivePeriod"/>
       </mapping>
       <mapping>
-        <identity value="v2"/>
-        <map value="OBX.2, OBX.5, OBX.6"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="value"/>
-      </mapping>
-      <mapping>
-        <identity value="sct-attr"/>
-        <map value="363714003 |Interprets|"/>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
       </mapping>
     </element>
-    <element id="Observation:del-StandardFormQuestion.dataAbsentReason">
-      <path value="Observation.dataAbsentReason"/>
-      <short value="Why the result is missing"/>
-      <definition value="Provides a reason why the expected value in the element Observation.value[x] is missing."/>
-      <comment value="Null or exceptional values can be represented two ways in FHIR Observations.  One way is to simply include them in the value set and represent the exceptions in the value.  For example, measurement values for a serology test could be  &quot;detected&quot;, &quot;not detected&quot;, &quot;inconclusive&quot;, or  &quot;specimen unsatisfactory&quot;.   &#xA;&#xA;The alternate way is to use the value element for actual observations and use the explicit dataAbsentReason element to record exceptional values.  For example, the dataAbsentReason code &quot;error&quot; could be used when the measurement was not completed. Note that an observation may only be reported if there are values to report. For example differential cell counts values may be reported only when &gt; 0.  Because of these options, use-case agreements are required to interpret general observations for null or exceptional values."/>
-      <requirements value="For many results it is necessary to handle exceptional values in measurements."/>
-      <min value="0"/>
-      <max value="1"/>
-      <base>
-        <path value="Observation.dataAbsentReason"/>
-        <min value="0"/>
-        <max value="1"/>
-      </base>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <condition value="obs-6"/>
-      <isModifier value="false"/>
-      <isSummary value="false"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ObservationValueAbsentReason"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="Codes specifying why the result (`Observation.value[x]`) is missing."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/data-absent-reason"/>
-      </binding>
-      <mapping>
-        <identity value="v2"/>
-        <map value="N/A"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="value.nullFlavor"/>
-      </mapping>
-    </element>
-    <element id="Observation:del-StandardFormQuestion.interpretation">
-      <path value="Observation.interpretation"/>
-      <short value="High, low, normal, etc."/>
-      <definition value="A categorical assessment of an observation value.  For example, high, low, normal."/>
-      <comment value="Historically used for laboratory results (known as &#39;abnormal flag&#39; ),  its use extends to other use cases where coded interpretations  are relevant.  Often reported as one or more simple compact codes this element is often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result."/>
-      <requirements value="For some results, particularly numeric results, an interpretation is necessary to fully understand the significance of a result."/>
-      <alias value="Abnormal Flag"/>
+    <element id="Measure:del-StandardFormQuestion.topic">
+      <path value="Measure.topic"/>
+      <short value="The category of the measure, such as Education, Treatment, Assessment, etc."/>
+      <definition value="Descriptive topics related to the content of the measure. Topics provide a high-level categorization grouping types of measures that can be useful for filtering and searching."/>
+      <requirements value="Repositories must be able to determine how to categorize the measure so that it can be found by topical searches."/>
       <min value="0"/>
       <max value="*"/>
       <base>
-        <path value="Observation.interpretation"/>
+        <path value="Measure.topic"/>
         <min value="0"/>
         <max value="*"/>
       </base>
@@ -956,214 +898,364 @@
       <isSummary value="false"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ObservationInterpretation"/>
+          <valueString value="DefinitionTopic"/>
         </extension>
-        <strength value="extensible"/>
-        <description value="Codes identifying interpretations of observations."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/observation-interpretation"/>
+        <strength value="example"/>
+        <description value="High-level categorization of the definition, used for searching, sorting, and filtering."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/definition-topic"/>
       </binding>
-      <mapping>
-        <identity value="sct-concept"/>
-        <map value="&lt; 260245000 |Findings values|"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="OBX-8"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="interpretationCode"/>
-      </mapping>
-      <mapping>
-        <identity value="sct-attr"/>
-        <map value="363713009 |Has interpretation|"/>
-      </mapping>
     </element>
-    <element id="Observation:del-StandardFormQuestion.note">
-      <path value="Observation.note"/>
-      <short value="Comments about the observation"/>
-      <definition value="Comments about the observation or the results."/>
-      <comment value="May include general statements about the observation, or statements about significant, unexpected or unreliable results values, or information about its source when relevant to its interpretation."/>
-      <requirements value="Need to be able to provide free text additional information."/>
-      <min value="1"/>
+    <element id="Measure:del-StandardFormQuestion.author">
+      <path value="Measure.author"/>
+      <short value="Who authored the content"/>
+      <definition value="An individiual or organization primarily involved in the creation and maintenance of the content."/>
+      <min value="0"/>
       <max value="*"/>
       <base>
-        <path value="Observation.note"/>
+        <path value="Measure.author"/>
         <min value="0"/>
         <max value="*"/>
       </base>
       <type>
-        <code value="Annotation"/>
+        <code value="ContactDetail"/>
       </type>
       <isModifier value="false"/>
       <isSummary value="false"/>
       <mapping>
-        <identity value="v2"/>
-        <map value="NTE.3 (partner NTE to OBX, or sometimes another (child?) OBX)"/>
-      </mapping>
-      <mapping>
         <identity value="rim"/>
-        <map value="subjectOf.observationEvent[code=&quot;annotation&quot;].value"/>
+        <map value=".participation[typeCode=AUT]"/>
       </mapping>
     </element>
-    <element id="Observation:del-StandardFormQuestion.bodySite">
-      <path value="Observation.bodySite"/>
-      <short value="Observed body part"/>
-      <definition value="Indicates the site on the subject&#39;s body where the observation was made (i.e. the target site)."/>
-      <comment value="Only used if not implicit in code found in Observation.code.  In many systems, this may be represented as a related observation instead of an inline component.   &#xA;&#xA;If the use case requires BodySite to be handled as a separate resource (e.g. to identify and track separately) then use the standard extension[ bodySite](extension-bodysite.html)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <base>
-        <path value="Observation.bodySite"/>
-        <min value="0"/>
-        <max value="1"/>
-      </base>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isModifier value="false"/>
-      <isSummary value="false"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="BodySite"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Codes describing anatomical locations. May include laterality."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/body-site"/>
-      </binding>
-      <mapping>
-        <identity value="sct-concept"/>
-        <map value="&lt; 123037004 |Body structure|"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="OBX-20"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="targetSiteCode"/>
-      </mapping>
-      <mapping>
-        <identity value="sct-attr"/>
-        <map value="718497002 |Inherent location|"/>
-      </mapping>
-    </element>
-    <element id="Observation:del-StandardFormQuestion.method">
-      <path value="Observation.method"/>
-      <short value="How it was done"/>
-      <definition value="Indicates the mechanism used to perform the observation."/>
-      <comment value="Only used if not implicit in code for Observation.code."/>
-      <requirements value="In some cases, method can impact results and is thus used for determining whether results can be compared or determining significance of results."/>
-      <min value="0"/>
-      <max value="1"/>
-      <base>
-        <path value="Observation.method"/>
-        <min value="0"/>
-        <max value="1"/>
-      </base>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isModifier value="false"/>
-      <isSummary value="false"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ObservationMethod"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Methods for simple observations."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/observation-methods"/>
-      </binding>
-      <mapping>
-        <identity value="v2"/>
-        <map value="OBX-17"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="methodCode"/>
-      </mapping>
-    </element>
-    <element id="Observation:del-StandardFormQuestion.specimen">
-      <path value="Observation.specimen"/>
-      <short value="Specimen used for this observation"/>
-      <definition value="The specimen that was used when this observation was made."/>
-      <comment value="Should only be used if not implicit in code found in `Observation.code`.  Observations are not made on specimens themselves; they are made on a subject, but in many cases by the means of a specimen. Note that although specimens are often involved, they are not always tracked and reported explicitly. Also note that observation resources may be used in contexts that track the specimen explicitly (e.g. Diagnostic Report)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <base>
-        <path value="Observation.specimen"/>
-        <min value="0"/>
-        <max value="1"/>
-      </base>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
-      </type>
-      <isModifier value="false"/>
-      <isSummary value="false"/>
-      <mapping>
-        <identity value="sct-concept"/>
-        <map value="&lt; 123038009 |Specimen|"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="SPM segment"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="participation[typeCode=SPC].specimen"/>
-      </mapping>
-      <mapping>
-        <identity value="sct-attr"/>
-        <map value="704319004 |Inherent in|"/>
-      </mapping>
-    </element>
-    <element id="Observation:del-StandardFormQuestion.device">
-      <path value="Observation.device"/>
-      <short value="(Measurement) Device"/>
-      <definition value="The device used to generate the observation data."/>
-      <comment value="Note that this is not meant to represent a device involved in the transmission of the result, e.g., a gateway.  Such devices may be documented using the Provenance resource where relevant."/>
-      <min value="0"/>
-      <max value="1"/>
-      <base>
-        <path value="Observation.device"/>
-        <min value="0"/>
-        <max value="1"/>
-      </base>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceMetric"/>
-      </type>
-      <isModifier value="false"/>
-      <isSummary value="false"/>
-      <mapping>
-        <identity value="sct-concept"/>
-        <map value="&lt; 49062001 |Device|"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="OBX-17 / PRT -10"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="participation[typeCode=DEV]"/>
-      </mapping>
-      <mapping>
-        <identity value="sct-attr"/>
-        <map value="424226004 |Using device|"/>
-      </mapping>
-    </element>
-    <element id="Observation:del-StandardFormQuestion.referenceRange">
-      <path value="Observation.referenceRange"/>
-      <short value="Provides guide for interpretation"/>
-      <definition value="Guidance on how to interpret the value by comparison to a normal or recommended range.  Multiple reference ranges are interpreted as an &quot;OR&quot;.   In other words, to represent two distinct target populations, two `referenceRange` elements would be used."/>
-      <comment value="Most observations only have one generic reference range. Systems MAY choose to restrict to only supplying the relevant reference range based on knowledge about the patient (e.g., specific to the patient&#39;s age, gender, weight and other factors), but this might not be possible or appropriate. Whenever more than one reference range is supplied, the differences between them SHOULD be provided in the reference range and/or age properties."/>
-      <requirements value="Knowing what values are considered &quot;normal&quot; can help evaluate the significance of a particular result. Need to be able to provide multiple reference ranges for different contexts."/>
+    <element id="Measure:del-StandardFormQuestion.editor">
+      <path value="Measure.editor"/>
+      <short value="Who edited the content"/>
+      <definition value="An individual or organization primarily responsible for internal coherence of the content."/>
       <min value="0"/>
       <max value="*"/>
       <base>
-        <path value="Observation.referenceRange"/>
+        <path value="Measure.editor"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.reviewer">
+      <path value="Measure.reviewer"/>
+      <short value="Who reviewed the content"/>
+      <definition value="An individual or organization primarily responsible for review of some aspect of the content."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Measure.reviewer"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=VRF] {not clear whether VRF best corresponds to reviewer or endorser}"/>
+      </mapping>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.endorser">
+      <path value="Measure.endorser"/>
+      <short value="Who endorsed the content"/>
+      <definition value="An individual or organization responsible for officially endorsing the content for use in some setting."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Measure.endorser"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=VRF] {not clear whether VRF best corresponds to reviewer or endorser}"/>
+      </mapping>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.relatedArtifact">
+      <path value="Measure.relatedArtifact"/>
+      <short value="Additional documentation, citations, etc."/>
+      <definition value="Related artifacts such as additional documentation, justification, or bibliographic references."/>
+      <comment value="Each related artifact is either an attachment, or a reference to another resource, but not both."/>
+      <requirements value="Measures must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Measure.relatedArtifact"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="RelatedArtifact"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.library">
+      <path value="Measure.library"/>
+      <short value="Logic used by the measure"/>
+      <definition value="A reference to a Library resource containing the formal logic used by the measure."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Measure.library"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Library"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.disclaimer">
+      <path value="Measure.disclaimer"/>
+      <short value="Disclaimer for use of the measure or its referenced content"/>
+      <definition value="Notices and disclaimers regarding the use of the measure or related to intellectual property (such as code systems) referenced by the measure."/>
+      <requirements value="Some organizations require that notices and disclosures be included when publishing measures that reference their intellecutal property."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Measure.disclaimer"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="true"/>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.scoring">
+      <path value="Measure.scoring"/>
+      <short value="proportion | ratio | continuous-variable | cohort"/>
+      <definition value="Indicates how the calculation is performed for the measure, including proportion, ratio, continuous-variable, and cohort. The value set is extensible, allowing additional measure scoring types to be represented."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Measure.scoring"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MeasureScoring"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="The scoring type of the measure."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/measure-scoring"/>
+      </binding>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.compositeScoring">
+      <path value="Measure.compositeScoring"/>
+      <short value="opportunity | all-or-nothing | linear | weighted"/>
+      <definition value="If this is a composite measure, the scoring method used to combine the component measures to determine the composite score."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Measure.compositeScoring"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CompositeMeasureScoring"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="The composite scoring method of the measure."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/composite-measure-scoring"/>
+      </binding>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.type">
+      <path value="Measure.type"/>
+      <short value="process | outcome | structure | patient-reported-outcome | composite"/>
+      <definition value="Indicates whether the measure is used to examine a process, an outcome over time, a patient-reported outcome, or a structure measure such as utilization."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Measure.type"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MeasureType"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="The type of measure (includes codes from 2.16.840.1.113883.1.11.20368)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/measure-type"/>
+      </binding>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.riskAdjustment">
+      <path value="Measure.riskAdjustment"/>
+      <short value="How risk adjustment is applied for this measure"/>
+      <definition value="A description of the risk adjustment factors that may impact the resulting score for the measure and how they may be accounted for when computing and reporting measure results."/>
+      <comment value="Describes the method of adjusting for clinical severity and conditions present at the start of care that can influence patient outcomes for making valid comparisons of outcome measures across providers. Indicates whether a measure is subject to the statistical process for reducing, removing, or clarifying the influences of confounding factors to allow for more useful comparisons."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Measure.riskAdjustment"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="true"/>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.rateAggregation">
+      <path value="Measure.rateAggregation"/>
+      <short value="How is rate aggregation performed for this measure"/>
+      <definition value="Describes how to combine the information calculated, based on logic in each of several populations, into one summarized result."/>
+      <comment value="The measure rate for an organization or clinician is based upon the entities&#x2019; aggregate data and summarizes the performance of the entity over a given time period (e.g., monthly, quarterly, yearly). The aggregated data are derived from the results of a specific measure algorithm and, if appropriate, the application of specific risk adjustment models.  Can also be used to describe how to risk adjust the data based on supplemental data elements described in the eMeasure (e.g., pneumonia hospital measures antibiotic selection in the ICU versus non-ICU and then the roll-up of the two). This could be applied to aggregated cohort measure definitions (e.g., CDC&#39;s aggregate reporting for TB at the state level)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Measure.rateAggregation"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="true"/>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.rationale">
+      <path value="Measure.rationale"/>
+      <short value="Detailed description of why the measure exists"/>
+      <definition value="Provides a succinct statement of the need for the measure. Usually includes statements pertaining to importance criterion: impact, gap in care, and evidence."/>
+      <requirements value="Measure developers need to be able to provide a detailed description of the purpose of the measure. This element provides detailed rationale, where the purpose element provides a summary of the rationale."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Measure.rationale"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="true"/>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.clinicalRecommendationStatement">
+      <path value="Measure.clinicalRecommendationStatement"/>
+      <short value="Summary of clinical guidelines"/>
+      <definition value="Provides a summary of relevant clinical guidelines or other clinical recommendations supporting the measure."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Measure.clinicalRecommendationStatement"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="true"/>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.improvementNotation">
+      <path value="Measure.improvementNotation"/>
+      <short value="increase | decrease"/>
+      <definition value="Information on whether an increase or decrease in score is the preferred result (e.g., a higher score indicates better quality OR a lower score indicates better quality OR quality is within a range)."/>
+      <requirements value="Measure consumers and implementers must be able to determine how to interpret a measure score."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Measure.improvementNotation"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MeasureImprovementNotation"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Observation values that indicate what change in a measurement value or score is indicative of an improvement in the measured item or scored issue."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/measure-improvement-notation|4.0.0"/>
+      </binding>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.definition">
+      <path value="Measure.definition"/>
+      <short value="Defined terms used in the measure documentation"/>
+      <definition value="Provides a description of an individual term used within the measure."/>
+      <requirements value="Measure developers must be able to provide precise definitions of terms used within measure descriptions and guidance to help communicate the intent of the measure."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Measure.definition"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="true"/>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.guidance">
+      <path value="Measure.guidance"/>
+      <short value="Additional guidance for implementers"/>
+      <definition value="Additional guidance for the measure including how it can be used in a clinical context, and the intent of the measure."/>
+      <requirements value="Measure developers must be able to provide additional guidance for implementers to understand the intent with greater specificity than that provided in the population criteria of the measure. This element provides detailed guidance, where the usage element provides a summary of the guidance."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Measure.guidance"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="true"/>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.group">
+      <path value="Measure.group"/>
+      <short value="Population criteria group"/>
+      <definition value="A group of population criteria for the measure."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Measure.group"/>
         <min value="0"/>
         <max value="*"/>
       </base>
@@ -1178,26 +1270,11 @@
         <xpath value="@value|f:*|h:div"/>
         <source value="Element"/>
       </constraint>
-      <constraint>
-        <key value="obs-3"/>
-        <severity value="error"/>
-        <human value="Must have at least a low or a high or text"/>
-        <expression value="low.exists() or high.exists() or text.exists()"/>
-        <xpath value="(exists(f:low) or exists(f:high)or exists(f:text))"/>
-      </constraint>
       <isModifier value="false"/>
       <isSummary value="false"/>
-      <mapping>
-        <identity value="v2"/>
-        <map value="OBX.7"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="outboundRelationship[typeCode=REFV]/target[classCode=OBS, moodCode=EVN]"/>
-      </mapping>
     </element>
-    <element id="Observation:del-StandardFormQuestion.referenceRange.id">
-      <path value="Observation.referenceRange.id"/>
+    <element id="Measure:del-StandardFormQuestion.group.id">
+      <path value="Measure.group.id"/>
       <representation value="xmlAttr"/>
       <short value="Unique id for inter-element referencing"/>
       <definition value="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."/>
@@ -1218,8 +1295,8 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="Observation:del-StandardFormQuestion.referenceRange.extension">
-      <path value="Observation.referenceRange.extension"/>
+    <element id="Measure:del-StandardFormQuestion.group.extension">
+      <path value="Measure.group.extension"/>
       <short value="Additional content defined by implementations"/>
       <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
       <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
@@ -1242,8 +1319,8 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="Observation:del-StandardFormQuestion.referenceRange.modifierExtension">
-      <path value="Observation.referenceRange.modifierExtension"/>
+    <element id="Measure:del-StandardFormQuestion.group.modifierExtension">
+      <path value="Measure.group.modifierExtension"/>
       <short value="Extensions that cannot be ignored even if unrecognized"/>
       <definition value="May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element&#39;s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.&#xA;&#xA;Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)."/>
       <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
@@ -1269,70 +1346,14 @@
         <map value="N/A"/>
       </mapping>
     </element>
-    <element id="Observation:del-StandardFormQuestion.referenceRange.low">
-      <path value="Observation.referenceRange.low"/>
-      <short value="Low Range, if relevant"/>
-      <definition value="The value of the low bound of the reference range.  The low bound of the reference range endpoint is inclusive of the value (e.g.  reference range is &gt;=5 - &lt;=9). If the low bound is omitted,  it is assumed to be meaningless (e.g. reference range is &lt;=2.3)."/>
+    <element id="Measure:del-StandardFormQuestion.group.code">
+      <path value="Measure.group.code"/>
+      <short value="Meaning of the group"/>
+      <definition value="Indicates a meaning for the group. This can be as simple as a unique identifier, or it can establish meaning in a broader context by drawing from a terminology, allowing groups to be correlated across measures."/>
       <min value="0"/>
       <max value="1"/>
       <base>
-        <path value="Observation.referenceRange.low"/>
-        <min value="0"/>
-        <max value="1"/>
-      </base>
-      <type>
-        <code value="Quantity"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
-      </type>
-      <condition value="obs-3"/>
-      <isModifier value="false"/>
-      <isSummary value="false"/>
-      <mapping>
-        <identity value="v2"/>
-        <map value="OBX-7"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="value:IVL_PQ.low"/>
-      </mapping>
-    </element>
-    <element id="Observation:del-StandardFormQuestion.referenceRange.high">
-      <path value="Observation.referenceRange.high"/>
-      <short value="High Range, if relevant"/>
-      <definition value="The value of the high bound of the reference range.  The high bound of the reference range endpoint is inclusive of the value (e.g.  reference range is &gt;=5 - &lt;=9). If the high bound is omitted,  it is assumed to be meaningless (e.g. reference range is &gt;= 2.3)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <base>
-        <path value="Observation.referenceRange.high"/>
-        <min value="0"/>
-        <max value="1"/>
-      </base>
-      <type>
-        <code value="Quantity"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
-      </type>
-      <condition value="obs-3"/>
-      <isModifier value="false"/>
-      <isSummary value="false"/>
-      <mapping>
-        <identity value="v2"/>
-        <map value="OBX-7"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="value:IVL_PQ.high"/>
-      </mapping>
-    </element>
-    <element id="Observation:del-StandardFormQuestion.referenceRange.type">
-      <path value="Observation.referenceRange.type"/>
-      <short value="Reference range qualifier"/>
-      <definition value="Codes to indicate the what part of the targeted reference population it applies to. For example, the normal or therapeutic range."/>
-      <comment value="This SHOULD be populated if there is more than one range.  If this element is not present then the normal range is assumed."/>
-      <requirements value="Need to be able to say what kind of reference range this is - normal, recommended, therapeutic, etc.,  - for proper interpretation."/>
-      <min value="0"/>
-      <max value="1"/>
-      <base>
-        <path value="Observation.referenceRange.type"/>
+        <path value="Measure.group.code"/>
         <min value="0"/>
         <max value="1"/>
       </base>
@@ -1341,96 +1362,15 @@
       </type>
       <isModifier value="false"/>
       <isSummary value="false"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ObservationRangeMeaning"/>
-        </extension>
-        <strength value="preferred"/>
-        <description value="Code for the meaning of a reference range."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/referencerange-meaning"/>
-      </binding>
-      <mapping>
-        <identity value="sct-concept"/>
-        <map value="&lt; 260245000 |Findings values| OR  &#xD;&lt; 365860008 |General clinical state finding| &#xD;OR &#xD;&lt; 250171008 |Clinical history or observation findings| OR  &#xD;&lt; 415229000 |Racial group| OR &#xD;&lt; 365400002 |Finding of puberty stage| OR&#xD;&lt; 443938003 |Procedure carried out on subject|"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="OBX-10"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="interpretationCode"/>
-      </mapping>
     </element>
-    <element id="Observation:del-StandardFormQuestion.referenceRange.appliesTo">
-      <path value="Observation.referenceRange.appliesTo"/>
-      <short value="Reference range population"/>
-      <definition value="Codes to indicate the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex or race.  Multiple `appliesTo`  are interpreted as an &quot;AND&quot; of the target populations.  For example, to represent a target population of African American females, both a code of female and a code for African American would be used."/>
-      <comment value="This SHOULD be populated if there is more than one range.  If this element is not present then the normal population is assumed."/>
-      <requirements value="Need to be able to identify the target population for proper interpretation."/>
-      <min value="0"/>
-      <max value="*"/>
-      <base>
-        <path value="Observation.referenceRange.appliesTo"/>
-        <min value="0"/>
-        <max value="*"/>
-      </base>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isModifier value="false"/>
-      <isSummary value="false"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ObservationRangeType"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Codes identifying the population the reference range applies to."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/referencerange-appliesto"/>
-      </binding>
-      <mapping>
-        <identity value="sct-concept"/>
-        <map value="&lt; 260245000 |Findings values| OR  &#xD;&lt; 365860008 |General clinical state finding| &#xD;OR &#xD;&lt; 250171008 |Clinical history or observation findings| OR  &#xD;&lt; 415229000 |Racial group| OR &#xD;&lt; 365400002 |Finding of puberty stage| OR&#xD;&lt; 443938003 |Procedure carried out on subject|"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="OBX-10"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="interpretationCode"/>
-      </mapping>
-    </element>
-    <element id="Observation:del-StandardFormQuestion.referenceRange.age">
-      <path value="Observation.referenceRange.age"/>
-      <short value="Applicable age range, if relevant"/>
-      <definition value="The age at which this reference range is applicable. This is a neonatal age (e.g. number of weeks at term) if the meaning says so."/>
-      <requirements value="Some analytes vary greatly over age."/>
+    <element id="Measure:del-StandardFormQuestion.group.description">
+      <path value="Measure.group.description"/>
+      <short value="Summary description"/>
+      <definition value="The human readable description of this population group."/>
       <min value="0"/>
       <max value="1"/>
       <base>
-        <path value="Observation.referenceRange.age"/>
-        <min value="0"/>
-        <max value="1"/>
-      </base>
-      <type>
-        <code value="Range"/>
-      </type>
-      <isModifier value="false"/>
-      <isSummary value="false"/>
-      <mapping>
-        <identity value="rim"/>
-        <map value="outboundRelationship[typeCode=PRCN].targetObservationCriterion[code=&quot;age&quot;].value"/>
-      </mapping>
-    </element>
-    <element id="Observation:del-StandardFormQuestion.referenceRange.text">
-      <path value="Observation.referenceRange.text"/>
-      <short value="Text based reference range in an observation"/>
-      <definition value="Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of &quot;Negative&quot; or a list or table of &quot;normals&quot;."/>
-      <min value="0"/>
-      <max value="1"/>
-      <base>
-        <path value="Observation.referenceRange.text"/>
+        <path value="Measure.group.description"/>
         <min value="0"/>
         <max value="1"/>
       </base>
@@ -1439,86 +1379,15 @@
       </type>
       <isModifier value="false"/>
       <isSummary value="false"/>
-      <mapping>
-        <identity value="v2"/>
-        <map value="OBX-7"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="value:ST"/>
-      </mapping>
     </element>
-    <element id="Observation:del-StandardFormQuestion.hasMember">
-      <path value="Observation.hasMember"/>
-      <short value="Related resource that belongs to the Observation group"/>
-      <definition value="This observation is a group observation (e.g. a battery, a panel of tests, a set of vital sign measurements) that includes the target as a member of the group."/>
-      <comment value="When using this element, an observation will typically have either a value or a set of related resources, although both may be present in some cases.  For a discussion on the ways Observations can assembled in groups together, see [Notes](observation.html#obsgrouping) below.  Note that a system may calculate results from [QuestionnaireResponse](questionnaireresponse.html)  into a final score and represent the score as an Observation."/>
+    <element id="Measure:del-StandardFormQuestion.group.population">
+      <path value="Measure.group.population"/>
+      <short value="Population criteria"/>
+      <definition value="A population criteria for the measure."/>
       <min value="0"/>
       <max value="*"/>
       <base>
-        <path value="Observation.hasMember"/>
-        <min value="0"/>
-        <max value="*"/>
-      </base>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
-      </type>
-      <isModifier value="false"/>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="v2"/>
-        <map value="Relationships established by OBX-4 usage"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="outBoundRelationship"/>
-      </mapping>
-    </element>
-    <element id="Observation:del-StandardFormQuestion.derivedFrom">
-      <path value="Observation.derivedFrom"/>
-      <short value="Related measurements the observation is made from"/>
-      <definition value="The target resource that represents a measurement from which this observation value is derived. For example, a calculated anion gap or a fetal measurement based on an ultrasound image."/>
-      <comment value="All the reference choices that are listed in this element can represent clinical observations and other measurements that may be the source for a derived value.  The most common reference will be another Observation.  For a discussion on the ways Observations can assembled in groups together, see [Notes](observation.html#obsgrouping) below."/>
-      <min value="0"/>
-      <max value="*"/>
-      <base>
-        <path value="Observation.derivedFrom"/>
-        <min value="0"/>
-        <max value="*"/>
-      </base>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImagingStudy"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Media"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
-      </type>
-      <isModifier value="false"/>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="v2"/>
-        <map value="Relationships established by OBX-4 usage"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".targetObservation"/>
-      </mapping>
-    </element>
-    <element id="Observation:del-StandardFormQuestion.component">
-      <path value="Observation.component"/>
-      <short value="Component results"/>
-      <definition value="Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations."/>
-      <comment value="For a discussion on the ways Observations can be assembled in groups together see [Notes](observation.html#notes) below."/>
-      <requirements value="Component observations share the same attributes in the Observation resource as the primary observation and are always treated a part of a single observation (they are not separable).   However, the reference range for the primary observation value is not inherited by the component values and is required when appropriate for each component observation."/>
-      <min value="0"/>
-      <max value="*"/>
-      <base>
-        <path value="Observation.component"/>
+        <path value="Measure.group.population"/>
         <min value="0"/>
         <max value="*"/>
       </base>
@@ -1534,18 +1403,10 @@
         <source value="Element"/>
       </constraint>
       <isModifier value="false"/>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="v2"/>
-        <map value="containment by OBX-4?"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="outBoundRelationship[typeCode=COMP]"/>
-      </mapping>
+      <isSummary value="false"/>
     </element>
-    <element id="Observation:del-StandardFormQuestion.component.id">
-      <path value="Observation.component.id"/>
+    <element id="Measure:del-StandardFormQuestion.group.population.id">
+      <path value="Measure.group.population.id"/>
       <representation value="xmlAttr"/>
       <short value="Unique id for inter-element referencing"/>
       <definition value="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."/>
@@ -1566,8 +1427,8 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="Observation:del-StandardFormQuestion.component.extension">
-      <path value="Observation.component.extension"/>
+    <element id="Measure:del-StandardFormQuestion.group.population.extension">
+      <path value="Measure.group.population.extension"/>
       <short value="Additional content defined by implementations"/>
       <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
       <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
@@ -1590,8 +1451,8 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="Observation:del-StandardFormQuestion.component.modifierExtension">
-      <path value="Observation.component.modifierExtension"/>
+    <element id="Measure:del-StandardFormQuestion.group.population.modifierExtension">
+      <path value="Measure.group.population.modifierExtension"/>
       <short value="Extensions that cannot be ignored even if unrecognized"/>
       <definition value="May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element&#39;s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.&#xA;&#xA;Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)."/>
       <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
@@ -1617,161 +1478,489 @@
         <map value="N/A"/>
       </mapping>
     </element>
-    <element id="Observation:del-StandardFormQuestion.component.code">
-      <path value="Observation.component.code"/>
-      <short value="Type of component observation (code / type)"/>
-      <definition value="Describes what was observed. Sometimes this is called the observation &quot;code&quot;."/>
-      <comment value="*All* code-value and  component.code-component.value pairs need to be taken into account to correctly understand the meaning of the observation."/>
-      <requirements value="Knowing what kind of observation is being made is essential to understanding the observation."/>
+    <element id="Measure:del-StandardFormQuestion.group.population.code">
+      <path value="Measure.group.population.code"/>
+      <short value="initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-observation"/>
+      <definition value="The type of population criteria."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Measure.group.population.code"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MeasurePopulationType"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="The type of population."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/measure-population"/>
+      </binding>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.group.population.description">
+      <path value="Measure.group.population.description"/>
+      <short value="The human readable description of this population criteria"/>
+      <definition value="The human readable description of this population criteria."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Measure.group.population.description"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.group.population.criteria">
+      <path value="Measure.group.population.criteria"/>
+      <short value="The criteria that defines this population"/>
+      <definition value="An expression that specifies the criteria for the population, typically the name of an expression in a library."/>
+      <comment value="In the case of a continuous-variable or ratio measure, this may be the name of a function that calculates the value of the individual observation for each patient or event in the population. For these types of measures, individual observations are reported as observation resources included in the evaluatedResources bundle for each patient. See the MeasureReport resource or the Quality Reporting topic for more information."/>
       <min value="1"/>
       <max value="1"/>
       <base>
-        <path value="Observation.component.code"/>
+        <path value="Measure.group.population.criteria"/>
         <min value="1"/>
         <max value="1"/>
       </base>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="Expression"/>
       </type>
       <isModifier value="false"/>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ObservationCode"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Codes identifying names of simple observations."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/observation-codes"/>
-      </binding>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.what[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="sct-concept"/>
-        <map value="&lt; 363787002 |Observable entity| OR &#xD;&lt; 386053000 |Evaluation procedure|"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="OBX-3"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="code"/>
-      </mapping>
+      <isSummary value="false"/>
     </element>
-    <element id="Observation:del-StandardFormQuestion.component.value[x]">
-      <path value="Observation.component.value[x]"/>
-      <short value="Actual component result"/>
-      <definition value="The information determined as a result of making the observation, if the information has a simple value."/>
-      <comment value="Used when observation has a set of component observations. An observation may have both a value (e.g. an  Apgar score)  and component observations (the observations from which the Apgar score was derived). If a value is present, the datatype for this element should be determined by Observation.code. A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.  For additional guidance, see the [Notes section](observation.html#notes) below."/>
-      <requirements value="An observation exists to have a value, though it might not if it is in error, or if it represents a group of observations."/>
+    <element id="Measure:del-StandardFormQuestion.group.stratifier">
+      <path value="Measure.group.stratifier"/>
+      <short value="Stratifier criteria for the measure"/>
+      <definition value="The stratifier criteria for the measure report, specified as either the name of a valid CQL expression defined within a referenced library or a valid FHIR Resource Path."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Measure.group.stratifier"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <constraint>
+        <key value="ele-1"/>
+        <severity value="error"/>
+        <human value="All FHIR elements must have a @value or children"/>
+        <expression value="hasValue() or (children().count() &gt; id.count())"/>
+        <xpath value="@value|f:*|h:div"/>
+        <source value="Element"/>
+      </constraint>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.group.stratifier.id">
+      <path value="Measure.group.stratifier.id"/>
+      <representation value="xmlAttr"/>
+      <short value="Unique id for inter-element referencing"/>
+      <definition value="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."/>
       <min value="0"/>
       <max value="1"/>
       <base>
-        <path value="Observation.component.value[x]"/>
+        <path value="Element.id"/>
         <min value="0"/>
         <max value="1"/>
       </base>
-      <type>
-        <code value="Quantity"/>
-      </type>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
       <type>
         <code value="string"/>
       </type>
-      <type>
-        <code value="boolean"/>
-      </type>
-      <type>
-        <code value="integer"/>
-      </type>
-      <type>
-        <code value="Range"/>
-      </type>
-      <type>
-        <code value="Ratio"/>
-      </type>
-      <type>
-        <code value="SampledData"/>
-      </type>
-      <type>
-        <code value="time"/>
-      </type>
-      <type>
-        <code value="dateTime"/>
-      </type>
-      <type>
-        <code value="Period"/>
-      </type>
       <isModifier value="false"/>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="sct-concept"/>
-        <map value="363714003 |Interprets| &lt; 441742003 |Evaluation finding|"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="OBX.2, OBX.5, OBX.6"/>
-      </mapping>
+      <isSummary value="false"/>
       <mapping>
         <identity value="rim"/>
-        <map value="value"/>
-      </mapping>
-      <mapping>
-        <identity value="sct-attr"/>
-        <map value="363714003 |Interprets|"/>
+        <map value="n/a"/>
       </mapping>
     </element>
-    <element id="Observation:del-StandardFormQuestion.component.dataAbsentReason">
-      <path value="Observation.component.dataAbsentReason"/>
-      <short value="Why the component result is missing"/>
-      <definition value="Provides a reason why the expected value in the element Observation.component.value[x] is missing."/>
-      <comment value="&quot;Null&quot; or exceptional values can be represented two ways in FHIR Observations.  One way is to simply include them in the value set and represent the exceptions in the value.  For example, measurement values for a serology test could be  &quot;detected&quot;, &quot;not detected&quot;, &quot;inconclusive&quot;, or  &quot;test not done&quot;. &#xA;&#xA;The alternate way is to use the value element for actual observations and use the explicit dataAbsentReason element to record exceptional values.  For example, the dataAbsentReason code &quot;error&quot; could be used when the measurement was not completed.  Because of these options, use-case agreements are required to interpret general observations for exceptional values."/>
-      <requirements value="For many results it is necessary to handle exceptional values in measurements."/>
+    <element id="Measure:del-StandardFormQuestion.group.stratifier.extension">
+      <path value="Measure.group.stratifier.extension"/>
+      <short value="Additional content defined by implementations"/>
+      <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
+      <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+      <alias value="extensions"/>
+      <alias value="user content"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Element.extension"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.group.stratifier.modifierExtension">
+      <path value="Measure.group.stratifier.modifierExtension"/>
+      <short value="Extensions that cannot be ignored even if unrecognized"/>
+      <definition value="May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element&#39;s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.&#xA;&#xA;Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)."/>
+      <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+      <requirements value="Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](extensibility.html#modifierExtension)."/>
+      <alias value="extensions"/>
+      <alias value="user content"/>
+      <alias value="modifiers"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="BackboneElement.modifierExtension"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="Modifier extensions are expected to modify the meaning or interpretation of the element that contains them"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.group.stratifier.code">
+      <path value="Measure.group.stratifier.code"/>
+      <short value="Meaning of the stratifier"/>
+      <definition value="Indicates a meaning for the stratifier. This can be as simple as a unique identifier, or it can establish meaning in a broader context by drawing from a terminology, allowing stratifiers to be correlated across measures."/>
       <min value="0"/>
       <max value="1"/>
       <base>
-        <path value="Observation.component.dataAbsentReason"/>
+        <path value="Measure.group.stratifier.code"/>
         <min value="0"/>
         <max value="1"/>
       </base>
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <condition value="obs-6"/>
       <isModifier value="false"/>
       <isSummary value="false"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ObservationValueAbsentReason"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="Codes specifying why the result (`Observation.value[x]`) is missing."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/data-absent-reason"/>
-      </binding>
-      <mapping>
-        <identity value="v2"/>
-        <map value="N/A"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="value.nullFlavor"/>
-      </mapping>
     </element>
-    <element id="Observation:del-StandardFormQuestion.component.interpretation">
-      <path value="Observation.component.interpretation"/>
-      <short value="High, low, normal, etc."/>
-      <definition value="A categorical assessment of an observation value.  For example, high, low, normal."/>
-      <comment value="Historically used for laboratory results (known as &#39;abnormal flag&#39; ),  its use extends to other use cases where coded interpretations  are relevant.  Often reported as one or more simple compact codes this element is often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result."/>
-      <requirements value="For some results, particularly numeric results, an interpretation is necessary to fully understand the significance of a result."/>
-      <alias value="Abnormal Flag"/>
+    <element id="Measure:del-StandardFormQuestion.group.stratifier.description">
+      <path value="Measure.group.stratifier.description"/>
+      <short value="The human readable description of this stratifier"/>
+      <definition value="The human readable description of this stratifier criteria."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Measure.group.stratifier.description"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.group.stratifier.criteria">
+      <path value="Measure.group.stratifier.criteria"/>
+      <short value="How the measure should be stratified"/>
+      <definition value="An expression that specifies the criteria for the stratifier. This is typically the name of an expression defined within a referenced library, but it may also be a path to a stratifier element."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Measure.group.stratifier.criteria"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Expression"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.group.stratifier.component">
+      <path value="Measure.group.stratifier.component"/>
+      <short value="Stratifier criteria component for the measure"/>
+      <definition value="A component of the stratifier criteria for the measure report, specified as either the name of a valid CQL expression defined within a referenced library or a valid FHIR Resource Path."/>
+      <comment value="Stratifiers are defined either as a single criteria, or as a set of component criteria."/>
       <min value="0"/>
       <max value="*"/>
       <base>
-        <path value="Observation.component.interpretation"/>
+        <path value="Measure.group.stratifier.component"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <constraint>
+        <key value="ele-1"/>
+        <severity value="error"/>
+        <human value="All FHIR elements must have a @value or children"/>
+        <expression value="hasValue() or (children().count() &gt; id.count())"/>
+        <xpath value="@value|f:*|h:div"/>
+        <source value="Element"/>
+      </constraint>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.group.stratifier.component.id">
+      <path value="Measure.group.stratifier.component.id"/>
+      <representation value="xmlAttr"/>
+      <short value="Unique id for inter-element referencing"/>
+      <definition value="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Element.id"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.group.stratifier.component.extension">
+      <path value="Measure.group.stratifier.component.extension"/>
+      <short value="Additional content defined by implementations"/>
+      <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
+      <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+      <alias value="extensions"/>
+      <alias value="user content"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Element.extension"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.group.stratifier.component.modifierExtension">
+      <path value="Measure.group.stratifier.component.modifierExtension"/>
+      <short value="Extensions that cannot be ignored even if unrecognized"/>
+      <definition value="May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element&#39;s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.&#xA;&#xA;Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)."/>
+      <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+      <requirements value="Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](extensibility.html#modifierExtension)."/>
+      <alias value="extensions"/>
+      <alias value="user content"/>
+      <alias value="modifiers"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="BackboneElement.modifierExtension"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="Modifier extensions are expected to modify the meaning or interpretation of the element that contains them"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.group.stratifier.component.code">
+      <path value="Measure.group.stratifier.component.code"/>
+      <short value="Meaning of the stratifier component"/>
+      <definition value="Indicates a meaning for the stratifier component. This can be as simple as a unique identifier, or it can establish meaning in a broader context by drawing from a terminology, allowing stratifiers to be correlated across measures."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Measure.group.stratifier.component.code"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.group.stratifier.component.description">
+      <path value="Measure.group.stratifier.component.description"/>
+      <short value="The human readable description of this stratifier component"/>
+      <definition value="The human readable description of this stratifier criteria component."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Measure.group.stratifier.component.description"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.group.stratifier.component.criteria">
+      <path value="Measure.group.stratifier.component.criteria"/>
+      <short value="Component of how the measure should be stratified"/>
+      <definition value="An expression that specifies the criteria for this component of the stratifier. This is typically the name of an expression defined within a referenced library, but it may also be a path to a stratifier element."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="Measure.group.stratifier.component.criteria"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Expression"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.supplementalData">
+      <path value="Measure.supplementalData"/>
+      <short value="What other data should be reported with the measure"/>
+      <definition value="The supplemental data criteria for the measure report, specified as either the name of a valid CQL expression within a referenced library, or a valid FHIR Resource Path."/>
+      <comment value="Note that supplemental data are reported as observations for each patient and included in the evaluatedResources bundle. See the MeasureReport resource or the Quality Reporting topic for more information."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Measure.supplementalData"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <constraint>
+        <key value="ele-1"/>
+        <severity value="error"/>
+        <human value="All FHIR elements must have a @value or children"/>
+        <expression value="hasValue() or (children().count() &gt; id.count())"/>
+        <xpath value="@value|f:*|h:div"/>
+        <source value="Element"/>
+      </constraint>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.supplementalData.id">
+      <path value="Measure.supplementalData.id"/>
+      <representation value="xmlAttr"/>
+      <short value="Unique id for inter-element referencing"/>
+      <definition value="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Element.id"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.supplementalData.extension">
+      <path value="Measure.supplementalData.extension"/>
+      <short value="Additional content defined by implementations"/>
+      <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
+      <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+      <alias value="extensions"/>
+      <alias value="user content"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Element.extension"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.supplementalData.modifierExtension">
+      <path value="Measure.supplementalData.modifierExtension"/>
+      <short value="Extensions that cannot be ignored even if unrecognized"/>
+      <definition value="May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element&#39;s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.&#xA;&#xA;Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)."/>
+      <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+      <requirements value="Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](extensibility.html#modifierExtension)."/>
+      <alias value="extensions"/>
+      <alias value="user content"/>
+      <alias value="modifiers"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="BackboneElement.modifierExtension"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="Modifier extensions are expected to modify the meaning or interpretation of the element that contains them"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.supplementalData.code">
+      <path value="Measure.supplementalData.code"/>
+      <short value="Meaning of the supplemental data"/>
+      <definition value="Indicates a meaning for the supplemental data. This can be as simple as a unique identifier, or it can establish meaning in a broader context by drawing from a terminology, allowing supplemental data to be correlated across measures."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Measure.supplementalData.code"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.supplementalData.usage">
+      <path value="Measure.supplementalData.usage"/>
+      <short value="supplemental-data | risk-adjustment-factor"/>
+      <definition value="An indicator of the intended usage for the supplemental data element. Supplemental data indicates the data is additional information requested to augment the measure information. Risk adjustment factor indicates the data is additional information used to calculate risk adjustment factors when applying a risk model to the measure calculation."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Measure.supplementalData.usage"/>
         <min value="0"/>
         <max value="*"/>
       </base>
@@ -1782,72 +1971,70 @@
       <isSummary value="false"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ObservationInterpretation"/>
+          <valueString value="MeasureDataUsage"/>
         </extension>
         <strength value="extensible"/>
-        <description value="Codes identifying interpretations of observations."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/observation-interpretation"/>
+        <description value="The intended usage for supplemental data elements in the measure."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/measure-data-usage"/>
       </binding>
-      <mapping>
-        <identity value="sct-concept"/>
-        <map value="&lt; 260245000 |Findings values|"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="OBX-8"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="interpretationCode"/>
-      </mapping>
-      <mapping>
-        <identity value="sct-attr"/>
-        <map value="363713009 |Has interpretation|"/>
-      </mapping>
     </element>
-    <element id="Observation:del-StandardFormQuestion.component.referenceRange">
-      <path value="Observation.component.referenceRange"/>
-      <short value="Provides guide for interpretation of component result"/>
-      <definition value="Guidance on how to interpret the value by comparison to a normal or recommended range."/>
-      <comment value="Most observations only have one generic reference range. Systems MAY choose to restrict to only supplying the relevant reference range based on knowledge about the patient (e.g., specific to the patient&#39;s age, gender, weight and other factors), but this might not be possible or appropriate. Whenever more than one reference range is supplied, the differences between them SHOULD be provided in the reference range and/or age properties."/>
-      <requirements value="Knowing what values are considered &quot;normal&quot; can help evaluate the significance of a particular result. Need to be able to provide multiple reference ranges for different contexts."/>
+    <element id="Measure:del-StandardFormQuestion.supplementalData.description">
+      <path value="Measure.supplementalData.description"/>
+      <short value="The human readable description of this supplemental data"/>
+      <definition value="The human readable description of this supplemental data."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <base>
-        <path value="Observation.component.referenceRange"/>
+        <path value="Measure.supplementalData.description"/>
         <min value="0"/>
-        <max value="*"/>
+        <max value="1"/>
       </base>
-      <contentReference value="#Observation.referenceRange"/>
+      <type>
+        <code value="string"/>
+      </type>
       <isModifier value="false"/>
       <isSummary value="false"/>
-      <mapping>
-        <identity value="v2"/>
-        <map value="OBX.7"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="outboundRelationship[typeCode=REFV]/target[classCode=OBS, moodCode=EVN]"/>
-      </mapping>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.supplementalData.criteria">
+      <path value="Measure.supplementalData.criteria"/>
+      <short value="Expression describing additional data to be reported"/>
+      <definition value="The criteria for the supplemental data. This is typically the name of a valid expression defined within a referenced library, but it may also be a path to a specific data element. The criteria defines the data to be returned for this element."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="Measure.supplementalData.criteria"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Expression"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
     </element>
   </snapshot>
   <differential>
-    <element id="Observation:del-StandardFormQuestion">
-      <path value="Observation"/>
+    <element id="Measure:del-StandardFormQuestion">
+      <path value="Measure"/>
       <short value="del-StandardFormQuestion"/>
       <definition value="A definition of a standard form question."/>
       <isModifier value="false"/>
       <isSummary value="false"/>
     </element>
-    <element id="Observation:del-StandardFormQuestion.identifier">
-      <path value="Observation.identifier"/>
+    <element id="Measure:del-StandardFormQuestion.name">
+      <path value="Measure.name"/>
       <min value="1"/>
-      <max value="*"/>
+      <max value="1"/>
     </element>
-    <element id="Observation:del-StandardFormQuestion.note">
-      <path value="Observation.note"/>
+    <element id="Measure:del-StandardFormQuestion.title">
+      <path value="Measure.title"/>
       <min value="1"/>
-      <max value="*"/>
+      <max value="1"/>
+    </element>
+    <element id="Measure:del-StandardFormQuestion.description">
+      <path value="Measure.description"/>
+      <min value="1"/>
+      <max value="1"/>
     </element>
   </differential>
 </StructureDefinition>

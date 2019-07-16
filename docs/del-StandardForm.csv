@@ -35,7 +35,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 ","","N/A"
 "Questionnaire.title","","","",1,1,"","","Y","string {[]} {[]}
 ","Name for this questionnaire (human friendly)","A short, descriptive, user-friendly title for the questionnaire.","This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc.","","","","","","","","",,,,,"",,,,"Questionnaire.title",0,1,"","","Definition.title",".title"
-"Questionnaire.derivedFrom","","","",0,1,"","","","canonical {[]} {[CanonicalType[http://hl7.org/fhir/StructureDefinition/Questionnaire]]}
+"Questionnaire.derivedFrom","","","",0,*,"","","","canonical {[]} {[CanonicalType[http://hl7.org/fhir/StructureDefinition/Questionnaire]]}
 ","Instantiates protocol or definition","The URL of a Questionnaire that this Questionnaire is based on.","","Allows a Questionnaire to be created based on another Questionnaire.","","","","","","","",,,,,"",,,,"Questionnaire.derivedFrom",0,*,"","","Definition.derivedFrom",".outboundRelationship[typeCode=DRIV].target[classCode=OBS, moodCode=DEFN]"
 "Questionnaire.status","","","",1,1,"","Y","Y","code {[]} {[]}
 ","draft | active | retired | unknown","The status of this questionnaire. Enables tracking the life-cycle of the content.","Allows filtering of questionnaires that are appropriate for use versus not.","","","","","","","","",,"required","The lifecycle status of an artifact.","http://hl7.org/fhir/ValueSet/publication-status|4.0.0","",,,,"Questionnaire.status",1,1,"","","Definition.status",".status","FiveWs.status"

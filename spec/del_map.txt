@@ -16,7 +16,6 @@ StandardForm maps to Questionnaire:
     constrain item.id to 1..1
     constrain item.text to 1..1
     constrain identifier to 0..0
-    constrain derivedFrom to 0..1
     constrain subjectType to 0..0
     constrain useContext to 0..0
     constrain contact to 0..0
@@ -30,12 +29,13 @@ Assessment maps to QuestionnaireResponse:
     constrain subject to 1..1
     constrain item to 1..*
 
-StandardFormLibrary maps to Composition:
-    constrain section to 1..*
+StandardFormLibrary maps to Library:
+    constrain name to 1..1
+    constrain version to 1..1
+    constrain title to 1..1
+    constrain description to 1..1
 
-StandardFormQuestion maps to Observation:
-    constrain identifier to 1..*
-    constrain note to 1..*
-
-    // TODO: constrain code
-    // TODO: constrain value[x]
+StandardFormQuestion maps to Measure:
+    constrain name to 1..1
+    constrain title to 1..1
+    constrain description to 1..1
