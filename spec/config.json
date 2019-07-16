@@ -5,6 +5,7 @@
     "fhirURL": "https://impact-fhir.mitre.org/r4",
     "implementationGuide": {
         "npmName": "impact-fhir",
+        "version": "0.0.1",
         "indexContent": "indexContent.html",
         "primarySelectionStrategy": {
             "strategy": "namespace",

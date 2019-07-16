@@ -3,19 +3,14 @@
   "id": "del-AssessmentContextCS",
   "text": {
     "status": "generated",
-    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n<p><b>AssessmentContextCS CodeSystem</b></p>\n<p></p>\n</div>"
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n<p><b>AssessmentContextCS CodeSystem</b></p>\n<p/>\n</div>"
   },
   "url": "http://cms.gov/impact/del/cs/AssessmentContextCS",
-  "identifier": [
-    {
-      "system": "http://cms.gov/impact",
-      "value": "del.AssessmentContextCS"
-    }
-  ],
+  "version": "0.0.1",
   "name": "AssessmentContextCS",
   "title": "AssessmentContextCS",
   "status": "draft",
-  "date": "2019-07-16",
+  "date": "2019-07-16T00:00:00-04:00",
   "publisher": "The MITRE Corporation",
   "contact": [
     {

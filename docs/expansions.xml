@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Bundle xmlns="http://hl7.org/fhir">
-  <id value="51c11ae8-e47e-4c97-8ab9-80a92e1a6580"/>
+  <id value="dde9ffe5-0ee7-420e-8def-4c329046251e"/>
   <meta>
-    <lastUpdated value="2019-07-16T13:11:56.959-04:00"/>
+    <lastUpdated value="2019-07-16T13:21:29.546-04:00"/>
   </meta>
   <type value="collection"/>
   <entry>
@@ -15,6 +15,7 @@
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">
             <p>This value set contains 5 concepts</p>
+            <p style="border: black 1px dotted; background-color: #EEEEEE; padding: 8px">Expansion based on http://cms.gov/impact/del/cs/AssessmentContextCS version 0.0.1</p>
             <p>All codes from system 
               <a href="CodeSystem-del-AssessmentContextCS.html">
                 <code>http://cms.gov/impact/del/cs/AssessmentContextCS</code>
@@ -76,10 +77,7 @@
           </div>
         </text>
         <url value="http://cms.gov/impact/del/vs/AssessmentContextVS"/>
-        <identifier>
-          <system value="http://cms.gov/impact"/>
-          <value value="del.AssessmentContextVS"/>
-        </identifier>
+        <version value="0.0.1"/>
         <name value="AssessmentContextVS"/>
         <title value="AssessmentContextVS"/>
         <status value="draft"/>
@@ -92,12 +90,16 @@
           </telecom>
         </contact>
         <expansion>
-          <identifier value="urn:uuid:3035ddba-8cc5-454c-b20b-1b513407d55b"/>
-          <timestamp value="2019-07-16T13:12:03-04:00"/>
+          <identifier value="urn:uuid:f928913c-3301-40b3-8e6e-8eec3962559a"/>
+          <timestamp value="2019-07-16T13:21:37-04:00"/>
           <total value="5"/>
           <parameter>
             <name value="excludeNested"/>
             <valueBoolean value="false"/>
+          </parameter>
+          <parameter>
+            <name value="version"/>
+            <valueUri value="http://cms.gov/impact/del/cs/AssessmentContextCS|0.0.1"/>
           </parameter>
           <contains>
             <system value="http://cms.gov/impact/del/cs/AssessmentContextCS"/>

@@ -15,14 +15,11 @@
 </div>
   </text>
   <url value="https://impact-fhir.mitre.org/r4/StructureDefinition/del-Assessment"/>
-  <identifier>
-    <system value="http://cms.gov/impact"/>
-    <value value="del.Assessment"/>
-  </identifier>
+  <version value="0.0.1"/>
   <name value="Assessment"/>
   <title value="del-Assessment"/>
   <status value="draft"/>
-  <date value="2019-07-16"/>
+  <date value="2019-07-16T00:00:00-04:00"/>
   <publisher value="The MITRE Corporation"/>
   <contact>
     <telecom>

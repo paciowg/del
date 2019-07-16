@@ -6,16 +6,11 @@
     "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>StandardFormQuestion Profile</b></p>\n  <p>A definition of a standard form question.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.StandardFormQuestion maps to Measure:\n  constrain name to 1..1\n  constrain title to 1..1\n  constrain description to 1..1\n</pre></p>\n</div>"
   },
   "url": "https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardFormQuestion",
-  "identifier": [
-    {
-      "system": "http://cms.gov/impact",
-      "value": "del.StandardFormQuestion"
-    }
-  ],
+  "version": "0.0.1",
   "name": "StandardFormQuestion",
   "title": "del-StandardFormQuestion",
   "status": "draft",
-  "date": "2019-07-16",
+  "date": "2019-07-16T00:00:00-04:00",
   "publisher": "The MITRE Corporation",
   "contact": [
     {

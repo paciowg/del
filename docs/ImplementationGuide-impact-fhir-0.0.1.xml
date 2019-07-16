@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="impact-fhir-0.0.1"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><h2>IMPACT_Data_Element_Implementation_Guide</h2><p>The official URL for this implementation guide is: </p><pre>https://impact-fhir.mitre.org/r4/ImplementationGuide/impact-fhir-0.0.1</pre></div>
+  </text>
+  <url value="https://impact-fhir.mitre.org/r4/ImplementationGuide/impact-fhir-0.0.1"/>
+  <version value="0.0.1"/>
+  <name value="IMPACT_Data_Element_Implementation_Guide"/>
+  <title value="IMPACT Data Element Implementation Guide"/>
+  <status value="draft"/>
+  <publisher value="The MITRE Corporation"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://mitre.org"/>
+    </telecom>
+  </contact>
+  <packageId value="impact-fhir"/>
+  <license value="CC0-1.0"/>
+  <fhirVersion value="4.0.0"/>
+  <definition>
+    <grouping>
+      <name value="Profiles in this Implementation Guide"/>
+      <description value="Profiles in this Implementation Guide"/>
+    </grouping>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-del-Assessment.html"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/del-Assessment"/>
+      </reference>
+      <name value="del-Assessment"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-del-StandardForm.html"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/del-StandardForm"/>
+      </reference>
+      <name value="del-StandardForm"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-del-StandardFormLibrary.html"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/del-StandardFormLibrary"/>
+      </reference>
+      <name value="del-StandardFormLibrary"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-del-StandardFormQuestion.html"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/del-StandardFormQuestion"/>
+      </reference>
+      <name value="del-StandardFormQuestion"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-del-AssessmentContextVS.html"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/del-AssessmentContextVS"/>
+      </reference>
+      <name value="AssessmentContextVS"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="CodeSystem-del-AssessmentContextCS.html"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/del-AssessmentContextCS"/>
+      </reference>
+      <name value="AssessmentContextCS"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <page>
+      <nameUrl value="index.html"/>
+      <title value="IMPACT Data Element Implementation Guide"/>
+      <generation value="html"/>
+    </page>
+  </definition>
+</ImplementationGuide>

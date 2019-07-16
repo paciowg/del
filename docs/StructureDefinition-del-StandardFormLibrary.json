@@ -6,16 +6,11 @@
     "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>StandardFormLibrary Profile</b></p>\n  <p>A definition of a standard form.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.StandardFormLibrary maps to Library:\n  constrain name to 1..1\n  constrain version to 1..1\n  constrain title to 1..1\n  constrain description to 1..1\n</pre></p>\n</div>"
   },
   "url": "https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardFormLibrary",
-  "identifier": [
-    {
-      "system": "http://cms.gov/impact",
-      "value": "del.StandardFormLibrary"
-    }
-  ],
+  "version": "0.0.1",
   "name": "StandardFormLibrary",
   "title": "del-StandardFormLibrary",
   "status": "draft",
-  "date": "2019-07-16",
+  "date": "2019-07-16T00:00:00-04:00",
   "publisher": "The MITRE Corporation",
   "contact": [
     {

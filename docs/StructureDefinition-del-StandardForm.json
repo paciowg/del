@@ -6,16 +6,11 @@
     "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>StandardForm Profile</b></p>\n  <p>A definition of an standard form and all of its contents.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.StandardForm maps to Questionnaire:\n  constrain name to 1..1\n  constrain version to 1..1\n  constrain title to 1..1\n  constrain description to 1..1\n  constrain item to 1..*\n  constrain item.id to 1..1\n  constrain item.text to 1..1\n  constrain identifier to 0..0\n  constrain subjectType to 0..0\n  constrain useContext to 0..0\n  constrain contact to 0..0\n  constrain jurisdiction to 0..0\n  constrain purpose to 0..0\n  constrain copyright to 0..0\n  constrain url to 0..0\n</pre></p>\n</div>"
   },
   "url": "https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardForm",
-  "identifier": [
-    {
-      "system": "http://cms.gov/impact",
-      "value": "del.StandardForm"
-    }
-  ],
+  "version": "0.0.1",
   "name": "StandardForm",
   "title": "del-StandardForm",
   "status": "draft",
-  "date": "2019-07-16",
+  "date": "2019-07-16T00:00:00-04:00",
   "publisher": "The MITRE Corporation",
   "contact": [
     {

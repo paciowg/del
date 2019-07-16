@@ -1,5 +1,6 @@
 {
   "package": "impact-fhir",
+  "version": "0.0.1",
   "fhirVersion": "4.0.0",
   "extensions": [],
   "profiles": {

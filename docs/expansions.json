@@ -1,8 +1,8 @@
 {
   "resourceType" : "Bundle",
-  "id" : "51c11ae8-e47e-4c97-8ab9-80a92e1a6580",
+  "id" : "dde9ffe5-0ee7-420e-8def-4c329046251e",
   "meta" : {
-    "lastUpdated" : "2019-07-16T13:11:56.959-04:00"
+    "lastUpdated" : "2019-07-16T13:21:29.546-04:00"
   },
   "type" : "collection",
   "entry" : [{
@@ -12,13 +12,10 @@
       "id" : "del-AssessmentContextVS",
       "text" : {
         "status" : "generated",
-        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This value set contains 5 concepts</p><p>All codes from system <a href=\"CodeSystem-del-AssessmentContextCS.html\"><code>http://cms.gov/impact/del/cs/AssessmentContextCS</code></a></p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---cms.gov-impact-del-cs-AssessmentContextCS-InitialAssessment\"> </a><a href=\"CodeSystem-del-AssessmentContextCS.html#del-AssessmentContextCS-InitialAssessment\">InitialAssessment</a></td><td>Direct patient engagement</td><td>Direct patient engagement</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---cms.gov-impact-del-cs-AssessmentContextCS-PostCare\"> </a><a href=\"CodeSystem-del-AssessmentContextCS.html#del-AssessmentContextCS-PostCare\">PostCare</a></td><td>Coming from care discharge</td><td>Coming from care discharge</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---cms.gov-impact-del-cs-AssessmentContextCS-Nursing\"> </a><a href=\"CodeSystem-del-AssessmentContextCS.html#del-AssessmentContextCS-Nursing\">Nursing</a></td><td>Long-term nursing care</td><td>Long-term nursing care</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---cms.gov-impact-del-cs-AssessmentContextCS-HomeCare\"> </a><a href=\"CodeSystem-del-AssessmentContextCS.html#del-AssessmentContextCS-HomeCare\">HomeCare</a></td><td>In-home care provision</td><td>In-home care provision</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---cms.gov-impact-del-cs-AssessmentContextCS-CareProvider\"> </a><a href=\"CodeSystem-del-AssessmentContextCS.html#del-AssessmentContextCS-CareProvider\">CareProvider</a></td><td>Other service-specific care provider</td><td>Other service-specific care provider</td></tr></table></div>"
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This value set contains 5 concepts</p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px\">Expansion based on http://cms.gov/impact/del/cs/AssessmentContextCS version 0.0.1</p><p>All codes from system <a href=\"CodeSystem-del-AssessmentContextCS.html\"><code>http://cms.gov/impact/del/cs/AssessmentContextCS</code></a></p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---cms.gov-impact-del-cs-AssessmentContextCS-InitialAssessment\"> </a><a href=\"CodeSystem-del-AssessmentContextCS.html#del-AssessmentContextCS-InitialAssessment\">InitialAssessment</a></td><td>Direct patient engagement</td><td>Direct patient engagement</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---cms.gov-impact-del-cs-AssessmentContextCS-PostCare\"> </a><a href=\"CodeSystem-del-AssessmentContextCS.html#del-AssessmentContextCS-PostCare\">PostCare</a></td><td>Coming from care discharge</td><td>Coming from care discharge</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---cms.gov-impact-del-cs-AssessmentContextCS-Nursing\"> </a><a href=\"CodeSystem-del-AssessmentContextCS.html#del-AssessmentContextCS-Nursing\">Nursing</a></td><td>Long-term nursing care</td><td>Long-term nursing care</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---cms.gov-impact-del-cs-AssessmentContextCS-HomeCare\"> </a><a href=\"CodeSystem-del-AssessmentContextCS.html#del-AssessmentContextCS-HomeCare\">HomeCare</a></td><td>In-home care provision</td><td>In-home care provision</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---cms.gov-impact-del-cs-AssessmentContextCS-CareProvider\"> </a><a href=\"CodeSystem-del-AssessmentContextCS.html#del-AssessmentContextCS-CareProvider\">CareProvider</a></td><td>Other service-specific care provider</td><td>Other service-specific care provider</td></tr></table></div>"
       },
       "url" : "http://cms.gov/impact/del/vs/AssessmentContextVS",
-      "identifier" : [{
-        "system" : "http://cms.gov/impact",
-        "value" : "del.AssessmentContextVS"
-      }],
+      "version" : "0.0.1",
       "name" : "AssessmentContextVS",
       "title" : "AssessmentContextVS",
       "status" : "draft",
@@ -31,12 +28,16 @@
         }]
       }],
       "expansion" : {
-        "identifier" : "urn:uuid:3035ddba-8cc5-454c-b20b-1b513407d55b",
-        "timestamp" : "2019-07-16T13:12:03-04:00",
+        "identifier" : "urn:uuid:f928913c-3301-40b3-8e6e-8eec3962559a",
+        "timestamp" : "2019-07-16T13:21:37-04:00",
         "total" : 5,
         "parameter" : [{
           "name" : "excludeNested",
           "valueBoolean" : false
+        },
+        {
+          "name" : "version",
+          "valueUri" : "http://cms.gov/impact/del/cs/AssessmentContextCS|0.0.1"
         }],
         "contains" : [{
           "system" : "http://cms.gov/impact/del/cs/AssessmentContextCS",

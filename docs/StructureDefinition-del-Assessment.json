@@ -6,16 +6,11 @@
     "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>Assessment Profile</b></p>\n  <p>A definition of an assessment (standard form response).</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.Assessment maps to QuestionnaireResponse:\n  constrain questionnaire to 1..1\n  constrain subject to 1..1\n  constrain item to 1..*\n</pre></p>\n</div>"
   },
   "url": "https://impact-fhir.mitre.org/r4/StructureDefinition/del-Assessment",
-  "identifier": [
-    {
-      "system": "http://cms.gov/impact",
-      "value": "del.Assessment"
-    }
-  ],
+  "version": "0.0.1",
   "name": "Assessment",
   "title": "del-Assessment",
   "status": "draft",
-  "date": "2019-07-16",
+  "date": "2019-07-16T00:00:00-04:00",
   "publisher": "The MITRE Corporation",
   "contact": [
     {

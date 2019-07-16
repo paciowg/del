@@ -1,17 +1,16 @@
-Grammar: DataElement 5.0
+Grammar: DataElement 6.0
 Namespace: del
 Description: "StandardForm represents a DEL standard form."
 Uses: shr.core, shr.base
 
-EntryElement: StandardForm
+Entry: StandardForm
 Description: "A definition of an standard form and all of its contents."
-// 0..1 name
 
-EntryElement: Assessment
+Entry: Assessment
 Description: "A definition of an assessment (standard form response)."
 
-EntryElement: StandardFormLibrary
+Entry: StandardFormLibrary
 Description: "A definition of a standard form."
 
-EntryElement: StandardFormQuestion
+Entry: StandardFormQuestion
 Description: "A definition of a standard form question."

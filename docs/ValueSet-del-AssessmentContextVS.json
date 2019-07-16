@@ -3,19 +3,14 @@
   "id": "del-AssessmentContextVS",
   "text": {
     "status": "generated",
-    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n<p><b>AssessmentContextVS ValueSet</b></p>\n<p></p>\n</div>"
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n<p><b>AssessmentContextVS ValueSet</b></p>\n<p/>\n</div>"
   },
   "url": "http://cms.gov/impact/del/vs/AssessmentContextVS",
-  "identifier": [
-    {
-      "system": "http://cms.gov/impact",
-      "value": "del.AssessmentContextVS"
-    }
-  ],
+  "version": "0.0.1",
   "name": "AssessmentContextVS",
   "title": "AssessmentContextVS",
   "status": "draft",
-  "date": "2019-07-16",
+  "date": "2019-07-16T00:00:00-04:00",
   "publisher": "The MITRE Corporation",
   "contact": [
     {

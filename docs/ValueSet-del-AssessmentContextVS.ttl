@@ -10,18 +10,14 @@
   fhir:Resource.id [ fhir:value "del-AssessmentContextVS"];
   fhir:DomainResource.text [
      fhir:Narrative.status [ fhir:value "generated" ];
-     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n<p><b>AssessmentContextVS ValueSet</b></p>\n<p></p>\n</div>"
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n<p><b>AssessmentContextVS ValueSet</b></p>\n<p/>\n</div>"
   ];
   fhir:ValueSet.url [ fhir:value "http://cms.gov/impact/del/vs/AssessmentContextVS"];
-  fhir:ValueSet.identifier [
-     fhir:index 0;
-     fhir:Identifier.system [ fhir:value "http://cms.gov/impact" ];
-     fhir:Identifier.value [ fhir:value "del.AssessmentContextVS" ]
-  ];
+  fhir:ValueSet.version [ fhir:value "0.0.1"];
   fhir:ValueSet.name [ fhir:value "AssessmentContextVS"];
   fhir:ValueSet.title [ fhir:value "AssessmentContextVS"];
   fhir:ValueSet.status [ fhir:value "draft"];
-  fhir:ValueSet.date [ fhir:value "2019-07-16"^^xsd:date];
+  fhir:ValueSet.date [ fhir:value "2019-07-16T00:00:00-04:00"^^xsd:dateTime];
   fhir:ValueSet.publisher [ fhir:value "The MITRE Corporation"];
   fhir:ValueSet.contact [
      fhir:index 0;

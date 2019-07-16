@@ -5,18 +5,15 @@
   <text>
     <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml">
 <p><b>AssessmentContextCS CodeSystem</b></p>
-<p></p>
+<p/>
 </div>
   </text>
   <url value="http://cms.gov/impact/del/cs/AssessmentContextCS"/>
-  <identifier>
-    <system value="http://cms.gov/impact"/>
-    <value value="del.AssessmentContextCS"/>
-  </identifier>
+  <version value="0.0.1"/>
   <name value="AssessmentContextCS"/>
   <title value="AssessmentContextCS"/>
   <status value="draft"/>
-  <date value="2019-07-16"/>
+  <date value="2019-07-16T00:00:00-04:00"/>
   <publisher value="The MITRE Corporation"/>
   <contact>
     <telecom>

@@ -13,15 +13,11 @@
      fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>StandardForm Profile</b></p>\n  <p>A definition of an standard form and all of its contents.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.StandardForm maps to Questionnaire:\n  constrain name to 1..1\n  constrain version to 1..1\n  constrain title to 1..1\n  constrain description to 1..1\n  constrain item to 1..*\n  constrain item.id to 1..1\n  constrain item.text to 1..1\n  constrain identifier to 0..0\n  constrain subjectType to 0..0\n  constrain useContext to 0..0\n  constrain contact to 0..0\n  constrain jurisdiction to 0..0\n  constrain purpose to 0..0\n  constrain copyright to 0..0\n  constrain url to 0..0\n</pre></p>\n</div>"
   ];
   fhir:StructureDefinition.url [ fhir:value "https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardForm"];
-  fhir:StructureDefinition.identifier [
-     fhir:index 0;
-     fhir:Identifier.system [ fhir:value "http://cms.gov/impact" ];
-     fhir:Identifier.value [ fhir:value "del.StandardForm" ]
-  ];
+  fhir:StructureDefinition.version [ fhir:value "0.0.1"];
   fhir:StructureDefinition.name [ fhir:value "StandardForm"];
   fhir:StructureDefinition.title [ fhir:value "del-StandardForm"];
   fhir:StructureDefinition.status [ fhir:value "draft"];
-  fhir:StructureDefinition.date [ fhir:value "2019-07-16"^^xsd:date];
+  fhir:StructureDefinition.date [ fhir:value "2019-07-16T00:00:00-04:00"^^xsd:dateTime];
   fhir:StructureDefinition.publisher [ fhir:value "The MITRE Corporation"];
   fhir:StructureDefinition.contact [
      fhir:index 0;
