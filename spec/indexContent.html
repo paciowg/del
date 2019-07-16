@@ -31,6 +31,7 @@
 <p>
     Each record in asmt_vrsn will become one Questionnaire resource in FHIR.
     The sections, subsections, and questions will be represented as items within the questionnaire.
+    Only active questions are migrated from the DEL.
 </p>
 
 <table class="table table-bordered">
@@ -47,23 +48,28 @@
             <code>{asmt_shrt_name}-{asmt_vrsn_id}</code>. Example: LCDS-1.01.</td>
     </tr>
     <tr>
-        <td>status</td>
-        <td>asmt_vrsn.asmt_stus_id</td>
-        <td>If value is 1 then "active"<br>If value is 4 then "retired"<br>All others are "draft"</td>
-    </tr>
-    <tr>
-        <td>date</td>
-        <td>asmt.creat_ts</td>
-        <td></td>
-    </tr>
-    <tr>
         <td>name</td>
         <td>asmt.asmt_shrt_name</td>
         <td>All characters except letters and numbers are removed.</td>
     </tr>
     <tr>
+        <td>title</td>
+        <td>asmt.asmt_name</td>
+        <td></td>
+    </tr>
+    <tr>
         <td>version</td>
         <td>asmt.asmt_vrsn_id</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>status</td>
+        <td>asmt_vrsn.asmt_stus_id</td>
+        <td>If value is 1 then "active".<br>If value is 4 then "retired".<br>All others are "draft".</td>
+    </tr>
+    <tr>
+        <td>date</td>
+        <td>asmt.creat_ts</td>
         <td></td>
     </tr>
     <tr>
@@ -72,29 +78,9 @@
         <td></td>
     </tr>
     <tr>
-        <td>title</td>
-        <td>asmt.asmt_name</td>
-        <td></td>
-    </tr>
-    <tr>
         <td>description</td>
         <td>asmt.asmt_desc</td>
         <td></td>
-    </tr>
-    <!-- <tr>
-        <td>derivedFrom</td>
-        <td>asmt_vrsn.cms_wb_adr_txt</td>
-        <td></td>
-    </tr> -->
-    <!-- <tr>
-        <td>lastReviewDate</td>
-        <td>asmt_vrsn.updt_ts</td>
-        <td></td>
-    </tr> -->
-    <tr>
-        <td>approvalDate</td>
-        <td>asmt_vrsn.pblctn_dt</td>
-        <td>Only populated if field value is not null.</td>
     </tr>
     <tr>
         <td>effectivePeriod.start</td>
@@ -104,6 +90,11 @@
     <tr>
         <td>effectivePeriod.end</td>
         <td>asmt_vrsn.efctv_end_dt</td>
+        <td>Only populated if field value is not null.</td>
+    </tr>
+    <tr>
+        <td>approvalDate</td>
+        <td>asmt_vrsn.pblctn_dt</td>
         <td>Only populated if field value is not null.</td>
     </tr>
     <tr>
@@ -186,18 +177,18 @@
         <td>item[].type</td>
         <td>data_ele_rspns.rspns_dtype_name</td>
         <td>
-            If this is a parent question, then "group"<br>
-            If value is "character" or "integer" with options, then "choice"<br>
-            If value is "character" without options then "text"<br>
-            If value is "number" without options then "integer"<br>
-            If value is "date" then "open-choice"
+            If this is a parent question, then "group".<br>
+            If value is "character" or "integer" with options, then "choice".<br>
+            If value is "character" without options then "text".<br>
+            If value is "number" without options then "integer".<br>
+            If value is "date" then "open-choice".
         </td>
     </tr>
     <tr>
         <td>item[].readOnly</td>
         <td>data_ele_rspns.rspns_dtype_name</td>
         <td>
-            If field is a group then "true"
+            If field is a group then "true".
             <br>Otherwise "false".
         </td>
     </tr>
@@ -205,7 +196,7 @@
         <td>item[].repeats</td>
         <td>data_ele_rspns.rspns_type_name</td>
         <td>
-            If value is checklist then "true"
+            If value is checklist then "true".
             <br>Otherwise "false".
         </td>
     </tr>
@@ -213,6 +204,16 @@
         <td>item[].maxLength</td>
         <td></td>
         <td>Populated with list of questions.</td>
+    </tr>
+    <tr>
+        <td>answerOptions[].valueCoding.code</td>
+        <td>data_ele_rspns_val.rspns_val_cd</td>
+        <td>Only populated for "choice" and "open-choice" questions.</td>
+    </tr>
+    <tr>
+        <td>answerOptions[].valueCoding.display</td>
+        <td>data_ele_rspns_val.rspns_val_txt</td>
+        <td>Only populated for "choice" and "open-choice" questions.</td>
     </tr>
     <tr>
         <td>item[].item[]</td>
@@ -232,6 +233,13 @@
         <th>Notes</th>
     </tr>
     <tr>
+        <td>id</td>
+        <td>asmt.asmt_shrt_name<br>asmt.asmt_vrsn_id</td>
+        <td>
+            Fields are joined using a dash (-) in the format
+            <code>{asmt_shrt_name}-{asmt_vrsn_id}</code>. Example: LCDS-1.01.</td>
+    </tr>
+    <tr>
         <td>name</td>
         <td>asmt.asmt_shrt_name</td>
         <td>All characters except letters and numbers are removed.</td>
@@ -249,7 +257,7 @@
     <tr>
         <td>status</td>
         <td>asmt_vrsn.asmt_stus_id</td>
-        <td>If value is 1 then "active"<br>If value is 4 then "retired"<br>All others are "draft"</td>
+        <td>If value is 1 then "active".<br>If value is 4 then "retired".<br>All others are "draft".</td>
     </tr>
     <tr>
         <td>type.coding[].code</td>
@@ -293,6 +301,8 @@
 <p>
     Each record in data_ele_qstn will become one Measeure resource in FHIR.
     A measure will link back to the libraries in which it is used.
+    Only active questions are migrated from the DEL.
+    Answer options are populated in relatedArtifact.
 </p>
 
 <table class="table table-bordered">
@@ -300,5 +310,62 @@
         <th>FHIR Field</th>
         <th>DEL Field(s)</th>
         <th>Notes</th>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>data_ele_qstn.qstn_label_name</td>
+        <td>
+            Prefixed with a string in the format <code>Question-${qstn_label_name}</code>
+            All characters except letters and numbers are removed from qstn_label_name.
+        </td>
+    </tr>
+
+    <tr>
+        <td>name</td>
+        <td>data_ele_qstn.qstn_label_name</td>
+        <td>
+            Prefixed with a string in the format <code>Question_${qstn_label_name}</code>
+            All characters except letters and numbers are removed from qstn_label_name.
+        </td>
+    </tr>
+    <tr>
+        <td>title</td>
+        <td>data_ele_qstn.qstn_shrt_name</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>status</td>
+        <td><i>active</i></td>
+        <td>Hard-coded to value "active".</td>
+    </tr>
+    <tr>
+        <td>description</td>
+        <td>data_ele_qstn.qstn_txt</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>library</td>
+        <td></td>
+        <td>Populated with Library IDs for all libraries in which this question is present.</td>
+    </tr>
+    <tr>
+        <td>relatedArtifact[].type</td>
+        <td><i>documentation</i></td>
+        <td>Hard-coded to value "documentation".</td>
+    </tr>
+    <tr>
+        <td>relatedArtifact[].resource</td>
+        <td></td>
+        <td>Library ID where this answer option applies.</td>
+    </tr>
+    <tr>
+        <td>relatedArtifact[].label</td>
+        <td>data_ele_rspns_val.rspns_val_cd</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>relatedArtifact[].display</td>
+        <td>data_ele_rspns_val.rspns_val_txt</td>
+        <td></td>
     </tr>
 </table>

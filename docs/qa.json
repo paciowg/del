@@ -2,7 +2,7 @@
   "url": "https://impact-fhir.mitre.org/r4/ImplementationGuide/impact-fhir",
   "name": "IMPACT_Data_Element_Implementation_Guide",
   "package-id": "impact-fhir",
-  "date": "Tue, 16 Jul, 2019 11:34:41 -0400",
+  "date": "Tue, 16 Jul, 2019 11:54:19 -0400",
   "errs": 14,
   "warnings": 8,
   "hints": 0,
