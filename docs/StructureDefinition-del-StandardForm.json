@@ -3,14 +3,14 @@
   "id": "del-StandardForm",
   "text": {
     "status": "generated",
-    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>StandardForm Profile</b></p>\n  <p>A definition of an standard form and all of its contents.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.StandardForm maps to Questionnaire:\n  constrain name to 1..1\n  constrain version to 1..1\n  constrain title to 1..1\n  constrain description to 1..1\n  constrain item to 1..*\n  constrain item.id to 1..1\n  constrain item.text to 1..1\n  constrain identifier to 0..0\n  constrain subjectType to 0..0\n  constrain useContext to 0..0\n  constrain contact to 0..0\n  constrain jurisdiction to 0..0\n  constrain purpose to 0..0\n  constrain copyright to 0..0\n  constrain url to 0..0\n</pre></p>\n</div>"
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>StandardForm Profile</b></p>\n  <p>A definition of an standard form and all of its contents.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.StandardForm maps to Questionnaire:\n  constrain name to 1..1\n  constrain version to 1..1\n  constrain title to 1..1\n  constrain description to 1..1\n  constrain identifier to 0..0\n  constrain subjectType to 0..0\n  constrain useContext to 0..0\n  constrain contact to 0..0\n  constrain jurisdiction to 0..0\n  constrain purpose to 0..0\n  constrain copyright to 0..0\n  constrain url to 1..1\n</pre></p>\n</div>"
   },
   "url": "https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardForm",
   "version": "0.0.1",
   "name": "StandardForm",
   "title": "del-StandardForm",
   "status": "draft",
-  "date": "2019-07-16T00:00:00-04:00",
+  "date": "2019-07-23T00:00:00-04:00",
   "publisher": "The MITRE Corporation",
   "contact": [
     {
@@ -406,8 +406,8 @@
         "definition": "An absolute URI that is used to identify this questionnaire when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this questionnaire is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the questionnaire is stored on different servers.",
         "comment": "The name of the referenced questionnaire can be conveyed using the http://hl7.org/fhir/StructureDefinition/display extension.",
         "requirements": "…  This is the id that will be used to link a QuestionnaireResponse to the Questionnaire the response is for.",
-        "min": 0,
-        "max": "0",
+        "min": 1,
+        "max": "1",
         "base": {
           "path": "Questionnaire.url",
           "min": 0,
@@ -1182,7 +1182,7 @@
         "short": "Questions and sections within the Questionnaire",
         "definition": "A particular question, question grouping or display text that is part of the questionnaire.",
         "comment": "The content of the questionnaire is constructed from an ordered, hierarchical collection of items.",
-        "min": 1,
+        "min": 0,
         "max": "*",
         "base": {
           "path": "Questionnaire.item",
@@ -1301,7 +1301,7 @@
         ],
         "short": "Unique id for inter-element referencing",
         "definition": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
-        "min": 1,
+        "min": 0,
         "max": "1",
         "base": {
           "path": "Element.id",
@@ -1522,7 +1522,7 @@
         "short": "Primary text for the item",
         "definition": "The name of a section, the text of a question or text content for a display item.",
         "comment": "When using this element to represent the name of a section, use group type item and also make sure to limit the text element to a short string suitable for display as a section heading.  Group item instructions should be included as a display type item within the group.",
-        "min": 1,
+        "min": 0,
         "max": "1",
         "base": {
           "path": "Questionnaire.item.text",
@@ -2530,8 +2530,8 @@
       {
         "id": "Questionnaire:del-StandardForm.url",
         "path": "Questionnaire.url",
-        "min": 0,
-        "max": "0"
+        "min": 1,
+        "max": "1"
       },
       {
         "id": "Questionnaire:del-StandardForm.identifier",
@@ -2598,24 +2598,6 @@
         "path": "Questionnaire.copyright",
         "min": 0,
         "max": "0"
-      },
-      {
-        "id": "Questionnaire:del-StandardForm.item",
-        "path": "Questionnaire.item",
-        "min": 1,
-        "max": "*"
-      },
-      {
-        "id": "Questionnaire:del-StandardForm.item.id",
-        "path": "Questionnaire.item.id",
-        "min": 1,
-        "max": "1"
-      },
-      {
-        "id": "Questionnaire:del-StandardForm.item.text",
-        "path": "Questionnaire.item.text",
-        "min": 1,
-        "max": "1"
       }
     ]
   }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Bundle xmlns="http://hl7.org/fhir">
-  <id value="dde9ffe5-0ee7-420e-8def-4c329046251e"/>
+  <id value="c8759dd6-cefd-4ce4-89ad-705bd6ff1c06"/>
   <meta>
-    <lastUpdated value="2019-07-16T13:21:29.546-04:00"/>
+    <lastUpdated value="2019-07-23T13:34:08.913-04:00"/>
   </meta>
   <type value="collection"/>
   <entry>
@@ -81,7 +81,7 @@
         <name value="AssessmentContextVS"/>
         <title value="AssessmentContextVS"/>
         <status value="draft"/>
-        <date value="2019-07-16T00:00:00-04:00"/>
+        <date value="2019-07-23T00:00:00-04:00"/>
         <publisher value="The MITRE Corporation"/>
         <contact>
           <telecom>
@@ -90,8 +90,8 @@
           </telecom>
         </contact>
         <expansion>
-          <identifier value="urn:uuid:f928913c-3301-40b3-8e6e-8eec3962559a"/>
-          <timestamp value="2019-07-16T13:21:37-04:00"/>
+          <identifier value="urn:uuid:57b39541-2d9b-4ad5-b637-e115bbc9e1ce"/>
+          <timestamp value="2019-07-23T13:34:16-04:00"/>
           <total value="5"/>
           <parameter>
             <name value="excludeNested"/>
