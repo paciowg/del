@@ -18,6 +18,9 @@ function buildMeasure(baseUrl, { questionid, label, name, text, }, questionnaire
     resourceType: 'Measure',
     id: `Question-${label}`,
     url: `${baseUrl}/Measure/Question-${label}`,
+    meta: {
+      profile: `${baseUrl}/StructureDefinition/del-StandardFormQuestion`
+    },
     text: {
       status: 'generated',
       div: `<div xmlns="http://www.w3.org/1999/xhtml">${label} - ${name.replace('&', '&amp;')}<br/><br/>${text.replace('&', '&amp;')}</div>`

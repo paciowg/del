@@ -8,9 +8,9 @@ function buildQuestionnaire(baseUrl, {
     resourceType: 'Questionnaire',
     id: asmtid,
     url: `${baseUrl}/Questionnaire/${asmtid}`,
-    // meta: {
-    //   profile: ''
-    // },
+    meta: {
+      profile: `${baseUrl}/StructureDefinition/del-StandardForm`
+    },
     text: {
       status: 'generated',
       div: `<div xmlns="http://www.w3.org/1999/xhtml">${name} standard form version ${version}.<br/><br/>${description}</div>`
@@ -100,7 +100,7 @@ function buildQuestion({ datatype, label, sectionid, text, typename, maxlength }
     delete item.answerOption;
   }
 
-  if (maxlength) {
+  if (maxlength && !['choice', 'open-choice'].includes(item.type)) {
     item.maxLength = maxlength;
   }
 

@@ -7,6 +7,9 @@ function buildLibrary(baseUrl, {
     resourceType: 'Library',
     id: `Questionnaire-${asmtid}`,
     url: `${baseUrl}/Library/Questionnaire-${asmtid}`,
+    meta: {
+      profile: `${baseUrl}/StructureDefinition/del-StandardFormLibrary`
+    },
     text: {
       status: 'generated',
       div: `<div xmlns="http://www.w3.org/1999/xhtml">${name} standard form version ${version}.<br/><br/>${description}</div>`
