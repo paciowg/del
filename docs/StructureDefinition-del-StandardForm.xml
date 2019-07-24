@@ -12,6 +12,9 @@
   constrain version to 1..1
   constrain title to 1..1
   constrain description to 1..1
+  constrain item to 1..*
+  constrain item.id to 1..1
+  constrain item.text to 1..1
   constrain identifier to 0..0
   constrain subjectType to 0..0
   constrain useContext to 0..0
@@ -28,7 +31,7 @@
   <name value="StandardForm"/>
   <title value="del-StandardForm"/>
   <status value="draft"/>
-  <date value="2019-07-23T00:00:00-04:00"/>
+  <date value="2019-07-24T00:00:00-04:00"/>
   <publisher value="The MITRE Corporation"/>
   <contact>
     <telecom>
@@ -1004,7 +1007,7 @@
       <short value="Questions and sections within the Questionnaire"/>
       <definition value="A particular question, question grouping or display text that is part of the questionnaire."/>
       <comment value="The content of the questionnaire is constructed from an ordered, hierarchical collection of items."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="*"/>
       <base>
         <path value="Questionnaire.item"/>
@@ -1112,7 +1115,7 @@
       <representation value="xmlAttr"/>
       <short value="Unique id for inter-element referencing"/>
       <definition value="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <base>
         <path value="Element.id"/>
@@ -1287,7 +1290,7 @@
       <short value="Primary text for the item"/>
       <definition value="The name of a section, the text of a question or text content for a display item."/>
       <comment value="When using this element to represent the name of a section, use group type item and also make sure to limit the text element to a short string suitable for display as a section heading.  Group item instructions should be included as a display type item within the group."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <base>
         <path value="Questionnaire.item.text"/>
@@ -2146,6 +2149,21 @@
       <path value="Questionnaire.copyright"/>
       <min value="0"/>
       <max value="0"/>
+    </element>
+    <element id="Questionnaire:del-StandardForm.item">
+      <path value="Questionnaire.item"/>
+      <min value="1"/>
+      <max value="*"/>
+    </element>
+    <element id="Questionnaire:del-StandardForm.item.id">
+      <path value="Questionnaire.item.id"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="Questionnaire:del-StandardForm.item.text">
+      <path value="Questionnaire.item.text"/>
+      <min value="1"/>
+      <max value="1"/>
     </element>
   </differential>
 </StructureDefinition>

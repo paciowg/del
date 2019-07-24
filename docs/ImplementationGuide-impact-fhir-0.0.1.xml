@@ -65,26 +65,6 @@
       <name value="del-StandardFormQuestion"/>
       <exampleBoolean value="false"/>
     </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
-        <valueUri value="ValueSet-del-AssessmentContextVS.html"/>
-      </extension>
-      <reference>
-        <reference value="ValueSet/del-AssessmentContextVS"/>
-      </reference>
-      <name value="AssessmentContextVS"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
-        <valueUri value="CodeSystem-del-AssessmentContextCS.html"/>
-      </extension>
-      <reference>
-        <reference value="CodeSystem/del-AssessmentContextCS"/>
-      </reference>
-      <name value="AssessmentContextCS"/>
-      <exampleBoolean value="false"/>
-    </resource>
     <page>
       <nameUrl value="index.html"/>
       <title value="IMPACT Data Element Implementation Guide"/>

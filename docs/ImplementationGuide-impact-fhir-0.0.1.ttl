@@ -90,32 +90,6 @@
        ];
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "del-StandardFormQuestion" ];
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
-     ], [
-       fhir:index 4;
-       fhir:Element.extension [
-         fhir:index 0;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
-         fhir:Extension.valueUri [ fhir:value "ValueSet-del-AssessmentContextVS.html" ]
-       ];
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://impact-fhir.mitre.org/r4/ValueSet/del-AssessmentContextVS>;
-         fhir:Reference.reference [ fhir:value "ValueSet/del-AssessmentContextVS" ]
-       ];
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "AssessmentContextVS" ];
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
-     ], [
-       fhir:index 5;
-       fhir:Element.extension [
-         fhir:index 0;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
-         fhir:Extension.valueUri [ fhir:value "CodeSystem-del-AssessmentContextCS.html" ]
-       ];
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://impact-fhir.mitre.org/r4/CodeSystem/del-AssessmentContextCS>;
-         fhir:Reference.reference [ fhir:value "CodeSystem/del-AssessmentContextCS" ]
-       ];
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "AssessmentContextCS" ];
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ];
      fhir:ImplementationGuide.definition.page [
        fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "index.html" ];

@@ -1,9 +1,0 @@
-Grammar: ValueSet 6.0
-Namespace: del
-
-ValueSet: AssessmentContextVS
-#InitialAssessment  "Direct patient engagement"
-#PostCare           "Coming from care discharge"
-#Nursing            "Long-term nursing care"
-#HomeCare           "In-home care provision"
-#CareProvider       "Other service-specific care provider"

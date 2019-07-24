@@ -22,7 +22,7 @@ StandardForm maps to Questionnaire:
     constrain jurisdiction to 0..0
     constrain purpose to 0..0
     constrain copyright to 0..0
-    constrain url to 0..0
+    constrain url to 1..1
 
 Assessment maps to QuestionnaireResponse:
     constrain questionnaire to 1..1

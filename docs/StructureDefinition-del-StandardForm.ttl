@@ -10,14 +10,14 @@
   fhir:Resource.id [ fhir:value "del-StandardForm"];
   fhir:DomainResource.text [
      fhir:Narrative.status [ fhir:value "generated" ];
-     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>StandardForm Profile</b></p>\n  <p>A definition of an standard form and all of its contents.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.StandardForm maps to Questionnaire:\n  constrain name to 1..1\n  constrain version to 1..1\n  constrain title to 1..1\n  constrain description to 1..1\n  constrain identifier to 0..0\n  constrain subjectType to 0..0\n  constrain useContext to 0..0\n  constrain contact to 0..0\n  constrain jurisdiction to 0..0\n  constrain purpose to 0..0\n  constrain copyright to 0..0\n  constrain url to 1..1\n</pre></p>\n</div>"
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>StandardForm Profile</b></p>\n  <p>A definition of an standard form and all of its contents.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.StandardForm maps to Questionnaire:\n  constrain name to 1..1\n  constrain version to 1..1\n  constrain title to 1..1\n  constrain description to 1..1\n  constrain item to 1..*\n  constrain item.id to 1..1\n  constrain item.text to 1..1\n  constrain identifier to 0..0\n  constrain subjectType to 0..0\n  constrain useContext to 0..0\n  constrain contact to 0..0\n  constrain jurisdiction to 0..0\n  constrain purpose to 0..0\n  constrain copyright to 0..0\n  constrain url to 1..1\n</pre></p>\n</div>"
   ];
   fhir:StructureDefinition.url [ fhir:value "https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardForm"];
   fhir:StructureDefinition.version [ fhir:value "0.0.1"];
   fhir:StructureDefinition.name [ fhir:value "StandardForm"];
   fhir:StructureDefinition.title [ fhir:value "del-StandardForm"];
   fhir:StructureDefinition.status [ fhir:value "draft"];
-  fhir:StructureDefinition.date [ fhir:value "2019-07-23T00:00:00-04:00"^^xsd:dateTime];
+  fhir:StructureDefinition.date [ fhir:value "2019-07-24T00:00:00-04:00"^^xsd:dateTime];
   fhir:StructureDefinition.publisher [ fhir:value "The MITRE Corporation"];
   fhir:StructureDefinition.contact [
      fhir:index 0;
@@ -1172,7 +1172,7 @@
        fhir:ElementDefinition.short [ fhir:value "Questions and sections within the Questionnaire" ];
        fhir:ElementDefinition.definition [ fhir:value "A particular question, question grouping or display text that is part of the questionnaire." ];
        fhir:ElementDefinition.comment [ fhir:value "The content of the questionnaire is constructed from an ordered, hierarchical collection of items." ];
-       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
        fhir:ElementDefinition.max [ fhir:value "*" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Questionnaire.item" ];
@@ -1290,7 +1290,7 @@
        ];
        fhir:ElementDefinition.short [ fhir:value "Unique id for inter-element referencing" ];
        fhir:ElementDefinition.definition [ fhir:value "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces." ];
-       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
        fhir:ElementDefinition.max [ fhir:value "1" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Element.id" ];
@@ -1509,7 +1509,7 @@
        fhir:ElementDefinition.short [ fhir:value "Primary text for the item" ];
        fhir:ElementDefinition.definition [ fhir:value "The name of a section, the text of a question or text content for a display item." ];
        fhir:ElementDefinition.comment [ fhir:value "When using this element to represent the name of a section, use group type item and also make sure to limit the text element to a short string suitable for display as a section heading.  Group item instructions should be included as a display type item within the group." ];
-       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
        fhir:ElementDefinition.max [ fhir:value "1" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Questionnaire.item.text" ];
@@ -2591,6 +2591,24 @@
        fhir:ElementDefinition.path [ fhir:value "Questionnaire.copyright" ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
        fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 13;
+       fhir:Element.id [ fhir:value "Questionnaire:del-StandardForm.item" ];
+       fhir:ElementDefinition.path [ fhir:value "Questionnaire.item" ];
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "*" ]
+     ], [
+       fhir:index 14;
+       fhir:Element.id [ fhir:value "Questionnaire:del-StandardForm.item.id" ];
+       fhir:ElementDefinition.path [ fhir:value "Questionnaire.item.id" ];
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "1" ]
+     ], [
+       fhir:index 15;
+       fhir:Element.id [ fhir:value "Questionnaire:del-StandardForm.item.text" ];
+       fhir:ElementDefinition.path [ fhir:value "Questionnaire.item.text" ];
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "1" ]
      ]
   ] .
 

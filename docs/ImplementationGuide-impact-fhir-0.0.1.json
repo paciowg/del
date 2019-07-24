@@ -85,32 +85,6 @@
         },
         "name": "del-StandardFormQuestion",
         "exampleBoolean": false
-      },
-      {
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-            "valueUri": "ValueSet-del-AssessmentContextVS.html"
-          }
-        ],
-        "reference": {
-          "reference": "ValueSet/del-AssessmentContextVS"
-        },
-        "name": "AssessmentContextVS",
-        "exampleBoolean": false
-      },
-      {
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-            "valueUri": "CodeSystem-del-AssessmentContextCS.html"
-          }
-        ],
-        "reference": {
-          "reference": "CodeSystem/del-AssessmentContextCS"
-        },
-        "name": "AssessmentContextCS",
-        "exampleBoolean": false
       }
     ],
     "page": {
