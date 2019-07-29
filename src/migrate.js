@@ -18,11 +18,19 @@ const DATABASE = {
 };
 
 let baseUrl;
+let resourceList = ['measure', 'questionnaire', 'library'];
+
 program
-  .usage('<host>')
-  .arguments('<host>')
-  .action((host) => baseUrl = host)
+  .usage('<host> [resources]')
+  .arguments('<host> [resources]')
+  .action((host, resources) => {
+    baseUrl = host;
+    if (resources) {
+      resourceList = resources.split(',');
+    }
+  })
   .parse(process.argv);
+
 baseUrl = baseUrl || DEFAULT_URL;
 if (!baseUrl.startsWith('http')) {
   baseUrl = `http://${baseUrl}`;
@@ -46,22 +54,28 @@ async function main(url) {
   }
 
   try {
-    const questionnaires = await questionnaireMigrator(url, client);
-    for (const resource of questionnaires) {
-      writeFileSync(`out/json/questionnaires/${resource.id}.json`, JSON.stringify(resource, null, 2));
-      // await putResource(url, resource);
+    if (resourceList.includes('questionnaire')) {
+      const questionnaires = await questionnaireMigrator(url, client);
+      for (const resource of questionnaires) {
+        writeFileSync(`out/json/questionnaires/${resource.id}.json`, JSON.stringify(resource, null, 2));
+        await putResource(url, resource);
+      }
     }
 
-    const libraries = await libraryMigrator(url, client);
-    for (const resource of libraries) {
-      writeFileSync(`out/json/libraries/${resource.id}.json`, JSON.stringify(resource, null, 2));
-      // await putResource(url, resource);
+    if (resourceList.includes('library')) {
+      const libraries = await libraryMigrator(url, client);
+      for (const resource of libraries) {
+        writeFileSync(`out/json/libraries/${resource.id}.json`, JSON.stringify(resource, null, 2));
+        await putResource(url, resource);
+      }
     }
 
-    const measures = await measureMigrator(url, client);
-    for (const resource of measures) {
-      writeFileSync(`out/json/measures/${resource.id}.json`, JSON.stringify(resource, null, 2));
-      // await putResource(url, resource);
+    if (resourceList.includes('measure')) {
+      const measures = await measureMigrator(url, client);
+      for (const resource of measures) {
+        writeFileSync(`out/json/measures/${resource.id}.json`, JSON.stringify(resource, null, 2));
+        await putResource(url, resource);
+      }
     }
 
   } catch (error) {
