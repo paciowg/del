@@ -1,6 +1,6 @@
-const { getAllMeasures, getGroupedQuestions, getGroupedResponses } = require('../sql');
+const { getAllMeasures, getGroupedQuestions, getGroupedResponses, getGroupedLoincCodes } = require('../sql');
 
-function buildMeasure(baseUrl, { questionid, label, name, text, }, questionnaireMap, responseMap) {
+function buildMeasure(baseUrl, { questionid, label, name, text, }, questionnaireMap, responseMap, loincMap) {
   name = name.trim();
   label = label.trim();
   text = text.trim();
@@ -35,12 +35,26 @@ function buildMeasure(baseUrl, { questionid, label, name, text, }, questionnaire
   // Put all possible responses in supplementalData.
   const responses = responseMap[questionid];
   if (responses) {
-    resource.relatedArtifact = responses.filter(r => r.responsecode && r.responsetext).map(r => ({
-      type: 'documentation',
-      resource: `Library/Questionnaire-${r.asmtid}`,
-      label: r.responsecode,
-      display: r.responsetext,
-    }));
+    resource.relatedArtifact = [];
+
+    for (const response of responses) {
+      if (response.responsecode && response.responsetext) {
+        const obj = {
+          type: 'documentation',
+          resource: `Library/Questionnaire-${response.asmtid}`,
+          label: response.responsecode,
+          display: response.responsetext,
+        };
+
+        // If loinc code exists, it should be a one-element array.
+        if (loincMap[questionid] && loincMap[questionid][response.asmtid]) {
+          const loinc = loincMap[questionid][response.asmtid][0];
+          obj.url = `https://details.loinc.org/LOINC/${loinc.loinccode}.html#${loinc.latestversion}`;
+        }
+
+        resource.relatedArtifact.push(obj);
+      }
+    }
   }
 
   return resource;
@@ -57,11 +71,12 @@ async function run(url, client) {
 
   const questionnaireMap = await getGroupedQuestions(client, ['questionid'], ['asmtid']);
   const responseMap = await getGroupedResponses(client, ['questionid']);
+  const loincMap = await getGroupedLoincCodes(client, ['questionid', 'asmtid']);
 
   const output = [];
 
   for (const row of measureResults) {
-    const measure = buildMeasure(url, row, questionnaireMap, responseMap);
+    const measure = buildMeasure(url, row, questionnaireMap, responseMap, loincMap);
     output.push(measure);
   }
 

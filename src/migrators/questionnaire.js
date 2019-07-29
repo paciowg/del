@@ -1,5 +1,5 @@
 
-const { getAllQuestionnaires, getGroupedQuestions, getGroupedResponses } = require('../sql');
+const { getAllQuestionnaires, getGroupedQuestions, getGroupedResponses, getGroupedLoincCodes } = require('../sql');
 
 function buildQuestionnaire(baseUrl, {
   asmtid, version, status, date, name, description, title, publisher, startdate, enddate, approvaldate
@@ -36,7 +36,7 @@ function buildQuestionnaire(baseUrl, {
   return resource;
 }
 
-function buildQuestion({ datatype, label, sectionid, text, typename, maxlength }, responses) {
+function buildQuestion({ datatype, label, sectionid, text, typename, maxlength }, responses, loincs) {
   let type = 'group';
   if (datatype === 'character') type = 'text';
   if (datatype === 'number') type = 'integer';
@@ -50,6 +50,12 @@ function buildQuestion({ datatype, label, sectionid, text, typename, maxlength }
     repeats: typename == 'checklist',
     readOnly: type === 'group',
   };
+
+  if (loincs && loincs.length) {
+    // If it exists, it should be an array with only one item.
+    const loinc = loincs[0];
+    item.definition = `https://details.loinc.org/LOINC/${loinc.loinccode}.html#${loinc.latestversion}`;
+  }
 
   if (responses) {
     // Filter by only responses that are not blank.
@@ -107,10 +113,12 @@ function buildQuestion({ datatype, label, sectionid, text, typename, maxlength }
   return item;
 }
 
-function applyQuestions(resource, questions, responses) {
+function applyQuestions(resource, questions, responses, loincs) {
   if (!questions) {
     return;
   }
+
+  loincs = loincs || {};
 
   const questionMap = {};
   const sectionMap = {};
@@ -131,7 +139,7 @@ function applyQuestions(resource, questions, responses) {
 
     // This is a root question or section. Place directly in the section.
     if (!question.parentid) {
-      const item = buildQuestion(question, responses[question.questionid]);
+      const item = buildQuestion(question, responses[question.questionid], loincs[question.questionid]);
       questionMap[question.questionid] = item;
       section.item.push(item);
       continue;
@@ -151,7 +159,7 @@ function applyQuestions(resource, questions, responses) {
     }
 
     // Then add this question to parent.
-    const newQuestion = buildQuestion(question, responses[question.questionid]);
+    const newQuestion = buildQuestion(question, responses[question.questionid], loincs[question.questionid]);
     parent.item.push(newQuestion);
   }
 
@@ -172,13 +180,19 @@ async function run(url, client) {
   const questionnaireResults = await getAllQuestionnaires(client);
   const groupedQuestions = await getGroupedQuestions(client, ['asmtid']);
   const responseMap = await getGroupedResponses(client, ['asmtid', 'questionid']);
+  const loincMap = await getGroupedLoincCodes(client, ['asmtid', 'questionid']);
 
   const output = [];
 
   for (const row of questionnaireResults) {
     const questionnaire = buildQuestionnaire(url, row);
 
-    applyQuestions(questionnaire, groupedQuestions[questionnaire.id], responseMap[questionnaire.id]);
+    applyQuestions(
+      questionnaire,
+      groupedQuestions[questionnaire.id],
+      responseMap[questionnaire.id],
+      loincMap[questionnaire.id]
+    );
 
     output.push(questionnaire);
   }

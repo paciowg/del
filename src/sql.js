@@ -6,6 +6,7 @@ const QUESTIONNAIRES_SQL = readFileSync(resolve('./src/sql/questionnaires.sql'),
 const QUESTIONS_SQL = readFileSync(resolve('./src/sql/questions.sql'), 'utf8');
 const MEASURES_SQL = readFileSync(resolve('./src/sql/measures.sql'), 'utf8');
 const RESPONSES_SQL = readFileSync(resolve('./src/sql/responses.sql'), 'utf8');
+const LOINC_SQL = readFileSync(resolve('./src/sql/loinc.sql'), 'utf8');
 
 /**
  * Get a flat list of all questionnaire versions.
@@ -68,10 +69,26 @@ async function getGroupedResponses(client, properties) {
   return groupBy(result.rows, properties);
 }
 
+/**
+ * The query result is a flat list with at least these columns:
+ *   asmtid, questionid, latestversion, loinccode
+ *
+ * Group by the given attributes like this: getGroupedLoincCodes(client, ['asmtid', 'questionid'])
+ * That way you can look it up like this: mapping[asmtid][questionid]
+ *
+ * @param {import('pg').Client} client
+ * @param {Array<string>} properties
+ */
+async function getGroupedLoincCodes(client, properties) {
+  const result = await client.query(LOINC_SQL);
+  return groupBy(result.rows, properties);
+}
+
 module.exports = {
   getAllQuestionnaires,
   getGroupedQuestions,
   getGroupedResponses,
   getAllLibraries,
   getAllMeasures,
+  getGroupedLoincCodes,
 };
