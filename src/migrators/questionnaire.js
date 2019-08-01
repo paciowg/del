@@ -54,7 +54,9 @@ function buildQuestion({ datatype, label, sectionid, text, typename, maxlength }
   if (loincs && loincs.length) {
     // If it exists, it should be an array with only one item.
     const loinc = loincs[0];
-    item.definition = `https://details.loinc.org/LOINC/${loinc.loinccode}.html#${loinc.latestversion}`;
+    item.code = [{
+      system: `https://details.loinc.org/LOINC/${loinc.loinccode}.html#${loinc.latestversion}`
+    }];
   }
 
   if (responses) {
