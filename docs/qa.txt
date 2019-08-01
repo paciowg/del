@@ -1,26 +1,22 @@
 ﻿IMPACT_Data_Element_Implementation_Guide : Validation Results
 =========================================
 
-err = 14, warn = 0, info = 0
-Generated Wed Jul 24 09:56:11 EDT 2019. FHIR version 4.0.0 for impact-fhir#0.0.1 (canonical = https://impact-fhir.mitre.org/r4)
+err = 6, warn = 0, info = 0
+Generated Thu Aug 01 13:21:47 EDT 2019. FHIR version 4.0.0 for impact-fhir#0.0.1 (canonical = https://impact-fhir.mitre.org/r4)
 
  Build Errors : 0 / 0
  /Users/tshaffer/Developer/del/out/fhir/guide/resources/ig : 0 / 0
- /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-Assessment : 1 / 0
- /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-StandardForm : 2 / 0
- /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-StandardFormLibrary : 2 / 0
- /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-StandardFormQuestion : 2 / 0
+ /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-Assessment : 0 / 0
+ /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-StandardForm : 1 / 0
+ /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-StandardFormLibrary : 1 / 0
+ /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-StandardFormQuestion : 1 / 0
 </table>
 == n/a ==
 == /Users/tshaffer/Developer/del/out/fhir/guide/resources/ig.xml ==
 == /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-Assessment.json ==
-ERROR: StructureDefinition/del-Assessment: StructureDefinition.mapping[1].uri: URL value 'http://hl7.org/fhir/workflow' does not resolve
 == /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-StandardForm.json ==
-ERROR: StructureDefinition/del-StandardForm: StructureDefinition.mapping[1].uri: URL value 'http://hl7.org/fhir/workflow' does not resolve
-ERROR: StructureDefinition/del-StandardForm: StructureDefinition.mapping[4].uri: URL value 'http://hl7.org/fhir/object-implementation' does not resolve
+ERROR: StructureDefinition/del-StandardForm: StructureDefinition.mapping[3].uri: URL value 'http://hl7.org/fhir/object-implementation' does not resolve
 == /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-StandardFormLibrary.json ==
-ERROR: StructureDefinition/del-StandardFormLibrary: StructureDefinition.mapping[2].uri: URL value 'http://hl7.org/fhir/workflow' does not resolve
-ERROR: StructureDefinition/del-StandardFormLibrary: StructureDefinition.mapping[4].uri: URL value 'http://hl7.org/fhir/object-implementation' does not resolve
+ERROR: StructureDefinition/del-StandardFormLibrary: StructureDefinition.mapping[3].uri: URL value 'http://hl7.org/fhir/object-implementation' does not resolve
 == /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-StandardFormQuestion.json ==
-ERROR: StructureDefinition/del-StandardFormQuestion: StructureDefinition.mapping[1].uri: URL value 'http://hl7.org/fhir/workflow' does not resolve
-ERROR: StructureDefinition/del-StandardFormQuestion: StructureDefinition.mapping[3].uri: URL value 'http://hl7.org/fhir/object-implementation' does not resolve
+ERROR: StructureDefinition/del-StandardFormQuestion: StructureDefinition.mapping[2].uri: URL value 'http://hl7.org/fhir/object-implementation' does not resolve

@@ -13,7 +13,7 @@ StandardForm maps to Questionnaire:
     constrain title to 1..1
     constrain description to 1..1
     constrain item to 1..*
-    constrain item.id to 1..1
+    constrain item.linkId to 1..1
     constrain item.text to 1..1
     constrain identifier to 0..0
     constrain subjectType to 0..0

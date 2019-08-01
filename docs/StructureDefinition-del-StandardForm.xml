@@ -13,7 +13,7 @@
   constrain title to 1..1
   constrain description to 1..1
   constrain item to 1..*
-  constrain item.id to 1..1
+  constrain item.linkId to 1..1
   constrain item.text to 1..1
   constrain identifier to 0..0
   constrain subjectType to 0..0
@@ -31,7 +31,7 @@
   <name value="StandardForm"/>
   <title value="del-StandardForm"/>
   <status value="draft"/>
-  <date value="2019-07-24T00:00:00-04:00"/>
+  <date value="2019-08-01T00:00:00-04:00"/>
   <publisher value="The MITRE Corporation"/>
   <contact>
     <telecom>
@@ -77,7 +77,7 @@
   </baseDefinition>
   <derivation value="constraint"/>
   <snapshot>
-    <element id="Questionnaire:del-StandardForm">
+    <element id="Questionnaire">
       <path value="Questionnaire"/>
       <short value="del-StandardForm"/>
       <definition value="A definition of an standard form and all of its contents."/>
@@ -166,7 +166,7 @@
         <map value="Observation[moodCode=DEF]"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.id">
+    <element id="Questionnaire.id">
       <path value="Questionnaire.id"/>
       <short value="Logical id of this artifact"/>
       <definition value="The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes."/>
@@ -184,7 +184,7 @@
       <isModifier value="false"/>
       <isSummary value="true"/>
     </element>
-    <element id="Questionnaire:del-StandardForm.meta">
+    <element id="Questionnaire.meta">
       <path value="Questionnaire.meta"/>
       <short value="Metadata about the resource"/>
       <definition value="The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource."/>
@@ -201,7 +201,7 @@
       <isModifier value="false"/>
       <isSummary value="true"/>
     </element>
-    <element id="Questionnaire:del-StandardForm.implicitRules">
+    <element id="Questionnaire.implicitRules">
       <path value="Questionnaire.implicitRules"/>
       <short value="A set of rules under which this content was created"/>
       <definition value="A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc."/>
@@ -220,7 +220,7 @@
       <isModifierReason value="This element is labeled as a modifier because the implicit rules may provide additional knowledge about the resource that modifies it&#39;s meaning or interpretation"/>
       <isSummary value="true"/>
     </element>
-    <element id="Questionnaire:del-StandardForm.language">
+    <element id="Questionnaire.language">
       <path value="Questionnaire.language"/>
       <short value="Language of the resource content"/>
       <definition value="The base language in which the resource is written."/>
@@ -252,7 +252,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
       </binding>
     </element>
-    <element id="Questionnaire:del-StandardForm.text">
+    <element id="Questionnaire.text">
       <path value="Questionnaire.text"/>
       <short value="Text summary of the resource, for human interpretation"/>
       <definition value="A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety."/>
@@ -278,7 +278,7 @@
         <map value="Act.text?"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.contained">
+    <element id="Questionnaire.contained">
       <path value="Questionnaire.contained"/>
       <short value="Contained, inline Resources"/>
       <definition value="These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope."/>
@@ -303,7 +303,7 @@
         <map value="N/A"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.extension">
+    <element id="Questionnaire.extension">
       <path value="Questionnaire.extension"/>
       <short value="Additional content defined by implementations"/>
       <definition value="May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
@@ -327,7 +327,7 @@
         <map value="N/A"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.modifierExtension">
+    <element id="Questionnaire.modifierExtension">
       <path value="Questionnaire.modifierExtension"/>
       <short value="Extensions that cannot be ignored"/>
       <definition value="May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element&#39;s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.&#xA;&#xA;Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)."/>
@@ -353,7 +353,7 @@
         <map value="N/A"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.url">
+    <element id="Questionnaire.url">
       <path value="Questionnaire.url"/>
       <short value="Canonical identifier for this questionnaire, represented as a URI (globally unique)"/>
       <definition value="An absolute URI that is used to identify this questionnaire when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this questionnaire is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the questionnaire is stored on different servers."/>
@@ -384,7 +384,7 @@
         <map value=".identifier[scope=BUSN;reliability=ISS]"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.identifier">
+    <element id="Questionnaire.identifier">
       <path value="Questionnaire.identifier"/>
       <short value="Additional identifier for the questionnaire"/>
       <definition value="A formal identifier that is used to identify this questionnaire when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
@@ -419,7 +419,7 @@
         <map value="no-gen-base"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.version">
+    <element id="Questionnaire.version">
       <path value="Questionnaire.version"/>
       <short value="Business version of the questionnaire"/>
       <definition value="The identifier that is used to identify this version of the questionnaire when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the questionnaire author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
@@ -449,7 +449,7 @@
         <map value="N/A (to add?)"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.name">
+    <element id="Questionnaire.name">
       <path value="Questionnaire.name"/>
       <short value="Name for this questionnaire (computer friendly)"/>
       <definition value="A natural language name identifying the questionnaire. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
@@ -473,7 +473,7 @@
         <map value="N/A"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.title">
+    <element id="Questionnaire.title">
       <path value="Questionnaire.title"/>
       <short value="Name for this questionnaire (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the questionnaire."/>
@@ -499,7 +499,7 @@
         <map value=".title"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.derivedFrom">
+    <element id="Questionnaire.derivedFrom">
       <path value="Questionnaire.derivedFrom"/>
       <short value="Instantiates protocol or definition"/>
       <definition value="The URL of a Questionnaire that this Questionnaire is based on."/>
@@ -526,7 +526,7 @@
         <map value=".outboundRelationship[typeCode=DRIV].target[classCode=OBS, moodCode=DEFN]"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.status">
+    <element id="Questionnaire.status">
       <path value="Questionnaire.status"/>
       <short value="draft | active | retired | unknown"/>
       <definition value="The status of this questionnaire. Enables tracking the life-cycle of the content."/>
@@ -568,7 +568,7 @@
         <map value=".status"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.experimental">
+    <element id="Questionnaire.experimental">
       <path value="Questionnaire.experimental"/>
       <short value="For testing purposes, not real usage"/>
       <definition value="A Boolean value to indicate that this questionnaire is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
@@ -599,7 +599,7 @@
         <map value="N/A"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.subjectType">
+    <element id="Questionnaire.subjectType">
       <path value="Questionnaire.subjectType"/>
       <short value="Resource that can be subject of QuestionnaireResponse"/>
       <definition value="The types of subjects that can be the subject of responses created for the questionnaire."/>
@@ -636,7 +636,7 @@
         <map value=".outboundRelationship[typeCode=META].target[classCode=OBS, moodCode=DEFN, isCriterion=true].participation.role.classCode"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.date">
+    <element id="Questionnaire.date">
       <path value="Questionnaire.date"/>
       <short value="Date last changed"/>
       <definition value="The date  (and optionally time) when the questionnaire was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the questionnaire changes."/>
@@ -667,7 +667,7 @@
         <map value=".participation[typeCode=AUT].time"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.publisher">
+    <element id="Questionnaire.publisher">
       <path value="Questionnaire.publisher"/>
       <short value="Name of the publisher (organization or individual)"/>
       <definition value="The name of the organization or individual that published the questionnaire."/>
@@ -698,7 +698,7 @@
         <map value=".participation[typeCode=AUT].role"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.contact">
+    <element id="Questionnaire.contact">
       <path value="Questionnaire.contact"/>
       <short value="Contact details for the publisher"/>
       <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
@@ -724,7 +724,7 @@
         <map value=".participation[typeCode=CALLBCK].role"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.description">
+    <element id="Questionnaire.description">
       <path value="Questionnaire.description"/>
       <short value="Natural language description of the questionnaire"/>
       <definition value="A free text natural language description of the questionnaire from a consumer&#39;s perspective."/>
@@ -750,7 +750,7 @@
         <map value=".text"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.useContext">
+    <element id="Questionnaire.useContext">
       <path value="Questionnaire.useContext"/>
       <short value="The context that the content is intended to support"/>
       <definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate questionnaire instances."/>
@@ -777,7 +777,7 @@
         <map value="N/A (to add?)"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.jurisdiction">
+    <element id="Questionnaire.jurisdiction">
       <path value="Questionnaire.jurisdiction"/>
       <short value="Intended jurisdiction for questionnaire (if applicable)"/>
       <definition value="A legal or geographic region in which the questionnaire is intended to be used."/>
@@ -814,7 +814,7 @@
         <map value="N/A (to add?)"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.purpose">
+    <element id="Questionnaire.purpose">
       <path value="Questionnaire.purpose"/>
       <short value="Why this questionnaire is defined"/>
       <definition value="Explanation of why this questionnaire is needed and why it has been designed as it has."/>
@@ -848,7 +848,7 @@
         <map value="no-gen-base"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.copyright">
+    <element id="Questionnaire.copyright">
       <path value="Questionnaire.copyright"/>
       <short value="Use and/or publishing restrictions"/>
       <definition value="A copyright statement relating to the questionnaire and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the questionnaire."/>
@@ -880,7 +880,7 @@
         <map value="no-gen-base"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.approvalDate">
+    <element id="Questionnaire.approvalDate">
       <path value="Questionnaire.approvalDate"/>
       <short value="When the questionnaire was approved by publisher"/>
       <definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
@@ -910,7 +910,7 @@
         <map value="no-gen-base"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.lastReviewDate">
+    <element id="Questionnaire.lastReviewDate">
       <path value="Questionnaire.lastReviewDate"/>
       <short value="When the questionnaire was last reviewed"/>
       <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
@@ -941,7 +941,7 @@
         <map value="no-gen-base"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.effectivePeriod">
+    <element id="Questionnaire.effectivePeriod">
       <path value="Questionnaire.effectivePeriod"/>
       <short value="When the questionnaire is expected to be used"/>
       <definition value="The period during which the questionnaire content was or is planned to be in active use."/>
@@ -972,7 +972,7 @@
         <map value="no-gen-base"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.code">
+    <element id="Questionnaire.code">
       <path value="Questionnaire.code"/>
       <short value="Concept that represents the overall questionnaire"/>
       <definition value="An identifier for this question or group of questions in a particular terminology such as LOINC."/>
@@ -1002,7 +1002,7 @@
         <map value=".code"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.item">
+    <element id="Questionnaire.item">
       <path value="Questionnaire.item"/>
       <short value="Questions and sections within the Questionnaire"/>
       <definition value="A particular question, question grouping or display text that is part of the questionnaire."/>
@@ -1110,12 +1110,12 @@
         <map value=".outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=DEF]"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.item.id">
+    <element id="Questionnaire.item.id">
       <path value="Questionnaire.item.id"/>
       <representation value="xmlAttr"/>
       <short value="Unique id for inter-element referencing"/>
       <definition value="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <base>
         <path value="Element.id"/>
@@ -1132,7 +1132,7 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.item.extension">
+    <element id="Questionnaire.item.extension">
       <path value="Questionnaire.item.extension"/>
       <short value="Additional content defined by implementations"/>
       <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
@@ -1156,7 +1156,7 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.item.modifierExtension">
+    <element id="Questionnaire.item.modifierExtension">
       <path value="Questionnaire.item.modifierExtension"/>
       <short value="Extensions that cannot be ignored even if unrecognized"/>
       <definition value="May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element&#39;s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.&#xA;&#xA;Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)."/>
@@ -1183,7 +1183,7 @@
         <map value="N/A"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.item.linkId">
+    <element id="Questionnaire.item.linkId">
       <path value="Questionnaire.item.linkId"/>
       <short value="Unique id for item in questionnaire"/>
       <definition value="An identifier that is unique within the Questionnaire allowing linkage to the equivalent item in a QuestionnaireResponse resource."/>
@@ -1206,7 +1206,7 @@
         <map value=".id"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.item.definition">
+    <element id="Questionnaire.item.definition">
       <path value="Questionnaire.item.definition"/>
       <short value="ElementDefinition - details for the item"/>
       <definition value="This element is a URI that refers to an [ElementDefinition](elementdefinition.html) that provides information about this item, including information that might otherwise be included in the instance of the Questionnaire resource. A detailed description of the construction of the URI is shown in Comments, below. If this element is present then the following element values MAY be derived from the Element Definition if the corresponding elements of this Questionnaire resource instance have no value:&#xA;&#xA;* code (ElementDefinition.code) &#xA;* type (ElementDefinition.type) &#xA;* required (ElementDefinition.min) &#xA;* repeats (ElementDefinition.max) &#xA;* maxLength (ElementDefinition.maxLength) &#xA;* answerValueSet (ElementDefinition.binding)&#xA;* options (ElementDefinition.binding)."/>
@@ -1229,7 +1229,7 @@
         <map value=".outboundRelationship[typeCode=INST].target[classCode=OBS, moodCode=DEF]"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.item.code">
+    <element id="Questionnaire.item.code">
       <path value="Questionnaire.item.code"/>
       <short value="Corresponding concept for this item in a terminology"/>
       <definition value="A terminology code that corresponds to this group or question (e.g. a code from LOINC, which defines many questions and answers)."/>
@@ -1261,7 +1261,7 @@
         <map value=".code"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.item.prefix">
+    <element id="Questionnaire.item.prefix">
       <path value="Questionnaire.item.prefix"/>
       <short value="E.g. &quot;1(a)&quot;, &quot;2.5.3&quot;"/>
       <definition value="A short label for a particular group, question or set of display text within the questionnaire used for reference by the individual completing the questionnaire."/>
@@ -1285,7 +1285,7 @@
         <map value="Not supported"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.item.text">
+    <element id="Questionnaire.item.text">
       <path value="Questionnaire.item.text"/>
       <short value="Primary text for the item"/>
       <definition value="The name of a section, the text of a question or text content for a display item."/>
@@ -1307,7 +1307,7 @@
         <map value=".text"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.item.type">
+    <element id="Questionnaire.item.type">
       <path value="Questionnaire.item.type"/>
       <short value="group | display | boolean | decimal | integer | date | dateTime +"/>
       <definition value="The type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, coded choice, etc.)."/>
@@ -1338,7 +1338,7 @@
         <map value="N/A - MIF rather than RIM level"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.item.enableWhen">
+    <element id="Questionnaire.item.enableWhen">
       <path value="Questionnaire.item.enableWhen"/>
       <short value="Only allow data when"/>
       <definition value="A constraint indicating that this item should only be enabled (displayed/allow answers to be captured) when the specified condition is true."/>
@@ -1377,7 +1377,7 @@
         <map value="N/A - MIF rather than RIM level"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.item.enableWhen.id">
+    <element id="Questionnaire.item.enableWhen.id">
       <path value="Questionnaire.item.enableWhen.id"/>
       <representation value="xmlAttr"/>
       <short value="Unique id for inter-element referencing"/>
@@ -1399,7 +1399,7 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.item.enableWhen.extension">
+    <element id="Questionnaire.item.enableWhen.extension">
       <path value="Questionnaire.item.enableWhen.extension"/>
       <short value="Additional content defined by implementations"/>
       <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
@@ -1423,7 +1423,7 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.item.enableWhen.modifierExtension">
+    <element id="Questionnaire.item.enableWhen.modifierExtension">
       <path value="Questionnaire.item.enableWhen.modifierExtension"/>
       <short value="Extensions that cannot be ignored even if unrecognized"/>
       <definition value="May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element&#39;s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.&#xA;&#xA;Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)."/>
@@ -1450,7 +1450,7 @@
         <map value="N/A"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.item.enableWhen.question">
+    <element id="Questionnaire.item.enableWhen.question">
       <path value="Questionnaire.item.enableWhen.question"/>
       <short value="Question that determines whether item is enabled"/>
       <definition value="The linkId for the question whose answer (or lack of answer) governs whether this item is enabled."/>
@@ -1472,7 +1472,7 @@
         <map value="N/A - MIF rather than RIM level"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.item.enableWhen.operator">
+    <element id="Questionnaire.item.enableWhen.operator">
       <path value="Questionnaire.item.enableWhen.operator"/>
       <short value="exists | = | != | &gt; | &lt; | &gt;= | &lt;="/>
       <definition value="Specifies the criteria by which the question is enabled."/>
@@ -1501,7 +1501,7 @@
         <map value="N/A - MIF rather than RIM level"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.item.enableWhen.answer[x]">
+    <element id="Questionnaire.item.enableWhen.answer[x]">
       <path value="Questionnaire.item.enableWhen.answer[x]"/>
       <short value="Value for question comparison based on operator"/>
       <definition value="A value that the referenced question is tested using the specified operator in order for the item to be enabled."/>
@@ -1559,7 +1559,7 @@
         <map value="N/A - MIF rather than RIM level"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.item.enableBehavior">
+    <element id="Questionnaire.item.enableBehavior">
       <path value="Questionnaire.item.enableBehavior"/>
       <short value="all | any"/>
       <definition value="Controls how multiple enableWhen values are interpreted -  whether all or any must be true."/>
@@ -1590,7 +1590,7 @@
         <map value="N/A - MIF rather than RIM level"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.item.required">
+    <element id="Questionnaire.item.required">
       <path value="Questionnaire.item.required"/>
       <short value="Whether the item must be included in data results"/>
       <definition value="An indication, if true, that the item must be present in a &quot;completed&quot; QuestionnaireResponse.  If false, the item may be skipped when answering the questionnaire."/>
@@ -1614,7 +1614,7 @@
         <map value="N/A - MIF rather than RIM level"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.item.repeats">
+    <element id="Questionnaire.item.repeats">
       <path value="Questionnaire.item.repeats"/>
       <short value="Whether the item may repeat"/>
       <definition value="An indication, if true, that the item may occur multiple times in the response, collecting multiple answers for questions or multiple sets of answers for groups."/>
@@ -1639,7 +1639,7 @@
         <map value="N/A - MIF rather than RIM level"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.item.readOnly">
+    <element id="Questionnaire.item.readOnly">
       <path value="Questionnaire.item.readOnly"/>
       <short value="Don&#39;t allow human editing"/>
       <definition value="An indication, when true, that the value cannot be changed by a human respondent to the Questionnaire."/>
@@ -1663,7 +1663,7 @@
         <map value="N/A - MIF rather than RIM level"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.item.maxLength">
+    <element id="Questionnaire.item.maxLength">
       <path value="Questionnaire.item.maxLength"/>
       <short value="No more than this many characters"/>
       <definition value="The maximum number of characters that are permitted in the answer to be considered a &quot;valid&quot; QuestionnaireResponse."/>
@@ -1690,7 +1690,7 @@
         <map value="N/A - MIF rather than RIM level"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.item.answerValueSet">
+    <element id="Questionnaire.item.answerValueSet">
       <path value="Questionnaire.item.answerValueSet"/>
       <short value="Valueset containing permitted answers"/>
       <definition value="A reference to a value set containing a list of codes representing permitted answers for a &quot;choice&quot; or &quot;open-choice&quot; question."/>
@@ -1715,7 +1715,7 @@
         <map value="N/A - MIF rather than RIM level"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.item.answerOption">
+    <element id="Questionnaire.item.answerOption">
       <path value="Questionnaire.item.answerOption"/>
       <short value="Permitted answer"/>
       <definition value="One of the permitted answers for a &quot;choice&quot; or &quot;open-choice&quot; question."/>
@@ -1747,7 +1747,7 @@
         <map value="N/A - MIF rather than RIM level"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.item.answerOption.id">
+    <element id="Questionnaire.item.answerOption.id">
       <path value="Questionnaire.item.answerOption.id"/>
       <representation value="xmlAttr"/>
       <short value="Unique id for inter-element referencing"/>
@@ -1769,7 +1769,7 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.item.answerOption.extension">
+    <element id="Questionnaire.item.answerOption.extension">
       <path value="Questionnaire.item.answerOption.extension"/>
       <short value="Additional content defined by implementations"/>
       <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
@@ -1793,7 +1793,7 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.item.answerOption.modifierExtension">
+    <element id="Questionnaire.item.answerOption.modifierExtension">
       <path value="Questionnaire.item.answerOption.modifierExtension"/>
       <short value="Extensions that cannot be ignored even if unrecognized"/>
       <definition value="May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element&#39;s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.&#xA;&#xA;Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)."/>
@@ -1820,7 +1820,7 @@
         <map value="N/A"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.item.answerOption.value[x]">
+    <element id="Questionnaire.item.answerOption.value[x]">
       <path value="Questionnaire.item.answerOption.value[x]"/>
       <short value="Answer value"/>
       <definition value="A potential answer that&#39;s allowed as the answer to this question."/>
@@ -1866,7 +1866,7 @@
         <map value="N/A - MIF rather than RIM level"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.item.answerOption.initialSelected">
+    <element id="Questionnaire.item.answerOption.initialSelected">
       <path value="Questionnaire.item.answerOption.initialSelected"/>
       <short value="Whether option is selected by default"/>
       <definition value="Indicates whether the answer value is selected when the list of possible answers is initially shown."/>
@@ -1889,7 +1889,7 @@
         <map value="N/A - MIF rather than RIM level"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.item.initial">
+    <element id="Questionnaire.item.initial">
       <path value="Questionnaire.item.initial"/>
       <short value="Initial value(s) when item is first rendered"/>
       <definition value="One or more values that should be pre-populated in the answer when initially rendering the questionnaire for user input."/>
@@ -1922,7 +1922,7 @@
         <map value="N/A - MIF rather than RIM level"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.item.initial.id">
+    <element id="Questionnaire.item.initial.id">
       <path value="Questionnaire.item.initial.id"/>
       <representation value="xmlAttr"/>
       <short value="Unique id for inter-element referencing"/>
@@ -1944,7 +1944,7 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.item.initial.extension">
+    <element id="Questionnaire.item.initial.extension">
       <path value="Questionnaire.item.initial.extension"/>
       <short value="Additional content defined by implementations"/>
       <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
@@ -1968,7 +1968,7 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.item.initial.modifierExtension">
+    <element id="Questionnaire.item.initial.modifierExtension">
       <path value="Questionnaire.item.initial.modifierExtension"/>
       <short value="Extensions that cannot be ignored even if unrecognized"/>
       <definition value="May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element&#39;s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.&#xA;&#xA;Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)."/>
@@ -1995,7 +1995,7 @@
         <map value="N/A"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.item.initial.value[x]">
+    <element id="Questionnaire.item.initial.value[x]">
       <path value="Questionnaire.item.initial.value[x]"/>
       <short value="Actual value for initializing the question"/>
       <definition value="The actual value to for an initial answer."/>
@@ -2059,7 +2059,7 @@
         <map value="N/A - MIF rather than RIM level"/>
       </mapping>
     </element>
-    <element id="Questionnaire:del-StandardForm.item.item">
+    <element id="Questionnaire.item.item">
       <path value="Questionnaire.item.item"/>
       <short value="Nested questionnaire items"/>
       <definition value="Text, questions and other groups to be nested beneath a question or group."/>
@@ -2083,84 +2083,79 @@
     </element>
   </snapshot>
   <differential>
-    <element id="Questionnaire:del-StandardForm">
+    <element id="Questionnaire">
       <path value="Questionnaire"/>
       <short value="del-StandardForm"/>
       <definition value="A definition of an standard form and all of its contents."/>
       <isModifier value="false"/>
       <isSummary value="false"/>
     </element>
-    <element id="Questionnaire:del-StandardForm.url">
+    <element id="Questionnaire.url">
       <path value="Questionnaire.url"/>
       <min value="1"/>
       <max value="1"/>
     </element>
-    <element id="Questionnaire:del-StandardForm.identifier">
+    <element id="Questionnaire.identifier">
       <path value="Questionnaire.identifier"/>
       <min value="0"/>
       <max value="0"/>
     </element>
-    <element id="Questionnaire:del-StandardForm.version">
+    <element id="Questionnaire.version">
       <path value="Questionnaire.version"/>
       <min value="1"/>
       <max value="1"/>
     </element>
-    <element id="Questionnaire:del-StandardForm.name">
+    <element id="Questionnaire.name">
       <path value="Questionnaire.name"/>
       <min value="1"/>
       <max value="1"/>
     </element>
-    <element id="Questionnaire:del-StandardForm.title">
+    <element id="Questionnaire.title">
       <path value="Questionnaire.title"/>
       <min value="1"/>
       <max value="1"/>
     </element>
-    <element id="Questionnaire:del-StandardForm.subjectType">
+    <element id="Questionnaire.subjectType">
       <path value="Questionnaire.subjectType"/>
       <min value="0"/>
       <max value="0"/>
     </element>
-    <element id="Questionnaire:del-StandardForm.contact">
+    <element id="Questionnaire.contact">
       <path value="Questionnaire.contact"/>
       <min value="0"/>
       <max value="0"/>
     </element>
-    <element id="Questionnaire:del-StandardForm.description">
+    <element id="Questionnaire.description">
       <path value="Questionnaire.description"/>
       <min value="1"/>
       <max value="1"/>
     </element>
-    <element id="Questionnaire:del-StandardForm.useContext">
+    <element id="Questionnaire.useContext">
       <path value="Questionnaire.useContext"/>
       <min value="0"/>
       <max value="0"/>
     </element>
-    <element id="Questionnaire:del-StandardForm.jurisdiction">
+    <element id="Questionnaire.jurisdiction">
       <path value="Questionnaire.jurisdiction"/>
       <min value="0"/>
       <max value="0"/>
     </element>
-    <element id="Questionnaire:del-StandardForm.purpose">
+    <element id="Questionnaire.purpose">
       <path value="Questionnaire.purpose"/>
       <min value="0"/>
       <max value="0"/>
     </element>
-    <element id="Questionnaire:del-StandardForm.copyright">
+    <element id="Questionnaire.copyright">
       <path value="Questionnaire.copyright"/>
       <min value="0"/>
       <max value="0"/>
     </element>
-    <element id="Questionnaire:del-StandardForm.item">
+    <element id="Questionnaire.item">
       <path value="Questionnaire.item"/>
       <min value="1"/>
       <max value="*"/>
     </element>
-    <element id="Questionnaire:del-StandardForm.item.id">
-      <path value="Questionnaire.item.id"/>
-      <min value="1"/>
-      <max value="1"/>
-    </element>
-    <element id="Questionnaire:del-StandardForm.item.text">
+    <element id="Questionnaire.item.text">
       <path value="Questionnaire.item.text"/>
       <min value="1"/>
       <max value="1"/>

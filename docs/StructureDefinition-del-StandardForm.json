@@ -3,14 +3,14 @@
   "id": "del-StandardForm",
   "text": {
     "status": "generated",
-    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>StandardForm Profile</b></p>\n  <p>A definition of an standard form and all of its contents.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.StandardForm maps to Questionnaire:\n  constrain name to 1..1\n  constrain version to 1..1\n  constrain title to 1..1\n  constrain description to 1..1\n  constrain item to 1..*\n  constrain item.id to 1..1\n  constrain item.text to 1..1\n  constrain identifier to 0..0\n  constrain subjectType to 0..0\n  constrain useContext to 0..0\n  constrain contact to 0..0\n  constrain jurisdiction to 0..0\n  constrain purpose to 0..0\n  constrain copyright to 0..0\n  constrain url to 1..1\n</pre></p>\n</div>"
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>StandardForm Profile</b></p>\n  <p>A definition of an standard form and all of its contents.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.StandardForm maps to Questionnaire:\n  constrain name to 1..1\n  constrain version to 1..1\n  constrain title to 1..1\n  constrain description to 1..1\n  constrain item to 1..*\n  constrain item.linkId to 1..1\n  constrain item.text to 1..1\n  constrain identifier to 0..0\n  constrain subjectType to 0..0\n  constrain useContext to 0..0\n  constrain contact to 0..0\n  constrain jurisdiction to 0..0\n  constrain purpose to 0..0\n  constrain copyright to 0..0\n  constrain url to 1..1\n</pre></p>\n</div>"
   },
   "url": "https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardForm",
   "version": "0.0.1",
   "name": "StandardForm",
   "title": "del-StandardForm",
   "status": "draft",
-  "date": "2019-07-24T00:00:00-04:00",
+  "date": "2019-08-01T00:00:00-04:00",
   "publisher": "The MITRE Corporation",
   "contact": [
     {
@@ -68,7 +68,7 @@
   "snapshot": {
     "element": [
       {
-        "id": "Questionnaire:del-StandardForm",
+        "id": "Questionnaire",
         "path": "Questionnaire",
         "short": "del-StandardForm",
         "definition": "A definition of an standard form and all of its contents.",
@@ -168,7 +168,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.id",
+        "id": "Questionnaire.id",
         "path": "Questionnaire.id",
         "short": "Logical id of this artifact",
         "definition": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
@@ -189,7 +189,7 @@
         "isSummary": true
       },
       {
-        "id": "Questionnaire:del-StandardForm.meta",
+        "id": "Questionnaire.meta",
         "path": "Questionnaire.meta",
         "short": "Metadata about the resource",
         "definition": "The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.",
@@ -209,7 +209,7 @@
         "isSummary": true
       },
       {
-        "id": "Questionnaire:del-StandardForm.implicitRules",
+        "id": "Questionnaire.implicitRules",
         "path": "Questionnaire.implicitRules",
         "short": "A set of rules under which this content was created",
         "definition": "A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.",
@@ -231,7 +231,7 @@
         "isSummary": true
       },
       {
-        "id": "Questionnaire:del-StandardForm.language",
+        "id": "Questionnaire.language",
         "path": "Questionnaire.language",
         "short": "Language of the resource content",
         "definition": "The base language in which the resource is written.",
@@ -271,7 +271,7 @@
         }
       },
       {
-        "id": "Questionnaire:del-StandardForm.text",
+        "id": "Questionnaire.text",
         "path": "Questionnaire.text",
         "short": "Text summary of the resource, for human interpretation",
         "definition": "A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it \"clinically safe\" for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.",
@@ -304,7 +304,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.contained",
+        "id": "Questionnaire.contained",
         "path": "Questionnaire.contained",
         "short": "Contained, inline Resources",
         "definition": "These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.",
@@ -336,7 +336,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.extension",
+        "id": "Questionnaire.extension",
         "path": "Questionnaire.extension",
         "short": "Additional content defined by implementations",
         "definition": "May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
@@ -367,7 +367,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.modifierExtension",
+        "id": "Questionnaire.modifierExtension",
         "path": "Questionnaire.modifierExtension",
         "short": "Extensions that cannot be ignored",
         "definition": "May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
@@ -400,7 +400,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.url",
+        "id": "Questionnaire.url",
         "path": "Questionnaire.url",
         "short": "Canonical identifier for this questionnaire, represented as a URI (globally unique)",
         "definition": "An absolute URI that is used to identify this questionnaire when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this questionnaire is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the questionnaire is stored on different servers.",
@@ -436,7 +436,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.identifier",
+        "id": "Questionnaire.identifier",
         "path": "Questionnaire.identifier",
         "short": "Additional identifier for the questionnaire",
         "definition": "A formal identifier that is used to identify this questionnaire when it is represented in other formats, or referenced in a specification, model, design or an instance.",
@@ -476,7 +476,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.version",
+        "id": "Questionnaire.version",
         "path": "Questionnaire.version",
         "short": "Business version of the questionnaire",
         "definition": "The identifier that is used to identify this version of the questionnaire when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the questionnaire author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.",
@@ -511,7 +511,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.name",
+        "id": "Questionnaire.name",
         "path": "Questionnaire.name",
         "short": "Name for this questionnaire (computer friendly)",
         "definition": "A natural language name identifying the questionnaire. This name should be usable as an identifier for the module by machine processing applications such as code generation.",
@@ -542,7 +542,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.title",
+        "id": "Questionnaire.title",
         "path": "Questionnaire.title",
         "short": "Name for this questionnaire (human friendly)",
         "definition": "A short, descriptive, user-friendly title for the questionnaire.",
@@ -573,7 +573,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.derivedFrom",
+        "id": "Questionnaire.derivedFrom",
         "path": "Questionnaire.derivedFrom",
         "short": "Instantiates protocol or definition",
         "definition": "The URL of a Questionnaire that this Questionnaire is based on.",
@@ -607,7 +607,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.status",
+        "id": "Questionnaire.status",
         "path": "Questionnaire.status",
         "short": "draft | active | retired | unknown",
         "definition": "The status of this questionnaire. Enables tracking the life-cycle of the content.",
@@ -658,7 +658,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.experimental",
+        "id": "Questionnaire.experimental",
         "path": "Questionnaire.experimental",
         "short": "For testing purposes, not real usage",
         "definition": "A Boolean value to indicate that this questionnaire is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.",
@@ -694,7 +694,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.subjectType",
+        "id": "Questionnaire.subjectType",
         "path": "Questionnaire.subjectType",
         "short": "Resource that can be subject of QuestionnaireResponse",
         "definition": "The types of subjects that can be the subject of responses created for the questionnaire.",
@@ -740,7 +740,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.date",
+        "id": "Questionnaire.date",
         "path": "Questionnaire.date",
         "short": "Date last changed",
         "definition": "The date  (and optionally time) when the questionnaire was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the questionnaire changes.",
@@ -778,7 +778,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.publisher",
+        "id": "Questionnaire.publisher",
         "path": "Questionnaire.publisher",
         "short": "Name of the publisher (organization or individual)",
         "definition": "The name of the organization or individual that published the questionnaire.",
@@ -814,7 +814,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.contact",
+        "id": "Questionnaire.contact",
         "path": "Questionnaire.contact",
         "short": "Contact details for the publisher",
         "definition": "Contact details to assist a user in finding and communicating with the publisher.",
@@ -845,7 +845,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.description",
+        "id": "Questionnaire.description",
         "path": "Questionnaire.description",
         "short": "Natural language description of the questionnaire",
         "definition": "A free text natural language description of the questionnaire from a consumer's perspective.",
@@ -876,7 +876,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.useContext",
+        "id": "Questionnaire.useContext",
         "path": "Questionnaire.useContext",
         "short": "The context that the content is intended to support",
         "definition": "The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate questionnaire instances.",
@@ -908,7 +908,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.jurisdiction",
+        "id": "Questionnaire.jurisdiction",
         "path": "Questionnaire.jurisdiction",
         "short": "Intended jurisdiction for questionnaire (if applicable)",
         "definition": "A legal or geographic region in which the questionnaire is intended to be used.",
@@ -954,7 +954,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.purpose",
+        "id": "Questionnaire.purpose",
         "path": "Questionnaire.purpose",
         "short": "Why this questionnaire is defined",
         "definition": "Explanation of why this questionnaire is needed and why it has been designed as it has.",
@@ -993,7 +993,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.copyright",
+        "id": "Questionnaire.copyright",
         "path": "Questionnaire.copyright",
         "short": "Use and/or publishing restrictions",
         "definition": "A copyright statement relating to the questionnaire and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the questionnaire.",
@@ -1032,7 +1032,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.approvalDate",
+        "id": "Questionnaire.approvalDate",
         "path": "Questionnaire.approvalDate",
         "short": "When the questionnaire was approved by publisher",
         "definition": "The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.",
@@ -1067,7 +1067,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.lastReviewDate",
+        "id": "Questionnaire.lastReviewDate",
         "path": "Questionnaire.lastReviewDate",
         "short": "When the questionnaire was last reviewed",
         "definition": "The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date.",
@@ -1103,7 +1103,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.effectivePeriod",
+        "id": "Questionnaire.effectivePeriod",
         "path": "Questionnaire.effectivePeriod",
         "short": "When the questionnaire is expected to be used",
         "definition": "The period during which the questionnaire content was or is planned to be in active use.",
@@ -1139,7 +1139,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.code",
+        "id": "Questionnaire.code",
         "path": "Questionnaire.code",
         "short": "Concept that represents the overall questionnaire",
         "definition": "An identifier for this question or group of questions in a particular terminology such as LOINC.",
@@ -1177,7 +1177,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.item",
+        "id": "Questionnaire.item",
         "path": "Questionnaire.item",
         "short": "Questions and sections within the Questionnaire",
         "definition": "A particular question, question grouping or display text that is part of the questionnaire.",
@@ -1294,14 +1294,14 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.item.id",
+        "id": "Questionnaire.item.id",
         "path": "Questionnaire.item.id",
         "representation": [
           "xmlAttr"
         ],
         "short": "Unique id for inter-element referencing",
         "definition": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
-        "min": 1,
+        "min": 0,
         "max": "1",
         "base": {
           "path": "Element.id",
@@ -1323,7 +1323,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.item.extension",
+        "id": "Questionnaire.item.extension",
         "path": "Questionnaire.item.extension",
         "short": "Additional content defined by implementations",
         "definition": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
@@ -1354,7 +1354,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.item.modifierExtension",
+        "id": "Questionnaire.item.modifierExtension",
         "path": "Questionnaire.item.modifierExtension",
         "short": "Extensions that cannot be ignored even if unrecognized",
         "definition": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
@@ -1388,7 +1388,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.item.linkId",
+        "id": "Questionnaire.item.linkId",
         "path": "Questionnaire.item.linkId",
         "short": "Unique id for item in questionnaire",
         "definition": "An identifier that is unique within the Questionnaire allowing linkage to the equivalent item in a QuestionnaireResponse resource.",
@@ -1416,7 +1416,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.item.definition",
+        "id": "Questionnaire.item.definition",
         "path": "Questionnaire.item.definition",
         "short": "ElementDefinition - details for the item",
         "definition": "This element is a URI that refers to an [ElementDefinition](elementdefinition.html) that provides information about this item, including information that might otherwise be included in the instance of the Questionnaire resource. A detailed description of the construction of the URI is shown in Comments, below. If this element is present then the following element values MAY be derived from the Element Definition if the corresponding elements of this Questionnaire resource instance have no value:\n\n* code (ElementDefinition.code) \n* type (ElementDefinition.type) \n* required (ElementDefinition.min) \n* repeats (ElementDefinition.max) \n* maxLength (ElementDefinition.maxLength) \n* answerValueSet (ElementDefinition.binding)\n* options (ElementDefinition.binding).",
@@ -1444,7 +1444,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.item.code",
+        "id": "Questionnaire.item.code",
         "path": "Questionnaire.item.code",
         "short": "Corresponding concept for this item in a terminology",
         "definition": "A terminology code that corresponds to this group or question (e.g. a code from LOINC, which defines many questions and answers).",
@@ -1486,7 +1486,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.item.prefix",
+        "id": "Questionnaire.item.prefix",
         "path": "Questionnaire.item.prefix",
         "short": "E.g. \"1(a)\", \"2.5.3\"",
         "definition": "A short label for a particular group, question or set of display text within the questionnaire used for reference by the individual completing the questionnaire.",
@@ -1517,7 +1517,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.item.text",
+        "id": "Questionnaire.item.text",
         "path": "Questionnaire.item.text",
         "short": "Primary text for the item",
         "definition": "The name of a section, the text of a question or text content for a display item.",
@@ -1544,7 +1544,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.item.type",
+        "id": "Questionnaire.item.type",
         "path": "Questionnaire.item.type",
         "short": "group | display | boolean | decimal | integer | date | dateTime +",
         "definition": "The type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, coded choice, etc.).",
@@ -1583,7 +1583,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.item.enableWhen",
+        "id": "Questionnaire.item.enableWhen",
         "path": "Questionnaire.item.enableWhen",
         "short": "Only allow data when",
         "definition": "A constraint indicating that this item should only be enabled (displayed/allow answers to be captured) when the specified condition is true.",
@@ -1629,7 +1629,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.item.enableWhen.id",
+        "id": "Questionnaire.item.enableWhen.id",
         "path": "Questionnaire.item.enableWhen.id",
         "representation": [
           "xmlAttr"
@@ -1658,7 +1658,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.item.enableWhen.extension",
+        "id": "Questionnaire.item.enableWhen.extension",
         "path": "Questionnaire.item.enableWhen.extension",
         "short": "Additional content defined by implementations",
         "definition": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
@@ -1689,7 +1689,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.item.enableWhen.modifierExtension",
+        "id": "Questionnaire.item.enableWhen.modifierExtension",
         "path": "Questionnaire.item.enableWhen.modifierExtension",
         "short": "Extensions that cannot be ignored even if unrecognized",
         "definition": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
@@ -1723,7 +1723,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.item.enableWhen.question",
+        "id": "Questionnaire.item.enableWhen.question",
         "path": "Questionnaire.item.enableWhen.question",
         "short": "Question that determines whether item is enabled",
         "definition": "The linkId for the question whose answer (or lack of answer) governs whether this item is enabled.",
@@ -1750,7 +1750,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.item.enableWhen.operator",
+        "id": "Questionnaire.item.enableWhen.operator",
         "path": "Questionnaire.item.enableWhen.operator",
         "short": "exists | = | != | > | < | >= | <=",
         "definition": "Specifies the criteria by which the question is enabled.",
@@ -1787,7 +1787,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.item.enableWhen.answer[x]",
+        "id": "Questionnaire.item.enableWhen.answer[x]",
         "path": "Questionnaire.item.enableWhen.answer[x]",
         "short": "Value for question comparison based on operator",
         "definition": "A value that the referenced question is tested using the specified operator in order for the item to be enabled.",
@@ -1857,7 +1857,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.item.enableBehavior",
+        "id": "Questionnaire.item.enableBehavior",
         "path": "Questionnaire.item.enableBehavior",
         "short": "all | any",
         "definition": "Controls how multiple enableWhen values are interpreted -  whether all or any must be true.",
@@ -1898,7 +1898,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.item.required",
+        "id": "Questionnaire.item.required",
         "path": "Questionnaire.item.required",
         "short": "Whether the item must be included in data results",
         "definition": "An indication, if true, that the item must be present in a \"completed\" QuestionnaireResponse.  If false, the item may be skipped when answering the questionnaire.",
@@ -1929,7 +1929,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.item.repeats",
+        "id": "Questionnaire.item.repeats",
         "path": "Questionnaire.item.repeats",
         "short": "Whether the item may repeat",
         "definition": "An indication, if true, that the item may occur multiple times in the response, collecting multiple answers for questions or multiple sets of answers for groups.",
@@ -1961,7 +1961,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.item.readOnly",
+        "id": "Questionnaire.item.readOnly",
         "path": "Questionnaire.item.readOnly",
         "short": "Don't allow human editing",
         "definition": "An indication, when true, that the value cannot be changed by a human respondent to the Questionnaire.",
@@ -1992,7 +1992,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.item.maxLength",
+        "id": "Questionnaire.item.maxLength",
         "path": "Questionnaire.item.maxLength",
         "short": "No more than this many characters",
         "definition": "The maximum number of characters that are permitted in the answer to be considered a \"valid\" QuestionnaireResponse.",
@@ -2026,7 +2026,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.item.answerValueSet",
+        "id": "Questionnaire.item.answerValueSet",
         "path": "Questionnaire.item.answerValueSet",
         "short": "Valueset containing permitted answers",
         "definition": "A reference to a value set containing a list of codes representing permitted answers for a \"choice\" or \"open-choice\" question.",
@@ -2060,7 +2060,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.item.answerOption",
+        "id": "Questionnaire.item.answerOption",
         "path": "Questionnaire.item.answerOption",
         "short": "Permitted answer",
         "definition": "One of the permitted answers for a \"choice\" or \"open-choice\" question.",
@@ -2101,7 +2101,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.item.answerOption.id",
+        "id": "Questionnaire.item.answerOption.id",
         "path": "Questionnaire.item.answerOption.id",
         "representation": [
           "xmlAttr"
@@ -2130,7 +2130,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.item.answerOption.extension",
+        "id": "Questionnaire.item.answerOption.extension",
         "path": "Questionnaire.item.answerOption.extension",
         "short": "Additional content defined by implementations",
         "definition": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
@@ -2161,7 +2161,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.item.answerOption.modifierExtension",
+        "id": "Questionnaire.item.answerOption.modifierExtension",
         "path": "Questionnaire.item.answerOption.modifierExtension",
         "short": "Extensions that cannot be ignored even if unrecognized",
         "definition": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
@@ -2195,7 +2195,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.item.answerOption.value[x]",
+        "id": "Questionnaire.item.answerOption.value[x]",
         "path": "Questionnaire.item.answerOption.value[x]",
         "short": "Answer value",
         "definition": "A potential answer that's allowed as the answer to this question.",
@@ -2251,7 +2251,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.item.answerOption.initialSelected",
+        "id": "Questionnaire.item.answerOption.initialSelected",
         "path": "Questionnaire.item.answerOption.initialSelected",
         "short": "Whether option is selected by default",
         "definition": "Indicates whether the answer value is selected when the list of possible answers is initially shown.",
@@ -2279,7 +2279,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.item.initial",
+        "id": "Questionnaire.item.initial",
         "path": "Questionnaire.item.initial",
         "short": "Initial value(s) when item is first rendered",
         "definition": "One or more values that should be pre-populated in the answer when initially rendering the questionnaire for user input.",
@@ -2321,7 +2321,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.item.initial.id",
+        "id": "Questionnaire.item.initial.id",
         "path": "Questionnaire.item.initial.id",
         "representation": [
           "xmlAttr"
@@ -2350,7 +2350,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.item.initial.extension",
+        "id": "Questionnaire.item.initial.extension",
         "path": "Questionnaire.item.initial.extension",
         "short": "Additional content defined by implementations",
         "definition": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
@@ -2381,7 +2381,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.item.initial.modifierExtension",
+        "id": "Questionnaire.item.initial.modifierExtension",
         "path": "Questionnaire.item.initial.modifierExtension",
         "short": "Extensions that cannot be ignored even if unrecognized",
         "definition": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
@@ -2415,7 +2415,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.item.initial.value[x]",
+        "id": "Questionnaire.item.initial.value[x]",
         "path": "Questionnaire.item.initial.value[x]",
         "short": "Actual value for initializing the question",
         "definition": "The actual value to for an initial answer.",
@@ -2489,7 +2489,7 @@
         ]
       },
       {
-        "id": "Questionnaire:del-StandardForm.item.item",
+        "id": "Questionnaire.item.item",
         "path": "Questionnaire.item.item",
         "short": "Nested questionnaire items",
         "definition": "Text, questions and other groups to be nested beneath a question or group.",
@@ -2520,7 +2520,7 @@
   "differential": {
     "element": [
       {
-        "id": "Questionnaire:del-StandardForm",
+        "id": "Questionnaire",
         "path": "Questionnaire",
         "short": "del-StandardForm",
         "definition": "A definition of an standard form and all of its contents.",
@@ -2528,91 +2528,85 @@
         "isSummary": false
       },
       {
-        "id": "Questionnaire:del-StandardForm.url",
+        "id": "Questionnaire.url",
         "path": "Questionnaire.url",
         "min": 1,
         "max": "1"
       },
       {
-        "id": "Questionnaire:del-StandardForm.identifier",
+        "id": "Questionnaire.identifier",
         "path": "Questionnaire.identifier",
         "min": 0,
         "max": "0"
       },
       {
-        "id": "Questionnaire:del-StandardForm.version",
+        "id": "Questionnaire.version",
         "path": "Questionnaire.version",
         "min": 1,
         "max": "1"
       },
       {
-        "id": "Questionnaire:del-StandardForm.name",
+        "id": "Questionnaire.name",
         "path": "Questionnaire.name",
         "min": 1,
         "max": "1"
       },
       {
-        "id": "Questionnaire:del-StandardForm.title",
+        "id": "Questionnaire.title",
         "path": "Questionnaire.title",
         "min": 1,
         "max": "1"
       },
       {
-        "id": "Questionnaire:del-StandardForm.subjectType",
+        "id": "Questionnaire.subjectType",
         "path": "Questionnaire.subjectType",
         "min": 0,
         "max": "0"
       },
       {
-        "id": "Questionnaire:del-StandardForm.contact",
+        "id": "Questionnaire.contact",
         "path": "Questionnaire.contact",
         "min": 0,
         "max": "0"
       },
       {
-        "id": "Questionnaire:del-StandardForm.description",
+        "id": "Questionnaire.description",
         "path": "Questionnaire.description",
         "min": 1,
         "max": "1"
       },
       {
-        "id": "Questionnaire:del-StandardForm.useContext",
+        "id": "Questionnaire.useContext",
         "path": "Questionnaire.useContext",
         "min": 0,
         "max": "0"
       },
       {
-        "id": "Questionnaire:del-StandardForm.jurisdiction",
+        "id": "Questionnaire.jurisdiction",
         "path": "Questionnaire.jurisdiction",
         "min": 0,
         "max": "0"
       },
       {
-        "id": "Questionnaire:del-StandardForm.purpose",
+        "id": "Questionnaire.purpose",
         "path": "Questionnaire.purpose",
         "min": 0,
         "max": "0"
       },
       {
-        "id": "Questionnaire:del-StandardForm.copyright",
+        "id": "Questionnaire.copyright",
         "path": "Questionnaire.copyright",
         "min": 0,
         "max": "0"
       },
       {
-        "id": "Questionnaire:del-StandardForm.item",
+        "id": "Questionnaire.item",
         "path": "Questionnaire.item",
         "min": 1,
         "max": "*"
       },
       {
-        "id": "Questionnaire:del-StandardForm.item.id",
-        "path": "Questionnaire.item.id",
-        "min": 1,
-        "max": "1"
-      },
-      {
-        "id": "Questionnaire:del-StandardForm.item.text",
+        "id": "Questionnaire.item.text",
         "path": "Questionnaire.item.text",
         "min": 1,
         "max": "1"

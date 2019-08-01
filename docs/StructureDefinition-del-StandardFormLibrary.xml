@@ -20,7 +20,7 @@
   <name value="StandardFormLibrary"/>
   <title value="del-StandardFormLibrary"/>
   <status value="draft"/>
-  <date value="2019-07-24T00:00:00-04:00"/>
+  <date value="2019-08-01T00:00:00-04:00"/>
   <publisher value="The MITRE Corporation"/>
   <contact>
     <telecom>
@@ -60,7 +60,7 @@
   </baseDefinition>
   <derivation value="constraint"/>
   <snapshot>
-    <element id="Library:del-StandardFormLibrary">
+    <element id="Library">
       <path value="Library"/>
       <short value="del-StandardFormLibrary"/>
       <definition value="A definition of a standard form."/>
@@ -135,7 +135,7 @@
         <map value="Act[classCode=GROUPER;moodCode=EVN]"/>
       </mapping>
     </element>
-    <element id="Library:del-StandardFormLibrary.id">
+    <element id="Library.id">
       <path value="Library.id"/>
       <short value="Logical id of this artifact"/>
       <definition value="The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes."/>
@@ -153,7 +153,7 @@
       <isModifier value="false"/>
       <isSummary value="true"/>
     </element>
-    <element id="Library:del-StandardFormLibrary.meta">
+    <element id="Library.meta">
       <path value="Library.meta"/>
       <short value="Metadata about the resource"/>
       <definition value="The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource."/>
@@ -170,7 +170,7 @@
       <isModifier value="false"/>
       <isSummary value="true"/>
     </element>
-    <element id="Library:del-StandardFormLibrary.implicitRules">
+    <element id="Library.implicitRules">
       <path value="Library.implicitRules"/>
       <short value="A set of rules under which this content was created"/>
       <definition value="A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc."/>
@@ -189,7 +189,7 @@
       <isModifierReason value="This element is labeled as a modifier because the implicit rules may provide additional knowledge about the resource that modifies it&#39;s meaning or interpretation"/>
       <isSummary value="true"/>
     </element>
-    <element id="Library:del-StandardFormLibrary.language">
+    <element id="Library.language">
       <path value="Library.language"/>
       <short value="Language of the resource content"/>
       <definition value="The base language in which the resource is written."/>
@@ -221,7 +221,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
       </binding>
     </element>
-    <element id="Library:del-StandardFormLibrary.text">
+    <element id="Library.text">
       <path value="Library.text"/>
       <short value="Text summary of the resource, for human interpretation"/>
       <definition value="A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety."/>
@@ -247,7 +247,7 @@
         <map value="Act.text?"/>
       </mapping>
     </element>
-    <element id="Library:del-StandardFormLibrary.contained">
+    <element id="Library.contained">
       <path value="Library.contained"/>
       <short value="Contained, inline Resources"/>
       <definition value="These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope."/>
@@ -272,7 +272,7 @@
         <map value="N/A"/>
       </mapping>
     </element>
-    <element id="Library:del-StandardFormLibrary.extension">
+    <element id="Library.extension">
       <path value="Library.extension"/>
       <short value="Additional content defined by implementations"/>
       <definition value="May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
@@ -296,7 +296,7 @@
         <map value="N/A"/>
       </mapping>
     </element>
-    <element id="Library:del-StandardFormLibrary.modifierExtension">
+    <element id="Library.modifierExtension">
       <path value="Library.modifierExtension"/>
       <short value="Extensions that cannot be ignored"/>
       <definition value="May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element&#39;s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.&#xA;&#xA;Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)."/>
@@ -322,7 +322,7 @@
         <map value="N/A"/>
       </mapping>
     </element>
-    <element id="Library:del-StandardFormLibrary.url">
+    <element id="Library.url">
       <path value="Library.url"/>
       <short value="Canonical identifier for this library, represented as a URI (globally unique)"/>
       <definition value="An absolute URI that is used to identify this library when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this library is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the library is stored on different servers."/>
@@ -353,7 +353,7 @@
         <map value=".identifier[scope=BUSN;reliability=ISS]"/>
       </mapping>
     </element>
-    <element id="Library:del-StandardFormLibrary.identifier">
+    <element id="Library.identifier">
       <path value="Library.identifier"/>
       <short value="Additional identifier for the library"/>
       <definition value="A formal identifier that is used to identify this library when it is represented in other formats, or referenced in a specification, model, design or an instance. e.g. CMS or NQF identifiers for a measure artifact. Note that at least one identifier is required for non-experimental active artifacts."/>
@@ -388,7 +388,7 @@
         <map value="no-gen-base"/>
       </mapping>
     </element>
-    <element id="Library:del-StandardFormLibrary.version">
+    <element id="Library.version">
       <path value="Library.version"/>
       <short value="Business version of the library"/>
       <definition value="The identifier that is used to identify this version of the library when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the library author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts."/>
@@ -418,7 +418,7 @@
         <map value="N/A (to add?)"/>
       </mapping>
     </element>
-    <element id="Library:del-StandardFormLibrary.name">
+    <element id="Library.name">
       <path value="Library.name"/>
       <short value="Name for this library (computer friendly)"/>
       <definition value="A natural language name identifying the library. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
@@ -442,7 +442,7 @@
         <map value="N/A"/>
       </mapping>
     </element>
-    <element id="Library:del-StandardFormLibrary.title">
+    <element id="Library.title">
       <path value="Library.title"/>
       <short value="Name for this library (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the library."/>
@@ -468,7 +468,7 @@
         <map value=".title"/>
       </mapping>
     </element>
-    <element id="Library:del-StandardFormLibrary.subtitle">
+    <element id="Library.subtitle">
       <path value="Library.subtitle"/>
       <short value="Subordinate title of the library"/>
       <definition value="An explanatory or alternate title for the library giving additional information about its content."/>
@@ -485,7 +485,7 @@
       <isModifier value="false"/>
       <isSummary value="false"/>
     </element>
-    <element id="Library:del-StandardFormLibrary.status">
+    <element id="Library.status">
       <path value="Library.status"/>
       <short value="draft | active | retired | unknown"/>
       <definition value="The status of this library. Enables tracking the life-cycle of the content."/>
@@ -527,7 +527,7 @@
         <map value=".status"/>
       </mapping>
     </element>
-    <element id="Library:del-StandardFormLibrary.experimental">
+    <element id="Library.experimental">
       <path value="Library.experimental"/>
       <short value="For testing purposes, not real usage"/>
       <definition value="A Boolean value to indicate that this library is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
@@ -558,7 +558,7 @@
         <map value="N/A (to add?)"/>
       </mapping>
     </element>
-    <element id="Library:del-StandardFormLibrary.type">
+    <element id="Library.type">
       <path value="Library.type"/>
       <short value="logic-library | model-definition | asset-collection | module-definition"/>
       <definition value="Identifies the type of library such as a Logic Library, Model Definition, Asset Collection, or Module Definition."/>
@@ -591,7 +591,7 @@
         <map value=".code"/>
       </mapping>
     </element>
-    <element id="Library:del-StandardFormLibrary.subject[x]">
+    <element id="Library.subject[x]">
       <path value="Library.subject[x]"/>
       <short value="Type of individual the library content is focused on"/>
       <definition value="A code or group definition that describes the intended subject of the contents of the library."/>
@@ -621,7 +621,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/subject-type"/>
       </binding>
     </element>
-    <element id="Library:del-StandardFormLibrary.date">
+    <element id="Library.date">
       <path value="Library.date"/>
       <short value="Date last changed"/>
       <definition value="The date  (and optionally time) when the library was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the library changes."/>
@@ -652,7 +652,7 @@
         <map value=".participation[typeCode=AUT].time"/>
       </mapping>
     </element>
-    <element id="Library:del-StandardFormLibrary.publisher">
+    <element id="Library.publisher">
       <path value="Library.publisher"/>
       <short value="Name of the publisher (organization or individual)"/>
       <definition value="The name of the organization or individual that published the library."/>
@@ -683,7 +683,7 @@
         <map value=".participation[typeCode=AUT].role"/>
       </mapping>
     </element>
-    <element id="Library:del-StandardFormLibrary.contact">
+    <element id="Library.contact">
       <path value="Library.contact"/>
       <short value="Contact details for the publisher"/>
       <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
@@ -709,7 +709,7 @@
         <map value=".participation[typeCode=CALLBCK].role"/>
       </mapping>
     </element>
-    <element id="Library:del-StandardFormLibrary.description">
+    <element id="Library.description">
       <path value="Library.description"/>
       <short value="Natural language description of the library"/>
       <definition value="A free text natural language description of the library from a consumer&#39;s perspective."/>
@@ -735,7 +735,7 @@
         <map value=".text"/>
       </mapping>
     </element>
-    <element id="Library:del-StandardFormLibrary.useContext">
+    <element id="Library.useContext">
       <path value="Library.useContext"/>
       <short value="The context that the content is intended to support"/>
       <definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate library instances."/>
@@ -762,7 +762,7 @@
         <map value="N/A (to add?)"/>
       </mapping>
     </element>
-    <element id="Library:del-StandardFormLibrary.jurisdiction">
+    <element id="Library.jurisdiction">
       <path value="Library.jurisdiction"/>
       <short value="Intended jurisdiction for library (if applicable)"/>
       <definition value="A legal or geographic region in which the library is intended to be used."/>
@@ -799,7 +799,7 @@
         <map value="N/A (to add?)"/>
       </mapping>
     </element>
-    <element id="Library:del-StandardFormLibrary.purpose">
+    <element id="Library.purpose">
       <path value="Library.purpose"/>
       <short value="Why this library is defined"/>
       <definition value="Explanation of why this library is needed and why it has been designed as it has."/>
@@ -833,7 +833,7 @@
         <map value="no-gen-base"/>
       </mapping>
     </element>
-    <element id="Library:del-StandardFormLibrary.usage">
+    <element id="Library.usage">
       <path value="Library.usage"/>
       <short value="Describes the clinical usage of the library"/>
       <definition value="A detailed description of how the library is used from a clinical perspective."/>
@@ -854,7 +854,7 @@
         <map value="N/A (to add?)"/>
       </mapping>
     </element>
-    <element id="Library:del-StandardFormLibrary.copyright">
+    <element id="Library.copyright">
       <path value="Library.copyright"/>
       <short value="Use and/or publishing restrictions"/>
       <definition value="A copyright statement relating to the library and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the library."/>
@@ -886,7 +886,7 @@
         <map value="no-gen-base"/>
       </mapping>
     </element>
-    <element id="Library:del-StandardFormLibrary.approvalDate">
+    <element id="Library.approvalDate">
       <path value="Library.approvalDate"/>
       <short value="When the library was approved by publisher"/>
       <definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
@@ -916,7 +916,7 @@
         <map value="no-gen-base"/>
       </mapping>
     </element>
-    <element id="Library:del-StandardFormLibrary.lastReviewDate">
+    <element id="Library.lastReviewDate">
       <path value="Library.lastReviewDate"/>
       <short value="When the library was last reviewed"/>
       <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
@@ -947,7 +947,7 @@
         <map value="no-gen-base"/>
       </mapping>
     </element>
-    <element id="Library:del-StandardFormLibrary.effectivePeriod">
+    <element id="Library.effectivePeriod">
       <path value="Library.effectivePeriod"/>
       <short value="When the library is expected to be used"/>
       <definition value="The period during which the library content was or is planned to be in active use."/>
@@ -978,7 +978,7 @@
         <map value="no-gen-base"/>
       </mapping>
     </element>
-    <element id="Library:del-StandardFormLibrary.topic">
+    <element id="Library.topic">
       <path value="Library.topic"/>
       <short value="E.g. Education, Treatment, Assessment, etc."/>
       <definition value="Descriptive topics related to the content of the library. Topics provide a high-level categorization of the library that can be useful for filtering and searching."/>
@@ -1008,7 +1008,7 @@
         <map value="N/A (to add?)"/>
       </mapping>
     </element>
-    <element id="Library:del-StandardFormLibrary.author">
+    <element id="Library.author">
       <path value="Library.author"/>
       <short value="Who authored the content"/>
       <definition value="An individiual or organization primarily involved in the creation and maintenance of the content."/>
@@ -1029,7 +1029,7 @@
         <map value=".participation[typeCode=AUT]"/>
       </mapping>
     </element>
-    <element id="Library:del-StandardFormLibrary.editor">
+    <element id="Library.editor">
       <path value="Library.editor"/>
       <short value="Who edited the content"/>
       <definition value="An individual or organization primarily responsible for internal coherence of the content."/>
@@ -1046,7 +1046,7 @@
       <isModifier value="false"/>
       <isSummary value="false"/>
     </element>
-    <element id="Library:del-StandardFormLibrary.reviewer">
+    <element id="Library.reviewer">
       <path value="Library.reviewer"/>
       <short value="Who reviewed the content"/>
       <definition value="An individual or organization primarily responsible for review of some aspect of the content."/>
@@ -1067,7 +1067,7 @@
         <map value=".participation[typeCode=VRF] {not clear whether VRF best corresponds to reviewer or endorser}"/>
       </mapping>
     </element>
-    <element id="Library:del-StandardFormLibrary.endorser">
+    <element id="Library.endorser">
       <path value="Library.endorser"/>
       <short value="Who endorsed the content"/>
       <definition value="An individual or organization responsible for officially endorsing the content for use in some setting."/>
@@ -1088,7 +1088,7 @@
         <map value=".participation[typeCode=VRF] {not clear whether VRF best corresponds to reviewer or endorser}"/>
       </mapping>
     </element>
-    <element id="Library:del-StandardFormLibrary.relatedArtifact">
+    <element id="Library.relatedArtifact">
       <path value="Library.relatedArtifact"/>
       <short value="Additional documentation, citations, etc."/>
       <definition value="Related artifacts such as additional documentation, justification, or bibliographic references."/>
@@ -1111,7 +1111,7 @@
         <map value=".outboundRelationship[typeCode=DOC,RSON,PREV, DRIV, USE, COMP] {successor would be PREV w/ inversionInd=true; No support for citation}"/>
       </mapping>
     </element>
-    <element id="Library:del-StandardFormLibrary.parameter">
+    <element id="Library.parameter">
       <path value="Library.parameter"/>
       <short value="Parameters defined by the library"/>
       <definition value="The parameter element defines parameters used by the library."/>
@@ -1132,7 +1132,7 @@
         <map value="N/A (to add?)"/>
       </mapping>
     </element>
-    <element id="Library:del-StandardFormLibrary.dataRequirement">
+    <element id="Library.dataRequirement">
       <path value="Library.dataRequirement"/>
       <short value="What data is referenced by this library"/>
       <definition value="Describes a set of data that must be provided in order to be able to successfully perform the computations defined by the library."/>
@@ -1153,7 +1153,7 @@
         <map value="N/A (to add?)"/>
       </mapping>
     </element>
-    <element id="Library:del-StandardFormLibrary.content">
+    <element id="Library.content">
       <path value="Library.content"/>
       <short value="Contents of the library, either embedded or referenced"/>
       <definition value="The content of the library as an Attachment. The content may be a reference to a url, or may be directly embedded as a base-64 string. Either way, the contentType of the attachment determines how to interpret the content."/>
@@ -1176,29 +1176,29 @@
     </element>
   </snapshot>
   <differential>
-    <element id="Library:del-StandardFormLibrary">
+    <element id="Library">
       <path value="Library"/>
       <short value="del-StandardFormLibrary"/>
       <definition value="A definition of a standard form."/>
       <isModifier value="false"/>
       <isSummary value="false"/>
     </element>
-    <element id="Library:del-StandardFormLibrary.version">
+    <element id="Library.version">
       <path value="Library.version"/>
       <min value="1"/>
       <max value="1"/>
     </element>
-    <element id="Library:del-StandardFormLibrary.name">
+    <element id="Library.name">
       <path value="Library.name"/>
       <min value="1"/>
       <max value="1"/>
     </element>
-    <element id="Library:del-StandardFormLibrary.title">
+    <element id="Library.title">
       <path value="Library.title"/>
       <min value="1"/>
       <max value="1"/>
     </element>
-    <element id="Library:del-StandardFormLibrary.description">
+    <element id="Library.description">
       <path value="Library.description"/>
       <min value="1"/>
       <max value="1"/>

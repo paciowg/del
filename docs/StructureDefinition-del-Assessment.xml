@@ -19,7 +19,7 @@
   <name value="Assessment"/>
   <title value="del-Assessment"/>
   <status value="draft"/>
-  <date value="2019-07-24T00:00:00-04:00"/>
+  <date value="2019-08-01T00:00:00-04:00"/>
   <publisher value="The MITRE Corporation"/>
   <contact>
     <telecom>
@@ -51,7 +51,7 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"/>
   <derivation value="constraint"/>
   <snapshot>
-    <element id="QuestionnaireResponse:del-Assessment">
+    <element id="QuestionnaireResponse">
       <path value="QuestionnaireResponse"/>
       <short value="del-Assessment"/>
       <definition value="A definition of an assessment (standard form response)."/>
@@ -126,7 +126,7 @@
         <map value="Observation[moodCode=EVN]"/>
       </mapping>
     </element>
-    <element id="QuestionnaireResponse:del-Assessment.id">
+    <element id="QuestionnaireResponse.id">
       <path value="QuestionnaireResponse.id"/>
       <short value="Logical id of this artifact"/>
       <definition value="The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes."/>
@@ -144,7 +144,7 @@
       <isModifier value="false"/>
       <isSummary value="true"/>
     </element>
-    <element id="QuestionnaireResponse:del-Assessment.meta">
+    <element id="QuestionnaireResponse.meta">
       <path value="QuestionnaireResponse.meta"/>
       <short value="Metadata about the resource"/>
       <definition value="The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource."/>
@@ -161,7 +161,7 @@
       <isModifier value="false"/>
       <isSummary value="true"/>
     </element>
-    <element id="QuestionnaireResponse:del-Assessment.implicitRules">
+    <element id="QuestionnaireResponse.implicitRules">
       <path value="QuestionnaireResponse.implicitRules"/>
       <short value="A set of rules under which this content was created"/>
       <definition value="A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc."/>
@@ -180,7 +180,7 @@
       <isModifierReason value="This element is labeled as a modifier because the implicit rules may provide additional knowledge about the resource that modifies it&#39;s meaning or interpretation"/>
       <isSummary value="true"/>
     </element>
-    <element id="QuestionnaireResponse:del-Assessment.language">
+    <element id="QuestionnaireResponse.language">
       <path value="QuestionnaireResponse.language"/>
       <short value="Language of the resource content"/>
       <definition value="The base language in which the resource is written."/>
@@ -212,7 +212,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
       </binding>
     </element>
-    <element id="QuestionnaireResponse:del-Assessment.text">
+    <element id="QuestionnaireResponse.text">
       <path value="QuestionnaireResponse.text"/>
       <short value="Text summary of the resource, for human interpretation"/>
       <definition value="A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety."/>
@@ -238,7 +238,7 @@
         <map value="Act.text?"/>
       </mapping>
     </element>
-    <element id="QuestionnaireResponse:del-Assessment.contained">
+    <element id="QuestionnaireResponse.contained">
       <path value="QuestionnaireResponse.contained"/>
       <short value="Contained, inline Resources"/>
       <definition value="These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope."/>
@@ -263,7 +263,7 @@
         <map value="N/A"/>
       </mapping>
     </element>
-    <element id="QuestionnaireResponse:del-Assessment.extension">
+    <element id="QuestionnaireResponse.extension">
       <path value="QuestionnaireResponse.extension"/>
       <short value="Additional content defined by implementations"/>
       <definition value="May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
@@ -287,7 +287,7 @@
         <map value="N/A"/>
       </mapping>
     </element>
-    <element id="QuestionnaireResponse:del-Assessment.modifierExtension">
+    <element id="QuestionnaireResponse.modifierExtension">
       <path value="QuestionnaireResponse.modifierExtension"/>
       <short value="Extensions that cannot be ignored"/>
       <definition value="May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element&#39;s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.&#xA;&#xA;Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)."/>
@@ -313,7 +313,7 @@
         <map value="N/A"/>
       </mapping>
     </element>
-    <element id="QuestionnaireResponse:del-Assessment.identifier">
+    <element id="QuestionnaireResponse.identifier">
       <path value="QuestionnaireResponse.identifier"/>
       <short value="Unique id for this set of answers"/>
       <definition value="A business identifier assigned to a particular completed (or partially completed) questionnaire."/>
@@ -343,7 +343,7 @@
         <map value=".id"/>
       </mapping>
     </element>
-    <element id="QuestionnaireResponse:del-Assessment.basedOn">
+    <element id="QuestionnaireResponse.basedOn">
       <path value="QuestionnaireResponse.basedOn"/>
       <short value="Request fulfilled by this QuestionnaireResponse"/>
       <definition value="The order, proposal or plan that is fulfilled in whole or in part by this QuestionnaireResponse.  For example, a ServiceRequest seeking an intake assessment or a decision support recommendation to assess for post-partum depression."/>
@@ -372,7 +372,7 @@
         <map value=".outboundRelationship[typeCode=FLFS].target"/>
       </mapping>
     </element>
-    <element id="QuestionnaireResponse:del-Assessment.partOf">
+    <element id="QuestionnaireResponse.partOf">
       <path value="QuestionnaireResponse.partOf"/>
       <short value="Part of this action"/>
       <definition value="A procedure or observation that this questionnaire was performed as part of the execution of.  For example, the surgery a checklist was executed as part of."/>
@@ -400,7 +400,7 @@
         <map value=".inboundRelationship[typeCode=COMP].source[moodCode=EVN]"/>
       </mapping>
     </element>
-    <element id="QuestionnaireResponse:del-Assessment.questionnaire">
+    <element id="QuestionnaireResponse.questionnaire">
       <path value="QuestionnaireResponse.questionnaire"/>
       <short value="Form being answered"/>
       <definition value="The Questionnaire that defines and organizes the questions for which answers are being provided."/>
@@ -429,7 +429,7 @@
         <map value="./outboundRelationship[typeCode=INST]/target[classCode=OBS, moodCode=DEFN]"/>
       </mapping>
     </element>
-    <element id="QuestionnaireResponse:del-Assessment.status">
+    <element id="QuestionnaireResponse.status">
       <path value="QuestionnaireResponse.status"/>
       <short value="in-progress | completed | amended | entered-in-error | stopped"/>
       <definition value="The position of the questionnaire response within its overall lifecycle."/>
@@ -469,7 +469,7 @@
         <map value=".statusCode (also whether there&#39;s a revisionControlAct - and possibly mood to distinguish &quot;in-progress&quot; from &quot;published)"/>
       </mapping>
     </element>
-    <element id="QuestionnaireResponse:del-Assessment.subject">
+    <element id="QuestionnaireResponse.subject">
       <path value="QuestionnaireResponse.subject"/>
       <short value="The subject of the questions"/>
       <definition value="The subject of the questionnaire response.  This could be a patient, organization, practitioner, device, etc.  This is who/what the answers apply to, but is not necessarily the source of information."/>
@@ -507,7 +507,7 @@
         <map value="FiveWs.subject"/>
       </mapping>
     </element>
-    <element id="QuestionnaireResponse:del-Assessment.encounter">
+    <element id="QuestionnaireResponse.encounter">
       <path value="QuestionnaireResponse.encounter"/>
       <short value="Encounter created as part of"/>
       <definition value="The Encounter during which this questionnaire response was created or to which the creation of this record is tightly associated."/>
@@ -539,7 +539,7 @@
         <map value=".inboundRelationship(typeCode=COMP].source[classCode&lt;=PCPR, moodCode=EVN]"/>
       </mapping>
     </element>
-    <element id="QuestionnaireResponse:del-Assessment.authored">
+    <element id="QuestionnaireResponse.authored">
       <path value="QuestionnaireResponse.authored"/>
       <short value="Date the answers were gathered"/>
       <definition value="The date and/or time that this set of answers were last changed."/>
@@ -574,7 +574,7 @@
         <map value=".participation[typeCode=AUT].time"/>
       </mapping>
     </element>
-    <element id="QuestionnaireResponse:del-Assessment.author">
+    <element id="QuestionnaireResponse.author">
       <path value="QuestionnaireResponse.author"/>
       <short value="Person who received and recorded the answers"/>
       <definition value="Person who received the answers to the questions in the QuestionnaireResponse and recorded them in the system."/>
@@ -617,7 +617,7 @@
         <map value=".participation[typeCode=AUT].role"/>
       </mapping>
     </element>
-    <element id="QuestionnaireResponse:del-Assessment.source">
+    <element id="QuestionnaireResponse.source">
       <path value="QuestionnaireResponse.source"/>
       <short value="The person who answered the questions"/>
       <definition value="The person who answered the questions about the subject."/>
@@ -648,7 +648,7 @@
         <map value=".participation[typeCode=INF].role"/>
       </mapping>
     </element>
-    <element id="QuestionnaireResponse:del-Assessment.item">
+    <element id="QuestionnaireResponse.item">
       <path value="QuestionnaireResponse.item"/>
       <short value="Groups and questions"/>
       <definition value="A group or question item from the original questionnaire for which answers are provided."/>
@@ -685,7 +685,7 @@
         <map value=".outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=EVN]"/>
       </mapping>
     </element>
-    <element id="QuestionnaireResponse:del-Assessment.item.id">
+    <element id="QuestionnaireResponse.item.id">
       <path value="QuestionnaireResponse.item.id"/>
       <representation value="xmlAttr"/>
       <short value="Unique id for inter-element referencing"/>
@@ -707,7 +707,7 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="QuestionnaireResponse:del-Assessment.item.extension">
+    <element id="QuestionnaireResponse.item.extension">
       <path value="QuestionnaireResponse.item.extension"/>
       <short value="Additional content defined by implementations"/>
       <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
@@ -731,7 +731,7 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="QuestionnaireResponse:del-Assessment.item.modifierExtension">
+    <element id="QuestionnaireResponse.item.modifierExtension">
       <path value="QuestionnaireResponse.item.modifierExtension"/>
       <short value="Extensions that cannot be ignored even if unrecognized"/>
       <definition value="May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element&#39;s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.&#xA;&#xA;Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)."/>
@@ -758,7 +758,7 @@
         <map value="N/A"/>
       </mapping>
     </element>
-    <element id="QuestionnaireResponse:del-Assessment.item.linkId">
+    <element id="QuestionnaireResponse.item.linkId">
       <path value="QuestionnaireResponse.item.linkId"/>
       <short value="Pointer to specific item from Questionnaire"/>
       <definition value="The item from the Questionnaire that corresponds to this item in the QuestionnaireResponse resource."/>
@@ -780,7 +780,7 @@
         <map value=".outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN].id"/>
       </mapping>
     </element>
-    <element id="QuestionnaireResponse:del-Assessment.item.definition">
+    <element id="QuestionnaireResponse.item.definition">
       <path value="QuestionnaireResponse.item.definition"/>
       <short value="ElementDefinition - details for the item"/>
       <definition value="A reference to an [ElementDefinition](elementdefinition.html) that provides the details for the item."/>
@@ -803,7 +803,7 @@
         <map value=".outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN].code"/>
       </mapping>
     </element>
-    <element id="QuestionnaireResponse:del-Assessment.item.text">
+    <element id="QuestionnaireResponse.item.text">
       <path value="QuestionnaireResponse.item.text"/>
       <short value="Name for group or question text"/>
       <definition value="Text that is displayed above the contents of the group or as the text of the question being answered."/>
@@ -825,7 +825,7 @@
         <map value=".text"/>
       </mapping>
     </element>
-    <element id="QuestionnaireResponse:del-Assessment.item.answer">
+    <element id="QuestionnaireResponse.item.answer">
       <path value="QuestionnaireResponse.item.answer"/>
       <short value="The response(s) to the question"/>
       <definition value="The respondent&#39;s answer(s) to the question."/>
@@ -855,7 +855,7 @@
         <map value=".value[type=LIST_ANY]"/>
       </mapping>
     </element>
-    <element id="QuestionnaireResponse:del-Assessment.item.answer.id">
+    <element id="QuestionnaireResponse.item.answer.id">
       <path value="QuestionnaireResponse.item.answer.id"/>
       <representation value="xmlAttr"/>
       <short value="Unique id for inter-element referencing"/>
@@ -877,7 +877,7 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="QuestionnaireResponse:del-Assessment.item.answer.extension">
+    <element id="QuestionnaireResponse.item.answer.extension">
       <path value="QuestionnaireResponse.item.answer.extension"/>
       <short value="Additional content defined by implementations"/>
       <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
@@ -901,7 +901,7 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="QuestionnaireResponse:del-Assessment.item.answer.modifierExtension">
+    <element id="QuestionnaireResponse.item.answer.modifierExtension">
       <path value="QuestionnaireResponse.item.answer.modifierExtension"/>
       <short value="Extensions that cannot be ignored even if unrecognized"/>
       <definition value="May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element&#39;s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.&#xA;&#xA;Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)."/>
@@ -928,7 +928,7 @@
         <map value="N/A"/>
       </mapping>
     </element>
-    <element id="QuestionnaireResponse:del-Assessment.item.answer.value[x]">
+    <element id="QuestionnaireResponse.item.answer.value[x]">
       <path value="QuestionnaireResponse.item.answer.value[x]"/>
       <short value="Single-valued answer to the question"/>
       <definition value="The answer (or one of the answers) provided by the respondent to the question."/>
@@ -993,7 +993,7 @@
         <map value=".item"/>
       </mapping>
     </element>
-    <element id="QuestionnaireResponse:del-Assessment.item.answer.item">
+    <element id="QuestionnaireResponse.item.answer.item">
       <path value="QuestionnaireResponse.item.answer.item"/>
       <short value="Nested groups and questions"/>
       <definition value="Nested groups and/or questions found within this particular answer."/>
@@ -1013,7 +1013,7 @@
         <map value=".outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=EVN]"/>
       </mapping>
     </element>
-    <element id="QuestionnaireResponse:del-Assessment.item.item">
+    <element id="QuestionnaireResponse.item.item">
       <path value="QuestionnaireResponse.item.item"/>
       <short value="Nested questionnaire response items"/>
       <definition value="Questions or sub-groups nested beneath a question or group."/>
@@ -1035,24 +1035,24 @@
     </element>
   </snapshot>
   <differential>
-    <element id="QuestionnaireResponse:del-Assessment">
+    <element id="QuestionnaireResponse">
       <path value="QuestionnaireResponse"/>
       <short value="del-Assessment"/>
       <definition value="A definition of an assessment (standard form response)."/>
       <isModifier value="false"/>
       <isSummary value="false"/>
     </element>
-    <element id="QuestionnaireResponse:del-Assessment.questionnaire">
+    <element id="QuestionnaireResponse.questionnaire">
       <path value="QuestionnaireResponse.questionnaire"/>
       <min value="1"/>
       <max value="1"/>
     </element>
-    <element id="QuestionnaireResponse:del-Assessment.subject">
+    <element id="QuestionnaireResponse.subject">
       <path value="QuestionnaireResponse.subject"/>
       <min value="1"/>
       <max value="1"/>
     </element>
-    <element id="QuestionnaireResponse:del-Assessment.item">
+    <element id="QuestionnaireResponse.item">
       <path value="QuestionnaireResponse.item"/>
       <min value="1"/>
       <max value="*"/>

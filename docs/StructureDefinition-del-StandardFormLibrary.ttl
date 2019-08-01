@@ -17,7 +17,7 @@
   fhir:StructureDefinition.name [ fhir:value "StandardFormLibrary"];
   fhir:StructureDefinition.title [ fhir:value "del-StandardFormLibrary"];
   fhir:StructureDefinition.status [ fhir:value "draft"];
-  fhir:StructureDefinition.date [ fhir:value "2019-07-24T00:00:00-04:00"^^xsd:dateTime];
+  fhir:StructureDefinition.date [ fhir:value "2019-08-01T00:00:00-04:00"^^xsd:dateTime];
   fhir:StructureDefinition.publisher [ fhir:value "The MITRE Corporation"];
   fhir:StructureDefinition.contact [
      fhir:index 0;
@@ -66,7 +66,7 @@
   fhir:StructureDefinition.snapshot [
      fhir:StructureDefinition.snapshot.element [
        fhir:index 0;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary" ];
+       fhir:Element.id [ fhir:value "Library" ];
        fhir:ElementDefinition.path [ fhir:value "Library" ];
        fhir:ElementDefinition.short [ fhir:value "del-StandardFormLibrary" ];
        fhir:ElementDefinition.definition [ fhir:value "A definition of a standard form." ];
@@ -147,7 +147,7 @@
        ]
      ], [
        fhir:index 1;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.id" ];
+       fhir:Element.id [ fhir:value "Library.id" ];
        fhir:ElementDefinition.path [ fhir:value "Library.id" ];
        fhir:ElementDefinition.short [ fhir:value "Logical id of this artifact" ];
        fhir:ElementDefinition.definition [ fhir:value "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes." ];
@@ -167,7 +167,7 @@
        fhir:ElementDefinition.isSummary [ fhir:value "true"^^xsd:boolean ]
      ], [
        fhir:index 2;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.meta" ];
+       fhir:Element.id [ fhir:value "Library.meta" ];
        fhir:ElementDefinition.path [ fhir:value "Library.meta" ];
        fhir:ElementDefinition.short [ fhir:value "Metadata about the resource" ];
        fhir:ElementDefinition.definition [ fhir:value "The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource." ];
@@ -186,7 +186,7 @@
        fhir:ElementDefinition.isSummary [ fhir:value "true"^^xsd:boolean ]
      ], [
        fhir:index 3;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.implicitRules" ];
+       fhir:Element.id [ fhir:value "Library.implicitRules" ];
        fhir:ElementDefinition.path [ fhir:value "Library.implicitRules" ];
        fhir:ElementDefinition.short [ fhir:value "A set of rules under which this content was created" ];
        fhir:ElementDefinition.definition [ fhir:value "A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc." ];
@@ -207,7 +207,7 @@
        fhir:ElementDefinition.isSummary [ fhir:value "true"^^xsd:boolean ]
      ], [
        fhir:index 4;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.language" ];
+       fhir:Element.id [ fhir:value "Library.language" ];
        fhir:ElementDefinition.path [ fhir:value "Library.language" ];
        fhir:ElementDefinition.short [ fhir:value "Language of the resource content" ];
        fhir:ElementDefinition.definition [ fhir:value "The base language in which the resource is written." ];
@@ -251,7 +251,7 @@
        ]
      ], [
        fhir:index 5;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.text" ];
+       fhir:Element.id [ fhir:value "Library.text" ];
        fhir:ElementDefinition.path [ fhir:value "Library.text" ];
        fhir:ElementDefinition.short [ fhir:value "Text summary of the resource, for human interpretation" ];
        fhir:ElementDefinition.definition [ fhir:value "A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it \"clinically safe\" for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety." ];
@@ -289,7 +289,7 @@
        ]
      ], [
        fhir:index 6;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.contained" ];
+       fhir:Element.id [ fhir:value "Library.contained" ];
        fhir:ElementDefinition.path [ fhir:value "Library.contained" ];
        fhir:ElementDefinition.short [ fhir:value "Contained, inline Resources" ];
        fhir:ElementDefinition.definition [ fhir:value "These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope." ];
@@ -324,7 +324,7 @@
        ]
      ], [
        fhir:index 7;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.extension" ];
+       fhir:Element.id [ fhir:value "Library.extension" ];
        fhir:ElementDefinition.path [ fhir:value "Library.extension" ];
        fhir:ElementDefinition.short [ fhir:value "Additional content defined by implementations" ];
        fhir:ElementDefinition.definition [ fhir:value "May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension." ];
@@ -356,7 +356,7 @@
        ]
      ], [
        fhir:index 8;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.modifierExtension" ];
+       fhir:Element.id [ fhir:value "Library.modifierExtension" ];
        fhir:ElementDefinition.path [ fhir:value "Library.modifierExtension" ];
        fhir:ElementDefinition.short [ fhir:value "Extensions that cannot be ignored" ];
        fhir:ElementDefinition.definition [ fhir:value "May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)." ];
@@ -390,7 +390,7 @@
        ]
      ], [
        fhir:index 9;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.url" ];
+       fhir:Element.id [ fhir:value "Library.url" ];
        fhir:ElementDefinition.path [ fhir:value "Library.url" ];
        fhir:ElementDefinition.short [ fhir:value "Canonical identifier for this library, represented as a URI (globally unique)" ];
        fhir:ElementDefinition.definition [ fhir:value "An absolute URI that is used to identify this library when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this library is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the library is stored on different servers." ];
@@ -424,7 +424,7 @@
        ]
      ], [
        fhir:index 10;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.identifier" ];
+       fhir:Element.id [ fhir:value "Library.identifier" ];
        fhir:ElementDefinition.path [ fhir:value "Library.identifier" ];
        fhir:ElementDefinition.short [ fhir:value "Additional identifier for the library" ];
        fhir:ElementDefinition.definition [ fhir:value "A formal identifier that is used to identify this library when it is represented in other formats, or referenced in a specification, model, design or an instance. e.g. CMS or NQF identifiers for a measure artifact. Note that at least one identifier is required for non-experimental active artifacts." ];
@@ -462,7 +462,7 @@
        ]
      ], [
        fhir:index 11;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.version" ];
+       fhir:Element.id [ fhir:value "Library.version" ];
        fhir:ElementDefinition.path [ fhir:value "Library.version" ];
        fhir:ElementDefinition.short [ fhir:value "Business version of the library" ];
        fhir:ElementDefinition.definition [ fhir:value "The identifier that is used to identify this version of the library when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the library author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts." ];
@@ -495,7 +495,7 @@
        ]
      ], [
        fhir:index 12;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.name" ];
+       fhir:Element.id [ fhir:value "Library.name" ];
        fhir:ElementDefinition.path [ fhir:value "Library.name" ];
        fhir:ElementDefinition.short [ fhir:value "Name for this library (computer friendly)" ];
        fhir:ElementDefinition.definition [ fhir:value "A natural language name identifying the library. This name should be usable as an identifier for the module by machine processing applications such as code generation." ];
@@ -525,7 +525,7 @@
        ]
      ], [
        fhir:index 13;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.title" ];
+       fhir:Element.id [ fhir:value "Library.title" ];
        fhir:ElementDefinition.path [ fhir:value "Library.title" ];
        fhir:ElementDefinition.short [ fhir:value "Name for this library (human friendly)" ];
        fhir:ElementDefinition.definition [ fhir:value "A short, descriptive, user-friendly title for the library." ];
@@ -554,7 +554,7 @@
        ]
      ], [
        fhir:index 14;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.subtitle" ];
+       fhir:Element.id [ fhir:value "Library.subtitle" ];
        fhir:ElementDefinition.path [ fhir:value "Library.subtitle" ];
        fhir:ElementDefinition.short [ fhir:value "Subordinate title of the library" ];
        fhir:ElementDefinition.definition [ fhir:value "An explanatory or alternate title for the library giving additional information about its content." ];
@@ -573,7 +573,7 @@
        fhir:ElementDefinition.isSummary [ fhir:value "false"^^xsd:boolean ]
      ], [
        fhir:index 15;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.status" ];
+       fhir:Element.id [ fhir:value "Library.status" ];
        fhir:ElementDefinition.path [ fhir:value "Library.status" ];
        fhir:ElementDefinition.short [ fhir:value "draft | active | retired | unknown" ];
        fhir:ElementDefinition.definition [ fhir:value "The status of this library. Enables tracking the life-cycle of the content." ];
@@ -624,7 +624,7 @@
        ]
      ], [
        fhir:index 16;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.experimental" ];
+       fhir:Element.id [ fhir:value "Library.experimental" ];
        fhir:ElementDefinition.path [ fhir:value "Library.experimental" ];
        fhir:ElementDefinition.short [ fhir:value "For testing purposes, not real usage" ];
        fhir:ElementDefinition.definition [ fhir:value "A Boolean value to indicate that this library is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage." ];
@@ -658,7 +658,7 @@
        ]
      ], [
        fhir:index 17;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.type" ];
+       fhir:Element.id [ fhir:value "Library.type" ];
        fhir:ElementDefinition.path [ fhir:value "Library.type" ];
        fhir:ElementDefinition.short [ fhir:value "logic-library | model-definition | asset-collection | module-definition" ];
        fhir:ElementDefinition.definition [ fhir:value "Identifies the type of library such as a Logic Library, Model Definition, Asset Collection, or Module Definition." ];
@@ -699,7 +699,7 @@
        ]
      ], [
        fhir:index 18;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.subject[x]" ];
+       fhir:Element.id [ fhir:value "Library.subject[x]" ];
        fhir:ElementDefinition.path [ fhir:value "Library.subject[x]" ];
        fhir:ElementDefinition.short [ fhir:value "Type of individual the library content is focused on" ];
        fhir:ElementDefinition.definition [ fhir:value "A code or group definition that describes the intended subject of the contents of the library." ];
@@ -740,7 +740,7 @@
        ]
      ], [
        fhir:index 19;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.date" ];
+       fhir:Element.id [ fhir:value "Library.date" ];
        fhir:ElementDefinition.path [ fhir:value "Library.date" ];
        fhir:ElementDefinition.short [ fhir:value "Date last changed" ];
        fhir:ElementDefinition.definition [ fhir:value "The date  (and optionally time) when the library was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the library changes." ];
@@ -777,7 +777,7 @@
        ]
      ], [
        fhir:index 20;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.publisher" ];
+       fhir:Element.id [ fhir:value "Library.publisher" ];
        fhir:ElementDefinition.path [ fhir:value "Library.publisher" ];
        fhir:ElementDefinition.short [ fhir:value "Name of the publisher (organization or individual)" ];
        fhir:ElementDefinition.definition [ fhir:value "The name of the organization or individual that published the library." ];
@@ -811,7 +811,7 @@
        ]
      ], [
        fhir:index 21;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.contact" ];
+       fhir:Element.id [ fhir:value "Library.contact" ];
        fhir:ElementDefinition.path [ fhir:value "Library.contact" ];
        fhir:ElementDefinition.short [ fhir:value "Contact details for the publisher" ];
        fhir:ElementDefinition.definition [ fhir:value "Contact details to assist a user in finding and communicating with the publisher." ];
@@ -840,7 +840,7 @@
        ]
      ], [
        fhir:index 22;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.description" ];
+       fhir:Element.id [ fhir:value "Library.description" ];
        fhir:ElementDefinition.path [ fhir:value "Library.description" ];
        fhir:ElementDefinition.short [ fhir:value "Natural language description of the library" ];
        fhir:ElementDefinition.definition [ fhir:value "A free text natural language description of the library from a consumer's perspective." ];
@@ -869,7 +869,7 @@
        ]
      ], [
        fhir:index 23;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.useContext" ];
+       fhir:Element.id [ fhir:value "Library.useContext" ];
        fhir:ElementDefinition.path [ fhir:value "Library.useContext" ];
        fhir:ElementDefinition.short [ fhir:value "The context that the content is intended to support" ];
        fhir:ElementDefinition.definition [ fhir:value "The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate library instances." ];
@@ -899,7 +899,7 @@
        ]
      ], [
        fhir:index 24;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.jurisdiction" ];
+       fhir:Element.id [ fhir:value "Library.jurisdiction" ];
        fhir:ElementDefinition.path [ fhir:value "Library.jurisdiction" ];
        fhir:ElementDefinition.short [ fhir:value "Intended jurisdiction for library (if applicable)" ];
        fhir:ElementDefinition.definition [ fhir:value "A legal or geographic region in which the library is intended to be used." ];
@@ -945,7 +945,7 @@
        ]
      ], [
        fhir:index 25;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.purpose" ];
+       fhir:Element.id [ fhir:value "Library.purpose" ];
        fhir:ElementDefinition.path [ fhir:value "Library.purpose" ];
        fhir:ElementDefinition.short [ fhir:value "Why this library is defined" ];
        fhir:ElementDefinition.definition [ fhir:value "Explanation of why this library is needed and why it has been designed as it has." ];
@@ -982,7 +982,7 @@
        ]
      ], [
        fhir:index 26;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.usage" ];
+       fhir:Element.id [ fhir:value "Library.usage" ];
        fhir:ElementDefinition.path [ fhir:value "Library.usage" ];
        fhir:ElementDefinition.short [ fhir:value "Describes the clinical usage of the library" ];
        fhir:ElementDefinition.definition [ fhir:value "A detailed description of how the library is used from a clinical perspective." ];
@@ -1006,7 +1006,7 @@
        ]
      ], [
        fhir:index 27;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.copyright" ];
+       fhir:Element.id [ fhir:value "Library.copyright" ];
        fhir:ElementDefinition.path [ fhir:value "Library.copyright" ];
        fhir:ElementDefinition.short [ fhir:value "Use and/or publishing restrictions" ];
        fhir:ElementDefinition.definition [ fhir:value "A copyright statement relating to the library and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the library." ];
@@ -1046,7 +1046,7 @@
        ]
      ], [
        fhir:index 28;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.approvalDate" ];
+       fhir:Element.id [ fhir:value "Library.approvalDate" ];
        fhir:ElementDefinition.path [ fhir:value "Library.approvalDate" ];
        fhir:ElementDefinition.short [ fhir:value "When the library was approved by publisher" ];
        fhir:ElementDefinition.definition [ fhir:value "The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage." ];
@@ -1079,7 +1079,7 @@
        ]
      ], [
        fhir:index 29;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.lastReviewDate" ];
+       fhir:Element.id [ fhir:value "Library.lastReviewDate" ];
        fhir:ElementDefinition.path [ fhir:value "Library.lastReviewDate" ];
        fhir:ElementDefinition.short [ fhir:value "When the library was last reviewed" ];
        fhir:ElementDefinition.definition [ fhir:value "The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date." ];
@@ -1113,7 +1113,7 @@
        ]
      ], [
        fhir:index 30;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.effectivePeriod" ];
+       fhir:Element.id [ fhir:value "Library.effectivePeriod" ];
        fhir:ElementDefinition.path [ fhir:value "Library.effectivePeriod" ];
        fhir:ElementDefinition.short [ fhir:value "When the library is expected to be used" ];
        fhir:ElementDefinition.definition [ fhir:value "The period during which the library content was or is planned to be in active use." ];
@@ -1147,7 +1147,7 @@
        ]
      ], [
        fhir:index 31;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.topic" ];
+       fhir:Element.id [ fhir:value "Library.topic" ];
        fhir:ElementDefinition.path [ fhir:value "Library.topic" ];
        fhir:ElementDefinition.short [ fhir:value "E.g. Education, Treatment, Assessment, etc." ];
        fhir:ElementDefinition.definition [ fhir:value "Descriptive topics related to the content of the library. Topics provide a high-level categorization of the library that can be useful for filtering and searching." ];
@@ -1185,7 +1185,7 @@
        ]
      ], [
        fhir:index 32;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.author" ];
+       fhir:Element.id [ fhir:value "Library.author" ];
        fhir:ElementDefinition.path [ fhir:value "Library.author" ];
        fhir:ElementDefinition.short [ fhir:value "Who authored the content" ];
        fhir:ElementDefinition.definition [ fhir:value "An individiual or organization primarily involved in the creation and maintenance of the content." ];
@@ -1209,7 +1209,7 @@
        ]
      ], [
        fhir:index 33;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.editor" ];
+       fhir:Element.id [ fhir:value "Library.editor" ];
        fhir:ElementDefinition.path [ fhir:value "Library.editor" ];
        fhir:ElementDefinition.short [ fhir:value "Who edited the content" ];
        fhir:ElementDefinition.definition [ fhir:value "An individual or organization primarily responsible for internal coherence of the content." ];
@@ -1228,7 +1228,7 @@
        fhir:ElementDefinition.isSummary [ fhir:value "false"^^xsd:boolean ]
      ], [
        fhir:index 34;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.reviewer" ];
+       fhir:Element.id [ fhir:value "Library.reviewer" ];
        fhir:ElementDefinition.path [ fhir:value "Library.reviewer" ];
        fhir:ElementDefinition.short [ fhir:value "Who reviewed the content" ];
        fhir:ElementDefinition.definition [ fhir:value "An individual or organization primarily responsible for review of some aspect of the content." ];
@@ -1252,7 +1252,7 @@
        ]
      ], [
        fhir:index 35;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.endorser" ];
+       fhir:Element.id [ fhir:value "Library.endorser" ];
        fhir:ElementDefinition.path [ fhir:value "Library.endorser" ];
        fhir:ElementDefinition.short [ fhir:value "Who endorsed the content" ];
        fhir:ElementDefinition.definition [ fhir:value "An individual or organization responsible for officially endorsing the content for use in some setting." ];
@@ -1276,7 +1276,7 @@
        ]
      ], [
        fhir:index 36;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.relatedArtifact" ];
+       fhir:Element.id [ fhir:value "Library.relatedArtifact" ];
        fhir:ElementDefinition.path [ fhir:value "Library.relatedArtifact" ];
        fhir:ElementDefinition.short [ fhir:value "Additional documentation, citations, etc." ];
        fhir:ElementDefinition.definition [ fhir:value "Related artifacts such as additional documentation, justification, or bibliographic references." ];
@@ -1302,7 +1302,7 @@
        ]
      ], [
        fhir:index 37;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.parameter" ];
+       fhir:Element.id [ fhir:value "Library.parameter" ];
        fhir:ElementDefinition.path [ fhir:value "Library.parameter" ];
        fhir:ElementDefinition.short [ fhir:value "Parameters defined by the library" ];
        fhir:ElementDefinition.definition [ fhir:value "The parameter element defines parameters used by the library." ];
@@ -1326,7 +1326,7 @@
        ]
      ], [
        fhir:index 38;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.dataRequirement" ];
+       fhir:Element.id [ fhir:value "Library.dataRequirement" ];
        fhir:ElementDefinition.path [ fhir:value "Library.dataRequirement" ];
        fhir:ElementDefinition.short [ fhir:value "What data is referenced by this library" ];
        fhir:ElementDefinition.definition [ fhir:value "Describes a set of data that must be provided in order to be able to successfully perform the computations defined by the library." ];
@@ -1350,7 +1350,7 @@
        ]
      ], [
        fhir:index 39;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.content" ];
+       fhir:Element.id [ fhir:value "Library.content" ];
        fhir:ElementDefinition.path [ fhir:value "Library.content" ];
        fhir:ElementDefinition.short [ fhir:value "Contents of the library, either embedded or referenced" ];
        fhir:ElementDefinition.definition [ fhir:value "The content of the library as an Attachment. The content may be a reference to a url, or may be directly embedded as a base-64 string. Either way, the contentType of the attachment determines how to interpret the content." ];
@@ -1377,7 +1377,7 @@
   fhir:StructureDefinition.differential [
      fhir:StructureDefinition.differential.element [
        fhir:index 0;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary" ];
+       fhir:Element.id [ fhir:value "Library" ];
        fhir:ElementDefinition.path [ fhir:value "Library" ];
        fhir:ElementDefinition.short [ fhir:value "del-StandardFormLibrary" ];
        fhir:ElementDefinition.definition [ fhir:value "A definition of a standard form." ];
@@ -1385,25 +1385,25 @@
        fhir:ElementDefinition.isSummary [ fhir:value "false"^^xsd:boolean ]
      ], [
        fhir:index 1;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.version" ];
+       fhir:Element.id [ fhir:value "Library.version" ];
        fhir:ElementDefinition.path [ fhir:value "Library.version" ];
        fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
        fhir:ElementDefinition.max [ fhir:value "1" ]
      ], [
        fhir:index 2;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.name" ];
+       fhir:Element.id [ fhir:value "Library.name" ];
        fhir:ElementDefinition.path [ fhir:value "Library.name" ];
        fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
        fhir:ElementDefinition.max [ fhir:value "1" ]
      ], [
        fhir:index 3;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.title" ];
+       fhir:Element.id [ fhir:value "Library.title" ];
        fhir:ElementDefinition.path [ fhir:value "Library.title" ];
        fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
        fhir:ElementDefinition.max [ fhir:value "1" ]
      ], [
        fhir:index 4;
-       fhir:Element.id [ fhir:value "Library:del-StandardFormLibrary.description" ];
+       fhir:Element.id [ fhir:value "Library.description" ];
        fhir:ElementDefinition.path [ fhir:value "Library.description" ];
        fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
        fhir:ElementDefinition.max [ fhir:value "1" ]

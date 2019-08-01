@@ -206,6 +206,11 @@
         <td>Populated with list of questions.</td>
     </tr>
     <tr>
+        <td>item[].code[0].system</td>
+        <td>hit_qstn_map.hit_qstn_cd</td>
+        <td>Only populated if question has a LOINC code specified.</td>
+    </tr>
+    <tr>
         <td>answerOption[].valueCoding.code</td>
         <td>data_ele_rspns_val.rspns_val_cd</td>
         <td>Only populated for "choice" and "open-choice" questions.</td>
@@ -367,5 +372,10 @@
         <td>relatedArtifact[].display</td>
         <td>data_ele_rspns_val.rspns_val_txt</td>
         <td></td>
+    </tr>
+    <tr>
+        <td>relatedArtifact[].url</td>
+        <td>hit_qstn_map.hit_qstn_cd</td>
+        <td>Only populated if question has a LOINC code specified.</td>
     </tr>
 </table>

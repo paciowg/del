@@ -10,7 +10,7 @@
   "name": "Assessment",
   "title": "del-Assessment",
   "status": "draft",
-  "date": "2019-07-24T00:00:00-04:00",
+  "date": "2019-08-01T00:00:00-04:00",
   "publisher": "The MITRE Corporation",
   "contact": [
     {
@@ -50,7 +50,7 @@
   "snapshot": {
     "element": [
       {
-        "id": "QuestionnaireResponse:del-Assessment",
+        "id": "QuestionnaireResponse",
         "path": "QuestionnaireResponse",
         "short": "del-Assessment",
         "definition": "A definition of an assessment (standard form response).",
@@ -136,7 +136,7 @@
         ]
       },
       {
-        "id": "QuestionnaireResponse:del-Assessment.id",
+        "id": "QuestionnaireResponse.id",
         "path": "QuestionnaireResponse.id",
         "short": "Logical id of this artifact",
         "definition": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
@@ -157,7 +157,7 @@
         "isSummary": true
       },
       {
-        "id": "QuestionnaireResponse:del-Assessment.meta",
+        "id": "QuestionnaireResponse.meta",
         "path": "QuestionnaireResponse.meta",
         "short": "Metadata about the resource",
         "definition": "The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.",
@@ -177,7 +177,7 @@
         "isSummary": true
       },
       {
-        "id": "QuestionnaireResponse:del-Assessment.implicitRules",
+        "id": "QuestionnaireResponse.implicitRules",
         "path": "QuestionnaireResponse.implicitRules",
         "short": "A set of rules under which this content was created",
         "definition": "A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.",
@@ -199,7 +199,7 @@
         "isSummary": true
       },
       {
-        "id": "QuestionnaireResponse:del-Assessment.language",
+        "id": "QuestionnaireResponse.language",
         "path": "QuestionnaireResponse.language",
         "short": "Language of the resource content",
         "definition": "The base language in which the resource is written.",
@@ -239,7 +239,7 @@
         }
       },
       {
-        "id": "QuestionnaireResponse:del-Assessment.text",
+        "id": "QuestionnaireResponse.text",
         "path": "QuestionnaireResponse.text",
         "short": "Text summary of the resource, for human interpretation",
         "definition": "A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it \"clinically safe\" for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.",
@@ -272,7 +272,7 @@
         ]
       },
       {
-        "id": "QuestionnaireResponse:del-Assessment.contained",
+        "id": "QuestionnaireResponse.contained",
         "path": "QuestionnaireResponse.contained",
         "short": "Contained, inline Resources",
         "definition": "These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.",
@@ -304,7 +304,7 @@
         ]
       },
       {
-        "id": "QuestionnaireResponse:del-Assessment.extension",
+        "id": "QuestionnaireResponse.extension",
         "path": "QuestionnaireResponse.extension",
         "short": "Additional content defined by implementations",
         "definition": "May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
@@ -335,7 +335,7 @@
         ]
       },
       {
-        "id": "QuestionnaireResponse:del-Assessment.modifierExtension",
+        "id": "QuestionnaireResponse.modifierExtension",
         "path": "QuestionnaireResponse.modifierExtension",
         "short": "Extensions that cannot be ignored",
         "definition": "May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
@@ -368,7 +368,7 @@
         ]
       },
       {
-        "id": "QuestionnaireResponse:del-Assessment.identifier",
+        "id": "QuestionnaireResponse.identifier",
         "path": "QuestionnaireResponse.identifier",
         "short": "Unique id for this set of answers",
         "definition": "A business identifier assigned to a particular completed (or partially completed) questionnaire.",
@@ -403,7 +403,7 @@
         ]
       },
       {
-        "id": "QuestionnaireResponse:del-Assessment.basedOn",
+        "id": "QuestionnaireResponse.basedOn",
         "path": "QuestionnaireResponse.basedOn",
         "short": "Request fulfilled by this QuestionnaireResponse",
         "definition": "The order, proposal or plan that is fulfilled in whole or in part by this QuestionnaireResponse.  For example, a ServiceRequest seeking an intake assessment or a decision support recommendation to assess for post-partum depression.",
@@ -441,7 +441,7 @@
         ]
       },
       {
-        "id": "QuestionnaireResponse:del-Assessment.partOf",
+        "id": "QuestionnaireResponse.partOf",
         "path": "QuestionnaireResponse.partOf",
         "short": "Part of this action",
         "definition": "A procedure or observation that this questionnaire was performed as part of the execution of.  For example, the surgery a checklist was executed as part of.",
@@ -476,7 +476,7 @@
         ]
       },
       {
-        "id": "QuestionnaireResponse:del-Assessment.questionnaire",
+        "id": "QuestionnaireResponse.questionnaire",
         "path": "QuestionnaireResponse.questionnaire",
         "short": "Form being answered",
         "definition": "The Questionnaire that defines and organizes the questions for which answers are being provided.",
@@ -514,7 +514,7 @@
         ]
       },
       {
-        "id": "QuestionnaireResponse:del-Assessment.status",
+        "id": "QuestionnaireResponse.status",
         "path": "QuestionnaireResponse.status",
         "short": "in-progress | completed | amended | entered-in-error | stopped",
         "definition": "The position of the questionnaire response within its overall lifecycle.",
@@ -562,7 +562,7 @@
         ]
       },
       {
-        "id": "QuestionnaireResponse:del-Assessment.subject",
+        "id": "QuestionnaireResponse.subject",
         "path": "QuestionnaireResponse.subject",
         "short": "The subject of the questions",
         "definition": "The subject of the questionnaire response.  This could be a patient, organization, practitioner, device, etc.  This is who/what the answers apply to, but is not necessarily the source of information.",
@@ -609,7 +609,7 @@
         ]
       },
       {
-        "id": "QuestionnaireResponse:del-Assessment.encounter",
+        "id": "QuestionnaireResponse.encounter",
         "path": "QuestionnaireResponse.encounter",
         "short": "Encounter created as part of",
         "definition": "The Encounter during which this questionnaire response was created or to which the creation of this record is tightly associated.",
@@ -648,7 +648,7 @@
         ]
       },
       {
-        "id": "QuestionnaireResponse:del-Assessment.authored",
+        "id": "QuestionnaireResponse.authored",
         "path": "QuestionnaireResponse.authored",
         "short": "Date the answers were gathered",
         "definition": "The date and/or time that this set of answers were last changed.",
@@ -690,7 +690,7 @@
         ]
       },
       {
-        "id": "QuestionnaireResponse:del-Assessment.author",
+        "id": "QuestionnaireResponse.author",
         "path": "QuestionnaireResponse.author",
         "short": "Person who received and recorded the answers",
         "definition": "Person who received the answers to the questions in the QuestionnaireResponse and recorded them in the system.",
@@ -742,7 +742,7 @@
         ]
       },
       {
-        "id": "QuestionnaireResponse:del-Assessment.source",
+        "id": "QuestionnaireResponse.source",
         "path": "QuestionnaireResponse.source",
         "short": "The person who answered the questions",
         "definition": "The person who answered the questions about the subject.",
@@ -780,7 +780,7 @@
         ]
       },
       {
-        "id": "QuestionnaireResponse:del-Assessment.item",
+        "id": "QuestionnaireResponse.item",
         "path": "QuestionnaireResponse.item",
         "short": "Groups and questions",
         "definition": "A group or question item from the original questionnaire for which answers are provided.",
@@ -824,7 +824,7 @@
         ]
       },
       {
-        "id": "QuestionnaireResponse:del-Assessment.item.id",
+        "id": "QuestionnaireResponse.item.id",
         "path": "QuestionnaireResponse.item.id",
         "representation": [
           "xmlAttr"
@@ -853,7 +853,7 @@
         ]
       },
       {
-        "id": "QuestionnaireResponse:del-Assessment.item.extension",
+        "id": "QuestionnaireResponse.item.extension",
         "path": "QuestionnaireResponse.item.extension",
         "short": "Additional content defined by implementations",
         "definition": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
@@ -884,7 +884,7 @@
         ]
       },
       {
-        "id": "QuestionnaireResponse:del-Assessment.item.modifierExtension",
+        "id": "QuestionnaireResponse.item.modifierExtension",
         "path": "QuestionnaireResponse.item.modifierExtension",
         "short": "Extensions that cannot be ignored even if unrecognized",
         "definition": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
@@ -918,7 +918,7 @@
         ]
       },
       {
-        "id": "QuestionnaireResponse:del-Assessment.item.linkId",
+        "id": "QuestionnaireResponse.item.linkId",
         "path": "QuestionnaireResponse.item.linkId",
         "short": "Pointer to specific item from Questionnaire",
         "definition": "The item from the Questionnaire that corresponds to this item in the QuestionnaireResponse resource.",
@@ -945,7 +945,7 @@
         ]
       },
       {
-        "id": "QuestionnaireResponse:del-Assessment.item.definition",
+        "id": "QuestionnaireResponse.item.definition",
         "path": "QuestionnaireResponse.item.definition",
         "short": "ElementDefinition - details for the item",
         "definition": "A reference to an [ElementDefinition](elementdefinition.html) that provides the details for the item.",
@@ -973,7 +973,7 @@
         ]
       },
       {
-        "id": "QuestionnaireResponse:del-Assessment.item.text",
+        "id": "QuestionnaireResponse.item.text",
         "path": "QuestionnaireResponse.item.text",
         "short": "Name for group or question text",
         "definition": "Text that is displayed above the contents of the group or as the text of the question being answered.",
@@ -1000,7 +1000,7 @@
         ]
       },
       {
-        "id": "QuestionnaireResponse:del-Assessment.item.answer",
+        "id": "QuestionnaireResponse.item.answer",
         "path": "QuestionnaireResponse.item.answer",
         "short": "The response(s) to the question",
         "definition": "The respondent's answer(s) to the question.",
@@ -1037,7 +1037,7 @@
         ]
       },
       {
-        "id": "QuestionnaireResponse:del-Assessment.item.answer.id",
+        "id": "QuestionnaireResponse.item.answer.id",
         "path": "QuestionnaireResponse.item.answer.id",
         "representation": [
           "xmlAttr"
@@ -1066,7 +1066,7 @@
         ]
       },
       {
-        "id": "QuestionnaireResponse:del-Assessment.item.answer.extension",
+        "id": "QuestionnaireResponse.item.answer.extension",
         "path": "QuestionnaireResponse.item.answer.extension",
         "short": "Additional content defined by implementations",
         "definition": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
@@ -1097,7 +1097,7 @@
         ]
       },
       {
-        "id": "QuestionnaireResponse:del-Assessment.item.answer.modifierExtension",
+        "id": "QuestionnaireResponse.item.answer.modifierExtension",
         "path": "QuestionnaireResponse.item.answer.modifierExtension",
         "short": "Extensions that cannot be ignored even if unrecognized",
         "definition": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
@@ -1131,7 +1131,7 @@
         ]
       },
       {
-        "id": "QuestionnaireResponse:del-Assessment.item.answer.value[x]",
+        "id": "QuestionnaireResponse.item.answer.value[x]",
         "path": "QuestionnaireResponse.item.answer.value[x]",
         "short": "Single-valued answer to the question",
         "definition": "The answer (or one of the answers) provided by the respondent to the question.",
@@ -1206,7 +1206,7 @@
         ]
       },
       {
-        "id": "QuestionnaireResponse:del-Assessment.item.answer.item",
+        "id": "QuestionnaireResponse.item.answer.item",
         "path": "QuestionnaireResponse.item.answer.item",
         "short": "Nested groups and questions",
         "definition": "Nested groups and/or questions found within this particular answer.",
@@ -1229,7 +1229,7 @@
         ]
       },
       {
-        "id": "QuestionnaireResponse:del-Assessment.item.item",
+        "id": "QuestionnaireResponse.item.item",
         "path": "QuestionnaireResponse.item.item",
         "short": "Nested questionnaire response items",
         "definition": "Questions or sub-groups nested beneath a question or group.",
@@ -1256,7 +1256,7 @@
   "differential": {
     "element": [
       {
-        "id": "QuestionnaireResponse:del-Assessment",
+        "id": "QuestionnaireResponse",
         "path": "QuestionnaireResponse",
         "short": "del-Assessment",
         "definition": "A definition of an assessment (standard form response).",
@@ -1264,19 +1264,19 @@
         "isSummary": false
       },
       {
-        "id": "QuestionnaireResponse:del-Assessment.questionnaire",
+        "id": "QuestionnaireResponse.questionnaire",
         "path": "QuestionnaireResponse.questionnaire",
         "min": 1,
         "max": "1"
       },
       {
-        "id": "QuestionnaireResponse:del-Assessment.subject",
+        "id": "QuestionnaireResponse.subject",
         "path": "QuestionnaireResponse.subject",
         "min": 1,
         "max": "1"
       },
       {
-        "id": "QuestionnaireResponse:del-Assessment.item",
+        "id": "QuestionnaireResponse.item",
         "path": "QuestionnaireResponse.item",
         "min": 1,
         "max": "*"
