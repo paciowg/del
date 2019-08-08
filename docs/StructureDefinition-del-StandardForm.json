@@ -3,14 +3,14 @@
   "id": "del-StandardForm",
   "text": {
     "status": "generated",
-    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>StandardForm Profile</b></p>\n  <p>A definition of an standard form and all of its contents.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.StandardForm maps to Questionnaire:\n  constrain name to 1..1\n  constrain version to 1..1\n  constrain title to 1..1\n  constrain description to 1..1\n  constrain item to 1..*\n  constrain item.linkId to 1..1\n  constrain item.text to 1..1\n  constrain identifier to 0..0\n  constrain subjectType to 0..0\n  constrain useContext to 0..0\n  constrain contact to 0..0\n  constrain jurisdiction to 0..0\n  constrain purpose to 0..0\n  constrain copyright to 0..0\n  constrain url to 1..1\n</pre></p>\n</div>"
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>StandardForm Profile</b></p>\n  <p>A DEL standard form and all of its contents. This includes sections, questions, and available question responses.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.StandardForm maps to Questionnaire:\n  constrain url to 1..1\n  constrain date to 1..1\n  constrain name to 1..1\n  constrain version to 1..1\n  constrain publisher to 1..1\n  constrain title to 1..1\n  constrain description to 1..1\n  constrain effectivePeriod to 1..1\n  constrain identifier to 0..0\n  constrain subjectType to 0..0\n  constrain useContext to 0..0\n  constrain contact to 0..0\n  constrain jurisdiction to 0..0\n  constrain purpose to 0..0\n  constrain copyright to 0..0\n  constrain item to 0..*\n  constrain item.linkId to 1..1\n  constrain item.text to 1..1\n</pre></p>\n</div>"
   },
   "url": "https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardForm",
   "version": "0.0.1",
   "name": "StandardForm",
   "title": "del-StandardForm",
   "status": "draft",
-  "date": "2019-08-01T00:00:00-04:00",
+  "date": "2019-08-08T00:00:00-04:00",
   "publisher": "The MITRE Corporation",
   "contact": [
     {
@@ -22,7 +22,7 @@
       ]
     }
   ],
-  "description": "A definition of an standard form and all of its contents.",
+  "description": "A DEL standard form and all of its contents. This includes sections, questions, and available question responses.",
   "purpose": "To support structured, hierarchical registration of data gathered using digital forms and other questionnaires.  Questionnaires provide greater control over presentation and allow capture of data in a domain-independent way (i.e. capturing information that would otherwise require multiple distinct types of resources).",
   "fhirVersion": "4.0.0",
   "mapping": [
@@ -71,7 +71,7 @@
         "id": "Questionnaire",
         "path": "Questionnaire",
         "short": "del-StandardForm",
-        "definition": "A definition of an standard form and all of its contents.",
+        "definition": "A DEL standard form and all of its contents. This includes sections, questions, and available question responses.",
         "alias": [
           "Form",
           "CRF",
@@ -748,7 +748,7 @@
         "alias": [
           "Revision Date"
         ],
-        "min": 0,
+        "min": 1,
         "max": "1",
         "base": {
           "path": "Questionnaire.date",
@@ -784,7 +784,7 @@
         "definition": "The name of the organization or individual that published the questionnaire.",
         "comment": "Usually an organization but may be an individual. The publisher (or steward) of the questionnaire is the organization or individual primarily responsible for the maintenance and upkeep of the questionnaire. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the questionnaire. This item SHOULD be populated unless the information is available from context.",
         "requirements": "Helps establish the \"authority/credibility\" of the questionnaire.  May also allow for contact.",
-        "min": 0,
+        "min": 1,
         "max": "1",
         "base": {
           "path": "Questionnaire.publisher",
@@ -1109,7 +1109,7 @@
         "definition": "The period during which the questionnaire content was or is planned to be in active use.",
         "comment": "The effective period for a questionnaire  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015.",
         "requirements": "Allows establishing a transition before a resource comes into effect and also allows for a sunsetting  process when new versions of the questionnaire are or are expected to be used instead.",
-        "min": 0,
+        "min": 1,
         "max": "1",
         "base": {
           "path": "Questionnaire.effectivePeriod",
@@ -1182,7 +1182,7 @@
         "short": "Questions and sections within the Questionnaire",
         "definition": "A particular question, question grouping or display text that is part of the questionnaire.",
         "comment": "The content of the questionnaire is constructed from an ordered, hierarchical collection of items.",
-        "min": 1,
+        "min": 0,
         "max": "*",
         "base": {
           "path": "Questionnaire.item",
@@ -2523,7 +2523,7 @@
         "id": "Questionnaire",
         "path": "Questionnaire",
         "short": "del-StandardForm",
-        "definition": "A definition of an standard form and all of its contents.",
+        "definition": "A DEL standard form and all of its contents. This includes sections, questions, and available question responses.",
         "isModifier": false,
         "isSummary": false
       },
@@ -2564,6 +2564,18 @@
         "max": "0"
       },
       {
+        "id": "Questionnaire.date",
+        "path": "Questionnaire.date",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Questionnaire.publisher",
+        "path": "Questionnaire.publisher",
+        "min": 1,
+        "max": "1"
+      },
+      {
         "id": "Questionnaire.contact",
         "path": "Questionnaire.contact",
         "min": 0,
@@ -2600,10 +2612,14 @@
         "max": "0"
       },
       {
-        "id": "Questionnaire.item",
-        "path": "Questionnaire.item",
+        "id": "Questionnaire.effectivePeriod",
+        "path": "Questionnaire.effectivePeriod",
         "min": 1,
-        "max": "*"
+        "max": "1"
+      },
+      {
+        "id": "Questionnaire.item",
+        "path": "Questionnaire.item"
       },
       {
         "id": "Questionnaire.item.text",

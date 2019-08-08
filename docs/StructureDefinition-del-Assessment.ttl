@@ -10,14 +10,14 @@
   fhir:Resource.id [ fhir:value "del-Assessment"];
   fhir:DomainResource.text [
      fhir:Narrative.status [ fhir:value "generated" ];
-     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>Assessment Profile</b></p>\n  <p>A definition of an assessment (standard form response).</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.Assessment maps to QuestionnaireResponse:\n  constrain questionnaire to 1..1\n  constrain subject to 1..1\n  constrain item to 1..*\n</pre></p>\n</div>"
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>Assessment Profile</b></p>\n  <p>A response to a DEL standard form for a patient. Not currently used.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.Assessment maps to QuestionnaireResponse:\n  constrain questionnaire to 1..1\n  constrain subject to 1..1\n  constrain item to 1..*\n</pre></p>\n</div>"
   ];
   fhir:StructureDefinition.url [ fhir:value "https://impact-fhir.mitre.org/r4/StructureDefinition/del-Assessment"];
   fhir:StructureDefinition.version [ fhir:value "0.0.1"];
   fhir:StructureDefinition.name [ fhir:value "Assessment"];
   fhir:StructureDefinition.title [ fhir:value "del-Assessment"];
   fhir:StructureDefinition.status [ fhir:value "draft"];
-  fhir:StructureDefinition.date [ fhir:value "2019-08-01T00:00:00-04:00"^^xsd:dateTime];
+  fhir:StructureDefinition.date [ fhir:value "2019-08-08T00:00:00-04:00"^^xsd:dateTime];
   fhir:StructureDefinition.publisher [ fhir:value "The MITRE Corporation"];
   fhir:StructureDefinition.contact [
      fhir:index 0;
@@ -27,7 +27,7 @@
        fhir:ContactPoint.value [ fhir:value "http://mitre.org" ]
      ]
   ];
-  fhir:StructureDefinition.description [ fhir:value "A definition of an assessment (standard form response)."];
+  fhir:StructureDefinition.description [ fhir:value "A response to a DEL standard form for a patient. Not currently used."];
   fhir:StructureDefinition.purpose [ fhir:value "To support structured, hierarchical reporting of data gathered using digital forms and other questionnaires."];
   fhir:StructureDefinition.fhirVersion [ fhir:value "4.0.0"];
   fhir:StructureDefinition.mapping [
@@ -60,7 +60,7 @@
        fhir:Element.id [ fhir:value "QuestionnaireResponse" ];
        fhir:ElementDefinition.path [ fhir:value "QuestionnaireResponse" ];
        fhir:ElementDefinition.short [ fhir:value "del-Assessment" ];
-       fhir:ElementDefinition.definition [ fhir:value "A definition of an assessment (standard form response)." ];
+       fhir:ElementDefinition.definition [ fhir:value "A response to a DEL standard form for a patient. Not currently used." ];
        fhir:ElementDefinition.comment [ fhir:value "The QuestionnaireResponse contains enough information about the questions asked and their organization that it can be interpreted somewhat independently from the Questionnaire it is based on.  I.e. You don't need access to the Questionnaire in order to extract basic information from a QuestionnaireResponse." ];
        fhir:ElementDefinition.alias [
          fhir:value "Form";
@@ -1319,7 +1319,7 @@
        fhir:Element.id [ fhir:value "QuestionnaireResponse" ];
        fhir:ElementDefinition.path [ fhir:value "QuestionnaireResponse" ];
        fhir:ElementDefinition.short [ fhir:value "del-Assessment" ];
-       fhir:ElementDefinition.definition [ fhir:value "A definition of an assessment (standard form response)." ];
+       fhir:ElementDefinition.definition [ fhir:value "A response to a DEL standard form for a patient. Not currently used." ];
        fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
        fhir:ElementDefinition.isSummary [ fhir:value "false"^^xsd:boolean ]
      ], [

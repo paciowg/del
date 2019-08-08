@@ -10,14 +10,14 @@
   fhir:Resource.id [ fhir:value "del-StandardFormQuestion"];
   fhir:DomainResource.text [
      fhir:Narrative.status [ fhir:value "generated" ];
-     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>StandardFormQuestion Profile</b></p>\n  <p>A definition of a standard form question.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.StandardFormQuestion maps to Measure:\n  constrain name to 1..1\n  constrain title to 1..1\n  constrain description to 1..1\n</pre></p>\n</div>"
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>StandardFormQuestion Profile</b></p>\n  <p>A DEL question (item). Used for searching purposes. Links back to StandardFormLibrary.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.StandardFormQuestion maps to Measure:\n  constrain url to 1..1\n  constrain name to 1..1\n  constrain title to 1..1\n  constrain relatedArtifact to 0..*\n  constrain relatedArtifact.type to 1..1\n  constrain relatedArtifact.resource to 1..1\n  constrain relatedArtifact.label to 1..1\n  constrain relatedArtifact.display to 1..1\n  constrain relatedArtifact.url to 0..1\n  constrain identifier to 0..0\n  constrain version to 0..0\n  constrain subtitle to 0..0\n  constrain experimental to 0..0\n  constrain date to 0..0\n  constrain publisher to 0..0\n  constrain contact to 0..0\n  constrain useContext to 0..0\n  constrain jurisdiction to 0..0\n  constrain purpose to 0..0\n  constrain usage to 0..0\n  constrain copyright to 0..0\n  constrain approvalDate to 0..0\n  constrain lastReviewDate to 0..0\n  constrain effectivePeriod to 0..0\n  constrain topic to 0..0\n  constrain author to 0..0\n  constrain editor to 0..0\n  constrain reviewer to 0..0\n  constrain endorser to 0..0\n  constrain disclaimer to 0..0\n  constrain scoring to 0..0\n  constrain compositeScoring to 0..0\n  constrain type to 0..0\n  constrain riskAdjustment to 0..0\n  constrain rateAggregation to 0..0\n  constrain rationale to 0..0\n  constrain clinicalRecommendationStatement to 0..0\n  constrain improvementNotation to 0..0\n  constrain definition to 0..0\n  constrain guidance to 0..0\n  constrain group to 0..0\n  constrain supplementalData to 0..0\n</pre></p>\n</div>"
   ];
   fhir:StructureDefinition.url [ fhir:value "https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardFormQuestion"];
   fhir:StructureDefinition.version [ fhir:value "0.0.1"];
   fhir:StructureDefinition.name [ fhir:value "StandardFormQuestion"];
   fhir:StructureDefinition.title [ fhir:value "del-StandardFormQuestion"];
   fhir:StructureDefinition.status [ fhir:value "draft"];
-  fhir:StructureDefinition.date [ fhir:value "2019-08-01T00:00:00-04:00"^^xsd:dateTime];
+  fhir:StructureDefinition.date [ fhir:value "2019-08-08T00:00:00-04:00"^^xsd:dateTime];
   fhir:StructureDefinition.publisher [ fhir:value "The MITRE Corporation"];
   fhir:StructureDefinition.contact [
      fhir:index 0;
@@ -27,7 +27,7 @@
        fhir:ContactPoint.value [ fhir:value "http://mitre.org" ]
      ]
   ];
-  fhir:StructureDefinition.description [ fhir:value "A definition of a standard form question."];
+  fhir:StructureDefinition.description [ fhir:value "A DEL question (item). Used for searching purposes. Links back to StandardFormLibrary."];
   fhir:StructureDefinition.fhirVersion [ fhir:value "4.0.0"];
   fhir:StructureDefinition.mapping [
      fhir:index 0;
@@ -69,7 +69,7 @@
        fhir:Element.id [ fhir:value "Measure" ];
        fhir:ElementDefinition.path [ fhir:value "Measure" ];
        fhir:ElementDefinition.short [ fhir:value "del-StandardFormQuestion" ];
-       fhir:ElementDefinition.definition [ fhir:value "A definition of a standard form question." ];
+       fhir:ElementDefinition.definition [ fhir:value "A DEL question (item). Used for searching purposes. Links back to StandardFormLibrary." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
        fhir:ElementDefinition.max [ fhir:value "*" ];
        fhir:ElementDefinition.base [
@@ -403,7 +403,7 @@
        fhir:ElementDefinition.definition [ fhir:value "An absolute URI that is used to identify this measure when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this measure is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the measure is stored on different servers." ];
        fhir:ElementDefinition.comment [ fhir:value "Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.\n\nThe determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). \n\nIn some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found." ];
        fhir:ElementDefinition.requirements [ fhir:value "Allows the measure to be referenced by a single globally unique identifier." ];
-       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
        fhir:ElementDefinition.max [ fhir:value "1" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Measure.url" ];
@@ -434,7 +434,7 @@
        fhir:ElementDefinition.comment [ fhir:value "Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this measure outside of FHIR, where it is not possible to use the logical URI." ];
        fhir:ElementDefinition.requirements [ fhir:value "Allows externally provided and/or usable business identifiers to be easily associated with the module." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "*" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Measure.identifier" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -467,7 +467,7 @@
        fhir:ElementDefinition.definition [ fhir:value "The identifier that is used to identify this version of the measure when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the measure author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts." ];
        fhir:ElementDefinition.comment [ fhir:value "There may be different measure instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the measure with the format [url]|[version]." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "1" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Measure.version" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -545,7 +545,7 @@
        fhir:ElementDefinition.short [ fhir:value "Subordinate title of the measure" ];
        fhir:ElementDefinition.definition [ fhir:value "An explanatory or alternate title for the measure giving additional information about its content." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "1" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Measure.subtitle" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -613,7 +613,7 @@
        fhir:ElementDefinition.comment [ fhir:value "Allows filtering of measures that are appropriate for use versus not." ];
        fhir:ElementDefinition.requirements [ fhir:value "Enables experimental content to be developed following the same lifecycle that would be used for a production-level measure." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "1" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Measure.experimental" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -688,7 +688,7 @@
          fhir:index 0
        ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "1" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Measure.date" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -718,7 +718,7 @@
        fhir:ElementDefinition.comment [ fhir:value "Usually an organization but may be an individual. The publisher (or steward) of the measure is the organization or individual primarily responsible for the maintenance and upkeep of the measure. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the measure. This item SHOULD be populated unless the information is available from context." ];
        fhir:ElementDefinition.requirements [ fhir:value "Helps establish the \"authority/credibility\" of the measure.  May also allow for contact." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "1" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Measure.publisher" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -747,7 +747,7 @@
        fhir:ElementDefinition.definition [ fhir:value "Contact details to assist a user in finding and communicating with the publisher." ];
        fhir:ElementDefinition.comment [ fhir:value "May be a web site, an email address, a telephone number, etc." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "*" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Measure.contact" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -771,7 +771,7 @@
        fhir:ElementDefinition.short [ fhir:value "Natural language description of the measure" ];
        fhir:ElementDefinition.definition [ fhir:value "A free text natural language description of the measure from a consumer's perspective." ];
        fhir:ElementDefinition.comment [ fhir:value "This description can be used to capture details such as why the measure was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the measure as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the measure is presumed to be the predominant language in the place the measure was created)." ];
-       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
        fhir:ElementDefinition.max [ fhir:value "1" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Measure.description" ];
@@ -798,7 +798,7 @@
        fhir:ElementDefinition.comment [ fhir:value "When multiple useContexts are specified, there is no expectation that all or any of the contexts apply." ];
        fhir:ElementDefinition.requirements [ fhir:value "Assist in searching for appropriate content." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "*" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Measure.useContext" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -823,7 +823,7 @@
        fhir:ElementDefinition.definition [ fhir:value "A legal or geographic region in which the measure is intended to be used." ];
        fhir:ElementDefinition.comment [ fhir:value "It may be possible for the measure to be used in jurisdictions other than those for which it was originally designed or intended." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "*" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Measure.jurisdiction" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -865,7 +865,7 @@
        fhir:ElementDefinition.definition [ fhir:value "Explanation of why this measure is needed and why it has been designed as it has." ];
        fhir:ElementDefinition.comment [ fhir:value "This element does not describe the usage of the measure. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this measure." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "1" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Measure.purpose" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -897,7 +897,7 @@
        fhir:ElementDefinition.short [ fhir:value "Describes the clinical usage of the measure" ];
        fhir:ElementDefinition.definition [ fhir:value "A detailed description, from a clinical perspective, of how the measure is used." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "1" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Measure.usage" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -924,7 +924,7 @@
          fhir:index 1
        ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "1" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Measure.copyright" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -953,7 +953,7 @@
        fhir:ElementDefinition.definition [ fhir:value "The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage." ];
        fhir:ElementDefinition.comment [ fhir:value "The 'date' element may be more recent than the approval date because of minor changes or editorial corrections." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "1" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Measure.approvalDate" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -983,7 +983,7 @@
        fhir:ElementDefinition.comment [ fhir:value "If specified, this date follows the original approval date." ];
        fhir:ElementDefinition.requirements [ fhir:value "Gives a sense of how \"current\" the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "1" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Measure.lastReviewDate" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -1013,7 +1013,7 @@
        fhir:ElementDefinition.comment [ fhir:value "The effective period for a measure  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015." ];
        fhir:ElementDefinition.requirements [ fhir:value "Allows establishing a transition before a resource comes into effect and also allows for a sunsetting  process when new versions of the measure are or are expected to be used instead." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "1" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Measure.effectivePeriod" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -1042,7 +1042,7 @@
        fhir:ElementDefinition.definition [ fhir:value "Descriptive topics related to the content of the measure. Topics provide a high-level categorization grouping types of measures that can be useful for filtering and searching." ];
        fhir:ElementDefinition.requirements [ fhir:value "Repositories must be able to determine how to categorize the measure so that it can be found by topical searches." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "*" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Measure.topic" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -1074,7 +1074,7 @@
        fhir:ElementDefinition.short [ fhir:value "Who authored the content" ];
        fhir:ElementDefinition.definition [ fhir:value "An individiual or organization primarily involved in the creation and maintenance of the content." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "*" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Measure.author" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -1098,7 +1098,7 @@
        fhir:ElementDefinition.short [ fhir:value "Who edited the content" ];
        fhir:ElementDefinition.definition [ fhir:value "An individual or organization primarily responsible for internal coherence of the content." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "*" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Measure.editor" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -1117,7 +1117,7 @@
        fhir:ElementDefinition.short [ fhir:value "Who reviewed the content" ];
        fhir:ElementDefinition.definition [ fhir:value "An individual or organization primarily responsible for review of some aspect of the content." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "*" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Measure.reviewer" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -1141,7 +1141,7 @@
        fhir:ElementDefinition.short [ fhir:value "Who endorsed the content" ];
        fhir:ElementDefinition.definition [ fhir:value "An individual or organization responsible for officially endorsing the content for use in some setting." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "*" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Measure.endorser" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -1181,6 +1181,229 @@
        fhir:ElementDefinition.isSummary [ fhir:value "false"^^xsd:boolean ]
      ], [
        fhir:index 36;
+       fhir:Element.id [ fhir:value "Measure.relatedArtifact.id" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.relatedArtifact.id" ];
+       fhir:ElementDefinition.representation [
+         fhir:value "xmlAttr";
+         fhir:index 0
+       ];
+       fhir:ElementDefinition.short [ fhir:value "Unique id for inter-element referencing" ];
+       fhir:ElementDefinition.definition [ fhir:value "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces." ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "1" ];
+       fhir:ElementDefinition.base [
+         fhir:ElementDefinition.base.path [ fhir:value "Element.id" ];
+         fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+         fhir:ElementDefinition.base.max [ fhir:value "1" ]
+       ];
+       fhir:ElementDefinition.type [
+         fhir:index 0;
+         fhir:ElementDefinition.type.code [ fhir:value "string" ]
+       ];
+       fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
+       fhir:ElementDefinition.isSummary [ fhir:value "false"^^xsd:boolean ];
+       fhir:ElementDefinition.mapping [
+         fhir:index 0;
+         fhir:ElementDefinition.mapping.identity [ fhir:value "rim" ];
+         fhir:ElementDefinition.mapping.map [ fhir:value "n/a" ]
+       ]
+     ], [
+       fhir:index 37;
+       fhir:Element.id [ fhir:value "Measure.relatedArtifact.extension" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.relatedArtifact.extension" ];
+       fhir:ElementDefinition.slicing [
+         fhir:ElementDefinition.slicing.discriminator [
+           fhir:index 0;
+           fhir:ElementDefinition.slicing.discriminator.type [ fhir:value "value" ];
+           fhir:ElementDefinition.slicing.discriminator.path [ fhir:value "url" ]
+         ];
+         fhir:ElementDefinition.slicing.description [ fhir:value "Extensions are always sliced by (at least) url" ];
+         fhir:ElementDefinition.slicing.rules [ fhir:value "open" ]
+       ];
+       fhir:ElementDefinition.short [ fhir:value "Additional content defined by implementations" ];
+       fhir:ElementDefinition.definition [ fhir:value "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension." ];
+       fhir:ElementDefinition.comment [ fhir:value "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone." ];
+       fhir:ElementDefinition.alias [
+         fhir:value "extensions";
+         fhir:index 0
+       ], [
+         fhir:value "user content";
+         fhir:index 1
+       ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "*" ];
+       fhir:ElementDefinition.base [
+         fhir:ElementDefinition.base.path [ fhir:value "Element.extension" ];
+         fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+         fhir:ElementDefinition.base.max [ fhir:value "*" ]
+       ];
+       fhir:ElementDefinition.type [
+         fhir:index 0;
+         fhir:ElementDefinition.type.code [ fhir:value "Extension" ]
+       ];
+       fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
+       fhir:ElementDefinition.isSummary [ fhir:value "false"^^xsd:boolean ];
+       fhir:ElementDefinition.mapping [
+         fhir:index 0;
+         fhir:ElementDefinition.mapping.identity [ fhir:value "rim" ];
+         fhir:ElementDefinition.mapping.map [ fhir:value "n/a" ]
+       ]
+     ], [
+       fhir:index 38;
+       fhir:Element.id [ fhir:value "Measure.relatedArtifact.type" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.relatedArtifact.type" ];
+       fhir:ElementDefinition.short [ fhir:value "documentation | justification | citation | predecessor | successor | derived-from | depends-on | composed-of" ];
+       fhir:ElementDefinition.definition [ fhir:value "The type of relationship to the related artifact." ];
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "1" ];
+       fhir:ElementDefinition.base [
+         fhir:ElementDefinition.base.path [ fhir:value "RelatedArtifact.type" ];
+         fhir:ElementDefinition.base.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
+         fhir:ElementDefinition.base.max [ fhir:value "1" ]
+       ];
+       fhir:ElementDefinition.type [
+         fhir:index 0;
+         fhir:ElementDefinition.type.code [ fhir:value "code" ]
+       ];
+       fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
+       fhir:ElementDefinition.isSummary [ fhir:value "true"^^xsd:boolean ];
+       fhir:ElementDefinition.binding [
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName" ];
+           fhir:Extension.valueString [ fhir:value "RelatedArtifactType" ]
+         ];
+         fhir:ElementDefinition.binding.strength [ fhir:value "required" ];
+         fhir:ElementDefinition.binding.description [ fhir:value "The type of relationship to the related artifact." ];
+         fhir:ElementDefinition.binding.valueSet [
+           fhir:value "http://hl7.org/fhir/ValueSet/related-artifact-type|4.0.0";
+           fhir:link <http://hl7.org/fhir/ValueSet/related-artifact-type|4.0.0>
+         ]
+       ]
+     ], [
+       fhir:index 39;
+       fhir:Element.id [ fhir:value "Measure.relatedArtifact.label" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.relatedArtifact.label" ];
+       fhir:ElementDefinition.short [ fhir:value "Short label" ];
+       fhir:ElementDefinition.definition [ fhir:value "A short label that can be used to reference the citation from elsewhere in the containing artifact, such as a footnote index." ];
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "1" ];
+       fhir:ElementDefinition.base [
+         fhir:ElementDefinition.base.path [ fhir:value "RelatedArtifact.label" ];
+         fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+         fhir:ElementDefinition.base.max [ fhir:value "1" ]
+       ];
+       fhir:ElementDefinition.type [
+         fhir:index 0;
+         fhir:ElementDefinition.type.code [ fhir:value "string" ]
+       ];
+       fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
+       fhir:ElementDefinition.isSummary [ fhir:value "true"^^xsd:boolean ]
+     ], [
+       fhir:index 40;
+       fhir:Element.id [ fhir:value "Measure.relatedArtifact.display" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.relatedArtifact.display" ];
+       fhir:ElementDefinition.short [ fhir:value "Brief description of the related artifact" ];
+       fhir:ElementDefinition.definition [ fhir:value "A brief description of the document or knowledge resource being referenced, suitable for display to a consumer." ];
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "1" ];
+       fhir:ElementDefinition.base [
+         fhir:ElementDefinition.base.path [ fhir:value "RelatedArtifact.display" ];
+         fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+         fhir:ElementDefinition.base.max [ fhir:value "1" ]
+       ];
+       fhir:ElementDefinition.type [
+         fhir:index 0;
+         fhir:ElementDefinition.type.code [ fhir:value "string" ]
+       ];
+       fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
+       fhir:ElementDefinition.isSummary [ fhir:value "true"^^xsd:boolean ]
+     ], [
+       fhir:index 41;
+       fhir:Element.id [ fhir:value "Measure.relatedArtifact.citation" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.relatedArtifact.citation" ];
+       fhir:ElementDefinition.short [ fhir:value "Bibliographic citation for the artifact" ];
+       fhir:ElementDefinition.definition [ fhir:value "A bibliographic citation for the related artifact. This text SHOULD be formatted according to an accepted citation format." ];
+       fhir:ElementDefinition.comment [ fhir:value "Additional structured information about citations should be captured as extensions." ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "1" ];
+       fhir:ElementDefinition.base [
+         fhir:ElementDefinition.base.path [ fhir:value "RelatedArtifact.citation" ];
+         fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+         fhir:ElementDefinition.base.max [ fhir:value "1" ]
+       ];
+       fhir:ElementDefinition.type [
+         fhir:index 0;
+         fhir:ElementDefinition.type.code [ fhir:value "markdown" ]
+       ];
+       fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
+       fhir:ElementDefinition.isSummary [ fhir:value "true"^^xsd:boolean ]
+     ], [
+       fhir:index 42;
+       fhir:Element.id [ fhir:value "Measure.relatedArtifact.url" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.relatedArtifact.url" ];
+       fhir:ElementDefinition.short [ fhir:value "Where the artifact can be accessed" ];
+       fhir:ElementDefinition.definition [ fhir:value "A url for the artifact that can be followed to access the actual content." ];
+       fhir:ElementDefinition.comment [ fhir:value "If a document or resource element is present, this element SHALL NOT be provided (use the url or reference in the Attachment or resource reference)." ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "1" ];
+       fhir:ElementDefinition.base [
+         fhir:ElementDefinition.base.path [ fhir:value "RelatedArtifact.url" ];
+         fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+         fhir:ElementDefinition.base.max [ fhir:value "1" ]
+       ];
+       fhir:ElementDefinition.type [
+         fhir:index 0;
+         fhir:ElementDefinition.type.code [ fhir:value "url" ]
+       ];
+       fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
+       fhir:ElementDefinition.isSummary [ fhir:value "true"^^xsd:boolean ]
+     ], [
+       fhir:index 43;
+       fhir:Element.id [ fhir:value "Measure.relatedArtifact.document" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.relatedArtifact.document" ];
+       fhir:ElementDefinition.short [ fhir:value "What document is being referenced" ];
+       fhir:ElementDefinition.definition [ fhir:value "The document being referenced, represented as an attachment. This is exclusive with the resource element." ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "1" ];
+       fhir:ElementDefinition.base [
+         fhir:ElementDefinition.base.path [ fhir:value "RelatedArtifact.document" ];
+         fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+         fhir:ElementDefinition.base.max [ fhir:value "1" ]
+       ];
+       fhir:ElementDefinition.type [
+         fhir:index 0;
+         fhir:ElementDefinition.type.code [ fhir:value "Attachment" ]
+       ];
+       fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
+       fhir:ElementDefinition.isSummary [ fhir:value "true"^^xsd:boolean ]
+     ], [
+       fhir:index 44;
+       fhir:Element.id [ fhir:value "Measure.relatedArtifact.resource" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.relatedArtifact.resource" ];
+       fhir:ElementDefinition.short [ fhir:value "What resource is being referenced" ];
+       fhir:ElementDefinition.definition [ fhir:value "The related resource, such as a library, value set, profile, or other knowledge resource." ];
+       fhir:ElementDefinition.comment [ fhir:value "If the type is predecessor, this is a reference to the succeeding knowledge resource. If the type is successor, this is a reference to the prior knowledge resource." ];
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "1" ];
+       fhir:ElementDefinition.base [
+         fhir:ElementDefinition.base.path [ fhir:value "RelatedArtifact.resource" ];
+         fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+         fhir:ElementDefinition.base.max [ fhir:value "1" ]
+       ];
+       fhir:ElementDefinition.type [
+         fhir:index 0;
+         fhir:ElementDefinition.type.code [ fhir:value "canonical" ];
+         fhir:ElementDefinition.type.targetProfile [
+           fhir:value "http://hl7.org/fhir/StructureDefinition/Resource";
+           fhir:index 0;
+           fhir:link <http://hl7.org/fhir/StructureDefinition/Resource>
+         ]
+       ];
+       fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
+       fhir:ElementDefinition.isSummary [ fhir:value "true"^^xsd:boolean ]
+     ], [
+       fhir:index 45;
        fhir:Element.id [ fhir:value "Measure.library" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.library" ];
        fhir:ElementDefinition.short [ fhir:value "Logic used by the measure" ];
@@ -1204,14 +1427,14 @@
        fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
        fhir:ElementDefinition.isSummary [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 37;
+       fhir:index 46;
        fhir:Element.id [ fhir:value "Measure.disclaimer" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.disclaimer" ];
        fhir:ElementDefinition.short [ fhir:value "Disclaimer for use of the measure or its referenced content" ];
        fhir:ElementDefinition.definition [ fhir:value "Notices and disclaimers regarding the use of the measure or related to intellectual property (such as code systems) referenced by the measure." ];
        fhir:ElementDefinition.requirements [ fhir:value "Some organizations require that notices and disclosures be included when publishing measures that reference their intellecutal property." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "1" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Measure.disclaimer" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -1224,13 +1447,13 @@
        fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
        fhir:ElementDefinition.isSummary [ fhir:value "true"^^xsd:boolean ]
      ], [
-       fhir:index 38;
+       fhir:index 47;
        fhir:Element.id [ fhir:value "Measure.scoring" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.scoring" ];
        fhir:ElementDefinition.short [ fhir:value "proportion | ratio | continuous-variable | cohort" ];
        fhir:ElementDefinition.definition [ fhir:value "Indicates how the calculation is performed for the measure, including proportion, ratio, continuous-variable, and cohort. The value set is extensible, allowing additional measure scoring types to be represented." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "1" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Measure.scoring" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -1256,13 +1479,13 @@
          ]
        ]
      ], [
-       fhir:index 39;
+       fhir:index 48;
        fhir:Element.id [ fhir:value "Measure.compositeScoring" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.compositeScoring" ];
        fhir:ElementDefinition.short [ fhir:value "opportunity | all-or-nothing | linear | weighted" ];
        fhir:ElementDefinition.definition [ fhir:value "If this is a composite measure, the scoring method used to combine the component measures to determine the composite score." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "1" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Measure.compositeScoring" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -1288,13 +1511,13 @@
          ]
        ]
      ], [
-       fhir:index 40;
+       fhir:index 49;
        fhir:Element.id [ fhir:value "Measure.type" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.type" ];
        fhir:ElementDefinition.short [ fhir:value "process | outcome | structure | patient-reported-outcome | composite" ];
        fhir:ElementDefinition.definition [ fhir:value "Indicates whether the measure is used to examine a process, an outcome over time, a patient-reported outcome, or a structure measure such as utilization." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "*" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Measure.type" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -1320,14 +1543,14 @@
          ]
        ]
      ], [
-       fhir:index 41;
+       fhir:index 50;
        fhir:Element.id [ fhir:value "Measure.riskAdjustment" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.riskAdjustment" ];
        fhir:ElementDefinition.short [ fhir:value "How risk adjustment is applied for this measure" ];
        fhir:ElementDefinition.definition [ fhir:value "A description of the risk adjustment factors that may impact the resulting score for the measure and how they may be accounted for when computing and reporting measure results." ];
        fhir:ElementDefinition.comment [ fhir:value "Describes the method of adjusting for clinical severity and conditions present at the start of care that can influence patient outcomes for making valid comparisons of outcome measures across providers. Indicates whether a measure is subject to the statistical process for reducing, removing, or clarifying the influences of confounding factors to allow for more useful comparisons." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "1" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Measure.riskAdjustment" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -1340,14 +1563,14 @@
        fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
        fhir:ElementDefinition.isSummary [ fhir:value "true"^^xsd:boolean ]
      ], [
-       fhir:index 42;
+       fhir:index 51;
        fhir:Element.id [ fhir:value "Measure.rateAggregation" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.rateAggregation" ];
        fhir:ElementDefinition.short [ fhir:value "How is rate aggregation performed for this measure" ];
        fhir:ElementDefinition.definition [ fhir:value "Describes how to combine the information calculated, based on logic in each of several populations, into one summarized result." ];
        fhir:ElementDefinition.comment [ fhir:value "The measure rate for an organization or clinician is based upon the entities’ aggregate data and summarizes the performance of the entity over a given time period (e.g., monthly, quarterly, yearly). The aggregated data are derived from the results of a specific measure algorithm and, if appropriate, the application of specific risk adjustment models.  Can also be used to describe how to risk adjust the data based on supplemental data elements described in the eMeasure (e.g., pneumonia hospital measures antibiotic selection in the ICU versus non-ICU and then the roll-up of the two). This could be applied to aggregated cohort measure definitions (e.g., CDC's aggregate reporting for TB at the state level)." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "1" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Measure.rateAggregation" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -1360,14 +1583,14 @@
        fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
        fhir:ElementDefinition.isSummary [ fhir:value "true"^^xsd:boolean ]
      ], [
-       fhir:index 43;
+       fhir:index 52;
        fhir:Element.id [ fhir:value "Measure.rationale" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.rationale" ];
        fhir:ElementDefinition.short [ fhir:value "Detailed description of why the measure exists" ];
        fhir:ElementDefinition.definition [ fhir:value "Provides a succinct statement of the need for the measure. Usually includes statements pertaining to importance criterion: impact, gap in care, and evidence." ];
        fhir:ElementDefinition.requirements [ fhir:value "Measure developers need to be able to provide a detailed description of the purpose of the measure. This element provides detailed rationale, where the purpose element provides a summary of the rationale." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "1" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Measure.rationale" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -1380,13 +1603,13 @@
        fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
        fhir:ElementDefinition.isSummary [ fhir:value "true"^^xsd:boolean ]
      ], [
-       fhir:index 44;
+       fhir:index 53;
        fhir:Element.id [ fhir:value "Measure.clinicalRecommendationStatement" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.clinicalRecommendationStatement" ];
        fhir:ElementDefinition.short [ fhir:value "Summary of clinical guidelines" ];
        fhir:ElementDefinition.definition [ fhir:value "Provides a summary of relevant clinical guidelines or other clinical recommendations supporting the measure." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "1" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Measure.clinicalRecommendationStatement" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -1399,14 +1622,14 @@
        fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
        fhir:ElementDefinition.isSummary [ fhir:value "true"^^xsd:boolean ]
      ], [
-       fhir:index 45;
+       fhir:index 54;
        fhir:Element.id [ fhir:value "Measure.improvementNotation" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.improvementNotation" ];
        fhir:ElementDefinition.short [ fhir:value "increase | decrease" ];
        fhir:ElementDefinition.definition [ fhir:value "Information on whether an increase or decrease in score is the preferred result (e.g., a higher score indicates better quality OR a lower score indicates better quality OR quality is within a range)." ];
        fhir:ElementDefinition.requirements [ fhir:value "Measure consumers and implementers must be able to determine how to interpret a measure score." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "1" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Measure.improvementNotation" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -1432,14 +1655,14 @@
          ]
        ]
      ], [
-       fhir:index 46;
+       fhir:index 55;
        fhir:Element.id [ fhir:value "Measure.definition" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.definition" ];
        fhir:ElementDefinition.short [ fhir:value "Defined terms used in the measure documentation" ];
        fhir:ElementDefinition.definition [ fhir:value "Provides a description of an individual term used within the measure." ];
        fhir:ElementDefinition.requirements [ fhir:value "Measure developers must be able to provide precise definitions of terms used within measure descriptions and guidance to help communicate the intent of the measure." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "*" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Measure.definition" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -1452,14 +1675,14 @@
        fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
        fhir:ElementDefinition.isSummary [ fhir:value "true"^^xsd:boolean ]
      ], [
-       fhir:index 47;
+       fhir:index 56;
        fhir:Element.id [ fhir:value "Measure.guidance" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.guidance" ];
        fhir:ElementDefinition.short [ fhir:value "Additional guidance for implementers" ];
        fhir:ElementDefinition.definition [ fhir:value "Additional guidance for the measure including how it can be used in a clinical context, and the intent of the measure." ];
        fhir:ElementDefinition.requirements [ fhir:value "Measure developers must be able to provide additional guidance for implementers to understand the intent with greater specificity than that provided in the population criteria of the measure. This element provides detailed guidance, where the usage element provides a summary of the guidance." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "1" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Measure.guidance" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -1472,13 +1695,13 @@
        fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
        fhir:ElementDefinition.isSummary [ fhir:value "true"^^xsd:boolean ]
      ], [
-       fhir:index 48;
+       fhir:index 57;
        fhir:Element.id [ fhir:value "Measure.group" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.group" ];
        fhir:ElementDefinition.short [ fhir:value "Population criteria group" ];
        fhir:ElementDefinition.definition [ fhir:value "A group of population criteria for the measure." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "*" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Measure.group" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -1500,7 +1723,7 @@
        fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
        fhir:ElementDefinition.isSummary [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 49;
+       fhir:index 58;
        fhir:Element.id [ fhir:value "Measure.group.id" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.group.id" ];
        fhir:ElementDefinition.representation [
@@ -1528,7 +1751,7 @@
          fhir:ElementDefinition.mapping.map [ fhir:value "n/a" ]
        ]
      ], [
-       fhir:index 50;
+       fhir:index 59;
        fhir:Element.id [ fhir:value "Measure.group.extension" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.group.extension" ];
        fhir:ElementDefinition.short [ fhir:value "Additional content defined by implementations" ];
@@ -1560,7 +1783,7 @@
          fhir:ElementDefinition.mapping.map [ fhir:value "n/a" ]
        ]
      ], [
-       fhir:index 51;
+       fhir:index 60;
        fhir:Element.id [ fhir:value "Measure.group.modifierExtension" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.group.modifierExtension" ];
        fhir:ElementDefinition.short [ fhir:value "Extensions that cannot be ignored even if unrecognized" ];
@@ -1597,7 +1820,7 @@
          fhir:ElementDefinition.mapping.map [ fhir:value "N/A" ]
        ]
      ], [
-       fhir:index 52;
+       fhir:index 61;
        fhir:Element.id [ fhir:value "Measure.group.code" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.group.code" ];
        fhir:ElementDefinition.short [ fhir:value "Meaning of the group" ];
@@ -1616,7 +1839,7 @@
        fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
        fhir:ElementDefinition.isSummary [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 53;
+       fhir:index 62;
        fhir:Element.id [ fhir:value "Measure.group.description" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.group.description" ];
        fhir:ElementDefinition.short [ fhir:value "Summary description" ];
@@ -1635,7 +1858,7 @@
        fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
        fhir:ElementDefinition.isSummary [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 54;
+       fhir:index 63;
        fhir:Element.id [ fhir:value "Measure.group.population" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.group.population" ];
        fhir:ElementDefinition.short [ fhir:value "Population criteria" ];
@@ -1663,7 +1886,7 @@
        fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
        fhir:ElementDefinition.isSummary [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 55;
+       fhir:index 64;
        fhir:Element.id [ fhir:value "Measure.group.population.id" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.group.population.id" ];
        fhir:ElementDefinition.representation [
@@ -1691,7 +1914,7 @@
          fhir:ElementDefinition.mapping.map [ fhir:value "n/a" ]
        ]
      ], [
-       fhir:index 56;
+       fhir:index 65;
        fhir:Element.id [ fhir:value "Measure.group.population.extension" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.group.population.extension" ];
        fhir:ElementDefinition.short [ fhir:value "Additional content defined by implementations" ];
@@ -1723,7 +1946,7 @@
          fhir:ElementDefinition.mapping.map [ fhir:value "n/a" ]
        ]
      ], [
-       fhir:index 57;
+       fhir:index 66;
        fhir:Element.id [ fhir:value "Measure.group.population.modifierExtension" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.group.population.modifierExtension" ];
        fhir:ElementDefinition.short [ fhir:value "Extensions that cannot be ignored even if unrecognized" ];
@@ -1760,7 +1983,7 @@
          fhir:ElementDefinition.mapping.map [ fhir:value "N/A" ]
        ]
      ], [
-       fhir:index 58;
+       fhir:index 67;
        fhir:Element.id [ fhir:value "Measure.group.population.code" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.group.population.code" ];
        fhir:ElementDefinition.short [ fhir:value "initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-observation" ];
@@ -1792,7 +2015,7 @@
          ]
        ]
      ], [
-       fhir:index 59;
+       fhir:index 68;
        fhir:Element.id [ fhir:value "Measure.group.population.description" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.group.population.description" ];
        fhir:ElementDefinition.short [ fhir:value "The human readable description of this population criteria" ];
@@ -1811,7 +2034,7 @@
        fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
        fhir:ElementDefinition.isSummary [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 60;
+       fhir:index 69;
        fhir:Element.id [ fhir:value "Measure.group.population.criteria" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.group.population.criteria" ];
        fhir:ElementDefinition.short [ fhir:value "The criteria that defines this population" ];
@@ -1831,7 +2054,7 @@
        fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
        fhir:ElementDefinition.isSummary [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 61;
+       fhir:index 70;
        fhir:Element.id [ fhir:value "Measure.group.stratifier" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.group.stratifier" ];
        fhir:ElementDefinition.short [ fhir:value "Stratifier criteria for the measure" ];
@@ -1859,7 +2082,7 @@
        fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
        fhir:ElementDefinition.isSummary [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 62;
+       fhir:index 71;
        fhir:Element.id [ fhir:value "Measure.group.stratifier.id" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.group.stratifier.id" ];
        fhir:ElementDefinition.representation [
@@ -1887,7 +2110,7 @@
          fhir:ElementDefinition.mapping.map [ fhir:value "n/a" ]
        ]
      ], [
-       fhir:index 63;
+       fhir:index 72;
        fhir:Element.id [ fhir:value "Measure.group.stratifier.extension" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.group.stratifier.extension" ];
        fhir:ElementDefinition.short [ fhir:value "Additional content defined by implementations" ];
@@ -1919,7 +2142,7 @@
          fhir:ElementDefinition.mapping.map [ fhir:value "n/a" ]
        ]
      ], [
-       fhir:index 64;
+       fhir:index 73;
        fhir:Element.id [ fhir:value "Measure.group.stratifier.modifierExtension" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.group.stratifier.modifierExtension" ];
        fhir:ElementDefinition.short [ fhir:value "Extensions that cannot be ignored even if unrecognized" ];
@@ -1956,7 +2179,7 @@
          fhir:ElementDefinition.mapping.map [ fhir:value "N/A" ]
        ]
      ], [
-       fhir:index 65;
+       fhir:index 74;
        fhir:Element.id [ fhir:value "Measure.group.stratifier.code" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.group.stratifier.code" ];
        fhir:ElementDefinition.short [ fhir:value "Meaning of the stratifier" ];
@@ -1975,7 +2198,7 @@
        fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
        fhir:ElementDefinition.isSummary [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 66;
+       fhir:index 75;
        fhir:Element.id [ fhir:value "Measure.group.stratifier.description" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.group.stratifier.description" ];
        fhir:ElementDefinition.short [ fhir:value "The human readable description of this stratifier" ];
@@ -1994,7 +2217,7 @@
        fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
        fhir:ElementDefinition.isSummary [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 67;
+       fhir:index 76;
        fhir:Element.id [ fhir:value "Measure.group.stratifier.criteria" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.group.stratifier.criteria" ];
        fhir:ElementDefinition.short [ fhir:value "How the measure should be stratified" ];
@@ -2013,7 +2236,7 @@
        fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
        fhir:ElementDefinition.isSummary [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 68;
+       fhir:index 77;
        fhir:Element.id [ fhir:value "Measure.group.stratifier.component" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.group.stratifier.component" ];
        fhir:ElementDefinition.short [ fhir:value "Stratifier criteria component for the measure" ];
@@ -2042,7 +2265,7 @@
        fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
        fhir:ElementDefinition.isSummary [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 69;
+       fhir:index 78;
        fhir:Element.id [ fhir:value "Measure.group.stratifier.component.id" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.group.stratifier.component.id" ];
        fhir:ElementDefinition.representation [
@@ -2070,7 +2293,7 @@
          fhir:ElementDefinition.mapping.map [ fhir:value "n/a" ]
        ]
      ], [
-       fhir:index 70;
+       fhir:index 79;
        fhir:Element.id [ fhir:value "Measure.group.stratifier.component.extension" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.group.stratifier.component.extension" ];
        fhir:ElementDefinition.short [ fhir:value "Additional content defined by implementations" ];
@@ -2102,7 +2325,7 @@
          fhir:ElementDefinition.mapping.map [ fhir:value "n/a" ]
        ]
      ], [
-       fhir:index 71;
+       fhir:index 80;
        fhir:Element.id [ fhir:value "Measure.group.stratifier.component.modifierExtension" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.group.stratifier.component.modifierExtension" ];
        fhir:ElementDefinition.short [ fhir:value "Extensions that cannot be ignored even if unrecognized" ];
@@ -2139,7 +2362,7 @@
          fhir:ElementDefinition.mapping.map [ fhir:value "N/A" ]
        ]
      ], [
-       fhir:index 72;
+       fhir:index 81;
        fhir:Element.id [ fhir:value "Measure.group.stratifier.component.code" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.group.stratifier.component.code" ];
        fhir:ElementDefinition.short [ fhir:value "Meaning of the stratifier component" ];
@@ -2158,7 +2381,7 @@
        fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
        fhir:ElementDefinition.isSummary [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 73;
+       fhir:index 82;
        fhir:Element.id [ fhir:value "Measure.group.stratifier.component.description" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.group.stratifier.component.description" ];
        fhir:ElementDefinition.short [ fhir:value "The human readable description of this stratifier component" ];
@@ -2177,7 +2400,7 @@
        fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
        fhir:ElementDefinition.isSummary [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 74;
+       fhir:index 83;
        fhir:Element.id [ fhir:value "Measure.group.stratifier.component.criteria" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.group.stratifier.component.criteria" ];
        fhir:ElementDefinition.short [ fhir:value "Component of how the measure should be stratified" ];
@@ -2196,14 +2419,14 @@
        fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
        fhir:ElementDefinition.isSummary [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 75;
+       fhir:index 84;
        fhir:Element.id [ fhir:value "Measure.supplementalData" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.supplementalData" ];
        fhir:ElementDefinition.short [ fhir:value "What other data should be reported with the measure" ];
        fhir:ElementDefinition.definition [ fhir:value "The supplemental data criteria for the measure report, specified as either the name of a valid CQL expression within a referenced library, or a valid FHIR Resource Path." ];
        fhir:ElementDefinition.comment [ fhir:value "Note that supplemental data are reported as observations for each patient and included in the evaluatedResources bundle. See the MeasureReport resource or the Quality Reporting topic for more information." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "*" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Measure.supplementalData" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -2225,7 +2448,7 @@
        fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
        fhir:ElementDefinition.isSummary [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 76;
+       fhir:index 85;
        fhir:Element.id [ fhir:value "Measure.supplementalData.id" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.supplementalData.id" ];
        fhir:ElementDefinition.representation [
@@ -2253,7 +2476,7 @@
          fhir:ElementDefinition.mapping.map [ fhir:value "n/a" ]
        ]
      ], [
-       fhir:index 77;
+       fhir:index 86;
        fhir:Element.id [ fhir:value "Measure.supplementalData.extension" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.supplementalData.extension" ];
        fhir:ElementDefinition.short [ fhir:value "Additional content defined by implementations" ];
@@ -2285,7 +2508,7 @@
          fhir:ElementDefinition.mapping.map [ fhir:value "n/a" ]
        ]
      ], [
-       fhir:index 78;
+       fhir:index 87;
        fhir:Element.id [ fhir:value "Measure.supplementalData.modifierExtension" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.supplementalData.modifierExtension" ];
        fhir:ElementDefinition.short [ fhir:value "Extensions that cannot be ignored even if unrecognized" ];
@@ -2322,7 +2545,7 @@
          fhir:ElementDefinition.mapping.map [ fhir:value "N/A" ]
        ]
      ], [
-       fhir:index 79;
+       fhir:index 88;
        fhir:Element.id [ fhir:value "Measure.supplementalData.code" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.supplementalData.code" ];
        fhir:ElementDefinition.short [ fhir:value "Meaning of the supplemental data" ];
@@ -2341,7 +2564,7 @@
        fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
        fhir:ElementDefinition.isSummary [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 80;
+       fhir:index 89;
        fhir:Element.id [ fhir:value "Measure.supplementalData.usage" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.supplementalData.usage" ];
        fhir:ElementDefinition.short [ fhir:value "supplemental-data | risk-adjustment-factor" ];
@@ -2373,7 +2596,7 @@
          ]
        ]
      ], [
-       fhir:index 81;
+       fhir:index 90;
        fhir:Element.id [ fhir:value "Measure.supplementalData.description" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.supplementalData.description" ];
        fhir:ElementDefinition.short [ fhir:value "The human readable description of this supplemental data" ];
@@ -2392,7 +2615,7 @@
        fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
        fhir:ElementDefinition.isSummary [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 82;
+       fhir:index 91;
        fhir:Element.id [ fhir:value "Measure.supplementalData.criteria" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.supplementalData.criteria" ];
        fhir:ElementDefinition.short [ fhir:value "Expression describing additional data to be reported" ];
@@ -2418,27 +2641,247 @@
        fhir:Element.id [ fhir:value "Measure" ];
        fhir:ElementDefinition.path [ fhir:value "Measure" ];
        fhir:ElementDefinition.short [ fhir:value "del-StandardFormQuestion" ];
-       fhir:ElementDefinition.definition [ fhir:value "A definition of a standard form question." ];
+       fhir:ElementDefinition.definition [ fhir:value "A DEL question (item). Used for searching purposes. Links back to StandardFormLibrary." ];
        fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
        fhir:ElementDefinition.isSummary [ fhir:value "false"^^xsd:boolean ]
      ], [
        fhir:index 1;
+       fhir:Element.id [ fhir:value "Measure.url" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.url" ];
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "1" ]
+     ], [
+       fhir:index 2;
+       fhir:Element.id [ fhir:value "Measure.identifier" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.identifier" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 3;
+       fhir:Element.id [ fhir:value "Measure.version" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.version" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 4;
        fhir:Element.id [ fhir:value "Measure.name" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.name" ];
        fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
        fhir:ElementDefinition.max [ fhir:value "1" ]
      ], [
-       fhir:index 2;
+       fhir:index 5;
        fhir:Element.id [ fhir:value "Measure.title" ];
        fhir:ElementDefinition.path [ fhir:value "Measure.title" ];
        fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
        fhir:ElementDefinition.max [ fhir:value "1" ]
      ], [
-       fhir:index 3;
-       fhir:Element.id [ fhir:value "Measure.description" ];
-       fhir:ElementDefinition.path [ fhir:value "Measure.description" ];
+       fhir:index 6;
+       fhir:Element.id [ fhir:value "Measure.subtitle" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.subtitle" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 7;
+       fhir:Element.id [ fhir:value "Measure.experimental" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.experimental" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 8;
+       fhir:Element.id [ fhir:value "Measure.date" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.date" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 9;
+       fhir:Element.id [ fhir:value "Measure.publisher" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.publisher" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 10;
+       fhir:Element.id [ fhir:value "Measure.contact" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.contact" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 11;
+       fhir:Element.id [ fhir:value "Measure.useContext" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.useContext" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 12;
+       fhir:Element.id [ fhir:value "Measure.jurisdiction" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.jurisdiction" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 13;
+       fhir:Element.id [ fhir:value "Measure.purpose" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.purpose" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 14;
+       fhir:Element.id [ fhir:value "Measure.usage" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.usage" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 15;
+       fhir:Element.id [ fhir:value "Measure.copyright" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.copyright" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 16;
+       fhir:Element.id [ fhir:value "Measure.approvalDate" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.approvalDate" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 17;
+       fhir:Element.id [ fhir:value "Measure.lastReviewDate" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.lastReviewDate" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 18;
+       fhir:Element.id [ fhir:value "Measure.effectivePeriod" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.effectivePeriod" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 19;
+       fhir:Element.id [ fhir:value "Measure.topic" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.topic" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 20;
+       fhir:Element.id [ fhir:value "Measure.author" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.author" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 21;
+       fhir:Element.id [ fhir:value "Measure.editor" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.editor" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 22;
+       fhir:Element.id [ fhir:value "Measure.reviewer" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.reviewer" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 23;
+       fhir:Element.id [ fhir:value "Measure.endorser" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.endorser" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 24;
+       fhir:Element.id [ fhir:value "Measure.relatedArtifact" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.relatedArtifact" ]
+     ], [
+       fhir:index 25;
+       fhir:Element.id [ fhir:value "Measure.relatedArtifact.label" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.relatedArtifact.label" ];
        fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
        fhir:ElementDefinition.max [ fhir:value "1" ]
+     ], [
+       fhir:index 26;
+       fhir:Element.id [ fhir:value "Measure.relatedArtifact.display" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.relatedArtifact.display" ];
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "1" ]
+     ], [
+       fhir:index 27;
+       fhir:Element.id [ fhir:value "Measure.relatedArtifact.resource" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.relatedArtifact.resource" ];
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "1" ]
+     ], [
+       fhir:index 28;
+       fhir:Element.id [ fhir:value "Measure.disclaimer" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.disclaimer" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 29;
+       fhir:Element.id [ fhir:value "Measure.scoring" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.scoring" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 30;
+       fhir:Element.id [ fhir:value "Measure.compositeScoring" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.compositeScoring" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 31;
+       fhir:Element.id [ fhir:value "Measure.type" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.type" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 32;
+       fhir:Element.id [ fhir:value "Measure.riskAdjustment" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.riskAdjustment" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 33;
+       fhir:Element.id [ fhir:value "Measure.rateAggregation" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.rateAggregation" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 34;
+       fhir:Element.id [ fhir:value "Measure.rationale" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.rationale" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 35;
+       fhir:Element.id [ fhir:value "Measure.clinicalRecommendationStatement" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.clinicalRecommendationStatement" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 36;
+       fhir:Element.id [ fhir:value "Measure.improvementNotation" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.improvementNotation" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 37;
+       fhir:Element.id [ fhir:value "Measure.definition" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.definition" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 38;
+       fhir:Element.id [ fhir:value "Measure.guidance" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.guidance" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 39;
+       fhir:Element.id [ fhir:value "Measure.group" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.group" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 40;
+       fhir:Element.id [ fhir:value "Measure.supplementalData" ];
+       fhir:ElementDefinition.path [ fhir:value "Measure.supplementalData" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
      ]
   ] .
 

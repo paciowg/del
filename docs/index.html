@@ -112,399 +112,74 @@
 </div>
 <!-- /segment-breadcrumb -->
 
-  </div>  <!-- /container -->
- </div>  <!-- /segment-breadcrumb -->
+<!-- This is a "fixed" container-start that removes publish-box -->
 
- <div id="segment-content" class="segment">  <!-- segment-content -->
- <div class="container">  <!-- container -->
-   <div class="row">
-     <div class="inner-wrapper">
-       <div class="col-12">
-       <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
+</div> <!-- /container -->
+</div> <!-- /segment-breadcrumb -->
+
+<div id="segment-content" class="segment">
+    <!-- segment-content -->
+    <div class="container">
+        <!-- container -->
+        <div class="row">
+            <div class="inner-wrapper">
+                <div class="col-12">
+                    <!-- <p id="publish-box">Publish Box goes here</p> -->
+
 
 <!-- ============CONTENT CONTENT=============== -->
 
 <h1>CMS Data Element Library - FHIR Implementation Guide</h1>
 
-<p>This is the FHIR Implementation Guide for CMS Data Element Library</p>
-
-<p>We are attempting to take a hybrid approach. This means the following...</p>
-
 <p>
-    Each standard form will be represented by a Questionnaire resource.
-    The sections, subsections, and questions will be represented as items within the questionnaire.
+    In 2014, the Social Security Act was amended to include the Improving Medicare Post-Acute Care Transformation
+    (IMPACT) Act, which required the standardization and interoperability of patient assessment in specific categories
+    for post-acute care (PAC) settings, including long-term care hospitals (LTCHs), home health agencies (HHAs), skilled
+    nursing facilities (SNFs), and inpatient rehabilitation facilities (IRFs). It focuses on standardizing data elements
+    in specified quality measure domains and patient assessment domains for cross setting comparison and clinical
+    information exchange, respectively
 </p>
 
 <p>
-    Since it is not always easy or possible to search for specific items within a questionnaire or to search
-    for a questionnaire based on items within the questionnaire, standard forms will have an additional
-    representation as Library and Measure resources.
+    The CMS Data Element Library (DEL) supports the IMPACT Act requirements by serving as the centralized repository for
+    CMS PAC assessment data elements and their associated health information technology (IT) standards to promote
+    interoperability of patient data.
 </p>
 
 <p>
-    Each standard form will be represented by a Library.
-    Each standard form question will be represented by a Measure resource.
+    This implementation guide defines a way to store, retrieve, and use DEL data through a FHIR API. As the PAC
+    assessments are updated on a regular basis, a DEL FHIR API can ensure EHRs have access to the most current data
+    sets.
+</p>
+
+<h1>Data Mapping</h1>
+
+<p>
+    The data mapping describes how all the fields in the DEL database map to fields in FHIR resources.
+    This is a technical document that can be helpful when trying to figure out exactly how data is populated in FHIR
+    resources.
 </p>
 
 <p>
-    Using this approach, each standard form should be able to be reconstituted using the Questionnaire resource.
-    To question for specific questions, use the Measure resource.
-    Each Measure resource will have links back to the libraries in which the measure is used.
+    <a href="mapping.html">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        View the Data Mapping
+    </a>
 </p>
 
-<h2>Questionnaire Resource</h2>
+<h1>Developers Guide</h1>
 
 <p>
-    Each record in asmt_vrsn will become one Questionnaire resource in FHIR.
-    The sections, subsections, and questions will be represented as items within the questionnaire.
-    Only active questions are migrated from the DEL.
+    The developers guide is intended to provide guidance to software developers who want to use the data in the DEL FHIR
+    server. Use this guide if you want to build software that depends on the DEL FHIR server.
 </p>
-
-<table class="table table-bordered">
-    <tr>
-        <th>FHIR Field</th>
-        <th>DEL Field(s)</th>
-        <th>Notes</th>
-    </tr>
-    <tr>
-        <td>id</td>
-        <td>asmt.asmt_shrt_name<br>asmt.asmt_vrsn_id</td>
-        <td>
-            Fields are joined using a dash (-) in the format
-            <code>{asmt_shrt_name}-{asmt_vrsn_id}</code>. Example: LCDS-1.01.</td>
-    </tr>
-    <tr>
-        <td>name</td>
-        <td>asmt.asmt_shrt_name</td>
-        <td>All characters except letters and numbers are removed.</td>
-    </tr>
-    <tr>
-        <td>title</td>
-        <td>asmt.asmt_name</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>version</td>
-        <td>asmt.asmt_vrsn_id</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>status</td>
-        <td>asmt_vrsn.asmt_stus_id</td>
-        <td>If value is 1 then "active".<br>If value is 4 then "retired".<br>All others are "draft".</td>
-    </tr>
-    <tr>
-        <td>date</td>
-        <td>asmt.creat_ts</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>publisher</td>
-        <td>org.org_name</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>description</td>
-        <td>asmt.asmt_desc</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>effectivePeriod.start</td>
-        <td>asmt_vrsn.efctv_strt_dt</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>effectivePeriod.end</td>
-        <td>asmt_vrsn.efctv_end_dt</td>
-        <td>Only populated if field value is not null.</td>
-    </tr>
-    <tr>
-        <td>approvalDate</td>
-        <td>asmt_vrsn.pblctn_dt</td>
-        <td>Only populated if field value is not null.</td>
-    </tr>
-    <tr>
-        <td>item[]</td>
-        <td></td>
-        <td>Populated with list of questions or list of sections.</td>
-    </tr>
-
-</table>
-
-<h3>Section Mapping</h3>
-
-<table class="table table-bordered">
-    <tr>
-        <th>FHIR Field</th>
-        <th>DEL Field(s)</th>
-        <th>Notes</th>
-    </tr>
-    <tr>
-        <td>item[].linkId</td>
-        <td>asmt_sect_rfrnc.asmt_sect_id</td>
-        <td>
-            Prefixed with a string in the format <code>Section-${asmt_sect_id}</code>
-        </td>
-    </tr>
-    <tr>
-        <td>item[].text</td>
-        <td>asmt_sect_rfrnc.asmt_sect_name</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>item[].type</td>
-        <td><i>group</i></td>
-        <td>Hard-coded to value "group".</td>
-    </tr>
-    <tr>
-        <td>item[].readOnly</td>
-        <td><i>true</i></td>
-        <td>Hard-coded to value "true".</td>
-    </tr>
-    <tr>
-        <td>item[].item[]</td>
-        <td></td>
-        <td>Populated with list of questions or list of sub-sections.</td>
-    </tr>
-</table>
-
-<h3>Question Mapping</h3>
-
-<p>Questions may be nested within a section or within parent questions.</p>
-
-<table class="table table-bordered">
-    <tr>
-        <th>FHIR Field</th>
-        <th>DEL Field(s)</th>
-        <th>Notes</th>
-    </tr>
-    <tr>
-        <td>item[].linkId</td>
-        <td>
-            asmt_sect_rfrnc.asmt_sect_id<br>
-            data_ele_qstn.qstn_label_name
-        </td>
-        <td>
-            Prefixed with a string in the format <code>Section-${asmt_sect_id}/${qstn_label_name}</code>
-            All characters except letters and numbers are removed from qstn_label_name.
-        </td>
-    </tr>
-    <tr>
-        <td>item[].prefix</td>
-        <td>data_ele_qstn.qstn_label_name</td>
-        <td>All characters except letters and numbers are removed from qstn_label_name.</td>
-    </tr>
-    <tr>
-        <td>item[].text</td>
-        <td>data_ele_qstn.qstn_txt</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>item[].type</td>
-        <td>data_ele_rspns.rspns_dtype_name</td>
-        <td>
-            If this is a parent question, then "group".<br>
-            If value is "character" or "integer" with options, then "choice".<br>
-            If value is "character" without options then "text".<br>
-            If value is "number" without options then "integer".<br>
-            If value is "date" then "open-choice".
-        </td>
-    </tr>
-    <tr>
-        <td>item[].readOnly</td>
-        <td>data_ele_rspns.rspns_dtype_name</td>
-        <td>
-            If field is a group then "true".
-            <br>Otherwise "false".
-        </td>
-    </tr>
-    <tr>
-        <td>item[].repeats</td>
-        <td>data_ele_rspns.rspns_type_name</td>
-        <td>
-            If value is checklist then "true".
-            <br>Otherwise "false".
-        </td>
-    </tr>
-    <tr>
-        <td>item[].maxLength</td>
-        <td></td>
-        <td>Populated with list of questions.</td>
-    </tr>
-    <tr>
-        <td>item[].code[0].system</td>
-        <td>hit_qstn_map.hit_qstn_cd</td>
-        <td>Only populated if question has a LOINC code specified.</td>
-    </tr>
-    <tr>
-        <td>answerOption[].valueCoding.code</td>
-        <td>data_ele_rspns_val.rspns_val_cd</td>
-        <td>Only populated for "choice" and "open-choice" questions.</td>
-    </tr>
-    <tr>
-        <td>answerOption[].valueCoding.display</td>
-        <td>data_ele_rspns_val.rspns_val_txt</td>
-        <td>Only populated for "choice" and "open-choice" questions.</td>
-    </tr>
-    <tr>
-        <td>item[].item[]</td>
-        <td></td>
-        <td>Populated with list of questions.</td>
-    </tr>
-</table>
-
-<h2>Library Resource</h2>
-
-<p>Each record in asmt_vrsn will become one Library resource in FHIR.</p>
-
-<table class="table table-bordered">
-    <tr>
-        <th>FHIR Field</th>
-        <th>DEL Field(s)</th>
-        <th>Notes</th>
-    </tr>
-    <tr>
-        <td>id</td>
-        <td>asmt.asmt_shrt_name<br>asmt.asmt_vrsn_id</td>
-        <td>
-            Fields are joined using a dash (-) in the format
-            <code>{asmt_shrt_name}-{asmt_vrsn_id}</code>. Example: LCDS-1.01.</td>
-    </tr>
-    <tr>
-        <td>name</td>
-        <td>asmt.asmt_shrt_name</td>
-        <td>All characters except letters and numbers are removed.</td>
-    </tr>
-    <tr>
-        <td>title</td>
-        <td>asmt.asmt_name</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>version</td>
-        <td>asmt.asmt_vrsn_id</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>status</td>
-        <td>asmt_vrsn.asmt_stus_id</td>
-        <td>If value is 1 then "active".<br>If value is 4 then "retired".<br>All others are "draft".</td>
-    </tr>
-    <tr>
-        <td>type.coding[].code</td>
-        <td><i>asset-collection</i></td>
-        <td>Hard-coded to value "asset-collection".</td>
-    </tr>
-    <tr>
-        <td>date</td>
-        <td>asmt.creat_ts</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>publisher</td>
-        <td>org.org_name</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>description</td>
-        <td>asmt.asmt_desc</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>effectivePeriod.start</td>
-        <td>asmt_vrsn.efctv_strt_dt</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>effectivePeriod.end</td>
-        <td>asmt_vrsn.efctv_end_dt</td>
-        <td>Only populated if field value is not null.</td>
-    </tr>
-    <tr>
-        <td>approvalDate</td>
-        <td>asmt_vrsn.pblctn_dt</td>
-        <td>Only populated if field value is not null.</td>
-    </tr>
-</table>
-
-<h2>Measure Resource</h2>
 
 <p>
-    Each record in data_ele_qstn will become one Measeure resource in FHIR.
-    A measure will link back to the libraries in which it is used.
-    Only active questions are migrated from the DEL.
-    Answer options are populated in relatedArtifact.
+    <a href="developers.html">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        View the Developers Guide
+    </a>
 </p>
-
-<table class="table table-bordered">
-    <tr>
-        <th>FHIR Field</th>
-        <th>DEL Field(s)</th>
-        <th>Notes</th>
-    </tr>
-    <tr>
-        <td>id</td>
-        <td>data_ele_qstn.qstn_label_name</td>
-        <td>
-            Prefixed with a string in the format <code>Question-${qstn_label_name}</code>
-            All characters except letters and numbers are removed from qstn_label_name.
-        </td>
-    </tr>
-
-    <tr>
-        <td>name</td>
-        <td>data_ele_qstn.qstn_label_name</td>
-        <td>
-            Prefixed with a string in the format <code>Question_${qstn_label_name}</code>
-            All characters except letters and numbers are removed from qstn_label_name.
-        </td>
-    </tr>
-    <tr>
-        <td>title</td>
-        <td>data_ele_qstn.qstn_shrt_name</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>status</td>
-        <td><i>active</i></td>
-        <td>Hard-coded to value "active".</td>
-    </tr>
-    <tr>
-        <td>description</td>
-        <td>data_ele_qstn.qstn_txt</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>library</td>
-        <td></td>
-        <td>Populated with Library IDs for all libraries in which this question is present.</td>
-    </tr>
-    <tr>
-        <td>relatedArtifact[].type</td>
-        <td><i>documentation</i></td>
-        <td>Hard-coded to value "documentation".</td>
-    </tr>
-    <tr>
-        <td>relatedArtifact[].resource</td>
-        <td></td>
-        <td>Library ID where this answer option applies.</td>
-    </tr>
-    <tr>
-        <td>relatedArtifact[].label</td>
-        <td>data_ele_rspns_val.rspns_val_cd</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>relatedArtifact[].display</td>
-        <td>data_ele_rspns_val.rspns_val_txt</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>relatedArtifact[].url</td>
-        <td>hit_qstn_map.hit_qstn_cd</td>
-        <td>Only populated if question has a LOINC code specified.</td>
-    </tr>
-</table>
 
 
 <!-- ==============END CONTENT END CONTENT=================== -->
@@ -528,7 +203,7 @@
       &copy;2019+
       <a style="color: #81BEF7" href="http://mitre.org">The MITRE Corporation</a>.
       Package impact-fhir#0.0.1 based on <a style="color: #81BEF7" href="http://hl7.org/fhir/R4/">FHIR 4.0.0</a>.
-      Generated <span title="Thu, Aug 1, 2019 13:21-0400">2019-08-01</span>.
+      Generated <span title="Thu, Aug 8, 2019 13:15-0400">2019-08-08</span>.
       <br/>
       <span style="color: #FFFF77">
         Links:

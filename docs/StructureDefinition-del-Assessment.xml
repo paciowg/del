@@ -5,7 +5,7 @@
   <text>
     <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml">
   <p><b>Assessment Profile</b></p>
-  <p>A definition of an assessment (standard form response).</p>
+  <p>A response to a DEL standard form for a patient. Not currently used.</p>
   <p><b>Mapping Summary</b></p>
   <p><pre>del.Assessment maps to QuestionnaireResponse:
   constrain questionnaire to 1..1
@@ -19,7 +19,7 @@
   <name value="Assessment"/>
   <title value="del-Assessment"/>
   <status value="draft"/>
-  <date value="2019-08-01T00:00:00-04:00"/>
+  <date value="2019-08-08T00:00:00-04:00"/>
   <publisher value="The MITRE Corporation"/>
   <contact>
     <telecom>
@@ -27,7 +27,7 @@
       <value value="http://mitre.org"/>
     </telecom>
   </contact>
-  <description value="A definition of an assessment (standard form response)."/>
+  <description value="A response to a DEL standard form for a patient. Not currently used."/>
   <purpose value="To support structured, hierarchical reporting of data gathered using digital forms and other questionnaires."/>
   <fhirVersion value="4.0.0"/>
   <mapping>
@@ -54,7 +54,7 @@
     <element id="QuestionnaireResponse">
       <path value="QuestionnaireResponse"/>
       <short value="del-Assessment"/>
-      <definition value="A definition of an assessment (standard form response)."/>
+      <definition value="A response to a DEL standard form for a patient. Not currently used."/>
       <comment value="The QuestionnaireResponse contains enough information about the questions asked and their organization that it can be interpreted somewhat independently from the Questionnaire it is based on.  I.e. You don&#39;t need access to the Questionnaire in order to extract basic information from a QuestionnaireResponse."/>
       <alias value="Form"/>
       <alias value="QuestionnaireAnswers"/>
@@ -1038,7 +1038,7 @@
     <element id="QuestionnaireResponse">
       <path value="QuestionnaireResponse"/>
       <short value="del-Assessment"/>
-      <definition value="A definition of an assessment (standard form response)."/>
+      <definition value="A response to a DEL standard form for a patient. Not currently used."/>
       <isModifier value="false"/>
       <isSummary value="false"/>
     </element>

@@ -5,16 +5,17 @@
   <text>
     <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml">
   <p><b>StandardForm Profile</b></p>
-  <p>A definition of an standard form and all of its contents.</p>
+  <p>A DEL standard form and all of its contents. This includes sections, questions, and available question responses.</p>
   <p><b>Mapping Summary</b></p>
   <p><pre>del.StandardForm maps to Questionnaire:
+  constrain url to 1..1
+  constrain date to 1..1
   constrain name to 1..1
   constrain version to 1..1
+  constrain publisher to 1..1
   constrain title to 1..1
   constrain description to 1..1
-  constrain item to 1..*
-  constrain item.linkId to 1..1
-  constrain item.text to 1..1
+  constrain effectivePeriod to 1..1
   constrain identifier to 0..0
   constrain subjectType to 0..0
   constrain useContext to 0..0
@@ -22,7 +23,9 @@
   constrain jurisdiction to 0..0
   constrain purpose to 0..0
   constrain copyright to 0..0
-  constrain url to 1..1
+  constrain item to 0..*
+  constrain item.linkId to 1..1
+  constrain item.text to 1..1
 </pre></p>
 </div>
   </text>
@@ -31,7 +34,7 @@
   <name value="StandardForm"/>
   <title value="del-StandardForm"/>
   <status value="draft"/>
-  <date value="2019-08-01T00:00:00-04:00"/>
+  <date value="2019-08-08T00:00:00-04:00"/>
   <publisher value="The MITRE Corporation"/>
   <contact>
     <telecom>
@@ -39,7 +42,7 @@
       <value value="http://mitre.org"/>
     </telecom>
   </contact>
-  <description value="A definition of an standard form and all of its contents."/>
+  <description value="A DEL standard form and all of its contents. This includes sections, questions, and available question responses."/>
   <purpose value="To support structured, hierarchical registration of data gathered using digital forms and other questionnaires.  Questionnaires provide greater control over presentation and allow capture of data in a domain-independent way (i.e. capturing information that would otherwise require multiple distinct types of resources)."/>
   <fhirVersion value="4.0.0"/>
   <mapping>
@@ -80,7 +83,7 @@
     <element id="Questionnaire">
       <path value="Questionnaire"/>
       <short value="del-StandardForm"/>
-      <definition value="A definition of an standard form and all of its contents."/>
+      <definition value="A DEL standard form and all of its contents. This includes sections, questions, and available question responses."/>
       <alias value="Form"/>
       <alias value="CRF"/>
       <alias value="Survey"/>
@@ -642,7 +645,7 @@
       <definition value="The date  (and optionally time) when the questionnaire was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the questionnaire changes."/>
       <comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the questionnaire. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
       <alias value="Revision Date"/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <base>
         <path value="Questionnaire.date"/>
@@ -673,7 +676,7 @@
       <definition value="The name of the organization or individual that published the questionnaire."/>
       <comment value="Usually an organization but may be an individual. The publisher (or steward) of the questionnaire is the organization or individual primarily responsible for the maintenance and upkeep of the questionnaire. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the questionnaire. This item SHOULD be populated unless the information is available from context."/>
       <requirements value="Helps establish the &quot;authority/credibility&quot; of the questionnaire.  May also allow for contact."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <base>
         <path value="Questionnaire.publisher"/>
@@ -947,7 +950,7 @@
       <definition value="The period during which the questionnaire content was or is planned to be in active use."/>
       <comment value="The effective period for a questionnaire  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015."/>
       <requirements value="Allows establishing a transition before a resource comes into effect and also allows for a sunsetting  process when new versions of the questionnaire are or are expected to be used instead."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <base>
         <path value="Questionnaire.effectivePeriod"/>
@@ -1007,7 +1010,7 @@
       <short value="Questions and sections within the Questionnaire"/>
       <definition value="A particular question, question grouping or display text that is part of the questionnaire."/>
       <comment value="The content of the questionnaire is constructed from an ordered, hierarchical collection of items."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="*"/>
       <base>
         <path value="Questionnaire.item"/>
@@ -2086,7 +2089,7 @@
     <element id="Questionnaire">
       <path value="Questionnaire"/>
       <short value="del-StandardForm"/>
-      <definition value="A definition of an standard form and all of its contents."/>
+      <definition value="A DEL standard form and all of its contents. This includes sections, questions, and available question responses."/>
       <isModifier value="false"/>
       <isSummary value="false"/>
     </element>
@@ -2120,6 +2123,16 @@
       <min value="0"/>
       <max value="0"/>
     </element>
+    <element id="Questionnaire.date">
+      <path value="Questionnaire.date"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="Questionnaire.publisher">
+      <path value="Questionnaire.publisher"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
     <element id="Questionnaire.contact">
       <path value="Questionnaire.contact"/>
       <min value="0"/>
@@ -2150,10 +2163,13 @@
       <min value="0"/>
       <max value="0"/>
     </element>
+    <element id="Questionnaire.effectivePeriod">
+      <path value="Questionnaire.effectivePeriod"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
     <element id="Questionnaire.item">
       <path value="Questionnaire.item"/>
-      <min value="1"/>
-      <max value="*"/>
     </element>
     <element id="Questionnaire.item.text">
       <path value="Questionnaire.item.text"/>

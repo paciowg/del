@@ -98,38 +98,151 @@
 </div>
 <!-- /segment-navbar -->
 
+<!-- ============BreadCrumb=============== -->
+
 <div id="segment-breadcrumb" class="segmnt">
   <!-- segment-breadcrumb -->
   <div class="container">
     <!-- container -->
     <ul class="breadcrumb">
-      <li title="home"><a href="index.html"><b>Home</b></a></li>
-      <li><b>IMPACT_Data_Element_Implementation_Guide</b></li>
+      <li title="Home"><a href="index.html"><b>Home</b></a></li>
     </ul>
   </div>
   <!-- /container -->
 </div>
 <!-- /segment-breadcrumb -->
 
-  </div>  <!-- /container -->
- </div>  <!-- /segment-breadcrumb -->
+<!-- This is a "fixed" container-start that removes publish-box -->
 
- <div id="segment-content" class="segment">  <!-- segment-content -->
- <div class="container">  <!-- container -->
-   <div class="row">
-     <div class="inner-wrapper">
-       <div class="col-12">
-       <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
+</div> <!-- /container -->
+</div> <!-- /segment-breadcrumb -->
+
+<div id="segment-content" class="segment">
+    <!-- segment-content -->
+    <div class="container">
+        <!-- container -->
+        <div class="row">
+            <div class="inner-wrapper">
+                <div class="col-12">
+                    <!-- <p id="publish-box">Publish Box goes here</p> -->
+
 
 <!-- ============CONTENT CONTENT=============== -->
 
-<h2>IMPACT_Data_Element_Implementation_Guide</h2>
+<h1>Developers Guide</h1>
 
 <p>
-  Formats: <a href="ImplementationGuide-impact-fhir.xml.html">XML</a>, <a href="ImplementationGuide-impact-fhir.json.html">JSON</a>, <a href="ImplementationGuide-impact-fhir.ttl.html">Turtle</a>
+    This page exists to help developers get started using the data in the DEL through the FHIR server.
 </p>
 
-<div xmlns="http://www.w3.org/1999/xhtml"><h2>IMPACT_Data_Element_Implementation_Guide</h2><p>The official URL for this implementation guide is: </p><pre>https://impact-fhir.mitre.org/r4/ImplementationGuide/impact-fhir</pre></div>
+<h1>Questionnaire</h1>
+
+<p>
+    Questionnaires store the entire structure and hierarchy of a standard form. A questionnaire is useful if you wish to
+    recreate the paper form that the questionnaire represents.
+</p>
+
+<p>
+    Each questionnaire resource represents a single standard form and version. For example, IRF-PAI 3.0 and IRF-PAI 2.0
+    are separate resources.
+</p>
+
+<p>
+    <b>Profile:</b> https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardForm
+</p>
+
+<p>To retrieve all the standard forms, query for questionnaires matching the profile:</p>
+
+<pre>GET https://&lt;fhir-server&gt;/Questionnaire?_profile=https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardForm</pre>
+
+<p>To retrieve a single standard form, simply get the questionnaire by ID:</p>
+
+<pre>GET https://&lt;fhir-server&gt;/Questionnaire/IRF-PAI-3.0</pre>
+
+<h1>Library</h1>
+
+<p>
+    The questionnaire resource is great for storing the entire structure of a standard form, but a questionnaire is not
+    very searchable according to the FHIR specification. It's difficult to find a questionnaire based on what questions
+    are contained within it, and difficult to find a question.
+</p>
+
+<p>
+    For that reason, we have duplicated the definition of standard forms as library resources, which is a more
+    searchable resource.
+</p>
+
+<p>
+    Each library resource represents a single standard form and version. For example, IRF-PAI 3.0 and IRF-PAI 2.0
+    are separate resources.
+</p>
+
+<p>
+    <b>Profile:</b> https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardFormLibrary
+</p>
+
+<p>To retrieve all the standard forms, query for libraries matching the profile:</p>
+
+<pre>GET https://&lt;fhir-server&gt;/Library?_profile=https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardFormLibrary</pre>
+
+<p>You may also search by any other field defined as searchable on the library resource:</p>
+
+<p><a href="https://www.hl7.org/fhir/library.html#search">https://www.hl7.org/fhir/library.html#search</a></p>
+
+<h1>Measure</h1>
+
+<p>
+    As mentioned in the Library section, a questionnaire is not very searchable. It's difficult to find specific
+    questions and difficult to figure out what questions are reused across standard forms.
+</p>
+
+<p>
+    We have duplicated the definition of standard form questions (also known as items) as measures resources, which is a
+    more searchable resource.
+</p>
+
+<p>
+    <b>Profile:</b> https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardFormQuestion
+</p>
+
+<p>To retrieve all the standard form questions, query for measures matching the profile:</p>
+
+<pre>GET https://&lt;fhir-server&gt;/Measure?_profile=https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardFormQuestion</pre>
+
+<p>To find all questions that contain a specific term (like "influenza"), query for measures matching the profile and
+    where the title contains the term:
+</p>
+
+<pre>GET https://&lt;fhir-server&gt;/Measure?_profile=https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardFormQuestion&amp;title:contains=influenza</pre>
+
+<p>
+    Measures link back to library resources so that you can see which libraries/standard forms use a specific question.
+    Each measure will have a list of libraries like the following. Using the ID, you can retrieve details about the
+    associated measure or questionnaire object.
+</p>
+
+<pre>
+"library": [
+    "Library/Questionnaire-OASIS-C1-012015",
+    "Library/Questionnaire-OASIS-C1-102015",
+    "Library/Questionnaire-OASIS-C2-012017",
+    "Library/Questionnaire-OASIS-D-012019",
+    "Library/Questionnaire-OASIS-D1-012020"
+]
+</pre>
+
+<p>
+    Using the <code>_include</code> parameter, you may also instruct the FHIR server to include the associated library
+    resources in the returned bundle. This removes the need to query for the associated libraries manually if you know
+    you will need them in the same response:
+</p>
+
+<pre>GET https://&lt;fhir-server&gt;/Measure?_profile=https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardFormQuestion&amp;_include=*</pre>
+
+<p>You may also search by any other field defined as searchable on the measure resource:</p>
+
+<p><a href="https://www.hl7.org/fhir/measure.html#search">https://www.hl7.org/fhir/measure.html#search</a></p>
+
 
 <!-- ==============END CONTENT END CONTENT=================== -->
 
@@ -151,8 +264,8 @@
     <p>
       &copy;2019+
       <a style="color: #81BEF7" href="http://mitre.org">The MITRE Corporation</a>.
-      Package impact-fhir# based on <a style="color: #81BEF7" href="http://hl7.org/fhir/R4/">FHIR 4.0.0</a>.
-      Generated <span title="Tue, Jul 16, 2019 13:11-0400">2019-07-16</span>.
+      Package impact-fhir#0.0.1 based on <a style="color: #81BEF7" href="http://hl7.org/fhir/R4/">FHIR 4.0.0</a>.
+      Generated <span title="Thu, Aug 8, 2019 13:15-0400">2019-08-08</span>.
       <br/>
       <span style="color: #FFFF77">
         Links:

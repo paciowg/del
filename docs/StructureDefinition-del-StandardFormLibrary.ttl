@@ -10,14 +10,14 @@
   fhir:Resource.id [ fhir:value "del-StandardFormLibrary"];
   fhir:DomainResource.text [
      fhir:Narrative.status [ fhir:value "generated" ];
-     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>StandardFormLibrary Profile</b></p>\n  <p>A definition of a standard form.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.StandardFormLibrary maps to Library:\n  constrain name to 1..1\n  constrain version to 1..1\n  constrain title to 1..1\n  constrain description to 1..1\n</pre></p>\n</div>"
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>StandardFormLibrary Profile</b></p>\n  <p>A DEL standard form. Used for searching purposes. Links to any related StandardFormQuestion.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.StandardFormLibrary maps to Library:\n  constrain url to 1..1\n  constrain version to 1..1\n  constrain name to 1..1\n  constrain title to 1..1\n  constrain date to 1..1\n  constrain publisher to 1..1\n  constrain description to 1..1\n  constrain effectivePeriod to 1..1\n  constrain identifier to 0..0\n  constrain subtitle to 0..0\n  constrain experimental to 0..0\n  constrain contact to 0..0\n  constrain useContext to 0..0\n  constrain jurisdiction to 0..0\n  constrain purpose to 0..0\n  constrain usage to 0..0\n  constrain copyright to 0..0\n  constrain lastReviewDate to 0..0\n  constrain topic to 0..0\n  constrain author to 0..0\n  constrain editor to 0..0\n  constrain reviewer to 0..0\n  constrain endorser to 0..0\n  constrain relatedArtifact to 0..0\n  constrain parameter to 0..0\n  constrain dataRequirement to 0..0\n  constrain content to 0..0\n</pre></p>\n</div>"
   ];
   fhir:StructureDefinition.url [ fhir:value "https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardFormLibrary"];
   fhir:StructureDefinition.version [ fhir:value "0.0.1"];
   fhir:StructureDefinition.name [ fhir:value "StandardFormLibrary"];
   fhir:StructureDefinition.title [ fhir:value "del-StandardFormLibrary"];
   fhir:StructureDefinition.status [ fhir:value "draft"];
-  fhir:StructureDefinition.date [ fhir:value "2019-08-01T00:00:00-04:00"^^xsd:dateTime];
+  fhir:StructureDefinition.date [ fhir:value "2019-08-08T00:00:00-04:00"^^xsd:dateTime];
   fhir:StructureDefinition.publisher [ fhir:value "The MITRE Corporation"];
   fhir:StructureDefinition.contact [
      fhir:index 0;
@@ -27,7 +27,7 @@
        fhir:ContactPoint.value [ fhir:value "http://mitre.org" ]
      ]
   ];
-  fhir:StructureDefinition.description [ fhir:value "A definition of a standard form."];
+  fhir:StructureDefinition.description [ fhir:value "A DEL standard form. Used for searching purposes. Links to any related StandardFormQuestion."];
   fhir:StructureDefinition.fhirVersion [ fhir:value "4.0.0"];
   fhir:StructureDefinition.mapping [
      fhir:index 0;
@@ -69,7 +69,7 @@
        fhir:Element.id [ fhir:value "Library" ];
        fhir:ElementDefinition.path [ fhir:value "Library" ];
        fhir:ElementDefinition.short [ fhir:value "del-StandardFormLibrary" ];
-       fhir:ElementDefinition.definition [ fhir:value "A definition of a standard form." ];
+       fhir:ElementDefinition.definition [ fhir:value "A DEL standard form. Used for searching purposes. Links to any related StandardFormQuestion." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
        fhir:ElementDefinition.max [ fhir:value "*" ];
        fhir:ElementDefinition.base [
@@ -396,7 +396,7 @@
        fhir:ElementDefinition.definition [ fhir:value "An absolute URI that is used to identify this library when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this library is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the library is stored on different servers." ];
        fhir:ElementDefinition.comment [ fhir:value "Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.\n\nThe determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). \n\nIn some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found." ];
        fhir:ElementDefinition.requirements [ fhir:value "Allows the library to be referenced by a single globally unique identifier." ];
-       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
        fhir:ElementDefinition.max [ fhir:value "1" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Library.url" ];
@@ -431,7 +431,7 @@
        fhir:ElementDefinition.comment [ fhir:value "Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this library outside of FHIR, where it is not possible to use the logical URI." ];
        fhir:ElementDefinition.requirements [ fhir:value "Allows externally provided and/or usable business identifiers to be easily associated with the module." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "*" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Library.identifier" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -559,7 +559,7 @@
        fhir:ElementDefinition.short [ fhir:value "Subordinate title of the library" ];
        fhir:ElementDefinition.definition [ fhir:value "An explanatory or alternate title for the library giving additional information about its content." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "1" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Library.subtitle" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -631,7 +631,7 @@
        fhir:ElementDefinition.comment [ fhir:value "Allows filtering of librarys that are appropriate for use versus not." ];
        fhir:ElementDefinition.requirements [ fhir:value "Enables experimental content to be developed following the same lifecycle that would be used for a production-level library." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "1" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Library.experimental" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -749,7 +749,7 @@
          fhir:value "Revision Date";
          fhir:index 0
        ];
-       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
        fhir:ElementDefinition.max [ fhir:value "1" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Library.date" ];
@@ -783,7 +783,7 @@
        fhir:ElementDefinition.definition [ fhir:value "The name of the organization or individual that published the library." ];
        fhir:ElementDefinition.comment [ fhir:value "Usually an organization but may be an individual. The publisher (or steward) of the library is the organization or individual primarily responsible for the maintenance and upkeep of the library. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the library. This item SHOULD be populated unless the information is available from context." ];
        fhir:ElementDefinition.requirements [ fhir:value "Helps establish the \"authority/credibility\" of the library.  May also allow for contact." ];
-       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
        fhir:ElementDefinition.max [ fhir:value "1" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Library.publisher" ];
@@ -817,7 +817,7 @@
        fhir:ElementDefinition.definition [ fhir:value "Contact details to assist a user in finding and communicating with the publisher." ];
        fhir:ElementDefinition.comment [ fhir:value "May be a web site, an email address, a telephone number, etc." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "*" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Library.contact" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -876,7 +876,7 @@
        fhir:ElementDefinition.comment [ fhir:value "When multiple useContexts are specified, there is no expectation that all or any of the contexts apply." ];
        fhir:ElementDefinition.requirements [ fhir:value "Assist in searching for appropriate content." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "*" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Library.useContext" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -905,7 +905,7 @@
        fhir:ElementDefinition.definition [ fhir:value "A legal or geographic region in which the library is intended to be used." ];
        fhir:ElementDefinition.comment [ fhir:value "It may be possible for the library to be used in jurisdictions other than those for which it was originally designed or intended." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "*" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Library.jurisdiction" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -951,7 +951,7 @@
        fhir:ElementDefinition.definition [ fhir:value "Explanation of why this library is needed and why it has been designed as it has." ];
        fhir:ElementDefinition.comment [ fhir:value "This element does not describe the usage of the library. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this library." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "1" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Library.purpose" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -987,7 +987,7 @@
        fhir:ElementDefinition.short [ fhir:value "Describes the clinical usage of the library" ];
        fhir:ElementDefinition.definition [ fhir:value "A detailed description of how the library is used from a clinical perspective." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "1" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Library.usage" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -1019,7 +1019,7 @@
          fhir:index 1
        ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "1" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Library.copyright" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -1086,7 +1086,7 @@
        fhir:ElementDefinition.comment [ fhir:value "If specified, this date follows the original approval date." ];
        fhir:ElementDefinition.requirements [ fhir:value "Gives a sense of how \"current\" the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "1" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Library.lastReviewDate" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -1119,7 +1119,7 @@
        fhir:ElementDefinition.definition [ fhir:value "The period during which the library content was or is planned to be in active use." ];
        fhir:ElementDefinition.comment [ fhir:value "The effective period for a library  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015." ];
        fhir:ElementDefinition.requirements [ fhir:value "Allows establishing a transition before a resource comes into effect and also allows for a sunsetting  process when new versions of the library are or are expected to be used instead." ];
-       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
        fhir:ElementDefinition.max [ fhir:value "1" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Library.effectivePeriod" ];
@@ -1153,7 +1153,7 @@
        fhir:ElementDefinition.definition [ fhir:value "Descriptive topics related to the content of the library. Topics provide a high-level categorization of the library that can be useful for filtering and searching." ];
        fhir:ElementDefinition.requirements [ fhir:value "Repositories must be able to determine how to categorize the library so that it can be found by topical searches." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "*" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Library.topic" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -1190,7 +1190,7 @@
        fhir:ElementDefinition.short [ fhir:value "Who authored the content" ];
        fhir:ElementDefinition.definition [ fhir:value "An individiual or organization primarily involved in the creation and maintenance of the content." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "*" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Library.author" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -1214,7 +1214,7 @@
        fhir:ElementDefinition.short [ fhir:value "Who edited the content" ];
        fhir:ElementDefinition.definition [ fhir:value "An individual or organization primarily responsible for internal coherence of the content." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "*" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Library.editor" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -1233,7 +1233,7 @@
        fhir:ElementDefinition.short [ fhir:value "Who reviewed the content" ];
        fhir:ElementDefinition.definition [ fhir:value "An individual or organization primarily responsible for review of some aspect of the content." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "*" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Library.reviewer" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -1257,7 +1257,7 @@
        fhir:ElementDefinition.short [ fhir:value "Who endorsed the content" ];
        fhir:ElementDefinition.definition [ fhir:value "An individual or organization responsible for officially endorsing the content for use in some setting." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "*" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Library.endorser" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -1283,7 +1283,7 @@
        fhir:ElementDefinition.comment [ fhir:value "Each related artifact is either an attachment, or a reference to another resource, but not both." ];
        fhir:ElementDefinition.requirements [ fhir:value "Libraries must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "*" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Library.relatedArtifact" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -1307,7 +1307,7 @@
        fhir:ElementDefinition.short [ fhir:value "Parameters defined by the library" ];
        fhir:ElementDefinition.definition [ fhir:value "The parameter element defines parameters used by the library." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "*" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Library.parameter" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -1331,7 +1331,7 @@
        fhir:ElementDefinition.short [ fhir:value "What data is referenced by this library" ];
        fhir:ElementDefinition.definition [ fhir:value "Describes a set of data that must be provided in order to be able to successfully perform the computations defined by the library." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "*" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Library.dataRequirement" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -1355,7 +1355,7 @@
        fhir:ElementDefinition.short [ fhir:value "Contents of the library, either embedded or referenced" ];
        fhir:ElementDefinition.definition [ fhir:value "The content of the library as an Attachment. The content may be a reference to a url, or may be directly embedded as a base-64 string. Either way, the contentType of the attachment determines how to interpret the content." ];
        fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
-       fhir:ElementDefinition.max [ fhir:value "*" ];
+       fhir:ElementDefinition.max [ fhir:value "0" ];
        fhir:ElementDefinition.base [
          fhir:ElementDefinition.base.path [ fhir:value "Library.content" ];
          fhir:ElementDefinition.base.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
@@ -1380,33 +1380,171 @@
        fhir:Element.id [ fhir:value "Library" ];
        fhir:ElementDefinition.path [ fhir:value "Library" ];
        fhir:ElementDefinition.short [ fhir:value "del-StandardFormLibrary" ];
-       fhir:ElementDefinition.definition [ fhir:value "A definition of a standard form." ];
+       fhir:ElementDefinition.definition [ fhir:value "A DEL standard form. Used for searching purposes. Links to any related StandardFormQuestion." ];
        fhir:ElementDefinition.isModifier [ fhir:value "false"^^xsd:boolean ];
        fhir:ElementDefinition.isSummary [ fhir:value "false"^^xsd:boolean ]
      ], [
        fhir:index 1;
+       fhir:Element.id [ fhir:value "Library.url" ];
+       fhir:ElementDefinition.path [ fhir:value "Library.url" ];
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "1" ]
+     ], [
+       fhir:index 2;
+       fhir:Element.id [ fhir:value "Library.identifier" ];
+       fhir:ElementDefinition.path [ fhir:value "Library.identifier" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 3;
        fhir:Element.id [ fhir:value "Library.version" ];
        fhir:ElementDefinition.path [ fhir:value "Library.version" ];
        fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
        fhir:ElementDefinition.max [ fhir:value "1" ]
      ], [
-       fhir:index 2;
+       fhir:index 4;
        fhir:Element.id [ fhir:value "Library.name" ];
        fhir:ElementDefinition.path [ fhir:value "Library.name" ];
        fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
        fhir:ElementDefinition.max [ fhir:value "1" ]
      ], [
-       fhir:index 3;
+       fhir:index 5;
        fhir:Element.id [ fhir:value "Library.title" ];
        fhir:ElementDefinition.path [ fhir:value "Library.title" ];
        fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
        fhir:ElementDefinition.max [ fhir:value "1" ]
      ], [
-       fhir:index 4;
+       fhir:index 6;
+       fhir:Element.id [ fhir:value "Library.subtitle" ];
+       fhir:ElementDefinition.path [ fhir:value "Library.subtitle" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 7;
+       fhir:Element.id [ fhir:value "Library.experimental" ];
+       fhir:ElementDefinition.path [ fhir:value "Library.experimental" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 8;
+       fhir:Element.id [ fhir:value "Library.date" ];
+       fhir:ElementDefinition.path [ fhir:value "Library.date" ];
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "1" ]
+     ], [
+       fhir:index 9;
+       fhir:Element.id [ fhir:value "Library.publisher" ];
+       fhir:ElementDefinition.path [ fhir:value "Library.publisher" ];
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "1" ]
+     ], [
+       fhir:index 10;
+       fhir:Element.id [ fhir:value "Library.contact" ];
+       fhir:ElementDefinition.path [ fhir:value "Library.contact" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 11;
        fhir:Element.id [ fhir:value "Library.description" ];
        fhir:ElementDefinition.path [ fhir:value "Library.description" ];
        fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
        fhir:ElementDefinition.max [ fhir:value "1" ]
+     ], [
+       fhir:index 12;
+       fhir:Element.id [ fhir:value "Library.useContext" ];
+       fhir:ElementDefinition.path [ fhir:value "Library.useContext" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 13;
+       fhir:Element.id [ fhir:value "Library.jurisdiction" ];
+       fhir:ElementDefinition.path [ fhir:value "Library.jurisdiction" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 14;
+       fhir:Element.id [ fhir:value "Library.purpose" ];
+       fhir:ElementDefinition.path [ fhir:value "Library.purpose" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 15;
+       fhir:Element.id [ fhir:value "Library.usage" ];
+       fhir:ElementDefinition.path [ fhir:value "Library.usage" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 16;
+       fhir:Element.id [ fhir:value "Library.copyright" ];
+       fhir:ElementDefinition.path [ fhir:value "Library.copyright" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 17;
+       fhir:Element.id [ fhir:value "Library.lastReviewDate" ];
+       fhir:ElementDefinition.path [ fhir:value "Library.lastReviewDate" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 18;
+       fhir:Element.id [ fhir:value "Library.effectivePeriod" ];
+       fhir:ElementDefinition.path [ fhir:value "Library.effectivePeriod" ];
+       fhir:ElementDefinition.min [ fhir:value "1"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "1" ]
+     ], [
+       fhir:index 19;
+       fhir:Element.id [ fhir:value "Library.topic" ];
+       fhir:ElementDefinition.path [ fhir:value "Library.topic" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 20;
+       fhir:Element.id [ fhir:value "Library.author" ];
+       fhir:ElementDefinition.path [ fhir:value "Library.author" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 21;
+       fhir:Element.id [ fhir:value "Library.editor" ];
+       fhir:ElementDefinition.path [ fhir:value "Library.editor" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 22;
+       fhir:Element.id [ fhir:value "Library.reviewer" ];
+       fhir:ElementDefinition.path [ fhir:value "Library.reviewer" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 23;
+       fhir:Element.id [ fhir:value "Library.endorser" ];
+       fhir:ElementDefinition.path [ fhir:value "Library.endorser" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 24;
+       fhir:Element.id [ fhir:value "Library.relatedArtifact" ];
+       fhir:ElementDefinition.path [ fhir:value "Library.relatedArtifact" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 25;
+       fhir:Element.id [ fhir:value "Library.parameter" ];
+       fhir:ElementDefinition.path [ fhir:value "Library.parameter" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 26;
+       fhir:Element.id [ fhir:value "Library.dataRequirement" ];
+       fhir:ElementDefinition.path [ fhir:value "Library.dataRequirement" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
+     ], [
+       fhir:index 27;
+       fhir:Element.id [ fhir:value "Library.content" ];
+       fhir:ElementDefinition.path [ fhir:value "Library.content" ];
+       fhir:ElementDefinition.min [ fhir:value "0"^^xsd:nonNegativeInteger ];
+       fhir:ElementDefinition.max [ fhir:value "0" ]
      ]
   ] .
 

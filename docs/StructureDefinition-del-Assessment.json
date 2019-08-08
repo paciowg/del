@@ -3,14 +3,14 @@
   "id": "del-Assessment",
   "text": {
     "status": "generated",
-    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>Assessment Profile</b></p>\n  <p>A definition of an assessment (standard form response).</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.Assessment maps to QuestionnaireResponse:\n  constrain questionnaire to 1..1\n  constrain subject to 1..1\n  constrain item to 1..*\n</pre></p>\n</div>"
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>Assessment Profile</b></p>\n  <p>A response to a DEL standard form for a patient. Not currently used.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.Assessment maps to QuestionnaireResponse:\n  constrain questionnaire to 1..1\n  constrain subject to 1..1\n  constrain item to 1..*\n</pre></p>\n</div>"
   },
   "url": "https://impact-fhir.mitre.org/r4/StructureDefinition/del-Assessment",
   "version": "0.0.1",
   "name": "Assessment",
   "title": "del-Assessment",
   "status": "draft",
-  "date": "2019-08-01T00:00:00-04:00",
+  "date": "2019-08-08T00:00:00-04:00",
   "publisher": "The MITRE Corporation",
   "contact": [
     {
@@ -22,7 +22,7 @@
       ]
     }
   ],
-  "description": "A definition of an assessment (standard form response).",
+  "description": "A response to a DEL standard form for a patient. Not currently used.",
   "purpose": "To support structured, hierarchical reporting of data gathered using digital forms and other questionnaires.",
   "fhirVersion": "4.0.0",
   "mapping": [
@@ -53,7 +53,7 @@
         "id": "QuestionnaireResponse",
         "path": "QuestionnaireResponse",
         "short": "del-Assessment",
-        "definition": "A definition of an assessment (standard form response).",
+        "definition": "A response to a DEL standard form for a patient. Not currently used.",
         "comment": "The QuestionnaireResponse contains enough information about the questions asked and their organization that it can be interpreted somewhat independently from the Questionnaire it is based on.  I.e. You don't need access to the Questionnaire in order to extract basic information from a QuestionnaireResponse.",
         "alias": [
           "Form",
@@ -1259,7 +1259,7 @@
         "id": "QuestionnaireResponse",
         "path": "QuestionnaireResponse",
         "short": "del-Assessment",
-        "definition": "A definition of an assessment (standard form response).",
+        "definition": "A response to a DEL standard form for a patient. Not currently used.",
         "isModifier": false,
         "isSummary": false
       },

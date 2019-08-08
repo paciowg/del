@@ -5,12 +5,51 @@
   <text>
     <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml">
   <p><b>StandardFormQuestion Profile</b></p>
-  <p>A definition of a standard form question.</p>
+  <p>A DEL question (item). Used for searching purposes. Links back to StandardFormLibrary.</p>
   <p><b>Mapping Summary</b></p>
   <p><pre>del.StandardFormQuestion maps to Measure:
+  constrain url to 1..1
   constrain name to 1..1
   constrain title to 1..1
-  constrain description to 1..1
+  constrain relatedArtifact to 0..*
+  constrain relatedArtifact.type to 1..1
+  constrain relatedArtifact.resource to 1..1
+  constrain relatedArtifact.label to 1..1
+  constrain relatedArtifact.display to 1..1
+  constrain relatedArtifact.url to 0..1
+  constrain identifier to 0..0
+  constrain version to 0..0
+  constrain subtitle to 0..0
+  constrain experimental to 0..0
+  constrain date to 0..0
+  constrain publisher to 0..0
+  constrain contact to 0..0
+  constrain useContext to 0..0
+  constrain jurisdiction to 0..0
+  constrain purpose to 0..0
+  constrain usage to 0..0
+  constrain copyright to 0..0
+  constrain approvalDate to 0..0
+  constrain lastReviewDate to 0..0
+  constrain effectivePeriod to 0..0
+  constrain topic to 0..0
+  constrain author to 0..0
+  constrain editor to 0..0
+  constrain reviewer to 0..0
+  constrain endorser to 0..0
+  constrain disclaimer to 0..0
+  constrain scoring to 0..0
+  constrain compositeScoring to 0..0
+  constrain type to 0..0
+  constrain riskAdjustment to 0..0
+  constrain rateAggregation to 0..0
+  constrain rationale to 0..0
+  constrain clinicalRecommendationStatement to 0..0
+  constrain improvementNotation to 0..0
+  constrain definition to 0..0
+  constrain guidance to 0..0
+  constrain group to 0..0
+  constrain supplementalData to 0..0
 </pre></p>
 </div>
   </text>
@@ -19,7 +58,7 @@
   <name value="StandardFormQuestion"/>
   <title value="del-StandardFormQuestion"/>
   <status value="draft"/>
-  <date value="2019-08-01T00:00:00-04:00"/>
+  <date value="2019-08-08T00:00:00-04:00"/>
   <publisher value="The MITRE Corporation"/>
   <contact>
     <telecom>
@@ -27,7 +66,7 @@
       <value value="http://mitre.org"/>
     </telecom>
   </contact>
-  <description value="A definition of a standard form question."/>
+  <description value="A DEL question (item). Used for searching purposes. Links back to StandardFormLibrary."/>
   <fhirVersion value="4.0.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -62,7 +101,7 @@
     <element id="Measure">
       <path value="Measure"/>
       <short value="del-StandardFormQuestion"/>
-      <definition value="A definition of a standard form question."/>
+      <definition value="A DEL question (item). Used for searching purposes. Links back to StandardFormLibrary."/>
       <min value="0"/>
       <max value="*"/>
       <base>
@@ -334,7 +373,7 @@
       <definition value="An absolute URI that is used to identify this measure when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this measure is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the measure is stored on different servers."/>
       <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
       <requirements value="Allows the measure to be referenced by a single globally unique identifier."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <base>
         <path value="Measure.url"/>
@@ -362,7 +401,7 @@
       <comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this measure outside of FHIR, where it is not possible to use the logical URI."/>
       <requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="0"/>
       <base>
         <path value="Measure.identifier"/>
         <min value="0"/>
@@ -392,7 +431,7 @@
       <definition value="The identifier that is used to identify this version of the measure when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the measure author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts."/>
       <comment value="There may be different measure instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the measure with the format [url]|[version]."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="0"/>
       <base>
         <path value="Measure.version"/>
         <min value="0"/>
@@ -459,7 +498,7 @@
       <short value="Subordinate title of the measure"/>
       <definition value="An explanatory or alternate title for the measure giving additional information about its content."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="0"/>
       <base>
         <path value="Measure.subtitle"/>
         <min value="0"/>
@@ -516,7 +555,7 @@
       <comment value="Allows filtering of measures that are appropriate for use versus not."/>
       <requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level measure."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="0"/>
       <base>
         <path value="Measure.experimental"/>
         <min value="0"/>
@@ -574,7 +613,7 @@
       <comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the measure. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
       <alias value="Revision Date"/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="0"/>
       <base>
         <path value="Measure.date"/>
         <min value="0"/>
@@ -601,7 +640,7 @@
       <comment value="Usually an organization but may be an individual. The publisher (or steward) of the measure is the organization or individual primarily responsible for the maintenance and upkeep of the measure. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the measure. This item SHOULD be populated unless the information is available from context."/>
       <requirements value="Helps establish the &quot;authority/credibility&quot; of the measure.  May also allow for contact."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="0"/>
       <base>
         <path value="Measure.publisher"/>
         <min value="0"/>
@@ -627,7 +666,7 @@
       <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
       <comment value="May be a web site, an email address, a telephone number, etc."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="0"/>
       <base>
         <path value="Measure.contact"/>
         <min value="0"/>
@@ -648,7 +687,7 @@
       <short value="Natural language description of the measure"/>
       <definition value="A free text natural language description of the measure from a consumer&#39;s perspective."/>
       <comment value="This description can be used to capture details such as why the measure was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the measure as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the measure is presumed to be the predominant language in the place the measure was created)."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <base>
         <path value="Measure.description"/>
@@ -672,7 +711,7 @@
       <comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
       <requirements value="Assist in searching for appropriate content."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="0"/>
       <base>
         <path value="Measure.useContext"/>
         <min value="0"/>
@@ -694,7 +733,7 @@
       <definition value="A legal or geographic region in which the measure is intended to be used."/>
       <comment value="It may be possible for the measure to be used in jurisdictions other than those for which it was originally designed or intended."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="0"/>
       <base>
         <path value="Measure.jurisdiction"/>
         <min value="0"/>
@@ -727,7 +766,7 @@
       <definition value="Explanation of why this measure is needed and why it has been designed as it has."/>
       <comment value="This element does not describe the usage of the measure. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this measure."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="0"/>
       <base>
         <path value="Measure.purpose"/>
         <min value="0"/>
@@ -756,7 +795,7 @@
       <short value="Describes the clinical usage of the measure"/>
       <definition value="A detailed description, from a clinical perspective, of how the measure is used."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="0"/>
       <base>
         <path value="Measure.usage"/>
         <min value="0"/>
@@ -776,7 +815,7 @@
       <alias value="License"/>
       <alias value="Restrictions"/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="0"/>
       <base>
         <path value="Measure.copyright"/>
         <min value="0"/>
@@ -802,7 +841,7 @@
       <definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
       <comment value="The &#39;date&#39; element may be more recent than the approval date because of minor changes or editorial corrections."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="0"/>
       <base>
         <path value="Measure.approvalDate"/>
         <min value="0"/>
@@ -829,7 +868,7 @@
       <comment value="If specified, this date follows the original approval date."/>
       <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="0"/>
       <base>
         <path value="Measure.lastReviewDate"/>
         <min value="0"/>
@@ -856,7 +895,7 @@
       <comment value="The effective period for a measure  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015."/>
       <requirements value="Allows establishing a transition before a resource comes into effect and also allows for a sunsetting  process when new versions of the measure are or are expected to be used instead."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="0"/>
       <base>
         <path value="Measure.effectivePeriod"/>
         <min value="0"/>
@@ -882,7 +921,7 @@
       <definition value="Descriptive topics related to the content of the measure. Topics provide a high-level categorization grouping types of measures that can be useful for filtering and searching."/>
       <requirements value="Repositories must be able to determine how to categorize the measure so that it can be found by topical searches."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="0"/>
       <base>
         <path value="Measure.topic"/>
         <min value="0"/>
@@ -907,7 +946,7 @@
       <short value="Who authored the content"/>
       <definition value="An individiual or organization primarily involved in the creation and maintenance of the content."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="0"/>
       <base>
         <path value="Measure.author"/>
         <min value="0"/>
@@ -928,7 +967,7 @@
       <short value="Who edited the content"/>
       <definition value="An individual or organization primarily responsible for internal coherence of the content."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="0"/>
       <base>
         <path value="Measure.editor"/>
         <min value="0"/>
@@ -945,7 +984,7 @@
       <short value="Who reviewed the content"/>
       <definition value="An individual or organization primarily responsible for review of some aspect of the content."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="0"/>
       <base>
         <path value="Measure.reviewer"/>
         <min value="0"/>
@@ -966,7 +1005,7 @@
       <short value="Who endorsed the content"/>
       <definition value="An individual or organization responsible for officially endorsing the content for use in some setting."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="0"/>
       <base>
         <path value="Measure.endorser"/>
         <min value="0"/>
@@ -1001,6 +1040,191 @@
       <isModifier value="false"/>
       <isSummary value="false"/>
     </element>
+    <element id="Measure.relatedArtifact.id">
+      <path value="Measure.relatedArtifact.id"/>
+      <representation value="xmlAttr"/>
+      <short value="Unique id for inter-element referencing"/>
+      <definition value="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Element.id"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Measure.relatedArtifact.extension">
+      <path value="Measure.relatedArtifact.extension"/>
+      <slicing>
+        <discriminator>
+          <type value="value"/>
+          <path value="url"/>
+        </discriminator>
+        <description value="Extensions are always sliced by (at least) url"/>
+        <rules value="open"/>
+      </slicing>
+      <short value="Additional content defined by implementations"/>
+      <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
+      <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+      <alias value="extensions"/>
+      <alias value="user content"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Element.extension"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Measure.relatedArtifact.type">
+      <path value="Measure.relatedArtifact.type"/>
+      <short value="documentation | justification | citation | predecessor | successor | derived-from | depends-on | composed-of"/>
+      <definition value="The type of relationship to the related artifact."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="RelatedArtifact.type"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="RelatedArtifactType"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The type of relationship to the related artifact."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/related-artifact-type|4.0.0"/>
+      </binding>
+    </element>
+    <element id="Measure.relatedArtifact.label">
+      <path value="Measure.relatedArtifact.label"/>
+      <short value="Short label"/>
+      <definition value="A short label that can be used to reference the citation from elsewhere in the containing artifact, such as a footnote index."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="RelatedArtifact.label"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="true"/>
+    </element>
+    <element id="Measure.relatedArtifact.display">
+      <path value="Measure.relatedArtifact.display"/>
+      <short value="Brief description of the related artifact"/>
+      <definition value="A brief description of the document or knowledge resource being referenced, suitable for display to a consumer."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="RelatedArtifact.display"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="true"/>
+    </element>
+    <element id="Measure.relatedArtifact.citation">
+      <path value="Measure.relatedArtifact.citation"/>
+      <short value="Bibliographic citation for the artifact"/>
+      <definition value="A bibliographic citation for the related artifact. This text SHOULD be formatted according to an accepted citation format."/>
+      <comment value="Additional structured information about citations should be captured as extensions."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="RelatedArtifact.citation"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="true"/>
+    </element>
+    <element id="Measure.relatedArtifact.url">
+      <path value="Measure.relatedArtifact.url"/>
+      <short value="Where the artifact can be accessed"/>
+      <definition value="A url for the artifact that can be followed to access the actual content."/>
+      <comment value="If a document or resource element is present, this element SHALL NOT be provided (use the url or reference in the Attachment or resource reference)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="RelatedArtifact.url"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="url"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="true"/>
+    </element>
+    <element id="Measure.relatedArtifact.document">
+      <path value="Measure.relatedArtifact.document"/>
+      <short value="What document is being referenced"/>
+      <definition value="The document being referenced, represented as an attachment. This is exclusive with the resource element."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="RelatedArtifact.document"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Attachment"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="true"/>
+    </element>
+    <element id="Measure.relatedArtifact.resource">
+      <path value="Measure.relatedArtifact.resource"/>
+      <short value="What resource is being referenced"/>
+      <definition value="The related resource, such as a library, value set, profile, or other knowledge resource."/>
+      <comment value="If the type is predecessor, this is a reference to the succeeding knowledge resource. If the type is successor, this is a reference to the prior knowledge resource."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="RelatedArtifact.resource"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="true"/>
+    </element>
     <element id="Measure.library">
       <path value="Measure.library"/>
       <short value="Logic used by the measure"/>
@@ -1025,7 +1249,7 @@
       <definition value="Notices and disclaimers regarding the use of the measure or related to intellectual property (such as code systems) referenced by the measure."/>
       <requirements value="Some organizations require that notices and disclosures be included when publishing measures that reference their intellecutal property."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="0"/>
       <base>
         <path value="Measure.disclaimer"/>
         <min value="0"/>
@@ -1042,7 +1266,7 @@
       <short value="proportion | ratio | continuous-variable | cohort"/>
       <definition value="Indicates how the calculation is performed for the measure, including proportion, ratio, continuous-variable, and cohort. The value set is extensible, allowing additional measure scoring types to be represented."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="0"/>
       <base>
         <path value="Measure.scoring"/>
         <min value="0"/>
@@ -1067,7 +1291,7 @@
       <short value="opportunity | all-or-nothing | linear | weighted"/>
       <definition value="If this is a composite measure, the scoring method used to combine the component measures to determine the composite score."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="0"/>
       <base>
         <path value="Measure.compositeScoring"/>
         <min value="0"/>
@@ -1092,7 +1316,7 @@
       <short value="process | outcome | structure | patient-reported-outcome | composite"/>
       <definition value="Indicates whether the measure is used to examine a process, an outcome over time, a patient-reported outcome, or a structure measure such as utilization."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="0"/>
       <base>
         <path value="Measure.type"/>
         <min value="0"/>
@@ -1118,7 +1342,7 @@
       <definition value="A description of the risk adjustment factors that may impact the resulting score for the measure and how they may be accounted for when computing and reporting measure results."/>
       <comment value="Describes the method of adjusting for clinical severity and conditions present at the start of care that can influence patient outcomes for making valid comparisons of outcome measures across providers. Indicates whether a measure is subject to the statistical process for reducing, removing, or clarifying the influences of confounding factors to allow for more useful comparisons."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="0"/>
       <base>
         <path value="Measure.riskAdjustment"/>
         <min value="0"/>
@@ -1136,7 +1360,7 @@
       <definition value="Describes how to combine the information calculated, based on logic in each of several populations, into one summarized result."/>
       <comment value="The measure rate for an organization or clinician is based upon the entities&#x2019; aggregate data and summarizes the performance of the entity over a given time period (e.g., monthly, quarterly, yearly). The aggregated data are derived from the results of a specific measure algorithm and, if appropriate, the application of specific risk adjustment models.  Can also be used to describe how to risk adjust the data based on supplemental data elements described in the eMeasure (e.g., pneumonia hospital measures antibiotic selection in the ICU versus non-ICU and then the roll-up of the two). This could be applied to aggregated cohort measure definitions (e.g., CDC&#39;s aggregate reporting for TB at the state level)."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="0"/>
       <base>
         <path value="Measure.rateAggregation"/>
         <min value="0"/>
@@ -1154,7 +1378,7 @@
       <definition value="Provides a succinct statement of the need for the measure. Usually includes statements pertaining to importance criterion: impact, gap in care, and evidence."/>
       <requirements value="Measure developers need to be able to provide a detailed description of the purpose of the measure. This element provides detailed rationale, where the purpose element provides a summary of the rationale."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="0"/>
       <base>
         <path value="Measure.rationale"/>
         <min value="0"/>
@@ -1171,7 +1395,7 @@
       <short value="Summary of clinical guidelines"/>
       <definition value="Provides a summary of relevant clinical guidelines or other clinical recommendations supporting the measure."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="0"/>
       <base>
         <path value="Measure.clinicalRecommendationStatement"/>
         <min value="0"/>
@@ -1189,7 +1413,7 @@
       <definition value="Information on whether an increase or decrease in score is the preferred result (e.g., a higher score indicates better quality OR a lower score indicates better quality OR quality is within a range)."/>
       <requirements value="Measure consumers and implementers must be able to determine how to interpret a measure score."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="0"/>
       <base>
         <path value="Measure.improvementNotation"/>
         <min value="0"/>
@@ -1215,7 +1439,7 @@
       <definition value="Provides a description of an individual term used within the measure."/>
       <requirements value="Measure developers must be able to provide precise definitions of terms used within measure descriptions and guidance to help communicate the intent of the measure."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="0"/>
       <base>
         <path value="Measure.definition"/>
         <min value="0"/>
@@ -1233,7 +1457,7 @@
       <definition value="Additional guidance for the measure including how it can be used in a clinical context, and the intent of the measure."/>
       <requirements value="Measure developers must be able to provide additional guidance for implementers to understand the intent with greater specificity than that provided in the population criteria of the measure. This element provides detailed guidance, where the usage element provides a summary of the guidance."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="0"/>
       <base>
         <path value="Measure.guidance"/>
         <min value="0"/>
@@ -1250,7 +1474,7 @@
       <short value="Population criteria group"/>
       <definition value="A group of population criteria for the measure."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="0"/>
       <base>
         <path value="Measure.group"/>
         <min value="0"/>
@@ -1840,7 +2064,7 @@
       <definition value="The supplemental data criteria for the measure report, specified as either the name of a valid CQL expression within a referenced library, or a valid FHIR Resource Path."/>
       <comment value="Note that supplemental data are reported as observations for each patient and included in the evaluatedResources bundle. See the MeasureReport resource or the Quality Reporting topic for more information."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="0"/>
       <base>
         <path value="Measure.supplementalData"/>
         <min value="0"/>
@@ -2014,9 +2238,24 @@
     <element id="Measure">
       <path value="Measure"/>
       <short value="del-StandardFormQuestion"/>
-      <definition value="A definition of a standard form question."/>
+      <definition value="A DEL question (item). Used for searching purposes. Links back to StandardFormLibrary."/>
       <isModifier value="false"/>
       <isSummary value="false"/>
+    </element>
+    <element id="Measure.url">
+      <path value="Measure.url"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="Measure.identifier">
+      <path value="Measure.identifier"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Measure.version">
+      <path value="Measure.version"/>
+      <min value="0"/>
+      <max value="0"/>
     </element>
     <element id="Measure.name">
       <path value="Measure.name"/>
@@ -2028,10 +2267,178 @@
       <min value="1"/>
       <max value="1"/>
     </element>
-    <element id="Measure.description">
-      <path value="Measure.description"/>
+    <element id="Measure.subtitle">
+      <path value="Measure.subtitle"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Measure.experimental">
+      <path value="Measure.experimental"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Measure.date">
+      <path value="Measure.date"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Measure.publisher">
+      <path value="Measure.publisher"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Measure.contact">
+      <path value="Measure.contact"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Measure.useContext">
+      <path value="Measure.useContext"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Measure.jurisdiction">
+      <path value="Measure.jurisdiction"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Measure.purpose">
+      <path value="Measure.purpose"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Measure.usage">
+      <path value="Measure.usage"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Measure.copyright">
+      <path value="Measure.copyright"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Measure.approvalDate">
+      <path value="Measure.approvalDate"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Measure.lastReviewDate">
+      <path value="Measure.lastReviewDate"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Measure.effectivePeriod">
+      <path value="Measure.effectivePeriod"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Measure.topic">
+      <path value="Measure.topic"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Measure.author">
+      <path value="Measure.author"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Measure.editor">
+      <path value="Measure.editor"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Measure.reviewer">
+      <path value="Measure.reviewer"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Measure.endorser">
+      <path value="Measure.endorser"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Measure.relatedArtifact">
+      <path value="Measure.relatedArtifact"/>
+    </element>
+    <element id="Measure.relatedArtifact.label">
+      <path value="Measure.relatedArtifact.label"/>
       <min value="1"/>
       <max value="1"/>
+    </element>
+    <element id="Measure.relatedArtifact.display">
+      <path value="Measure.relatedArtifact.display"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="Measure.relatedArtifact.resource">
+      <path value="Measure.relatedArtifact.resource"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="Measure.disclaimer">
+      <path value="Measure.disclaimer"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Measure.scoring">
+      <path value="Measure.scoring"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Measure.compositeScoring">
+      <path value="Measure.compositeScoring"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Measure.type">
+      <path value="Measure.type"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Measure.riskAdjustment">
+      <path value="Measure.riskAdjustment"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Measure.rateAggregation">
+      <path value="Measure.rateAggregation"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Measure.rationale">
+      <path value="Measure.rationale"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Measure.clinicalRecommendationStatement">
+      <path value="Measure.clinicalRecommendationStatement"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Measure.improvementNotation">
+      <path value="Measure.improvementNotation"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Measure.definition">
+      <path value="Measure.definition"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Measure.guidance">
+      <path value="Measure.guidance"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Measure.group">
+      <path value="Measure.group"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Measure.supplementalData">
+      <path value="Measure.supplementalData"/>
+      <min value="0"/>
+      <max value="0"/>
     </element>
   </differential>
 </StructureDefinition>

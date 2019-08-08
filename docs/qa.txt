@@ -2,7 +2,7 @@
 =========================================
 
 err = 6, warn = 0, info = 0
-Generated Thu Aug 01 13:21:47 EDT 2019. FHIR version 4.0.0 for impact-fhir#0.0.1 (canonical = https://impact-fhir.mitre.org/r4)
+Generated Thu Aug 08 13:15:15 EDT 2019. FHIR version 4.0.0 for impact-fhir#0.0.1 (canonical = https://impact-fhir.mitre.org/r4)
 
  Build Errors : 0 / 0
  /Users/tshaffer/Developer/del/out/fhir/guide/resources/ig : 0 / 0

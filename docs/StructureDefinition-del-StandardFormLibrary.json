@@ -3,14 +3,14 @@
   "id": "del-StandardFormLibrary",
   "text": {
     "status": "generated",
-    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>StandardFormLibrary Profile</b></p>\n  <p>A definition of a standard form.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.StandardFormLibrary maps to Library:\n  constrain name to 1..1\n  constrain version to 1..1\n  constrain title to 1..1\n  constrain description to 1..1\n</pre></p>\n</div>"
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>StandardFormLibrary Profile</b></p>\n  <p>A DEL standard form. Used for searching purposes. Links to any related StandardFormQuestion.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.StandardFormLibrary maps to Library:\n  constrain url to 1..1\n  constrain version to 1..1\n  constrain name to 1..1\n  constrain title to 1..1\n  constrain date to 1..1\n  constrain publisher to 1..1\n  constrain description to 1..1\n  constrain effectivePeriod to 1..1\n  constrain identifier to 0..0\n  constrain subtitle to 0..0\n  constrain experimental to 0..0\n  constrain contact to 0..0\n  constrain useContext to 0..0\n  constrain jurisdiction to 0..0\n  constrain purpose to 0..0\n  constrain usage to 0..0\n  constrain copyright to 0..0\n  constrain lastReviewDate to 0..0\n  constrain topic to 0..0\n  constrain author to 0..0\n  constrain editor to 0..0\n  constrain reviewer to 0..0\n  constrain endorser to 0..0\n  constrain relatedArtifact to 0..0\n  constrain parameter to 0..0\n  constrain dataRequirement to 0..0\n  constrain content to 0..0\n</pre></p>\n</div>"
   },
   "url": "https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardFormLibrary",
   "version": "0.0.1",
   "name": "StandardFormLibrary",
   "title": "del-StandardFormLibrary",
   "status": "draft",
-  "date": "2019-08-01T00:00:00-04:00",
+  "date": "2019-08-08T00:00:00-04:00",
   "publisher": "The MITRE Corporation",
   "contact": [
     {
@@ -22,7 +22,7 @@
       ]
     }
   ],
-  "description": "A definition of a standard form.",
+  "description": "A DEL standard form. Used for searching purposes. Links to any related StandardFormQuestion.",
   "fhirVersion": "4.0.0",
   "mapping": [
     {
@@ -65,7 +65,7 @@
         "id": "Library",
         "path": "Library",
         "short": "del-StandardFormLibrary",
-        "definition": "A definition of a standard form.",
+        "definition": "A DEL standard form. Used for searching purposes. Links to any related StandardFormQuestion.",
         "min": 0,
         "max": "*",
         "base": {
@@ -384,7 +384,7 @@
         "definition": "An absolute URI that is used to identify this library when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this library is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the library is stored on different servers.",
         "comment": "Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.\n\nThe determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). \n\nIn some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found.",
         "requirements": "Allows the library to be referenced by a single globally unique identifier.",
-        "min": 0,
+        "min": 1,
         "max": "1",
         "base": {
           "path": "Library.url",
@@ -421,7 +421,7 @@
         "comment": "Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this library outside of FHIR, where it is not possible to use the logical URI.",
         "requirements": "Allows externally provided and/or usable business identifiers to be easily associated with the module.",
         "min": 0,
-        "max": "*",
+        "max": "0",
         "base": {
           "path": "Library.identifier",
           "min": 0,
@@ -556,7 +556,7 @@
         "short": "Subordinate title of the library",
         "definition": "An explanatory or alternate title for the library giving additional information about its content.",
         "min": 0,
-        "max": "1",
+        "max": "0",
         "base": {
           "path": "Library.subtitle",
           "min": 0,
@@ -629,7 +629,7 @@
         "comment": "Allows filtering of librarys that are appropriate for use versus not.",
         "requirements": "Enables experimental content to be developed following the same lifecycle that would be used for a production-level library.",
         "min": 0,
-        "max": "1",
+        "max": "0",
         "base": {
           "path": "Library.experimental",
           "min": 0,
@@ -745,7 +745,7 @@
         "alias": [
           "Revision Date"
         ],
-        "min": 0,
+        "min": 1,
         "max": "1",
         "base": {
           "path": "Library.date",
@@ -781,7 +781,7 @@
         "definition": "The name of the organization or individual that published the library.",
         "comment": "Usually an organization but may be an individual. The publisher (or steward) of the library is the organization or individual primarily responsible for the maintenance and upkeep of the library. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the library. This item SHOULD be populated unless the information is available from context.",
         "requirements": "Helps establish the \"authority/credibility\" of the library.  May also allow for contact.",
-        "min": 0,
+        "min": 1,
         "max": "1",
         "base": {
           "path": "Library.publisher",
@@ -817,7 +817,7 @@
         "definition": "Contact details to assist a user in finding and communicating with the publisher.",
         "comment": "May be a web site, an email address, a telephone number, etc.",
         "min": 0,
-        "max": "*",
+        "max": "0",
         "base": {
           "path": "Library.contact",
           "min": 0,
@@ -880,7 +880,7 @@
         "comment": "When multiple useContexts are specified, there is no expectation that all or any of the contexts apply.",
         "requirements": "Assist in searching for appropriate content.",
         "min": 0,
-        "max": "*",
+        "max": "0",
         "base": {
           "path": "Library.useContext",
           "min": 0,
@@ -911,7 +911,7 @@
         "definition": "A legal or geographic region in which the library is intended to be used.",
         "comment": "It may be possible for the library to be used in jurisdictions other than those for which it was originally designed or intended.",
         "min": 0,
-        "max": "*",
+        "max": "0",
         "base": {
           "path": "Library.jurisdiction",
           "min": 0,
@@ -957,7 +957,7 @@
         "definition": "Explanation of why this library is needed and why it has been designed as it has.",
         "comment": "This element does not describe the usage of the library. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this library.",
         "min": 0,
-        "max": "1",
+        "max": "0",
         "base": {
           "path": "Library.purpose",
           "min": 0,
@@ -995,7 +995,7 @@
         "short": "Describes the clinical usage of the library",
         "definition": "A detailed description of how the library is used from a clinical perspective.",
         "min": 0,
-        "max": "1",
+        "max": "0",
         "base": {
           "path": "Library.usage",
           "min": 0,
@@ -1026,7 +1026,7 @@
           "Restrictions"
         ],
         "min": 0,
-        "max": "1",
+        "max": "0",
         "base": {
           "path": "Library.copyright",
           "min": 0,
@@ -1097,7 +1097,7 @@
         "comment": "If specified, this date follows the original approval date.",
         "requirements": "Gives a sense of how \"current\" the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant.",
         "min": 0,
-        "max": "1",
+        "max": "0",
         "base": {
           "path": "Library.lastReviewDate",
           "min": 0,
@@ -1132,7 +1132,7 @@
         "definition": "The period during which the library content was or is planned to be in active use.",
         "comment": "The effective period for a library  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015.",
         "requirements": "Allows establishing a transition before a resource comes into effect and also allows for a sunsetting  process when new versions of the library are or are expected to be used instead.",
-        "min": 0,
+        "min": 1,
         "max": "1",
         "base": {
           "path": "Library.effectivePeriod",
@@ -1168,7 +1168,7 @@
         "definition": "Descriptive topics related to the content of the library. Topics provide a high-level categorization of the library that can be useful for filtering and searching.",
         "requirements": "Repositories must be able to determine how to categorize the library so that it can be found by topical searches.",
         "min": 0,
-        "max": "*",
+        "max": "0",
         "base": {
           "path": "Library.topic",
           "min": 0,
@@ -1205,7 +1205,7 @@
         "short": "Who authored the content",
         "definition": "An individiual or organization primarily involved in the creation and maintenance of the content.",
         "min": 0,
-        "max": "*",
+        "max": "0",
         "base": {
           "path": "Library.author",
           "min": 0,
@@ -1231,7 +1231,7 @@
         "short": "Who edited the content",
         "definition": "An individual or organization primarily responsible for internal coherence of the content.",
         "min": 0,
-        "max": "*",
+        "max": "0",
         "base": {
           "path": "Library.editor",
           "min": 0,
@@ -1251,7 +1251,7 @@
         "short": "Who reviewed the content",
         "definition": "An individual or organization primarily responsible for review of some aspect of the content.",
         "min": 0,
-        "max": "*",
+        "max": "0",
         "base": {
           "path": "Library.reviewer",
           "min": 0,
@@ -1277,7 +1277,7 @@
         "short": "Who endorsed the content",
         "definition": "An individual or organization responsible for officially endorsing the content for use in some setting.",
         "min": 0,
-        "max": "*",
+        "max": "0",
         "base": {
           "path": "Library.endorser",
           "min": 0,
@@ -1305,7 +1305,7 @@
         "comment": "Each related artifact is either an attachment, or a reference to another resource, but not both.",
         "requirements": "Libraries must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content.",
         "min": 0,
-        "max": "*",
+        "max": "0",
         "base": {
           "path": "Library.relatedArtifact",
           "min": 0,
@@ -1331,7 +1331,7 @@
         "short": "Parameters defined by the library",
         "definition": "The parameter element defines parameters used by the library.",
         "min": 0,
-        "max": "*",
+        "max": "0",
         "base": {
           "path": "Library.parameter",
           "min": 0,
@@ -1357,7 +1357,7 @@
         "short": "What data is referenced by this library",
         "definition": "Describes a set of data that must be provided in order to be able to successfully perform the computations defined by the library.",
         "min": 0,
-        "max": "*",
+        "max": "0",
         "base": {
           "path": "Library.dataRequirement",
           "min": 0,
@@ -1383,7 +1383,7 @@
         "short": "Contents of the library, either embedded or referenced",
         "definition": "The content of the library as an Attachment. The content may be a reference to a url, or may be directly embedded as a base-64 string. Either way, the contentType of the attachment determines how to interpret the content.",
         "min": 0,
-        "max": "*",
+        "max": "0",
         "base": {
           "path": "Library.content",
           "min": 0,
@@ -1411,9 +1411,21 @@
         "id": "Library",
         "path": "Library",
         "short": "del-StandardFormLibrary",
-        "definition": "A definition of a standard form.",
+        "definition": "A DEL standard form. Used for searching purposes. Links to any related StandardFormQuestion.",
         "isModifier": false,
         "isSummary": false
+      },
+      {
+        "id": "Library.url",
+        "path": "Library.url",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Library.identifier",
+        "path": "Library.identifier",
+        "min": 0,
+        "max": "0"
       },
       {
         "id": "Library.version",
@@ -1434,10 +1446,136 @@
         "max": "1"
       },
       {
+        "id": "Library.subtitle",
+        "path": "Library.subtitle",
+        "min": 0,
+        "max": "0"
+      },
+      {
+        "id": "Library.experimental",
+        "path": "Library.experimental",
+        "min": 0,
+        "max": "0"
+      },
+      {
+        "id": "Library.date",
+        "path": "Library.date",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Library.publisher",
+        "path": "Library.publisher",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Library.contact",
+        "path": "Library.contact",
+        "min": 0,
+        "max": "0"
+      },
+      {
         "id": "Library.description",
         "path": "Library.description",
         "min": 1,
         "max": "1"
+      },
+      {
+        "id": "Library.useContext",
+        "path": "Library.useContext",
+        "min": 0,
+        "max": "0"
+      },
+      {
+        "id": "Library.jurisdiction",
+        "path": "Library.jurisdiction",
+        "min": 0,
+        "max": "0"
+      },
+      {
+        "id": "Library.purpose",
+        "path": "Library.purpose",
+        "min": 0,
+        "max": "0"
+      },
+      {
+        "id": "Library.usage",
+        "path": "Library.usage",
+        "min": 0,
+        "max": "0"
+      },
+      {
+        "id": "Library.copyright",
+        "path": "Library.copyright",
+        "min": 0,
+        "max": "0"
+      },
+      {
+        "id": "Library.lastReviewDate",
+        "path": "Library.lastReviewDate",
+        "min": 0,
+        "max": "0"
+      },
+      {
+        "id": "Library.effectivePeriod",
+        "path": "Library.effectivePeriod",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Library.topic",
+        "path": "Library.topic",
+        "min": 0,
+        "max": "0"
+      },
+      {
+        "id": "Library.author",
+        "path": "Library.author",
+        "min": 0,
+        "max": "0"
+      },
+      {
+        "id": "Library.editor",
+        "path": "Library.editor",
+        "min": 0,
+        "max": "0"
+      },
+      {
+        "id": "Library.reviewer",
+        "path": "Library.reviewer",
+        "min": 0,
+        "max": "0"
+      },
+      {
+        "id": "Library.endorser",
+        "path": "Library.endorser",
+        "min": 0,
+        "max": "0"
+      },
+      {
+        "id": "Library.relatedArtifact",
+        "path": "Library.relatedArtifact",
+        "min": 0,
+        "max": "0"
+      },
+      {
+        "id": "Library.parameter",
+        "path": "Library.parameter",
+        "min": 0,
+        "max": "0"
+      },
+      {
+        "id": "Library.dataRequirement",
+        "path": "Library.dataRequirement",
+        "min": 0,
+        "max": "0"
+      },
+      {
+        "id": "Library.content",
+        "path": "Library.content",
+        "min": 0,
+        "max": "0"
       }
     ]
   }
