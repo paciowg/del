@@ -4,13 +4,13 @@ Description: "StandardForm represents a DEL standard form."
 Uses: shr.core, shr.base
 
 Entry: StandardForm
-Description: "A definition of an standard form and all of its contents."
+Description: "A DEL standard form and all of its contents. This includes sections, questions, and available question responses."
 
 Entry: Assessment
-Description: "A definition of an assessment (standard form response)."
+Description: "A response to a DEL standard form for a patient. Not currently used."
 
 Entry: StandardFormLibrary
-Description: "A definition of a standard form."
+Description: "A DEL standard form. Used for searching purposes. Links to any related StandardFormQuestion."
 
 Entry: StandardFormQuestion
-Description: "A definition of a standard form question."
+Description: "A DEL question (item). Used for searching purposes. Links back to StandardFormLibrary."

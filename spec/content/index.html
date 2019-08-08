@@ -1,0 +1,51 @@
+<h1>CMS Data Element Library - FHIR Implementation Guide</h1>
+
+<p>
+    In 2014, the Social Security Act was amended to include the Improving Medicare Post-Acute Care Transformation
+    (IMPACT) Act, which required the standardization and interoperability of patient assessment in specific categories
+    for post-acute care (PAC) settings, including long-term care hospitals (LTCHs), home health agencies (HHAs), skilled
+    nursing facilities (SNFs), and inpatient rehabilitation facilities (IRFs). It focuses on standardizing data elements
+    in specified quality measure domains and patient assessment domains for cross setting comparison and clinical
+    information exchange, respectively
+</p>
+
+<p>
+    The CMS Data Element Library (DEL) supports the IMPACT Act requirements by serving as the centralized repository for
+    CMS PAC assessment data elements and their associated health information technology (IT) standards to promote
+    interoperability of patient data.
+</p>
+
+<p>
+    This implementation guide defines a way to store, retrieve, and use DEL data through a FHIR API. As the PAC
+    assessments are updated on a regular basis, a DEL FHIR API can ensure EHRs have access to the most current data
+    sets.
+</p>
+
+<h1>Data Mapping</h1>
+
+<p>
+    The data mapping describes how all the fields in the DEL database map to fields in FHIR resources.
+    This is a technical document that can be helpful when trying to figure out exactly how data is populated in FHIR
+    resources.
+</p>
+
+<p>
+    <a href="mapping.html">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        View the Data Mapping
+    </a>
+</p>
+
+<h1>Developers Guide</h1>
+
+<p>
+    The developers guide is intended to provide guidance to software developers who want to use the data in the DEL FHIR
+    server. Use this guide if you want to build software that depends on the DEL FHIR server.
+</p>
+
+<p>
+    <a href="developers.html">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        View the Developers Guide
+    </a>
+</p>

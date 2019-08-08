@@ -1,14 +1,14 @@
 const { getAllLibraries } = require('../sql');
 
-function buildLibrary(baseUrl, {
+function buildLibrary(profileUrl, serverUrl, {
   asmtid, version, status, date, name, description, title, publisher, startdate, enddate, approvaldate
 }) {
   const resource = {
     resourceType: 'Library',
     id: `Questionnaire-${asmtid}`,
-    url: `${baseUrl}/Library/Questionnaire-${asmtid}`,
+    url: `${serverUrl}/Library/Questionnaire-${asmtid}`,
     meta: {
-      profile: `${baseUrl}/StructureDefinition/del-StandardFormLibrary`
+      profile: `${profileUrl}/StructureDefinition/del-StandardFormLibrary`
     },
     text: {
       status: 'generated',
@@ -43,16 +43,17 @@ function buildLibrary(baseUrl, {
 /**
  * Build all libraries and return them as a list of objects.
  *
- * @param {string} url
+ * @param {String} profileUrl
+ * @param {String} serverUrl
  * @param {import('pg').Client} client
  */
-async function run(url, client) {
+async function run(profileUrl, serverUrl, client) {
   const libraryResults = await getAllLibraries(client);
 
   const output = [];
 
   for (const row of libraryResults) {
-    const library = buildLibrary(url, row);
+    const library = buildLibrary(profileUrl, serverUrl, row);
 
     output.push(library);
   }

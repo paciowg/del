@@ -1,32 +1,4 @@
-<h1>CMS Data Element Library - FHIR Implementation Guide</h1>
-
-<p>This is the FHIR Implementation Guide for CMS Data Element Library</p>
-
-<p>We are attempting to take a hybrid approach. This means the following...</p>
-
-<p>
-    Each standard form will be represented by a Questionnaire resource.
-    The sections, subsections, and questions will be represented as items within the questionnaire.
-</p>
-
-<p>
-    Since it is not always easy or possible to search for specific items within a questionnaire or to search
-    for a questionnaire based on items within the questionnaire, standard forms will have an additional
-    representation as Library and Measure resources.
-</p>
-
-<p>
-    Each standard form will be represented by a Library.
-    Each standard form question will be represented by a Measure resource.
-</p>
-
-<p>
-    Using this approach, each standard form should be able to be reconstituted using the Questionnaire resource.
-    To question for specific questions, use the Measure resource.
-    Each Measure resource will have links back to the libraries in which the measure is used.
-</p>
-
-<h2>Questionnaire Resource</h2>
+<h1>Questionnaire Resource</h1>
 
 <p>
     Each record in asmt_vrsn will become one Questionnaire resource in FHIR.
@@ -105,7 +77,7 @@
 
 </table>
 
-<h3>Section Mapping</h3>
+<h2>Section Mapping</h2>
 
 <table class="table table-bordered">
     <tr>
@@ -142,7 +114,7 @@
     </tr>
 </table>
 
-<h3>Question Mapping</h3>
+<h2>Question Mapping</h2>
 
 <p>Questions may be nested within a section or within parent questions.</p>
 
@@ -227,7 +199,7 @@
     </tr>
 </table>
 
-<h2>Library Resource</h2>
+<h1>Library Resource</h1>
 
 <p>Each record in asmt_vrsn will become one Library resource in FHIR.</p>
 
@@ -301,7 +273,7 @@
     </tr>
 </table>
 
-<h2>Measure Resource</h2>
+<h1>Measure Resource</h1>
 
 <p>
     Each record in data_ele_qstn will become one Measeure resource in FHIR.

@@ -7,7 +7,7 @@
   "license": "Apache-2.0",
   "private": true,
   "scripts": {
-    "shr-cli": "node node_modules/shr-cli/app.js spec -o out",
+    "shr-cli": "node node_modules/shr-cli/app.js spec -o out && cp spec/container-start.html out/fhir/guide/pages/_includes/",
     "ig-gen": "java  -jar out/fhir/guide/org.hl7.fhir.publisher.jar -ig out/fhir/guide/ig.json",
     "upload": "NODE_TLS_REJECT_UNAUTHORIZED=0 node src/upload.js",
     "migrate": "NODE_TLS_REJECT_UNAUTHORIZED=0 node src/migrate.js",
@@ -18,7 +18,7 @@
     "pg": "7.11.0",
     "request": "2.88.0",
     "request-promise-native": "1.0.7",
-    "shr-cli": "https://github.com/standardhealth/shr-cli.git#6.4.0"
+    "shr-cli": "https://github.com/standardhealth/shr-cli.git#6.5.0"
   },
   "devDependencies": {
     "eslint": "6.0.1",

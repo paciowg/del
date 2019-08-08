@@ -1,6 +1,6 @@
 const { getAllMeasures, getGroupedQuestions, getGroupedResponses, getGroupedLoincCodes } = require('../sql');
 
-function buildMeasure(baseUrl, { questionid, label, name, text, }, questionnaireMap, responseMap, loincMap) {
+function buildMeasure(profileUrl, serverUrl, { questionid, label, name, text, }, questionnaireMap, responseMap, loincMap) {
   name = name.trim();
   label = label.trim();
   text = text.trim();
@@ -17,9 +17,9 @@ function buildMeasure(baseUrl, { questionid, label, name, text, }, questionnaire
   const resource = {
     resourceType: 'Measure',
     id: `Question-${label}`,
-    url: `${baseUrl}/Measure/Question-${label}`,
+    url: `${serverUrl}/Measure/Question-${label}`,
     meta: {
-      profile: `${baseUrl}/StructureDefinition/del-StandardFormQuestion`
+      profile: `${profileUrl}/StructureDefinition/del-StandardFormQuestion`
     },
     text: {
       status: 'generated',
@@ -63,10 +63,11 @@ function buildMeasure(baseUrl, { questionid, label, name, text, }, questionnaire
 /**
  * Build all measures and return them as a list of objects.
  *
- * @param {string} url
+ * @param {String} profileUrl
+ * @param {String} serverUrl
  * @param {import('pg').Client} client
  */
-async function run(url, client) {
+async function run(profileUrl, serverUrl, client) {
   const measureResults = await getAllMeasures(client);
 
   const questionnaireMap = await getGroupedQuestions(client, ['questionid'], ['asmtid']);
@@ -76,7 +77,7 @@ async function run(url, client) {
   const output = [];
 
   for (const row of measureResults) {
-    const measure = buildMeasure(url, row, questionnaireMap, responseMap, loincMap);
+    const measure = buildMeasure(profileUrl, serverUrl, row, questionnaireMap, responseMap, loincMap);
     output.push(measure);
   }
 

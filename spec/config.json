@@ -6,7 +6,7 @@
     "implementationGuide": {
         "npmName": "impact-fhir",
         "version": "0.0.1",
-        "indexContent": "indexContent.html",
+        "indexContent": "content",
         "primarySelectionStrategy": {
             "strategy": "namespace",
             "primary": [

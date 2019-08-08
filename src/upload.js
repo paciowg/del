@@ -5,18 +5,18 @@ const { logError, putResource } = require('./helpers');
 const BASE_DIR = '../out/fhir/guide/resources';
 const DEFAULT_URL = 'localhost:8080/r4';
 
-let baseUrl;
+let serverUrl;
 program
   .usage('<host>')
   .arguments('<host>')
-  .action(host => baseUrl = host)
+  .action(host => serverUrl = host)
   .parse(process.argv);
-baseUrl = baseUrl || DEFAULT_URL;
-if (!baseUrl.startsWith('http')) {
-  baseUrl = `http://${baseUrl}`;
+serverUrl = serverUrl || DEFAULT_URL;
+if (!serverUrl.startsWith('http')) {
+  serverUrl = `http://${serverUrl}`;
 }
 
-main(baseUrl);
+main(serverUrl);
 
 /**
  * Load the implementation guide from JSON file.
@@ -50,24 +50,18 @@ async function uploadResource(url, resource) {
 
 /**
  * Run the main process.
- * @param {*} url
+ * @param {String} serverUrl
  */
-async function main(url) {
+async function main(serverUrl) {
   const ig = getImplementationGuide();
 
   const resources = getResources(ig);
 
   for (const resource of resources) {
     try {
-      await uploadResource(url, resource);
+      await uploadResource(serverUrl, resource);
     } catch (error) {
       logError(error);
     }
   }
-
-  // try {
-  //   await uploadResource(url, ig);
-  // } catch (error) {
-  //   logError(error);
-  // }
 }

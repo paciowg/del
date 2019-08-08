@@ -3,6 +3,7 @@ const { mkdirSync, existsSync, writeFileSync } = require('fs');
 const program = require('commander');
 const { Client } = require('pg');
 
+const { fhirURL: profileUrl } = require('../spec/config.json');
 const { logError, putResource } = require('./helpers');
 const { run: questionnaireMigrator } = require('./migrators/questionnaire');
 const { run: measureMigrator } = require('./migrators/measure');
@@ -17,32 +18,33 @@ const DATABASE = {
   host: 'localhost',
 };
 
-let baseUrl;
+let serverUrl;
 let resourceList = ['measure', 'questionnaire', 'library'];
 
 program
   .usage('<host> [resources]')
   .arguments('<host> [resources]')
   .action((host, resources) => {
-    baseUrl = host;
+    serverUrl = host;
     if (resources) {
       resourceList = resources.split(',');
     }
   })
   .parse(process.argv);
 
-baseUrl = baseUrl || DEFAULT_URL;
-if (!baseUrl.startsWith('http')) {
-  baseUrl = `http://${baseUrl}`;
+serverUrl = serverUrl || DEFAULT_URL;
+if (!serverUrl.startsWith('http')) {
+  serverUrl = `http://${serverUrl}`;
 }
 
-main(baseUrl);
+main(profileUrl, serverUrl);
 
 /**
  * Run the main process.
- * @param {*} url
+ * @param {String} profileUrl
+ * @param {String} serverUrl
  */
-async function main(url) {
+async function main(profileUrl, serverUrl) {
   const client = new Client(DATABASE);
   await client.connect();
 
@@ -55,26 +57,26 @@ async function main(url) {
 
   try {
     if (resourceList.includes('questionnaire')) {
-      const questionnaires = await questionnaireMigrator(url, client);
+      const questionnaires = await questionnaireMigrator(profileUrl, serverUrl, client);
       for (const resource of questionnaires) {
         writeFileSync(`out/json/questionnaires/${resource.id}.json`, JSON.stringify(resource, null, 2));
-        await putResource(url, resource);
+        await putResource(serverUrl, resource);
       }
     }
 
     if (resourceList.includes('library')) {
-      const libraries = await libraryMigrator(url, client);
+      const libraries = await libraryMigrator(profileUrl, serverUrl, client);
       for (const resource of libraries) {
         writeFileSync(`out/json/libraries/${resource.id}.json`, JSON.stringify(resource, null, 2));
-        await putResource(url, resource);
+        await putResource(serverUrl, resource);
       }
     }
 
     if (resourceList.includes('measure')) {
-      const measures = await measureMigrator(url, client);
+      const measures = await measureMigrator(profileUrl, serverUrl, client);
       for (const resource of measures) {
         writeFileSync(`out/json/measures/${resource.id}.json`, JSON.stringify(resource, null, 2));
-        await putResource(url, resource);
+        await putResource(serverUrl, resource);
       }
     }
 

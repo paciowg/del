@@ -1,15 +1,15 @@
 
 const { getAllQuestionnaires, getGroupedQuestions, getGroupedResponses, getGroupedLoincCodes } = require('../sql');
 
-function buildQuestionnaire(baseUrl, {
+function buildQuestionnaire(profileUrl, serverUrl, {
   asmtid, version, status, date, name, description, title, publisher, startdate, enddate, approvaldate
 }) {
   const resource = {
     resourceType: 'Questionnaire',
     id: asmtid,
-    url: `${baseUrl}/Questionnaire/${asmtid}`,
+    url: `${serverUrl}/Questionnaire/${asmtid}`,
     meta: {
-      profile: `${baseUrl}/StructureDefinition/del-StandardForm`
+      profile: `${profileUrl}/StructureDefinition/del-StandardForm`
     },
     text: {
       status: 'generated',
@@ -175,10 +175,11 @@ function applyQuestions(resource, questions, responses, loincs) {
 /**
  * Build all questionnaires and return then as a list of objects.
  *
- * @param {string} url
+ * @param {String} profileUrl
+ * @param {String} serverUrl
  * @param {import('pg').Client} client
  */
-async function run(url, client) {
+async function run(profileUrl, serverUrl, client) {
   const questionnaireResults = await getAllQuestionnaires(client);
   const groupedQuestions = await getGroupedQuestions(client, ['asmtid']);
   const responseMap = await getGroupedResponses(client, ['asmtid', 'questionid']);
@@ -187,7 +188,7 @@ async function run(url, client) {
   const output = [];
 
   for (const row of questionnaireResults) {
-    const questionnaire = buildQuestionnaire(url, row);
+    const questionnaire = buildQuestionnaire(profileUrl, serverUrl, row);
 
     applyQuestions(
       questionnaire,

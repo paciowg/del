@@ -2,19 +2,16 @@ Grammar: Map 6.0
 Namespace: del
 Target: FHIR_R4
 
-// Hybrid approach...
-// A standard form maps to Questionnaire
-// A standard form question is a Questionnaire item and Composition
-// A standard form question is Questionnaire item and Observation
-
 StandardForm maps to Questionnaire:
+    constrain url to 1..1
+    constrain date to 1..1
     constrain name to 1..1
     constrain version to 1..1
+    constrain publisher to 1..1
     constrain title to 1..1
     constrain description to 1..1
-    constrain item to 1..*
-    constrain item.linkId to 1..1
-    constrain item.text to 1..1
+    constrain effectivePeriod to 1..1
+
     constrain identifier to 0..0
     constrain subjectType to 0..0
     constrain useContext to 0..0
@@ -22,20 +19,93 @@ StandardForm maps to Questionnaire:
     constrain jurisdiction to 0..0
     constrain purpose to 0..0
     constrain copyright to 0..0
-    constrain url to 1..1
 
+    constrain item to 0..*
+    constrain item.linkId to 1..1
+    constrain item.text to 1..1
+
+// Work in progress. Not complete.
 Assessment maps to QuestionnaireResponse:
     constrain questionnaire to 1..1
     constrain subject to 1..1
     constrain item to 1..*
 
 StandardFormLibrary maps to Library:
-    constrain name to 1..1
+    constrain url to 1..1
     constrain version to 1..1
+    constrain name to 1..1
     constrain title to 1..1
+    constrain date to 1..1
+    constrain publisher to 1..1
     constrain description to 1..1
+    constrain effectivePeriod to 1..1
+
+    constrain identifier to 0..0
+    constrain subtitle to 0..0
+    constrain experimental to 0..0
+    // constrain subjectCodeableConcept to 0..0
+    // constrain subjectReference to 0..0
+    constrain contact to 0..0
+    constrain useContext to 0..0
+    constrain jurisdiction to 0..0
+    constrain purpose to 0..0
+    constrain usage to 0..0
+    constrain copyright to 0..0
+    constrain lastReviewDate to 0..0
+    constrain topic to 0..0
+    constrain author to 0..0
+    constrain editor to 0..0
+    constrain reviewer to 0..0
+    constrain endorser to 0..0
+    constrain relatedArtifact to 0..0
+    constrain parameter to 0..0
+    constrain dataRequirement to 0..0
+    constrain content to 0..0
 
 StandardFormQuestion maps to Measure:
+    constrain url to 1..1
     constrain name to 1..1
     constrain title to 1..1
-    constrain description to 1..1
+
+    constrain relatedArtifact to 0..*
+    constrain relatedArtifact.type to 1..1
+    constrain relatedArtifact.resource to 1..1
+    constrain relatedArtifact.label to 1..1
+    constrain relatedArtifact.display to 1..1
+    constrain relatedArtifact.url to 0..1
+
+    constrain identifier to 0..0
+    constrain version to 0..0
+    constrain subtitle to 0..0
+    constrain experimental to 0..0
+    // constrain subjectCodeableConcept to 0..0
+    // constrain subjectReference to 0..0
+    constrain date to 0..0
+    constrain publisher to 0..0
+    constrain contact to 0..0
+    constrain useContext to 0..0
+    constrain jurisdiction to 0..0
+    constrain purpose to 0..0
+    constrain usage to 0..0
+    constrain copyright to 0..0
+    constrain approvalDate to 0..0
+    constrain lastReviewDate to 0..0
+    constrain effectivePeriod to 0..0
+    constrain topic to 0..0
+    constrain author to 0..0
+    constrain editor to 0..0
+    constrain reviewer to 0..0
+    constrain endorser to 0..0
+    constrain disclaimer to 0..0
+    constrain scoring to 0..0
+    constrain compositeScoring to 0..0
+    constrain type to 0..0
+    constrain riskAdjustment to 0..0
+    constrain rateAggregation to 0..0
+    constrain rationale to 0..0
+    constrain clinicalRecommendationStatement to 0..0
+    constrain improvementNotation to 0..0
+    constrain definition to 0..0
+    constrain guidance to 0..0
+    constrain group to 0..0
+    constrain supplementalData to 0..0
