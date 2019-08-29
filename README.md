@@ -6,7 +6,13 @@ FHIR Implementation Guide for CMS Data Element Library
 
 This is still a work in progress. More documentation to come.
 
-You will need yarn and java11 installed and on your PATH.
+You will need:
+* `yarn`
+* `ruby` (version 2.6.x or greater)
+* java11
+* `jekyll`
+
+installed and on your PATH.
 
 Install dependencies:
 
