@@ -11,7 +11,7 @@
     "ig-gen": "java  -jar out/fhir/guide/org.hl7.fhir.publisher.jar -ig out/fhir/guide/ig.json",
     "upload": "NODE_TLS_REJECT_UNAUTHORIZED=0 node src/upload.js",
     "migrate": "NODE_TLS_REJECT_UNAUTHORIZED=0 node src/migrate.js",
-    "build-docs": "yarn shr-cli && yarn ig-gen && cp -Rv out/fhir/guide/output/* docs/"
+    "build-docs": "rm -rf docs && yarn shr-cli && yarn ig-gen && mkdir -p docs && cp -Rv out/fhir/guide/output/* docs/"
   },
   "dependencies": {
     "json-groupby": "1.1.0",
