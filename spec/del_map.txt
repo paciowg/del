@@ -25,10 +25,10 @@ StandardForm maps to Questionnaire:
     constrain item.text to 1..1
 
 // Work in progress. Not complete.
-Assessment maps to QuestionnaireResponse:
-    constrain questionnaire to 1..1
-    constrain subject to 1..1
-    constrain item to 1..*
+// Assessment maps to QuestionnaireResponse:
+//     constrain questionnaire to 1..1
+//     constrain subject to 1..1
+//     constrain item to 1..*
 
 StandardFormLibrary maps to Library:
     constrain url to 1..1
