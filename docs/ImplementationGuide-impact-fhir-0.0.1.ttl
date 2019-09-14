@@ -10,12 +10,12 @@
   fhir:Resource.id [ fhir:value "impact-fhir-0.0.1"];
   fhir:DomainResource.text [
      fhir:Narrative.status [ fhir:value "generated" ];
-     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>IMPACT_Data_Element_Implementation_Guide</h2><p>The official URL for this implementation guide is: </p><pre>https://impact-fhir.mitre.org/r4/ImplementationGuide/impact-fhir-0.0.1</pre></div>"
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>CMS_Data_Element_Library_FHIR_Implementation_Guide</h2><p>The official URL for this implementation guide is: </p><pre>https://impact-fhir.mitre.org/r4/ImplementationGuide/impact-fhir-0.0.1</pre></div>"
   ];
   fhir:ImplementationGuide.url [ fhir:value "https://impact-fhir.mitre.org/r4/ImplementationGuide/impact-fhir-0.0.1"];
   fhir:ImplementationGuide.version [ fhir:value "0.0.1"];
-  fhir:ImplementationGuide.name [ fhir:value "IMPACT_Data_Element_Implementation_Guide"];
-  fhir:ImplementationGuide.title [ fhir:value "IMPACT Data Element Implementation Guide"];
+  fhir:ImplementationGuide.name [ fhir:value "CMS_Data_Element_Library_FHIR_Implementation_Guide"];
+  fhir:ImplementationGuide.title [ fhir:value "CMS Data Element Library - FHIR Implementation Guide"];
   fhir:ImplementationGuide.status [ fhir:value "draft"];
   fhir:ImplementationGuide.publisher [ fhir:value "The MITRE Corporation"];
   fhir:ImplementationGuide.contact [
@@ -47,23 +47,6 @@
        ], [
          fhir:index 1;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
-         fhir:Extension.valueUri [ fhir:value "StructureDefinition-del-Assessment.html" ]
-       ];
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://impact-fhir.mitre.org/r4/StructureDefinition/del-Assessment>;
-         fhir:Reference.reference [ fhir:value "StructureDefinition/del-Assessment" ]
-       ];
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "del-Assessment" ];
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
-     ], [
-       fhir:index 1;
-       fhir:Element.extension [
-         fhir:index 0;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
-         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
-       ], [
-         fhir:index 1;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
          fhir:Extension.valueUri [ fhir:value "StructureDefinition-del-StandardForm.html" ]
        ];
        fhir:ImplementationGuide.definition.resource.reference [
@@ -73,7 +56,7 @@
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "del-StandardForm" ];
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 2;
+       fhir:index 1;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -90,7 +73,7 @@
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "del-StandardFormLibrary" ];
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 3;
+       fhir:index 2;
        fhir:Element.extension [
          fhir:index 0;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ];
@@ -109,7 +92,7 @@
      ];
      fhir:ImplementationGuide.definition.page [
        fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "index.html" ];
-       fhir:ImplementationGuide.definition.page.title [ fhir:value "IMPACT Data Element Implementation Guide" ];
+       fhir:ImplementationGuide.definition.page.title [ fhir:value "CMS Data Element Library - FHIR Implementation Guide" ];
        fhir:ImplementationGuide.definition.page.generation [ fhir:value "html" ]
      ]
   ] .

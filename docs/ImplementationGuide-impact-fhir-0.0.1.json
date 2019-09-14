@@ -3,12 +3,12 @@
   "id": "impact-fhir-0.0.1",
   "text": {
     "status": "generated",
-    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>IMPACT_Data_Element_Implementation_Guide</h2><p>The official URL for this implementation guide is: </p><pre>https://impact-fhir.mitre.org/r4/ImplementationGuide/impact-fhir-0.0.1</pre></div>"
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>CMS_Data_Element_Library_FHIR_Implementation_Guide</h2><p>The official URL for this implementation guide is: </p><pre>https://impact-fhir.mitre.org/r4/ImplementationGuide/impact-fhir-0.0.1</pre></div>"
   },
   "url": "https://impact-fhir.mitre.org/r4/ImplementationGuide/impact-fhir-0.0.1",
   "version": "0.0.1",
-  "name": "IMPACT_Data_Element_Implementation_Guide",
-  "title": "IMPACT Data Element Implementation Guide",
+  "name": "CMS_Data_Element_Library_FHIR_Implementation_Guide",
+  "title": "CMS Data Element Library - FHIR Implementation Guide",
   "status": "draft",
   "publisher": "The MITRE Corporation",
   "contact": [
@@ -34,23 +34,6 @@
       }
     ],
     "resource": [
-      {
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-            "valueString": "StructureDefinition:resource"
-          },
-          {
-            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-            "valueUri": "StructureDefinition-del-Assessment.html"
-          }
-        ],
-        "reference": {
-          "reference": "StructureDefinition/del-Assessment"
-        },
-        "name": "del-Assessment",
-        "exampleBoolean": false
-      },
       {
         "extension": [
           {
@@ -105,7 +88,7 @@
     ],
     "page": {
       "nameUrl": "index.html",
-      "title": "IMPACT Data Element Implementation Guide",
+      "title": "CMS Data Element Library - FHIR Implementation Guide",
       "generation": "html"
     }
   }

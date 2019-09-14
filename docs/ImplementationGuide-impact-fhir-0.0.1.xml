@@ -3,12 +3,12 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="impact-fhir-0.0.1"/>
   <text>
-    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><h2>IMPACT_Data_Element_Implementation_Guide</h2><p>The official URL for this implementation guide is: </p><pre>https://impact-fhir.mitre.org/r4/ImplementationGuide/impact-fhir-0.0.1</pre></div>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><h2>CMS_Data_Element_Library_FHIR_Implementation_Guide</h2><p>The official URL for this implementation guide is: </p><pre>https://impact-fhir.mitre.org/r4/ImplementationGuide/impact-fhir-0.0.1</pre></div>
   </text>
   <url value="https://impact-fhir.mitre.org/r4/ImplementationGuide/impact-fhir-0.0.1"/>
   <version value="0.0.1"/>
-  <name value="IMPACT_Data_Element_Implementation_Guide"/>
-  <title value="IMPACT Data Element Implementation Guide"/>
+  <name value="CMS_Data_Element_Library_FHIR_Implementation_Guide"/>
+  <title value="CMS Data Element Library - FHIR Implementation Guide"/>
   <status value="draft"/>
   <publisher value="The MITRE Corporation"/>
   <contact>
@@ -25,19 +25,6 @@
       <name value="Profiles in this Implementation Guide"/>
       <description value="Profiles in this Implementation Guide"/>
     </grouping>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:resource"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
-        <valueUri value="StructureDefinition-del-Assessment.html"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/del-Assessment"/>
-      </reference>
-      <name value="del-Assessment"/>
-      <exampleBoolean value="false"/>
-    </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
         <valueString value="StructureDefinition:resource"/>
@@ -79,7 +66,7 @@
     </resource>
     <page>
       <nameUrl value="index.html"/>
-      <title value="IMPACT Data Element Implementation Guide"/>
+      <title value="CMS Data Element Library - FHIR Implementation Guide"/>
       <generation value="html"/>
     </page>
   </definition>

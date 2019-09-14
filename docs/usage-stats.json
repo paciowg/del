@@ -4,12 +4,6 @@
   "fhirVersion": "4.0.0",
   "extensions": [],
   "profiles": {
-    "QuestionnaireResponse": [
-      {
-        "url": "https://impact-fhir.mitre.org/r4/StructureDefinition/del-Assessment",
-        "title": "del-Assessment"
-      }
-    ],
     "Questionnaire": [
       {
         "url": "https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardForm",
