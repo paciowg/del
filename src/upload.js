@@ -7,13 +7,13 @@ const DEFAULT_URL = 'localhost:8080/r4';
 
 let serverUrl;
 program
-  .usage('<host>')
-  .arguments('<host>')
-  .action(host => serverUrl = host)
-  .parse(process.argv);
+    .usage('<host>')
+    .arguments('<host>')
+    .action(host => serverUrl = host)
+    .parse(process.argv);
 serverUrl = serverUrl || DEFAULT_URL;
 if (!serverUrl.startsWith('http')) {
-  serverUrl = `http://${serverUrl}`;
+    serverUrl = `http://${serverUrl}`;
 }
 
 main(serverUrl);
@@ -22,7 +22,7 @@ main(serverUrl);
  * Load the implementation guide from JSON file.
  */
 function getImplementationGuide() {
-  return require(`${BASE_DIR}/ig-new.json`);
+    return require(`${BASE_DIR}/ig-new.json`);
 }
 
 /**
@@ -30,22 +30,22 @@ function getImplementationGuide() {
  * @param {*} ig
  */
 function getResources(ig) {
-  const output = [];
-  for (const resource of ig.definition.resource) {
-    const [type, ident] = resource.reference.reference.split('/', 2);
-    const fileName = `${BASE_DIR}/${type.toLowerCase()}-${ident}.json`;
-    output.push(require(fileName));
-  }
-  return output;
+    const output = [];
+    for (const resource of ig.definition.resource) {
+        const [type, ident] = resource.reference.reference.split('/', 2);
+        const fileName = `${BASE_DIR}/${type.toLowerCase()}-${ident}.json`;
+        output.push(require(fileName));
+    }
+    return output;
 }
 
 async function uploadResource(url, resource) {
-  if (resource.resourceType === 'ImplementationGuide' && resource.id == 1) {
-    resource.id = 'IG1';
-  }
+    if (resource.resourceType === 'ImplementationGuide' && resource.id == 1) {
+        resource.id = 'IG1';
+    }
 
-  const response = await putResource(url, resource);
-  return response;
+    const response = await putResource(url, resource);
+    return response;
 }
 
 /**
@@ -53,15 +53,15 @@ async function uploadResource(url, resource) {
  * @param {String} serverUrl
  */
 async function main(serverUrl) {
-  const ig = getImplementationGuide();
+    const ig = getImplementationGuide();
 
-  const resources = getResources(ig);
+    const resources = getResources(ig);
 
-  for (const resource of resources) {
-    try {
-      await uploadResource(serverUrl, resource);
-    } catch (error) {
-      logError(error);
+    for (const resource of resources) {
+        try {
+            await uploadResource(serverUrl, resource);
+        } catch (error) {
+            logError(error);
+        }
     }
-  }
 }

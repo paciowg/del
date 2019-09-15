@@ -4,13 +4,14 @@
         "es6": true,
         "node": true
     },
-    "extends": "eslint:recommended",
+    "extends": [
+        "eslint:recommended"
+    ],
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
     },
     "parserOptions": {
-        "sourceType": "module",
         "ecmaVersion": 2018
     },
     "rules": {
@@ -19,7 +20,7 @@
         ],
         "indent": [
             "error",
-            2
+            4
         ],
         "linebreak-style": [
             "error",
@@ -32,6 +33,10 @@
         "semi": [
             "error",
             "always"
+        ],
+        "comma-dangle": [
+            "error",
+            "always-multiline"
         ]
     }
 }
