@@ -4,7 +4,8 @@
 select
   concat(asmt.asmt_shrt_name, '-', asmt_vrsn.asmt_vrsn_id) as asmtid,
   data_ele_qstn.data_ele_qstn_id as questionid,
-  asmt_rspns_val.data_ele_rspns_val_id as responseid,
+  asmt_rspns_val.data_ele_rspns_id as responseid,
+  asmt_rspns_val.data_ele_rspns_val_id as responsevalueid,
   rspns_val_cd as responsecode,
   rspns_val_txt as responsetext
 from del_data.asmt_qstn

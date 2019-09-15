@@ -1,43 +1,54 @@
-const { getAllLibraries } = require('../sql');
+const { getAllLibraries, getLoincCode } = require('../sql');
 
 function buildLibrary(profileUrl, serverUrl, {
-  asmtid, version, status, date, name, description, title, publisher, startdate, enddate, approvaldate
+    asmtid, version, status, date, name, description, title, publisher, startdate, enddate, approvaldate,
 }) {
-  const resource = {
-    resourceType: 'Library',
-    id: `Questionnaire-${asmtid}`,
-    url: `${serverUrl}/Library/Questionnaire-${asmtid}`,
-    meta: {
-      profile: `${profileUrl}/StructureDefinition/del-StandardFormLibrary`
-    },
-    text: {
-      status: 'generated',
-      div: `<div xmlns="http://www.w3.org/1999/xhtml">${name} standard form version ${version}.<br/><br/>${description}</div>`
-    },
-    version,
-    status, // active, draft, retired
-    name,
-    title,
-    type: {
-      coding: [{
-        code: 'asset-collection', // logic-library, model-definition, asset-collection, module-definition,
-      }],
-    },
-    date, // date last changed
-    publisher,
-    description,
-    effectivePeriod: { start: startdate }
-  };
+    const resource = {
+        resourceType: 'Library',
+        id: `Questionnaire-${asmtid}`,
+        url: `${serverUrl}/Library/Questionnaire-${asmtid}`,
+        meta: {
+            profile: `${profileUrl}/StructureDefinition/del-StandardFormLibrary`,
+        },
+        text: {
+            status: 'generated',
+            div: `<div xmlns="http://www.w3.org/1999/xhtml">${name} standard form version ${version}.<br/><br/>${description}</div>`,
+        },
+        version,
+        status, // active, draft, retired
+        name,
+        title,
+        type: {
+            coding: [{
+                code: 'asset-collection', // logic-library, model-definition, asset-collection, module-definition,
+            }],
+        },
+        date, // date last changed
+        publisher,
+        description,
+        effectivePeriod: { start: startdate },
+    };
 
-  if (approvaldate) {
-    resource.approvalDate = approvaldate;
-  }
+    const loinc = getLoincCode('questionnaire', asmtid);
+    if (loinc) {
+        resource.identifier = [
+            {
+                code: 'official',
+                system: loinc.system,
+                value: loinc.code,
+            },
+        ];
+    }
 
-  if (enddate && enddate > startdate) {
-    resource.effectivePeriod.end = enddate;
-  }
+    if (approvaldate) {
+        resource.approvalDate = approvaldate;
+    }
 
-  return resource;
+    if (enddate && enddate > startdate) {
+        resource.effectivePeriod.end = enddate;
+    }
+
+    return resource;
 }
 
 /**
@@ -48,17 +59,17 @@ function buildLibrary(profileUrl, serverUrl, {
  * @param {import('pg').Client} client
  */
 async function run(profileUrl, serverUrl, client) {
-  const libraryResults = await getAllLibraries(client);
+    const libraryResults = await getAllLibraries(client);
 
-  const output = [];
+    const output = [];
 
-  for (const row of libraryResults) {
-    const library = buildLibrary(profileUrl, serverUrl, row);
+    for (const row of libraryResults) {
+        const library = buildLibrary(profileUrl, serverUrl, row);
 
-    output.push(library);
-  }
+        output.push(library);
+    }
 
-  return output;
+    return output;
 }
 
 module.exports = { run };
