@@ -63,24 +63,27 @@ async function main(profileUrl, serverUrl) {
         if (resourceList.includes('questionnaire')) {
             const questionnaires = await questionnaireMigrator(profileUrl, serverUrl, client);
             for (const resource of questionnaires) {
-                writeFileSync(`out/json/questionnaires/${resource.id}.json`, JSON.stringify(resource, null, 4));
-                await putResource(serverUrl, resource);
+                console.log(`${resource.resourceType}/${resource.id}`);
+                writeFileSync(`out/json/questionnaires/${resource.id}.json`, JSON.stringify(resource));
+                // await putResource(serverUrl, resource);
             }
         }
 
         if (resourceList.includes('library')) {
             const libraries = await libraryMigrator(profileUrl, serverUrl, client);
             for (const resource of libraries) {
-                writeFileSync(`out/json/libraries/${resource.id}.json`, JSON.stringify(resource, null, 4));
-                await putResource(serverUrl, resource);
+                console.log(`${resource.resourceType}/${resource.id}`);
+                writeFileSync(`out/json/libraries/${resource.id}.json`, JSON.stringify(resource));
+                // await putResource(serverUrl, resource);
             }
         }
 
         if (resourceList.includes('measure')) {
             const measures = await measureMigrator(profileUrl, serverUrl, client);
             for (const resource of measures) {
-                writeFileSync(`out/json/measures/${resource.id}.json`, JSON.stringify(resource, null, 4));
-                await putResource(serverUrl, resource);
+                console.log(`${resource.resourceType}/${resource.id}`);
+                writeFileSync(`out/json/measures/${resource.id}.json`, JSON.stringify(resource));
+                // await putResource(serverUrl, resource);
             }
         }
 

@@ -44,7 +44,7 @@
 
     <div id="hl7-nav">
       <a id="hl7-logo" no-external="true" href="http://www.hl7.org">
-        <img height="50" alt="visit the hl7 website" width="42" src="assets/images/hl7-logo.png" />
+        <img height="50" alt="visit the hl7 website" width="91" src="assets/images/hl7-logo.png" />
       </a>
     </div>
   </div>
@@ -77,11 +77,12 @@
             <li><a href="extensions.html">Extensions</a></li>
             <li><a href="valuesets.html">Value Sets</a></li>
             <li><a href="codesystems.html">Code Systems</a></li>
-            <!-- no search parameters -->
+            <li><a href="searchparameters.html">Search Parameters</a></li>
             <!-- no operation definitions -->
             <!-- no conformance / capability statements -->
             <li><a href="downloads.html">Downloads</a></li>
             <!-- no reference model -->
+            <!-- no examples -->
             
           </ul>
 
@@ -169,11 +170,11 @@
   <a href="http://hl7.org/fhir/R4/structuredefinition.html#StructureDefinition.name">fhir:StructureDefinition.name</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;StandardForm&quot;];
   <a href="http://hl7.org/fhir/R4/structuredefinition.html#StructureDefinition.title">fhir:StructureDefinition.title</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;del-StandardForm&quot;];
   <a href="http://hl7.org/fhir/R4/structuredefinition.html#StructureDefinition.status">fhir:StructureDefinition.status</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#code">fhir:value</a> &quot;draft&quot;];
-  <a href="http://hl7.org/fhir/R4/structuredefinition.html#StructureDefinition.date">fhir:StructureDefinition.date</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#dateTime">fhir:value</a> &quot;2019-09-14T00:00:00-04:00&quot;^^xsd:dateTime];
+  <a href="http://hl7.org/fhir/R4/structuredefinition.html#StructureDefinition.date">fhir:StructureDefinition.date</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#dateTime">fhir:value</a> &quot;2019-10-07T00:00:00-04:00&quot;^^xsd:dateTime];
   <a href="http://hl7.org/fhir/R4/structuredefinition.html#StructureDefinition.publisher">fhir:StructureDefinition.publisher</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;The MITRE Corporation&quot;];
   <a href="http://hl7.org/fhir/R4/structuredefinition.html#StructureDefinition.contact">fhir:StructureDefinition.contact</a> [
      <a href="http://hl7.org/fhir/R4/rdf.html#index">fhir:index</a> 0;
-     <a href="http://hl7.org/fhir/R4/datatypes.html#ContactDetail#ContactDetail.telecom">fhir:ContactDetail.telecom</a> [
+     <a href="http://hl7.org/fhir/R4/metadatatypes.html#ContactDetail#ContactDetail.telecom">fhir:ContactDetail.telecom</a> [
        <a href="http://hl7.org/fhir/R4/rdf.html#index">fhir:index</a> 0;
        <a href="http://hl7.org/fhir/R4/datatypes.html#ContactPoint#ContactPoint.system">fhir:ContactPoint.system</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#code">fhir:value</a> &quot;url&quot; ];
        <a href="http://hl7.org/fhir/R4/datatypes.html#ContactPoint#ContactPoint.value">fhir:ContactPoint.value</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://mitre.org&quot; ]     ]
@@ -215,8 +216,8 @@
      <a href="http://hl7.org/fhir/R4/rdf.html#reference">fhir:link</a> &lt;http://hl7.org/fhir/StructureDefinition/Questionnaire&gt;;
      <a href="http://hl7.org/fhir/R4/datatypes.html#canonical#canonical.extension">fhir:Element.extension</a> [
        <a href="http://hl7.org/fhir/R4/rdf.html#index">fhir:index</a> 0;
-       <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/structuredefinition-codegen-super&quot; ];
-       <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;MetadataResource&quot; ]     ]
+       <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/structuredefinition-codegen-super&quot; ];
+       <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;MetadataResource&quot; ]     ]
   ];
   <a href="http://hl7.org/fhir/R4/structuredefinition.html#StructureDefinition.derivation">fhir:StructureDefinition.derivation</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#code">fhir:value</a> &quot;constraint&quot;];
   <a href="http://hl7.org/fhir/R4/structuredefinition.html#StructureDefinition.snapshot">fhir:StructureDefinition.snapshot</a> [
@@ -264,11 +265,11 @@
          <a href="http://hl7.org/fhir/R4/rdf.html#index">fhir:index</a> 3;
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.constraint.extension">fhir:Element.extension</a> [
            <a href="http://hl7.org/fhir/R4/rdf.html#index">fhir:index</a> 0;
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice&quot; ];
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueBoolean</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]         ], [
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice&quot; ];
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">fhir:Extension.valueBoolean</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]         ], [
            <a href="http://hl7.org/fhir/R4/rdf.html#index">fhir:index</a> 1;
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation&quot; ];
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueMarkdown</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#markdown">fhir:value</a> &quot;When a resource has no narrative, only systems that fully understand the data can display the resource to a human safely. Including a human readable representation in the resource makes for a much more robust eco-system and cheaper handling of resources by intermediary systems. Some ecosystems restrict distribution of resources to only those systems that do fully understand the resources, and as a consequence implementers may believe that the narrative is superfluous. However experience shows that such eco-systems often open up to new participants over time.&quot; ]         ];
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation&quot; ];
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">fhir:Extension.valueMarkdown</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#markdown">fhir:value</a> &quot;When a resource has no narrative, only systems that fully understand the data can display the resource to a human safely. Including a human readable representation in the resource makes for a much more robust eco-system and cheaper handling of resources by intermediary systems. Some ecosystems restrict distribution of resources to only those systems that do fully understand the resources, and as a consequence implementers may believe that the narrative is superfluous. However experience shows that such eco-systems often open up to new participants over time.&quot; ]         ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.constraint.key">fhir:ElementDefinition.constraint.key</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#id">fhir:value</a> &quot;dom-6&quot; ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.constraint.severity">fhir:ElementDefinition.constraint.severity</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#code">fhir:value</a> &quot;warning&quot; ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.constraint.human">fhir:ElementDefinition.constraint.human</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;A resource should have narrative for robust management&quot; ];
@@ -377,16 +378,16 @@
        <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding">fhir:ElementDefinition.binding</a> [
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.extension">fhir:Element.extension</a> [
            <a href="http://hl7.org/fhir/R4/rdf.html#index">fhir:index</a> 0;
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet&quot; ];
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueCanonical</a> [
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet&quot; ];
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">fhir:Extension.valueCanonical</a> [
              <a href="http://hl7.org/fhir/R4/datatypes.html#canonical">fhir:value</a> &quot;http://hl7.org/fhir/ValueSet/all-languages&quot;;
              <a href="http://hl7.org/fhir/R4/rdf.html#reference">fhir:link</a> &lt;http://hl7.org/fhir/ValueSet/all-languages&gt;           ]         ], [
            <a href="http://hl7.org/fhir/R4/rdf.html#index">fhir:index</a> 1;
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName&quot; ];
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;Language&quot; ]         ], [
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName&quot; ];
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;Language&quot; ]         ], [
            <a href="http://hl7.org/fhir/R4/rdf.html#index">fhir:index</a> 2;
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding&quot; ];
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueBoolean</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]         ];
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding&quot; ];
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">fhir:Extension.valueBoolean</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]         ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">fhir:ElementDefinition.binding.strength</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#code">fhir:value</a> &quot;preferred&quot; ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.description">fhir:ElementDefinition.binding.description</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;A human language.&quot; ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet">fhir:ElementDefinition.binding.valueSet</a> [
@@ -688,11 +689,11 @@
        <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding">fhir:ElementDefinition.binding</a> [
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.extension">fhir:Element.extension</a> [
            <a href="http://hl7.org/fhir/R4/rdf.html#index">fhir:index</a> 0;
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName&quot; ];
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;PublicationStatus&quot; ]         ], [
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName&quot; ];
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;PublicationStatus&quot; ]         ], [
            <a href="http://hl7.org/fhir/R4/rdf.html#index">fhir:index</a> 1;
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding&quot; ];
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueBoolean</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]         ];
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding&quot; ];
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">fhir:Extension.valueBoolean</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]         ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">fhir:ElementDefinition.binding.strength</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#code">fhir:value</a> &quot;required&quot; ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.description">fhir:ElementDefinition.binding.description</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;The lifecycle status of an artifact.&quot; ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet">fhir:ElementDefinition.binding.valueSet</a> [
@@ -756,11 +757,11 @@
        <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding">fhir:ElementDefinition.binding</a> [
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.extension">fhir:Element.extension</a> [
            <a href="http://hl7.org/fhir/R4/rdf.html#index">fhir:index</a> 0;
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName&quot; ];
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;ResourceType&quot; ]         ], [
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName&quot; ];
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;ResourceType&quot; ]         ], [
            <a href="http://hl7.org/fhir/R4/rdf.html#index">fhir:index</a> 1;
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding&quot; ];
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueBoolean</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]         ];
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding&quot; ];
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">fhir:Extension.valueBoolean</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]         ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">fhir:ElementDefinition.binding.strength</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#code">fhir:value</a> &quot;required&quot; ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.description">fhir:ElementDefinition.binding.description</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;One of the resource types defined as part of this version of FHIR.&quot; ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet">fhir:ElementDefinition.binding.valueSet</a> [
@@ -924,11 +925,11 @@
        <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding">fhir:ElementDefinition.binding</a> [
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.extension">fhir:Element.extension</a> [
            <a href="http://hl7.org/fhir/R4/rdf.html#index">fhir:index</a> 0;
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName&quot; ];
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;Jurisdiction&quot; ]         ], [
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName&quot; ];
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;Jurisdiction&quot; ]         ], [
            <a href="http://hl7.org/fhir/R4/rdf.html#index">fhir:index</a> 1;
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding&quot; ];
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueBoolean</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]         ];
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding&quot; ];
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">fhir:Extension.valueBoolean</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]         ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">fhir:ElementDefinition.binding.strength</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#code">fhir:value</a> &quot;extensible&quot; ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.description">fhir:ElementDefinition.binding.description</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;Countries and regions within which this artifact is targeted for use.&quot; ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet">fhir:ElementDefinition.binding.valueSet</a> [
@@ -1106,8 +1107,8 @@
        <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding">fhir:ElementDefinition.binding</a> [
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.extension">fhir:Element.extension</a> [
            <a href="http://hl7.org/fhir/R4/rdf.html#index">fhir:index</a> 0;
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName&quot; ];
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;QuestionnaireConcept&quot; ]         ];
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName&quot; ];
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;QuestionnaireConcept&quot; ]         ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">fhir:ElementDefinition.binding.strength</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#code">fhir:value</a> &quot;example&quot; ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.description">fhir:ElementDefinition.binding.description</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;Codes for questionnaires, groups and individual questions.&quot; ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet">fhir:ElementDefinition.binding.valueSet</a> [
@@ -1362,8 +1363,8 @@
        <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding">fhir:ElementDefinition.binding</a> [
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.extension">fhir:Element.extension</a> [
            <a href="http://hl7.org/fhir/R4/rdf.html#index">fhir:index</a> 0;
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName&quot; ];
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;QuestionnaireConcept&quot; ]         ];
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName&quot; ];
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;QuestionnaireConcept&quot; ]         ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">fhir:ElementDefinition.binding.strength</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#code">fhir:value</a> &quot;example&quot; ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.description">fhir:ElementDefinition.binding.description</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;Codes for questionnaires, groups and individual questions.&quot; ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet">fhir:ElementDefinition.binding.valueSet</a> [
@@ -1440,8 +1441,8 @@
        <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding">fhir:ElementDefinition.binding</a> [
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.extension">fhir:Element.extension</a> [
            <a href="http://hl7.org/fhir/R4/rdf.html#index">fhir:index</a> 0;
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName&quot; ];
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;QuestionnaireItemType&quot; ]         ];
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName&quot; ];
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;QuestionnaireItemType&quot; ]         ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">fhir:ElementDefinition.binding.strength</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#code">fhir:value</a> &quot;required&quot; ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.description">fhir:ElementDefinition.binding.description</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;Distinguishes groups from questions and display text and indicates data type for questions.&quot; ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet">fhir:ElementDefinition.binding.valueSet</a> [
@@ -1607,8 +1608,8 @@
        <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding">fhir:ElementDefinition.binding</a> [
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.extension">fhir:Element.extension</a> [
            <a href="http://hl7.org/fhir/R4/rdf.html#index">fhir:index</a> 0;
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName&quot; ];
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;QuestionnaireItemOperator&quot; ]         ];
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName&quot; ];
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;QuestionnaireItemOperator&quot; ]         ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">fhir:ElementDefinition.binding.strength</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#code">fhir:value</a> &quot;required&quot; ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.description">fhir:ElementDefinition.binding.description</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;The criteria by which a question is enabled.&quot; ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet">fhir:ElementDefinition.binding.valueSet</a> [
@@ -1662,8 +1663,8 @@
        <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding">fhir:ElementDefinition.binding</a> [
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.extension">fhir:Element.extension</a> [
            <a href="http://hl7.org/fhir/R4/rdf.html#index">fhir:index</a> 0;
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName&quot; ];
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;QuestionnaireQuestionOption3&quot; ]         ];
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName&quot; ];
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;QuestionnaireQuestionOption3&quot; ]         ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">fhir:ElementDefinition.binding.strength</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#code">fhir:value</a> &quot;example&quot; ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.description">fhir:ElementDefinition.binding.description</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;Allowed values to answer questions.&quot; ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet">fhir:ElementDefinition.binding.valueSet</a> [
@@ -1696,8 +1697,8 @@
        <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding">fhir:ElementDefinition.binding</a> [
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.extension">fhir:Element.extension</a> [
            <a href="http://hl7.org/fhir/R4/rdf.html#index">fhir:index</a> 0;
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName&quot; ];
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;EnableWhenBehavior&quot; ]         ];
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName&quot; ];
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;EnableWhenBehavior&quot; ]         ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">fhir:ElementDefinition.binding.strength</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#code">fhir:value</a> &quot;required&quot; ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.description">fhir:ElementDefinition.binding.description</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;Controls how multiple enableWhen values are interpreted -  whether all or any must be true.&quot; ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet">fhir:ElementDefinition.binding.valueSet</a> [
@@ -1987,8 +1988,8 @@
        <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding">fhir:ElementDefinition.binding</a> [
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.extension">fhir:Element.extension</a> [
            <a href="http://hl7.org/fhir/R4/rdf.html#index">fhir:index</a> 0;
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName&quot; ];
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;QuestionnaireQuestionOption&quot; ]         ];
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName&quot; ];
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;QuestionnaireQuestionOption&quot; ]         ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">fhir:ElementDefinition.binding.strength</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#code">fhir:value</a> &quot;example&quot; ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.description">fhir:ElementDefinition.binding.description</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;Allowed values to answer questions.&quot; ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet">fhir:ElementDefinition.binding.valueSet</a> [
@@ -2180,8 +2181,8 @@
        <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding">fhir:ElementDefinition.binding</a> [
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.extension">fhir:Element.extension</a> [
            <a href="http://hl7.org/fhir/R4/rdf.html#index">fhir:index</a> 0;
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName&quot; ];
-           <a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;QuestionnaireQuestionOption2&quot; ]         ];
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName&quot; ];
+           <a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;QuestionnaireQuestionOption2&quot; ]         ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">fhir:ElementDefinition.binding.strength</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#code">fhir:value</a> &quot;example&quot; ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.description">fhir:ElementDefinition.binding.description</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;Allowed values to answer questions.&quot; ];
          <a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet">fhir:ElementDefinition.binding.valueSet</a> [
@@ -2339,7 +2340,7 @@
       &copy;2019+
       <a style="color: #81BEF7" href="http://mitre.org">The MITRE Corporation</a>.
       Package impact-fhir#0.0.1 based on <a style="color: #81BEF7" href="http://hl7.org/fhir/R4/">FHIR 4.0.0</a>.
-      Generated <span title="Sat, Sep 14, 2019 06:42-0400">2019-09-14</span>.
+      Generated <span title="Mon, Oct 7, 2019 14:01-0400">2019-10-07</span>.
       <br/>
       <span style="color: #FFFF77">
         Links:

@@ -18,10 +18,10 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
-"@ojolabs/bunyan-prettystream@^0.1.6":
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/@ojolabs/bunyan-prettystream/-/bunyan-prettystream-0.1.6.tgz#5b254259bf6b13af4e34e653413978da20995452"
-  integrity sha1-WyVCWb9rE69ONOZTQTl42iCZVFI=
+"@types/node@*":
+  version "12.7.11"
+  resolved "https://artifacts.mitre.org:443/artifactory/api/npm/node-npm/@types/node/-/node-12.7.11.tgz#be879b52031cfb5d295b047f5462d8ef1a716446"
+  integrity sha1-voebUgMc+10pWwR/VGLY7xpxZEY=
 
 acorn-jsx@^5.0.0:
   version "5.0.1"
@@ -405,6 +405,11 @@ contains-path@^0.1.0:
   resolved "https://registry.yarnpkg.com/contains-path/-/contains-path-0.1.0.tgz#fe8cf184ff6670b6baef01a9d4861a5cbec4120a"
   integrity sha1-/ozxhP9mcLa67wGp1IYaXL7EEgo=
 
+core-js@~2.3.0:
+  version "2.3.0"
+  resolved "https://artifacts.mitre.org:443/artifactory/api/npm/node-npm/core-js/-/core-js-2.3.0.tgz#fab83fbb0b2d8dc85fa636c4b9d34c75420c6d65"
+  integrity sha1-+rg/uwstjchfpjbEudNMdUIMbWU=
+
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
@@ -589,6 +594,11 @@ es6-promise@^3.0.2:
   resolved "https://registry.yarnpkg.com/es6-promise/-/es6-promise-3.3.1.tgz#a08cdde84ccdbf34d027a1451bc91d4bcd28a613"
   integrity sha1-oIzd6EzNvzTQJ6FFG8kdS80ophM=
 
+es6-promise@~3.0.2:
+  version "3.0.2"
+  resolved "https://artifacts.mitre.org:443/artifactory/api/npm/node-npm/es6-promise/-/es6-promise-3.0.2.tgz#010d5858423a5f118979665f46486a95c6ee2bb6"
+  integrity sha1-AQ1YWEI6XxGJeWZfRkhqlcbuK7Y=
+
 escape-string-regexp@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
@@ -750,19 +760,20 @@ esutils@^2.0.2:
   resolved "https://registry.yarnpkg.com/esutils/-/esutils-2.0.2.tgz#0abf4f1caa5bcb1f7a9d8acc6dea4faaa04bac9b"
   integrity sha1-Cr9PHKpbyx96nYrMbepPqqBLrJs=
 
-exceljs@^1.11.0:
-  version "1.13.0"
-  resolved "https://registry.yarnpkg.com/exceljs/-/exceljs-1.13.0.tgz#7235e5bf1838afd5d2ae112dce9b78d002e5fac2"
-  integrity sha512-n8x26hzooPXC0KBBqNryYV+qIR1xrGOAPCIdiXL4ECXNypzr8cIANADRfpWZetcBRLZrZGcWWVfGFk44ls6W/Q==
+exceljs@1.9.0:
+  version "1.9.0"
+  resolved "https://artifacts.mitre.org:443/artifactory/api/npm/node-npm/exceljs/-/exceljs-1.9.0.tgz#dc26905b20efe0f377cd9d3944a6fa297004b3bd"
+  integrity sha1-3CaQWyDv4PN3zZ05RKb6KXAEs70=
   dependencies:
+    "@types/node" "*"
     archiver "^3.0.0"
-    fast-csv "^2.4.1"
-    jszip "^3.1.5"
+    fast-csv "^2.4.0"
+    jszip "3.1.3"
     moment "^2.22.2"
-    promish "^5.1.1"
-    sax "^1.2.4"
-    tmp "^0.1.0"
-    unzipper "^0.9.12"
+    promish ">=5.0.2"
+    sax "^1.2.2"
+    temp "0.8.3"
+    unzipper "^0.9.7"
 
 execa@^0.7.0:
   version "0.7.0"
@@ -815,10 +826,10 @@ extsprintf@^1.2.0:
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.4.0.tgz#e2689f8f356fad62cca65a3a91c5df5f9551692f"
   integrity sha1-4mifjzVvrWLMplo6kcXfX5VRaS8=
 
-fast-csv@^2.4.1:
+fast-csv@^2.4.0:
   version "2.5.0"
-  resolved "https://registry.yarnpkg.com/fast-csv/-/fast-csv-2.5.0.tgz#5332dfede3f59340cb8e9f46b2e6dff1e7612005"
-  integrity sha512-M/9ezLU9/uDwvDZTt9sNFJa0iLDUsbhYJwPtnE0D9MjeuB6DY9wRCyUPZta9iI6cSz5wBWGaUPL61QH8h92cNA==
+  resolved "https://artifacts.mitre.org:443/artifactory/api/npm/node-npm/fast-csv/-/fast-csv-2.5.0.tgz#5332dfede3f59340cb8e9f46b2e6dff1e7612005"
+  integrity sha1-UzLf7eP1k0DLjp9Gsubf8edhIAU=
   dependencies:
     extended "0.0.6"
     is-extended "0.0.10"
@@ -1109,7 +1120,7 @@ inherits@2, inherits@~2.0.3:
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.3.tgz#633c2c83e3da42a502f52466022480f4208261de"
   integrity sha1-Yzwsg+PaQqUC9SRmAiSA9CCCYd4=
 
-inherits@~2.0.0:
+inherits@~2.0.0, inherits@~2.0.1:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.4.tgz#0fa2c64f932917c3433a0ded55363aae37416b7c"
   integrity sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==
@@ -1302,15 +1313,16 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
-jszip@^3.1.5:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/jszip/-/jszip-3.2.1.tgz#c5d32df7274042282b157efb16e522b43435e01a"
-  integrity sha512-iCMBbo4eE5rb1VCpm5qXOAaUiRKRUKiItn8ah2YQQx9qymmSAY98eyQfioChEYcVQLh0zxJ3wS4A0mh90AVPvw==
+jszip@3.1.3:
+  version "3.1.3"
+  resolved "https://artifacts.mitre.org:443/artifactory/api/npm/node-npm/jszip/-/jszip-3.1.3.tgz#8a920403b2b1651c0fc126be90192d9080957c37"
+  integrity sha1-ipIEA7KxZRwPwSa+kBktkICVfDc=
   dependencies:
-    lie "~3.3.0"
+    core-js "~2.3.0"
+    es6-promise "~3.0.2"
+    lie "~3.1.0"
     pako "~1.0.2"
-    readable-stream "~2.3.6"
-    set-immediate-shim "~1.0.1"
+    readable-stream "~2.0.6"
 
 lazystream@^1.0.0:
   version "1.0.0"
@@ -1334,10 +1346,10 @@ levn@^0.3.0, levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
-lie@~3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/lie/-/lie-3.3.0.tgz#dcf82dee545f46074daf200c7c1c5a08e0f40f6a"
-  integrity sha512-UaiMJzeWRlEujzAuw5LokY1L5ecNQYZKfmyZ9L7wDHb/p5etKaxXhohBcrw0EYby+G/NA52vRSN4N39dxHAIwQ==
+lie@~3.1.0:
+  version "3.1.1"
+  resolved "https://artifacts.mitre.org:443/artifactory/api/npm/node-npm/lie/-/lie-3.1.1.tgz#9a436b2cc7746ca59de7a41fa469b3efb76bd87e"
+  integrity sha1-mkNrLMd0bKWd56QfpGmz77dr2H4=
   dependencies:
     immediate "~3.0.5"
 
@@ -1388,6 +1400,11 @@ lodash.isplainobject@^4.0.6:
   version "4.0.6"
   resolved "https://registry.yarnpkg.com/lodash.isplainobject/-/lodash.isplainobject-4.0.6.tgz#7c526a52d89b45c45cc690b88163be0497f550cb"
   integrity sha1-fFJqUtibRcRcxpC4gWO+BJf1UMs=
+
+lodash.sortby@4.7.0:
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/lodash.sortby/-/lodash.sortby-4.7.0.tgz#edd14c824e2cc9c1e0b0a1b42bb5210516a42438"
+  integrity sha1-7dFMgk4sycHgsKG0K7UhBRakJDg=
 
 lodash.toarray@^4.4.0:
   version "4.4.0"
@@ -1597,9 +1614,9 @@ os-locale@^2.0.0:
     lcid "^1.0.0"
     mem "^1.1.0"
 
-os-tmpdir@~1.0.2:
+os-tmpdir@^1.0.0, os-tmpdir@~1.0.2:
   version "1.0.2"
-  resolved "https://registry.yarnpkg.com/os-tmpdir/-/os-tmpdir-1.0.2.tgz#bbe67406c79aa85c5cfec766fe5734555dfa1274"
+  resolved "https://artifacts.mitre.org:443/artifactory/api/npm/node-npm/os-tmpdir/-/os-tmpdir-1.0.2.tgz#bbe67406c79aa85c5cfec766fe5734555dfa1274"
   integrity sha1-u+Z0BseaqFxc/sdm/lc0VV36EnQ=
 
 p-finally@^1.0.0:
@@ -1772,6 +1789,11 @@ prelude-ls@~1.1.2:
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
   integrity sha1-IZMqVJ9eUv/ZqCf1cOBL5iqX2lQ=
 
+process-nextick-args@~1.0.6:
+  version "1.0.7"
+  resolved "https://artifacts.mitre.org:443/artifactory/api/npm/node-npm/process-nextick-args/-/process-nextick-args-1.0.7.tgz#150e20b756590ad3f91093f25a4f2ad8bff30ba3"
+  integrity sha1-FQ4gt1ZZCtP5EJPyWk8q2L/zC6M=
+
 process-nextick-args@~2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.0.tgz#a37d732f4271b4ab1ad070d35508e8290788ffaa"
@@ -1782,10 +1804,10 @@ progress@^2.0.0:
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
-promish@^5.1.1:
+promish@>=5.0.2:
   version "5.1.1"
-  resolved "https://registry.yarnpkg.com/promish/-/promish-5.1.1.tgz#a5fdfc508d1233087cda33f1bb27b23d5b46d70f"
-  integrity sha512-37xEzvSas6JIYI/BcKh5TwhaqWepI44u/hC+tQStkX1sxMf+L756beESPgSWirxRCPqtXHzosoNzpjLnTnP8FA==
+  resolved "https://artifacts.mitre.org:443/artifactory/api/npm/node-npm/promish/-/promish-5.1.1.tgz#a5fdfc508d1233087cda33f1bb27b23d5b46d70f"
+  integrity sha1-pf38UI0SMwh82jPxuyeyPVtG1w8=
   dependencies:
     es6-promise "^3.0.2"
 
@@ -1842,6 +1864,18 @@ readable-stream@^2.0.0, readable-stream@^2.0.2, readable-stream@^2.0.5, readable
     process-nextick-args "~2.0.0"
     safe-buffer "~5.1.1"
     string_decoder "~1.1.1"
+    util-deprecate "~1.0.1"
+
+readable-stream@~2.0.6:
+  version "2.0.6"
+  resolved "https://artifacts.mitre.org:443/artifactory/api/npm/node-npm/readable-stream/-/readable-stream-2.0.6.tgz#8f90341e68a53ccc928788dacfcd11b36eb9b78e"
+  integrity sha1-j5A0HmilPMySh4jaz80Rs265t44=
+  dependencies:
+    core-util-is "~1.0.0"
+    inherits "~2.0.1"
+    isarray "~1.0.0"
+    process-nextick-args "~1.0.6"
+    string_decoder "~0.10.x"
     util-deprecate "~1.0.1"
 
 regexpp@^2.0.1:
@@ -1938,12 +1972,17 @@ restore-cursor@^2.0.0:
     onetime "^2.0.0"
     signal-exit "^3.0.2"
 
-rimraf@2, rimraf@2.6.3, rimraf@^2.6.3:
+rimraf@2, rimraf@2.6.3:
   version "2.6.3"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.6.3.tgz#b2d104fe0d8fb27cf9e0a1cda8262dd3833c6cab"
   integrity sha512-mwqeW5XsA2qAejG46gYdENaxXjx9onRNCfn7L0duuP4hCuTIi/QO7PDK07KJfp1d+izWPrzEJDcSqBa0OZQriA==
   dependencies:
     glob "^7.1.3"
+
+rimraf@~2.2.6:
+  version "2.2.8"
+  resolved "https://artifacts.mitre.org:443/artifactory/api/npm/node-npm/rimraf/-/rimraf-2.2.8.tgz#e439be2aaee327321952730f99a8929e4fc50582"
+  integrity sha1-5Dm+Kq7jJzIZUnMPmaiSnk/FBYI=
 
 rimraf@~2.4.0:
   version "2.4.5"
@@ -1981,10 +2020,10 @@ safe-json-stringify@~1:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
-sax@^1.2.4:
+sax@^1.2.2:
   version "1.2.4"
-  resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
-  integrity sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==
+  resolved "https://artifacts.mitre.org:443/artifactory/api/npm/node-npm/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
+  integrity sha1-KBYjTiN4vdxOU1T6tcqold9xANk=
 
 "semver@2 || 3 || 4 || 5", semver@^5.5.0, semver@^5.5.1:
   version "5.7.0"
@@ -2005,11 +2044,6 @@ set-blocking@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/set-blocking/-/set-blocking-2.0.0.tgz#045f9782d011ae9a6803ddd382b24392b3d890f7"
   integrity sha1-BF+XgtARrppoA93TgrJDkrPYkPc=
-
-set-immediate-shim@~1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/set-immediate-shim/-/set-immediate-shim-1.0.1.tgz#4b2b1b27eb808a9f8dcc481a58e5e56f599f3f61"
-  integrity sha1-SysbJ+uAip+NzEgaWOXlb1mfP2E=
 
 setimmediate@~1.0.4:
   version "1.0.5"
@@ -2035,76 +2069,76 @@ showdown@^1.8.6:
   dependencies:
     yargs "^10.0.3"
 
-"shr-cli@https://github.com/standardhealth/shr-cli.git#6.5.0":
-  version "6.5.0"
-  resolved "https://github.com/standardhealth/shr-cli.git#88a21a9e8f095adfd66972cb0f62c2e3669498bb"
+"shr-cli@https://github.com/standardhealth/shr-cli.git#6.8.0":
+  version "6.8.0"
+  resolved "https://github.com/standardhealth/shr-cli.git#71472099fe83467eb5577082dfff81384e6a1b3b"
   dependencies:
-    "@ojolabs/bunyan-prettystream" "^0.1.6"
     bunyan "^1.8.12"
     commander "^2.9.0"
     fs-extra "^7.0.0"
     mkdirp "^0.5.1"
-    shr-data-dict-export "^6.0.0"
-    shr-es6-export "^6.1.0"
-    shr-expand "^6.3.0"
-    shr-fhir-export "^6.3.0"
-    shr-json-javadoc "^6.0.0"
-    shr-json-schema-export "^6.1.0"
-    shr-models "^6.3.0"
-    shr-text-import "^6.3.0"
+    shr-data-dict-export "^6.2.0"
+    shr-es6-export "^6.2.0"
+    shr-expand "^6.5.0"
+    shr-fhir-export "^6.6.0"
+    shr-json-javadoc "^6.3.0"
+    shr-json-schema-export "^6.2.0"
+    shr-models "^6.6.0"
+    shr-text-import "^6.6.0"
+    strip-ansi "^5.2.0"
 
-shr-data-dict-export@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/shr-data-dict-export/-/shr-data-dict-export-6.0.0.tgz#7c185317767275be3bd7519ffb7640901a9385d0"
-  integrity sha512-Rwl+e8MXTAhduY8DXa849l9dzh1T65RONJjFybS1XUFYGm2v/wKhu+aBbTRoWTtnTto55nJLPNE/8e+725ydVg==
+shr-data-dict-export@^6.2.0:
+  version "6.2.1"
+  resolved "https://artifacts.mitre.org:443/artifactory/api/npm/node-npm/shr-data-dict-export/-/shr-data-dict-export-6.2.1.tgz#cdd2127b25dfe038fd01489f5ebc07d53b97ef06"
+  integrity sha1-zdISeyXf4Dj9AUifXrwH1TuX7wY=
   dependencies:
-    exceljs "^1.11.0"
+    exceljs "1.9.0"
     mkdirp "^0.5.1"
 
-shr-es6-export@^6.1.0:
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/shr-es6-export/-/shr-es6-export-6.1.0.tgz#c1d68cfe808c75b78f645c01bb33adeefdfaeaff"
-  integrity sha512-/cH9MUBlWLbjI+zLQROp8KpRTZE+GkNQuP661KScbtxVbA5aVWgEgZ9zZDBtd6jEcJL3ME784g6h9rRhTa8hMg==
+shr-es6-export@^6.2.0:
+  version "6.2.1"
+  resolved "https://artifacts.mitre.org:443/artifactory/api/npm/node-npm/shr-es6-export/-/shr-es6-export-6.2.1.tgz#32aa9735d1c8f86533fdd8b33ab11c7fda4a2716"
+  integrity sha1-MqqXNdHI+GUz/dizOrEcf9pKJxY=
   dependencies:
     reserved-words "^0.1.2"
 
-shr-expand@^6.3.0:
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/shr-expand/-/shr-expand-6.3.0.tgz#ace02264470a33f939cc8ff0c044fa745f3a5a0d"
-  integrity sha512-uQbKHYagP8swoMSNJtjvP7C1iM1yur2o2T+fJ783HSILEBYZl9SctXhgugZleN2MnlqsMpHwGej7K4PhK9x1xg==
+shr-expand@^6.5.0:
+  version "6.6.0"
+  resolved "https://artifacts.mitre.org:443/artifactory/api/npm/node-npm/shr-expand/-/shr-expand-6.6.0.tgz#afe526907a25d698fc13e23d785561d365fa508e"
+  integrity sha1-r+UmkHol1pj8E+I9eFVh02X6UI4=
 
-shr-fhir-export@^6.3.0:
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/shr-fhir-export/-/shr-fhir-export-6.3.0.tgz#4d908e5c8660111ab06fe15d27980561d9b94536"
-  integrity sha512-XdZpfyln0DDISU0w7cXoHQbWdFSXepuRBLUOXSKiksvvkeSewBSZ/xWHvXXDcI3vwpeXNxV6M2CrLU+3VJ5joQ==
+shr-fhir-export@^6.6.0:
+  version "6.7.0"
+  resolved "https://artifacts.mitre.org:443/artifactory/api/npm/node-npm/shr-fhir-export/-/shr-fhir-export-6.7.0.tgz#38307d4f01bd37925d45b218d85c66cf996b5ba5"
+  integrity sha1-ODB9TwG9N5JdRbIY2Fxmz5lrW6U=
   dependencies:
     fs-extra "^2.0.0"
     lodash "^4.17.14"
 
-shr-json-javadoc@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/shr-json-javadoc/-/shr-json-javadoc-6.0.0.tgz#fd4ef1168f14764ad04b610ff5e2e8034813a935"
-  integrity sha512-lpCz6sD0HaFbkL4HrzAw1puglvjzc8ZXLgT1O1v/ibkXh4gVLKy2BdL8exPFT7pyMTg705sYRN+5zJrt7hN0+g==
+shr-json-javadoc@^6.3.0:
+  version "6.4.0"
+  resolved "https://artifacts.mitre.org:443/artifactory/api/npm/node-npm/shr-json-javadoc/-/shr-json-javadoc-6.4.0.tgz#40c91fe2cbef3e6c89c06a67186429bfdba89a28"
+  integrity sha1-QMkf4svvPmyJwGpnGGQpv9uomig=
   dependencies:
     bluebird "^3.5.1"
     ejs "^2.5.7"
     ncp "^2.0.0"
     showdown "^1.8.6"
 
-shr-json-schema-export@^6.1.0:
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/shr-json-schema-export/-/shr-json-schema-export-6.1.0.tgz#64e3cd2072d94d66f7519fc5553efe87e09cde5e"
-  integrity sha512-8EoiZ/BeEN+JqDLFtde1tWGaVJUI0I5VqxUQtZxDNKlvhHJ3riBx9urviTQv7eOwULinJQO/wz0tXW7KuLFPrg==
-
-shr-models@^6.3.0:
+shr-json-schema-export@^6.2.0:
   version "6.3.0"
-  resolved "https://registry.yarnpkg.com/shr-models/-/shr-models-6.3.0.tgz#7fee7a76c700c4dc3598c7465529e17048b5bf8f"
-  integrity sha512-SyUHKzOAAmMgLm/N7lnA2SWvLnjqfYQV33+ywryFUQEktB05VohnHxTkfgGfyi8mjUyqAKE51hDr58QU7kDzZA==
+  resolved "https://artifacts.mitre.org:443/artifactory/api/npm/node-npm/shr-json-schema-export/-/shr-json-schema-export-6.3.0.tgz#48f179e8ac859efc369373dc06d5e2f9b7a989a7"
+  integrity sha1-SPF56KyFnvw2k3PcBtXi+bepiac=
 
-shr-text-import@^6.3.0:
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/shr-text-import/-/shr-text-import-6.3.0.tgz#ddc488b6987c4b9088dd74d53198b7be4575215e"
-  integrity sha512-Q9V52MqbfLF+ObSBbnvibeQzhSsAmMmWdA4y8+uEm4ezzT5QQw8QiMrrc+gjNH5QtkY0VrqPjYJSsGrvP6gZJQ==
+shr-models@^6.6.0:
+  version "6.7.0"
+  resolved "https://artifacts.mitre.org:443/artifactory/api/npm/node-npm/shr-models/-/shr-models-6.7.0.tgz#b3ee24dc4de7f834e591dfad3c6f6f572ccb020b"
+  integrity sha1-s+4k3E3n+DTlkd+tPG9vVyzLAgs=
+
+shr-text-import@^6.6.0:
+  version "6.7.0"
+  resolved "https://artifacts.mitre.org:443/artifactory/api/npm/node-npm/shr-text-import/-/shr-text-import-6.7.0.tgz#83e414640e4e4b09c5ba12e70abc1f7687d2a320"
+  integrity sha1-g+QUZA5OSwnFuhLnCrwfdofSoyA=
   dependencies:
     antlr4 "~4.6.0"
 
@@ -2216,6 +2250,11 @@ string-width@^3.0.0:
     is-fullwidth-code-point "^2.0.0"
     strip-ansi "^5.1.0"
 
+string_decoder@~0.10.x:
+  version "0.10.31"
+  resolved "https://artifacts.mitre.org:443/artifactory/api/npm/node-npm/string_decoder/-/string_decoder-0.10.31.tgz#62e203bc41766c6c28c9fc84301dab1c5310fa94"
+  integrity sha1-YuIDvEF2bGwoyfyEMB2rHFMQ+pQ=
+
 string_decoder@~1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/string_decoder/-/string_decoder-1.1.1.tgz#9cf1611ba62685d7030ae9e4ba34149c3af03fc8"
@@ -2237,10 +2276,10 @@ strip-ansi@^4.0.0:
   dependencies:
     ansi-regex "^3.0.0"
 
-strip-ansi@^5.1.0:
+strip-ansi@^5.1.0, strip-ansi@^5.2.0:
   version "5.2.0"
-  resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-5.2.0.tgz#8c9a536feb6afc962bdfa5b104a5091c1ad9c0ae"
-  integrity sha512-DuRs1gKbBqsMKIZlrffwlug8MHkcnpjs5VPmL1PAh+mA30U0DTotfDZ0d2UUsXpPmPmMMJ6W773MaA3J+lbiWA==
+  resolved "https://artifacts.mitre.org:443/artifactory/api/npm/node-npm/strip-ansi/-/strip-ansi-5.2.0.tgz#8c9a536feb6afc962bdfa5b104a5091c1ad9c0ae"
+  integrity sha1-jJpTb+tq/JYr36WxBKUJHBrZwK4=
   dependencies:
     ansi-regex "^4.1.0"
 
@@ -2289,6 +2328,14 @@ tar-stream@^1.5.0:
     to-buffer "^1.1.1"
     xtend "^4.0.0"
 
+temp@0.8.3:
+  version "0.8.3"
+  resolved "https://artifacts.mitre.org:443/artifactory/api/npm/node-npm/temp/-/temp-0.8.3.tgz#e0c6bc4d26b903124410e4fed81103014dfc1f59"
+  integrity sha1-4Ma8TSa5AxJEEOT+2BEDAU38H1k=
+  dependencies:
+    os-tmpdir "^1.0.0"
+    rimraf "~2.2.6"
+
 text-table@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
@@ -2305,13 +2352,6 @@ tmp@^0.0.33:
   integrity sha512-jRCJlojKnZ3addtTOjdIqoRuPEKBvNXcGYqzO6zWZX8KfKEpnGY5jfggJQ3EjKuu8D4bJRr0y+cYJFmYbImXGw==
   dependencies:
     os-tmpdir "~1.0.2"
-
-tmp@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/tmp/-/tmp-0.1.0.tgz#ee434a4e22543082e294ba6201dcc6eafefa2877"
-  integrity sha512-J7Z2K08jbGcdA1kkQpJSqLF6T0tdQqpR2pnSUXsIchbPdTI9v3e85cLW0d6WDhwuAleOV71j2xWs8qMPfK7nKw==
-  dependencies:
-    rimraf "^2.6.3"
 
 to-buffer@^1.1.1:
   version "1.1.1"
@@ -2368,10 +2408,10 @@ universalify@^0.1.0:
   resolved "https://registry.yarnpkg.com/universalify/-/universalify-0.1.2.tgz#b646f69be3942dabcecc9d6639c80dc105efaa66"
   integrity sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==
 
-unzipper@^0.9.12:
+unzipper@^0.9.7:
   version "0.9.15"
-  resolved "https://registry.yarnpkg.com/unzipper/-/unzipper-0.9.15.tgz#97d99203dad17698ee39882483c14e4845c7549c"
-  integrity sha512-2aaUvO4RAeHDvOCuEtth7jrHFaCKTSXPqUkXwADaLBzGbgZGzUDccoEdJ5lW+3RmfpOZYNx0Rw6F6PUzM6caIA==
+  resolved "https://artifacts.mitre.org:443/artifactory/api/npm/node-npm/unzipper/-/unzipper-0.9.15.tgz#97d99203dad17698ee39882483c14e4845c7549c"
+  integrity sha1-l9mSA9rRdpjuOYgkg8FOSEXHVJw=
   dependencies:
     big-integer "^1.6.17"
     binary "~0.3.0"

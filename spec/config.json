@@ -7,12 +7,7 @@
         "npmName": "impact-fhir",
         "version": "0.0.1",
         "indexContent": "content",
-        "primarySelectionStrategy": {
-            "strategy": "namespace",
-            "primary": [
-                "del"
-            ]
-        },
+        "extraResources": "resources",
         "includeModelDoc": false,
         "includeLogicalModels": false
     },

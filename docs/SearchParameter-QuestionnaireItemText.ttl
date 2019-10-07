@@ -1,0 +1,40 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://impact-fhir.mitre.org/r4/SearchParameter/QuestionnaireItemText> a fhir:SearchParameter;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "QuestionnaireItemText"];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">Search for a questionnaire by item.text nested field - up to 3 levels.</div>"
+  ];
+  fhir:SearchParameter.url [ fhir:value "https://impact-fhir.mitre.org/r4/SearchParameter/QuestionnaireItemText"];
+  fhir:SearchParameter.version [ fhir:value "0.0.1"];
+  fhir:SearchParameter.name [ fhir:value "QuestionnaireItemText"];
+  fhir:SearchParameter.status [ fhir:value "active"];
+  fhir:SearchParameter.date [ fhir:value "2019-10-07T14:01:39-04:00"^^xsd:dateTime];
+  fhir:SearchParameter.description [ fhir:value "Search for a questionnaire by item.text nested field - up to 3 levels."];
+  fhir:SearchParameter.code [ fhir:value "item-text"];
+  fhir:SearchParameter.base [
+     fhir:value "Questionnaire";
+     fhir:index 0
+  ];
+  fhir:SearchParameter.type [ fhir:value "string"];
+  fhir:SearchParameter.expression [ fhir:value "Questionnaire.item.text | Questionnaire.item.item.text | Questionnaire.item.item.item.text"];
+  fhir:SearchParameter.xpathUsage [ fhir:value "normal"];
+  fhir:SearchParameter.modifier [
+     fhir:value "contains";
+     fhir:index 0
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://impact-fhir.mitre.org/r4/SearchParameter/QuestionnaireItemText.ttl> a owl:Ontology;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

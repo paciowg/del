@@ -9,18 +9,6 @@
         "url": "https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardForm",
         "title": "del-StandardForm"
       }
-    ],
-    "Library": [
-      {
-        "url": "https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardFormLibrary",
-        "title": "del-StandardFormLibrary"
-      }
-    ],
-    "Measure": [
-      {
-        "url": "https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardFormQuestion",
-        "title": "del-StandardFormQuestion"
-      }
     ]
   },
   "usage": {
@@ -41,6 +29,9 @@
     ],
     "http://hl7.org/fhir/StructureDefinition/structuredefinition-codegen-super": [
       "StructureDefinition.baseDefinition"
+    ],
+    "http://hl7.org/fhir/tools/StructureDefinition/resource-information": [
+      "ImplementationGuide.definition.resource"
     ]
   }
 }

@@ -1,10 +1,10 @@
-﻿{
+{
   "url": "https://impact-fhir.mitre.org/r4/ImplementationGuide/impact-fhir-0.0.1",
   "name": "CMS_Data_Element_Library_FHIR_Implementation_Guide",
   "package-id": "impact-fhir",
   "ig-ver": "0.0.1",
-  "date": "Sat, 14 Sep, 2019 06:42:07 -0400",
-  "errs": 6,
+  "date": "Mon, 07 Oct, 2019 14:01:39 -0400",
+  "errs": 2,
   "warnings": 0,
   "hints": 0,
   "version": "4.0.0",

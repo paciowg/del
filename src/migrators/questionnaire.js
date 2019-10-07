@@ -1,3 +1,4 @@
+const sortBy = require('lodash.sortby');
 
 const {
     getAllQuestionnaires,
@@ -140,6 +141,8 @@ function applyQuestions(resource, questions, responses) {
         return;
     }
 
+    questions = sortBy(questions, ['sectionname']);
+
     const questionMap = {};
     const sectionMap = {};
 
@@ -162,7 +165,7 @@ function applyQuestions(resource, questions, responses) {
         }
         const section = sectionMap[question.sectionid];
 
-        // This is a root question or section. Place directly in the section.
+        // This is a root question or subsection. Place directly in the section.
         if (!question.parentid) {
             const item = buildQuestion(question, responses[question.questionid]);
             questionMap[question.questionid] = item;

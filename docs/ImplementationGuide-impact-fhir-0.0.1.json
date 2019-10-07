@@ -10,6 +10,7 @@
   "name": "CMS_Data_Element_Library_FHIR_Implementation_Guide",
   "title": "CMS Data Element Library - FHIR Implementation Guide",
   "status": "draft",
+  "date": "2019-10-07T14:01:39-04:00",
   "publisher": "The MITRE Corporation",
   "contact": [
     {
@@ -55,35 +56,18 @@
         "extension": [
           {
             "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-            "valueString": "StructureDefinition:resource"
+            "valueString": "SearchParameter"
           },
           {
             "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-            "valueUri": "StructureDefinition-del-StandardFormLibrary.html"
+            "valueUri": "SearchParameter-QuestionnaireItemText.html"
           }
         ],
         "reference": {
-          "reference": "StructureDefinition/del-StandardFormLibrary"
+          "reference": "SearchParameter/QuestionnaireItemText"
         },
-        "name": "del-StandardFormLibrary",
-        "exampleBoolean": false
-      },
-      {
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-            "valueString": "StructureDefinition:resource"
-          },
-          {
-            "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-            "valueUri": "StructureDefinition-del-StandardFormQuestion.html"
-          }
-        ],
-        "reference": {
-          "reference": "StructureDefinition/del-StandardFormQuestion"
-        },
-        "name": "del-StandardFormQuestion",
-        "exampleBoolean": false
+        "name": "QuestionnaireItemText",
+        "exampleBoolean": true
       }
     ],
     "page": {

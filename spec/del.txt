@@ -5,12 +5,3 @@ Uses: shr.core, shr.base
 
 Entry: StandardForm
 Description: "A DEL standard form and all of its contents. This includes sections, questions, and available question responses."
-
-// Entry: Assessment
-// Description: "A response to a DEL standard form for a patient. Not currently used."
-
-Entry: StandardFormLibrary
-Description: "A DEL standard form. Used for searching purposes. Links to any related StandardFormQuestion."
-
-Entry: StandardFormQuestion
-Description: "A DEL question (item). Used for searching purposes. Links back to StandardFormLibrary."

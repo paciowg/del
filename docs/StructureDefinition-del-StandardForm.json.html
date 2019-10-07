@@ -44,7 +44,7 @@
 
     <div id="hl7-nav">
       <a id="hl7-logo" no-external="true" href="http://www.hl7.org">
-        <img height="50" alt="visit the hl7 website" width="42" src="assets/images/hl7-logo.png" />
+        <img height="50" alt="visit the hl7 website" width="91" src="assets/images/hl7-logo.png" />
       </a>
     </div>
   </div>
@@ -77,11 +77,12 @@
             <li><a href="extensions.html">Extensions</a></li>
             <li><a href="valuesets.html">Value Sets</a></li>
             <li><a href="codesystems.html">Code Systems</a></li>
-            <!-- no search parameters -->
+            <li><a href="searchparameters.html">Search Parameters</a></li>
             <!-- no operation definitions -->
             <!-- no conformance / capability statements -->
             <li><a href="downloads.html">Downloads</a></li>
             <!-- no reference model -->
+            <!-- no examples -->
             
           </ul>
 
@@ -162,11 +163,11 @@
   "<a href="http://hl7.org/fhir/R4/structuredefinition.html#StructureDefinition.name">name</a>" : "StandardForm",
   "<a href="http://hl7.org/fhir/R4/structuredefinition.html#StructureDefinition.title">title</a>" : "del-StandardForm",
   "<a href="http://hl7.org/fhir/R4/structuredefinition.html#StructureDefinition.status">status</a>" : "draft",
-  "<a href="http://hl7.org/fhir/R4/structuredefinition.html#StructureDefinition.date">date</a>" : "2019-09-14T00:00:00-04:00",
+  "<a href="http://hl7.org/fhir/R4/structuredefinition.html#StructureDefinition.date">date</a>" : "2019-10-07T00:00:00-04:00",
   "<a href="http://hl7.org/fhir/R4/structuredefinition.html#StructureDefinition.publisher">publisher</a>" : "The MITRE Corporation",
   "<a href="http://hl7.org/fhir/R4/structuredefinition.html#StructureDefinition.contact">contact</a>" : [
     {
-      "<a href="http://hl7.org/fhir/R4/datatypes.html#ContactDetail#ContactDetail.telecom">telecom</a>" : [
+      "<a href="http://hl7.org/fhir/R4/metadatatypes.html#ContactDetail#ContactDetail.telecom">telecom</a>" : [
         {
           "<a href="http://hl7.org/fhir/R4/datatypes.html#ContactPoint#ContactPoint.system">system</a>" : "url",
           "<a href="http://hl7.org/fhir/R4/datatypes.html#ContactPoint#ContactPoint.value">value</a>" : "http://mitre.org"
@@ -211,8 +212,8 @@
   "<a href="http://hl7.org/fhir/R4/structuredefinition.html#StructureDefinition.baseDefinition">_baseDefinition</a>" : {
     "<a href="http://hl7.org/fhir/R4/datatypes.html#canonical#canonical.extension">extension</a>" : [
       {
-        "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-codegen-super",
-        "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">valueString</a>" : "MetadataResource"
+        "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-codegen-super",
+        "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">valueString</a>" : "MetadataResource"
       }
     ]
   },
@@ -264,12 +265,12 @@
           {
             "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.constraint.extension">extension</a>" : [
               {
-                "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice",
-                "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">valueBoolean</a>" : true
+                "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice",
+                "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">valueBoolean</a>" : true
               },
               {
-                "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation",
-                "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">valueMarkdown</a>" : "When a resource has no narrative, only systems that fully understand the data can display the resource to a human safely. Including a human readable representation in the resource makes for a much more robust eco-system and cheaper handling of resources by intermediary systems. Some ecosystems restrict distribution of resources to only those systems that do fully understand the resources, and as a consequence implementers may believe that the narrative is superfluous. However experience shows that such eco-systems often open up to new participants over time."
+                "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation",
+                "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">valueMarkdown</a>" : "When a resource has no narrative, only systems that fully understand the data can display the resource to a human safely. Including a human readable representation in the resource makes for a much more robust eco-system and cheaper handling of resources by intermediary systems. Some ecosystems restrict distribution of resources to only those systems that do fully understand the resources, and as a consequence implementers may believe that the narrative is superfluous. However experience shows that such eco-systems often open up to new participants over time."
               }
             ],
             "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.constraint.key">key</a>" : "dom-6",
@@ -405,16 +406,16 @@
         "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>" : {
           "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.extension">extension</a>" : [
             {
-              "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet",
-              "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">valueCanonical</a>" : "http://hl7.org/fhir/ValueSet/all-languages"
+              "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet",
+              "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">valueCanonical</a>" : "http://hl7.org/fhir/ValueSet/all-languages"
             },
             {
-              "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
-              "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">valueString</a>" : "Language"
+              "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">valueString</a>" : "Language"
             },
             {
-              "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding",
-              "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">valueBoolean</a>" : true
+              "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding",
+              "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">valueBoolean</a>" : true
             }
           ],
           "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a>" : "preferred",
@@ -782,12 +783,12 @@
         "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>" : {
           "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.extension">extension</a>" : [
             {
-              "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
-              "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">valueString</a>" : "PublicationStatus"
+              "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">valueString</a>" : "PublicationStatus"
             },
             {
-              "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding",
-              "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">valueBoolean</a>" : true
+              "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding",
+              "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">valueBoolean</a>" : true
             }
           ],
           "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a>" : "required",
@@ -868,12 +869,12 @@
         "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>" : {
           "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.extension">extension</a>" : [
             {
-              "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
-              "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">valueString</a>" : "ResourceType"
+              "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">valueString</a>" : "ResourceType"
             },
             {
-              "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding",
-              "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">valueBoolean</a>" : true
+              "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding",
+              "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">valueBoolean</a>" : true
             }
           ],
           "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a>" : "required",
@@ -1082,12 +1083,12 @@
         "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>" : {
           "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.extension">extension</a>" : [
             {
-              "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
-              "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">valueString</a>" : "Jurisdiction"
+              "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">valueString</a>" : "Jurisdiction"
             },
             {
-              "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding",
-              "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">valueBoolean</a>" : true
+              "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding",
+              "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">valueBoolean</a>" : true
             }
           ],
           "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a>" : "extensible",
@@ -1313,8 +1314,8 @@
         "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>" : {
           "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.extension">extension</a>" : [
             {
-              "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
-              "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">valueString</a>" : "QuestionnaireConcept"
+              "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">valueString</a>" : "QuestionnaireConcept"
             }
           ],
           "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a>" : "example",
@@ -1622,8 +1623,8 @@
         "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>" : {
           "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.extension">extension</a>" : [
             {
-              "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
-              "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">valueString</a>" : "QuestionnaireConcept"
+              "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">valueString</a>" : "QuestionnaireConcept"
             }
           ],
           "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a>" : "example",
@@ -1719,8 +1720,8 @@
         "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>" : {
           "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.extension">extension</a>" : [
             {
-              "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
-              "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">valueString</a>" : "QuestionnaireItemType"
+              "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">valueString</a>" : "QuestionnaireItemType"
             }
           ],
           "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a>" : "required",
@@ -1923,8 +1924,8 @@
         "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>" : {
           "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.extension">extension</a>" : [
             {
-              "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
-              "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">valueString</a>" : "QuestionnaireItemOperator"
+              "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">valueString</a>" : "QuestionnaireItemOperator"
             }
           ],
           "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a>" : "required",
@@ -1993,8 +1994,8 @@
         "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>" : {
           "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.extension">extension</a>" : [
             {
-              "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
-              "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">valueString</a>" : "QuestionnaireQuestionOption3"
+              "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">valueString</a>" : "QuestionnaireQuestionOption3"
             }
           ],
           "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a>" : "example",
@@ -2034,8 +2035,8 @@
         "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>" : {
           "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.extension">extension</a>" : [
             {
-              "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
-              "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">valueString</a>" : "EnableWhenBehavior"
+              "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">valueString</a>" : "EnableWhenBehavior"
             }
           ],
           "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a>" : "required",
@@ -2387,8 +2388,8 @@
         "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>" : {
           "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.extension">extension</a>" : [
             {
-              "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
-              "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">valueString</a>" : "QuestionnaireQuestionOption"
+              "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">valueString</a>" : "QuestionnaireQuestionOption"
             }
           ],
           "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a>" : "example",
@@ -2625,8 +2626,8 @@
         "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>" : {
           "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.extension">extension</a>" : [
             {
-              "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
-              "<a href="http://hl7.org/fhir/R4/datatypes.html#Extension#Extension.value[x]">valueString</a>" : "QuestionnaireQuestionOption2"
+              "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">valueString</a>" : "QuestionnaireQuestionOption2"
             }
           ],
           "<a href="http://hl7.org/fhir/R4/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a>" : "example",
@@ -2805,7 +2806,7 @@
       &copy;2019+
       <a style="color: #81BEF7" href="http://mitre.org">The MITRE Corporation</a>.
       Package impact-fhir#0.0.1 based on <a style="color: #81BEF7" href="http://hl7.org/fhir/R4/">FHIR 4.0.0</a>.
-      Generated <span title="Sat, Sep 14, 2019 06:42-0400">2019-09-14</span>.
+      Generated <span title="Mon, Oct 7, 2019 14:01-0400">2019-10-07</span>.
       <br/>
       <span style="color: #FFFF77">
         Links:

@@ -15,10 +15,11 @@
   },
   "dependencies": {
     "json-groupby": "1.1.0",
+    "lodash.sortby": "4.7.0",
     "pg": "7.11.0",
     "request": "2.88.0",
     "request-promise-native": "1.0.7",
-    "shr-cli": "https://github.com/standardhealth/shr-cli.git#6.5.0"
+    "shr-cli": "https://github.com/standardhealth/shr-cli.git#6.8.0"
   },
   "devDependencies": {
     "eslint": "6.0.1",

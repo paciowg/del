@@ -3,8 +3,6 @@ const request = require('request-promise-native');
 async function putResource(url, resource) {
     const resourceUrl = `${url}/${resource.resourceType}/${resource.id}`;
 
-    console.log(resourceUrl);
-
     const response = await request({
         method: 'PUT',
         uri: resourceUrl,

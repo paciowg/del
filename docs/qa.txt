@@ -1,20 +1,46 @@
 ﻿CMS_Data_Element_Library_FHIR_Implementation_Guide : Validation Results
 =========================================
 
-err = 6, warn = 0, info = 0
-Generated Sat Sep 14 06:42:18 EDT 2019. FHIR version 4.0.0 for impact-fhir#0.0.1 (canonical = https://impact-fhir.mitre.org/r4)
+err = 2, warn = 0, info = 0
+Generated Mon Oct 07 14:01:47 EDT 2019. FHIR version 4.0.0 for impact-fhir#0.0.1 (canonical = https://impact-fhir.mitre.org/r4)
 
- Build Errors : 0 / 0
+ Build Errors : 29 / 1
  /Users/tshaffer/Developer/del/out/fhir/guide/resources/ig : 0 / 0
+ /Users/tshaffer/Developer/del/out/fhir/guide/resources/searchparameter-QuestionnaireItemText : 0 / 0
  /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-StandardForm : 1 / 0
- /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-StandardFormLibrary : 1 / 0
- /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-StandardFormQuestion : 1 / 0
 </table>
 == n/a ==
+WARNING: ImplementationGuide.id: The Implementation Guide Resource id should be impact-fhir
+ERROR: /Users/tshaffer/Developer/del/out/fhir/guide/output/ImplementationGuide-impact-fhir-0.0.1.html: The html source does not contain the publish box <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader--> (see note at http://wiki.hl7.org/index.php?title=FHIR_Implementation_Guide_Publishing_Requirements#HL7_HTML_Standards_considerations)
+ERROR: /Users/tshaffer/Developer/del/out/fhir/guide/output/ImplementationGuide-impact-fhir-0.0.1.json.html: The html source does not contain the publish box
+ERROR: /Users/tshaffer/Developer/del/out/fhir/guide/output/ImplementationGuide-impact-fhir-0.0.1.ttl.html: The html source does not contain the publish box
+ERROR: /Users/tshaffer/Developer/del/out/fhir/guide/output/ImplementationGuide-impact-fhir-0.0.1.xml.html: The html source does not contain the publish box
+ERROR: /Users/tshaffer/Developer/del/out/fhir/guide/output/SearchParameter-QuestionnaireItemText.html: The html source does not contain the publish box
+ERROR: /Users/tshaffer/Developer/del/out/fhir/guide/output/SearchParameter-QuestionnaireItemText.json.html: The html source does not contain the publish box
+ERROR: /Users/tshaffer/Developer/del/out/fhir/guide/output/SearchParameter-QuestionnaireItemText.ttl.html: The html source does not contain the publish box
+ERROR: /Users/tshaffer/Developer/del/out/fhir/guide/output/SearchParameter-QuestionnaireItemText.xml.html: The html source does not contain the publish box
+ERROR: /Users/tshaffer/Developer/del/out/fhir/guide/output/StructureDefinition-del-StandardForm-definitions.html: The html source does not contain the publish box
+ERROR: /Users/tshaffer/Developer/del/out/fhir/guide/output/StructureDefinition-del-StandardForm-examples.html: The html source does not contain the publish box
+ERROR: /Users/tshaffer/Developer/del/out/fhir/guide/output/StructureDefinition-del-StandardForm.html: The html source does not contain the publish box
+ERROR: /Users/tshaffer/Developer/del/out/fhir/guide/output/StructureDefinition-del-StandardForm.json.html: The html source does not contain the publish box
+ERROR: /Users/tshaffer/Developer/del/out/fhir/guide/output/StructureDefinition-del-StandardForm.ttl.html: The html source does not contain the publish box
+ERROR: /Users/tshaffer/Developer/del/out/fhir/guide/output/StructureDefinition-del-StandardForm.xml.html: The html source does not contain the publish box
+ERROR: /Users/tshaffer/Developer/del/out/fhir/guide/output/capabilitystatements.html: The html source does not contain the publish box
+ERROR: /Users/tshaffer/Developer/del/out/fhir/guide/output/codesystems.html: The html source does not contain the publish box
+ERROR: /Users/tshaffer/Developer/del/out/fhir/guide/output/conformances.html: The html source does not contain the publish box
+ERROR: /Users/tshaffer/Developer/del/out/fhir/guide/output/developers.html: The html source does not contain the publish box
+ERROR: /Users/tshaffer/Developer/del/out/fhir/guide/output/downloads.html: The html source does not contain the publish box
+ERROR: /Users/tshaffer/Developer/del/out/fhir/guide/output/examples.html: The html source does not contain the publish box
+ERROR: /Users/tshaffer/Developer/del/out/fhir/guide/output/extensions.html: The html source does not contain the publish box
+ERROR: /Users/tshaffer/Developer/del/out/fhir/guide/output/index.html: The html source does not contain the publish box
+ERROR: /Users/tshaffer/Developer/del/out/fhir/guide/output/logical.html: The html source does not contain the publish box
+ERROR: /Users/tshaffer/Developer/del/out/fhir/guide/output/mapping.html: The html source does not contain the publish box
+ERROR: /Users/tshaffer/Developer/del/out/fhir/guide/output/modeldoc.html: The html source does not contain the publish box
+ERROR: /Users/tshaffer/Developer/del/out/fhir/guide/output/operationdefinitions.html: The html source does not contain the publish box
+ERROR: /Users/tshaffer/Developer/del/out/fhir/guide/output/profiles.html: The html source does not contain the publish box
+ERROR: /Users/tshaffer/Developer/del/out/fhir/guide/output/searchparameters.html: The html source does not contain the publish box
+ERROR: /Users/tshaffer/Developer/del/out/fhir/guide/output/valuesets.html: The html source does not contain the publish box
 == /Users/tshaffer/Developer/del/out/fhir/guide/resources/ig.xml ==
+== /Users/tshaffer/Developer/del/out/fhir/guide/resources/searchparameter-QuestionnaireItemText.json ==
 == /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-StandardForm.json ==
 ERROR: StructureDefinition/del-StandardForm: StructureDefinition.mapping[3].uri: URL value 'http://hl7.org/fhir/object-implementation' does not resolve
-== /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-StandardFormLibrary.json ==
-ERROR: StructureDefinition/del-StandardFormLibrary: StructureDefinition.mapping[3].uri: URL value 'http://hl7.org/fhir/object-implementation' does not resolve
-== /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-StandardFormQuestion.json ==
-ERROR: StructureDefinition/del-StandardFormQuestion: StructureDefinition.mapping[2].uri: URL value 'http://hl7.org/fhir/object-implementation' does not resolve

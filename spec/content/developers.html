@@ -4,7 +4,12 @@
     This page exists to help developers get started using the data in the DEL through the FHIR server.
 </p>
 
-<h1>Questionnaire</h1>
+<p>
+    In the examples below, substitute &lt;fhir-server&gt; with the location of the FHIR server containing
+    this implemtation guide and all the DEL questionnaire resources.
+</p>
+
+<h2>Basic Operations</h2>
 
 <p>
     Questionnaires store the entire structure and hierarchy of a standard form. A questionnaire is useful if you wish to
@@ -28,86 +33,77 @@
 
 <pre>GET https://&lt;fhir-server&gt;/Questionnaire/IRF-PAI-3.0</pre>
 
-<h1>Library</h1>
+<h2>Searching</h2>
 
 <p>
-    The questionnaire resource is great for storing the entire structure of a standard form, but a questionnaire is not
-    very searchable according to the FHIR specification. It's difficult to find a questionnaire based on what questions
-    are contained within it, and difficult to find a question.
-</p>
-
-<p>
-    For that reason, we have duplicated the definition of standard forms as library resources, which is a more
-    searchable resource.
+    One of the use cases for this implementation guide is the ability to search for questionnaires based on content
+    of the questions within the questionnaire.
+    For example, one may want to find all questionnaires that contain questions about "influenza".
+    This is not possible using the default Questionnaire search parameters.
 </p>
 
 <p>
-    Each library resource represents a single standard form and version. For example, IRF-PAI 3.0 and IRF-PAI 2.0
-    are separate resources.
+    This implementation guide contains a SearchParameter resource that enables searching by Questionnaire.item.text.
+    Before searching by item- ext, you must load the SearchParameter resource to the FHIR server.
+    If you are using HAPI FHIR Server 4.x.x or later, the server will automatically index all Questionnaire.item.text
+    values and enable searching. Other server implementations may vary.
 </p>
 
 <p>
-    <b>Profile:</b> https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardFormLibrary
+    SearchParameter: <a href="SearchParameter-QuestionnaireItemText.html">SearchParameter-QuestionnaireItemText.html</a>
 </p>
 
-<p>To retrieve all the standard forms, query for libraries matching the profile:</p>
+<p>To search by item text, use the <code>item-text</code> search keyword:</p>
 
-<pre>GET https://&lt;fhir-server&gt;/Library?_profile=https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardFormLibrary</pre>
-
-<p>You may also search by any other field defined as searchable on the library resource:</p>
-
-<p><a href="https://www.hl7.org/fhir/library.html#search">https://www.hl7.org/fhir/library.html#search</a></p>
-
-<h1>Measure</h1>
+<pre>GET https://&lt;fhir-server&gt;/Questionnaire?item-text=influenza</pre>
 
 <p>
-    As mentioned in the Library section, a questionnaire is not very searchable. It's difficult to find specific
-    questions and difficult to figure out what questions are reused across standard forms.
+    This will return all questionnaires containing the term "influenza" anywhere in the item text.
+    This will return a full representation of each questionnaire, including questions that do not contain the term.
+    It is the responsibility of the client to filter returned values further.
 </p>
-
-<p>
-    We have duplicated the definition of standard form questions (also known as items) as measures resources, which is a
-    more searchable resource.
-</p>
-
-<p>
-    <b>Profile:</b> https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardFormQuestion
-</p>
-
-<p>To retrieve all the standard form questions, query for measures matching the profile:</p>
-
-<pre>GET https://&lt;fhir-server&gt;/Measure?_profile=https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardFormQuestion</pre>
-
-<p>To find all questions that contain a specific term (like "influenza"), query for measures matching the profile and
-    where the title contains the term:
-</p>
-
-<pre>GET https://&lt;fhir-server&gt;/Measure?_profile=https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardFormQuestion&amp;title:contains=influenza</pre>
-
-<p>
-    Measures link back to library resources so that you can see which libraries/standard forms use a specific question.
-    Each measure will have a list of libraries like the following. Using the ID, you can retrieve details about the
-    associated measure or questionnaire object.
-</p>
-
-<pre>
-"library": [
-    "Library/Questionnaire-OASIS-C1-012015",
-    "Library/Questionnaire-OASIS-C1-102015",
-    "Library/Questionnaire-OASIS-C2-012017",
-    "Library/Questionnaire-OASIS-D-012019",
-    "Library/Questionnaire-OASIS-D1-012020"
-]
-</pre>
-
-<p>
-    Using the <code>_include</code> parameter, you may also instruct the FHIR server to include the associated library
-    resources in the returned bundle. This removes the need to query for the associated libraries manually if you know
-    you will need them in the same response:
-</p>
-
-<pre>GET https://&lt;fhir-server&gt;/Measure?_profile=https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardFormQuestion&amp;_include=*</pre>
 
 <p>You may also search by any other field defined as searchable on the measure resource:</p>
 
 <p><a href="https://www.hl7.org/fhir/measure.html#search">https://www.hl7.org/fhir/measure.html#search</a></p>
+
+<h2>LOINC Codes</h2>
+
+<p>LOINC codes are present on all levels of each questionnaire.</p>
+
+<h3>Questionnaire</h3>
+
+<p>A LOINC code may be present on the questionnaire. Example: </p>
+
+<pre>
+"resourceType": "Questionnaire",
+"id": "IRF-PAI-IA-1.4",
+"version": "1.4",
+"publisher": "Division of Chronic and Post Acute Care",
+"title": "Inpatient Rehabilitation Facility Patient Assessment Instrument - IRF Admission",
+"code": [
+    {
+    "system": "http://loinc.org",
+    "display": "Inpatient Rehabilitation Facility - Patient Assessment Instrument (IRF-PAI) - version 1.4",
+    "code": "83265-9"
+    }
+],
+</pre>
+
+<h3>Section</h3>
+
+<p>A LOINC code may be present on a section within the questionnaire. Example:</p>
+
+<pre>coming soon</pre>
+
+<h3>Question</h3>
+
+<p>A LOINC code may be present on a question within the questionnaire. Example:</p>
+
+<pre>coming soon</pre>
+
+<h3>Answer Option</h3>
+
+<p>A LOINC code may be present on an answer option within the questionnaire. Example:</p>
+
+<pre>coming soon</pre>
