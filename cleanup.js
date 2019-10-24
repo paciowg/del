@@ -35,9 +35,10 @@ async function cleanup(resource, page = 1) {
 }
 
 async function main() {
-    await cleanup('Questionnaire');
     await cleanup('SearchParameter');
     await cleanup('StructureDefinition');
+    await cleanup('Questionnaire');
+    await cleanup('ImplementationGuide');
 }
 
 main();
