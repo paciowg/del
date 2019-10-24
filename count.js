@@ -37,6 +37,7 @@ async function count(resource) {
 async function main() {
     await count('ImplementationGuide');
     await count('SearchParameter');
+    await count('StructureDefinition');
     await count('Questionnaire');
 }
 
