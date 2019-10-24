@@ -4,7 +4,7 @@ const program = require('commander');
 const { Client } = require('pg');
 
 const { fhirURL: profileUrl } = require('../spec/config.json');
-const { logError } = require('./helpers');
+const { logError, putResource } = require('./helpers');
 const { run: questionnaireMigrator } = require('./migrators/questionnaire');
 
 const DEFAULT_URL = 'http://localhost:8080/r4';
@@ -49,9 +49,8 @@ async function main(profileUrl, serverUrl) {
     try {
         const questionnaires = await questionnaireMigrator(client, profileUrl, serverUrl);
         for (const resource of questionnaires) {
-            console.log(`${resource.resourceType}/${resource.id}`);
             writeFileSync(`out/json/questionnaires/${resource.id}.json`, JSON.stringify(resource, null, 2));
-            // await putResource(serverUrl, resource);
+            await putResource(serverUrl, resource);
         }
     } catch (error) {
         logError(error);
