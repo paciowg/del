@@ -2,7 +2,7 @@
 -- The question section does not matter here.
 
 select
-  concat(asmt.asmt_shrt_name, '-', asmt_vrsn.asmt_vrsn_id) as asmtid,
+  concat(asmt.asmt_shrt_name, '-', asmt_sbst_rfrnc.asmt_sbst_shrt_name, '-', asmt_vrsn.asmt_vrsn_id) as asmtid,
   data_ele_qstn.data_ele_qstn_id as questionid,
   asmt_rspns_val.data_ele_rspns_id as responseid,
   asmt_rspns_val.data_ele_rspns_val_id as responsevalueid,
@@ -12,6 +12,7 @@ from del_data.asmt_qstn
 inner join del_data.asmt_qstn_vrsn on asmt_qstn_vrsn.asmt_qstn_id = asmt_qstn.asmt_qstn_id
 inner join del_data.asmt_vrsn on asmt_vrsn.asmt_vrsn_id = asmt_qstn_vrsn.asmt_vrsn_id
 inner join del_data.asmt on asmt.asmt_id = asmt_vrsn.asmt_id
+inner join del_data.asmt_sbst_rfrnc on asmt.asmt_id = asmt_sbst_rfrnc.asmt_id
 inner join del_data.data_ele_qstn on data_ele_qstn.data_ele_qstn_id = asmt_qstn.data_ele_qstn_id
 inner join del_data.asmt_rspns_val on
   asmt_rspns_val.data_ele_rspns_id = data_ele_qstn.data_ele_qstn_id and
@@ -23,6 +24,7 @@ where
   data_ele_qstn.qstn_stus_id = 1
 order by
   asmt.asmt_shrt_name,
+  asmt_sbst_rfrnc.asmt_sbst_shrt_name,
   asmt_vrsn.asmt_vrsn_id,
   asmt_qstn.asmt_itm_id,
-  rspns_val_cd
+  rspns_val_cd;

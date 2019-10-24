@@ -4,11 +4,8 @@ const program = require('commander');
 const { Client } = require('pg');
 
 const { fhirURL: profileUrl } = require('../spec/config.json');
-const { logError, putResource } = require('./helpers');
+const { logError } = require('./helpers');
 const { run: questionnaireMigrator } = require('./migrators/questionnaire');
-const { run: measureMigrator } = require('./migrators/measure');
-const { run: libraryMigrator } = require('./migrators/library');
-const { initLoincMap } = require('./sql');
 
 const DEFAULT_URL = 'http://localhost:8080/r4';
 const DATABASE = {
@@ -20,16 +17,12 @@ const DATABASE = {
 };
 
 let serverUrl;
-let resourceList = ['measure', 'questionnaire', 'library'];
 
 program
-    .usage('<host> [resources]')
-    .arguments('<host> [resources]')
-    .action((host, resources) => {
+    .usage('<host>')
+    .arguments('<host>')
+    .action((host) => {
         serverUrl = host;
-        if (resources) {
-            resourceList = resources.split(',');
-        }
     })
     .parse(process.argv);
 
@@ -49,44 +42,17 @@ async function main(profileUrl, serverUrl) {
     const client = new Client(DATABASE);
     await client.connect();
 
-    // Make all the output directories.
-    for (const dir of ['questionnaires', 'libraries', 'measures']) {
-        if (!existsSync(`out/json/${dir}`)) {
-            mkdirSync(`out/json/${dir}`, { recursive: true });
-        }
+    if (!existsSync('out/json/questionnaires')) {
+        mkdirSync('out/json/questionnaires', { recursive: true });
     }
 
-    // Initialize the LOINC map before any migrations run.
-    await initLoincMap(client);
-
     try {
-        if (resourceList.includes('questionnaire')) {
-            const questionnaires = await questionnaireMigrator(profileUrl, serverUrl, client);
-            for (const resource of questionnaires) {
-                console.log(`${resource.resourceType}/${resource.id}`);
-                writeFileSync(`out/json/questionnaires/${resource.id}.json`, JSON.stringify(resource));
-                // await putResource(serverUrl, resource);
-            }
+        const questionnaires = await questionnaireMigrator(client, profileUrl, serverUrl);
+        for (const resource of questionnaires) {
+            console.log(`${resource.resourceType}/${resource.id}`);
+            writeFileSync(`out/json/questionnaires/${resource.id}.json`, JSON.stringify(resource, null, 2));
+            // await putResource(serverUrl, resource);
         }
-
-        if (resourceList.includes('library')) {
-            const libraries = await libraryMigrator(profileUrl, serverUrl, client);
-            for (const resource of libraries) {
-                console.log(`${resource.resourceType}/${resource.id}`);
-                writeFileSync(`out/json/libraries/${resource.id}.json`, JSON.stringify(resource));
-                // await putResource(serverUrl, resource);
-            }
-        }
-
-        if (resourceList.includes('measure')) {
-            const measures = await measureMigrator(profileUrl, serverUrl, client);
-            for (const resource of measures) {
-                console.log(`${resource.resourceType}/${resource.id}`);
-                writeFileSync(`out/json/measures/${resource.id}.json`, JSON.stringify(resource));
-                // await putResource(serverUrl, resource);
-            }
-        }
-
     } catch (error) {
         logError(error);
     }

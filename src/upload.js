@@ -39,9 +39,21 @@ function getResources(ig) {
     return output;
 }
 
+/**
+ * Upload the given resource to the given URL.
+ *
+ * @param {String} url
+ * @param {*} resource
+ */
 async function uploadResource(url, resource) {
-    if (resource.resourceType === 'ImplementationGuide' && resource.id == 1) {
-        resource.id = 'IG1';
+    // The IG generated doesn't seem to work right. This fixes it.
+    if (resource.resourceType === 'ImplementationGuide') {
+        delete resource.extension;
+        delete resource.definition.parameter;
+        resource.text = {
+            status: 'generated',
+            div: '<div xmlns="http://www.w3.org/1999/xhtml">FHIR Implementation Guide for CMS Data Element Library</div>',
+        };
     }
 
     const response = await putResource(url, resource);
@@ -56,6 +68,8 @@ async function main(serverUrl) {
     const ig = getImplementationGuide();
 
     const resources = getResources(ig);
+
+    await uploadResource(serverUrl, ig);
 
     for (const resource of resources) {
         try {
