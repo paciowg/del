@@ -236,7 +236,7 @@ async function run(client, profileUrl, serverUrl) {
     const output = [];
 
     for (const rowData of questionnaireResults) {
-        console.log(rowData.assessmentId);
+        console.log('Building', rowData.assessmentId);
         const questionnaire = await buildQuestionnaire(client, profileUrl, serverUrl, rowData);
         output.push(questionnaire);
     }

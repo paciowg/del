@@ -69,8 +69,6 @@ async function main(serverUrl) {
 
     const resources = getResources(ig);
 
-    await uploadResource(serverUrl, ig);
-
     for (const resource of resources) {
         try {
             await uploadResource(serverUrl, resource);
@@ -78,4 +76,6 @@ async function main(serverUrl) {
             logError(error);
         }
     }
+
+    await uploadResource(serverUrl, ig);
 }
