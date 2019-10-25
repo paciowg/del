@@ -2,9 +2,9 @@
 =========================================
 
 err = 2, warn = 0, info = 0
-Generated Fri Oct 25 14:49:39 EDT 2019. FHIR version 4.0.0 for impact-fhir#0.0.1 (canonical = https://impact-fhir.mitre.org/r4)
+Generated Fri Oct 25 15:12:49 EDT 2019. FHIR version 4.0.0 for impact-fhir#0.0.1 (canonical = https://impact-fhir.mitre.org/r4)
 
- Build Errors : 29 / 1
+ Build Errors : 30 / 1
  /Users/tshaffer/Developer/del/out/fhir/guide/resources/ig : 0 / 0
  /Users/tshaffer/Developer/del/out/fhir/guide/resources/searchparameter-QuestionnaireItemText : 0 / 0
  /Users/tshaffer/Developer/del/out/fhir/guide/resources/structuredefinition-del-StandardForm : 1 / 0
@@ -38,6 +38,7 @@ ERROR: /Users/tshaffer/Developer/del/out/fhir/guide/output/mapping.html: The htm
 ERROR: /Users/tshaffer/Developer/del/out/fhir/guide/output/modeldoc.html: The html source does not contain the publish box
 ERROR: /Users/tshaffer/Developer/del/out/fhir/guide/output/operationdefinitions.html: The html source does not contain the publish box
 ERROR: /Users/tshaffer/Developer/del/out/fhir/guide/output/profiles.html: The html source does not contain the publish box
+ERROR: /Users/tshaffer/Developer/del/out/fhir/guide/output/questionnaires.html: The html source does not contain the publish box
 ERROR: /Users/tshaffer/Developer/del/out/fhir/guide/output/searchparameters.html: The html source does not contain the publish box
 ERROR: /Users/tshaffer/Developer/del/out/fhir/guide/output/valuesets.html: The html source does not contain the publish box
 == /Users/tshaffer/Developer/del/out/fhir/guide/resources/ig.xml ==
