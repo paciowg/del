@@ -133,14 +133,14 @@
 <h1>Questionnaire Resource</h1>
 
 <p>
-    The join of record in asmt_vrsn and asmt_sbst_rfrnc will become one Questionnaire resource in FHIR.
+    Each questionnaire resource represents a single subset of an assessment.
     The sections and questions will be represented as items within the questionnaire.
     Only active questions are migrated from the DEL.
 </p>
 
 <p>
-    <b>Example:</b> Hospice Item Set has two subsets (one for admission and one for discharge).
-    This will result in two questionnaire resources: `HIS-HA-1.00.0` and `HIS-HD-1.00.0`
+    <b>Example:</b> Hospice Item Set version 1.00.0 has two subsets - one for admission and one for discharge.
+    This will result in two questionnaire resources: <code>HIS-HA-1.00.0</code> and <code>HIS-HD-1.00.0</code>.
 </p>
 
 <table class="table table-bordered">
@@ -151,10 +151,15 @@
     </tr>
     <tr>
         <td>id</td>
-        <td>asmt.asmt_shrt_name<br>asmt_sbst_rfrnc.asmt_sbst_shrt_name</td>
+        <td>
+            asmt.asmt_shrt_name<br>
+            asmt_sbst_rfrnc.asmt_sbst_shrt_name<br>
+            asmt_sbst_rfrnc.asmt_sbst_shrt_name</td>
         <td>
             Fields are joined using a dash (-) in the format
-            <code>{asmt_shrt_name}-{asmt_sbst_rfrnc.asmt_sbst_shrt_name}-{asmt_vrsn_id}</code>. Example: LCDS-1.01.</td>
+            <code>{asmt_shrt_name}-{asmt_sbst_rfrnc.asmt_sbst_shrt_name}-{asmt_vrsn_id}</code>.
+            Example: LCDS-1.01.
+        </td>
     </tr>
     <tr>
         <td>name</td>
@@ -207,11 +212,40 @@
         <td>Only populated if field value is not null.</td>
     </tr>
     <tr>
+        <td>identifier[0].system</td>
+        <td><i>http://del.cms.gov</i></td>
+        <td>Hard-coded to value "http://del.cms.gov".</td>
+    </tr>
+    <tr>
+        <td>identifier[0].use</td>
+        <td><i>official</i></td>
+        <td>Hard-coded to value "official".</td>
+    </tr>
+    <tr>
+        <td>identifier[0].value</td>
+        <td>asmt.asmt_name</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>code[0].system</td>
+        <td><i>http://loinc.org</i></td>
+        <td>Hard-coded to value "http://loinc.org".<br>Only populated if the assessment has a LOINC code.</td>
+    </tr>
+    <tr>
+        <td>code[0].code</td>
+        <td>hit_asmt_map.hit_asmt_cd</td>
+        <td>Only populated if the assessment has a LOINC code.</td>
+    </tr>
+    <tr>
+        <td>code[0].display</td>
+        <td>hit_asmt_map.asmt_map_txt</td>
+        <td>Only populated if the assessment has a LOINC code.</td>
+    </tr>
+    <tr>
         <td>item[]</td>
         <td></td>
         <td>Populated with list of questions or list of sections.</td>
     </tr>
-
 </table>
 
 <h2>Section Mapping</h2>
@@ -245,6 +279,21 @@
         <td>Hard-coded to value "true".</td>
     </tr>
     <tr>
+        <td>item[].code[0].system</td>
+        <td><i>http://loinc.org</i></td>
+        <td>Hard-coded to value "http://loinc.org".<br>Only populated if the section has a LOINC code.</td>
+    </tr>
+    <tr>
+        <td>item[].code[0].code</td>
+        <td>hit_sbst_sect_rlp.hit_sbst_sect_cd</td>
+        <td>Only populated if the section has a LOINC code.</td>
+    </tr>
+    <tr>
+        <td>item[].code[0].display</td>
+        <td>hit_sbst_sect_rlp.sbst_sect_map_txt</td>
+        <td>Only populated if the section has a LOINC code.</td>
+    </tr>
+    <tr>
         <td>item[].item[]</td>
         <td></td>
         <td>Populated with list of questions or list of sub-sections.</td>
@@ -254,6 +303,29 @@
 <h2>Question Mapping</h2>
 
 <p>Questions may be nested within a section or within parent questions.</p>
+
+<p>
+    Questions with a type of "choice" and "open-choice" will have answerOption array populated with a list of available
+    options. This list may include DEL and/or LOINC code options. For example, the following answerOption values may
+    be present on a question. Both represent the same answer in a different code system.
+</p>
+
+<pre>
+{
+    "valueCoding": {
+        "system": "http://del.cms.gov",
+        "code": "1",
+        "display": "Nursing home (SNF/NF)"
+    }
+},
+{
+    "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA10882-1",
+        "display": "Nursing home (SNF/NF)"
+    }
+},
+</pre>
 
 <table class="table table-bordered">
     <tr>
@@ -286,7 +358,7 @@
         <td>item[].type</td>
         <td>data_ele_rspns.rspns_dtype_name</td>
         <td>
-            If this is a parent question, then "group".<br>
+            If this is a "parent" question, then "group".<br>
             If value is "character" or "integer" with options, then "choice".<br>
             If value is "character" without options then "text".<br>
             If value is "number" without options then "integer".<br>
@@ -316,23 +388,49 @@
     </tr>
     <tr>
         <td>item[].code[0].system</td>
-        <td>hit_qstn_map.hit_qstn_cd</td>
-        <td>Only populated if question has a LOINC code specified.</td>
+        <td><i>http://loinc.org</i></td>
+        <td>Hard-coded to value "http://loinc.org".<br>Only populated if the question has a LOINC code.</td>
     </tr>
     <tr>
-        <td>answerOption[].valueCoding.code</td>
+        <td>item[].code[0].code</td>
+        <td>hit_qstn_map.hit_qstn_cd</td>
+        <td>Only populated if the question has a LOINC code.</td>
+    </tr>
+    <tr>
+        <td>item[].code[0].display</td>
+        <td>hit_qstn_map.qstn_map_txt</td>
+        <td>Only populated if the question has a LOINC code.</td>
+    </tr>
+    <tr>
+        <td><b>DEL Answer</b><br>answerOption[].valueCoding.code</td>
         <td>data_ele_rspns_val.rspns_val_cd</td>
         <td>Only populated for "choice" and "open-choice" questions.</td>
     </tr>
     <tr>
-        <td>answerOption[].valueCoding.display</td>
+        <td><b>DEL Answer</b><br>answerOption[].valueCoding.display</td>
         <td>data_ele_rspns_val.rspns_val_txt</td>
         <td>Only populated for "choice" and "open-choice" questions.</td>
     </tr>
     <tr>
+        <td><b>LOINC Answer</b><br>answerOption[].valueCoding.code</td>
+        <td>hit_rspns_val_map.hit_rspns_cd</td>
+        <td>
+            Only populated for "choice" and "open-choice" questions.<br>
+            Only populated if the response has a LOINC code.
+        </td>
+    </tr>
+    <tr>
+        <td><b>LOINC Answer</b><br>answerOption[].valueCoding.display</td>
+        <td>hit_rspns_val_map.rspns_val_std_map_txt</td>
+        <td>
+            Only populated for "choice" and "open-choice" questions.<br>
+            Only populated if the response has a LOINC code.
+        </td>
+    </tr>
+    <tr>
         <td>item[].item[]</td>
         <td></td>
-        <td>Populated with list of questions.</td>
+        <td>Populated with list of sub-questions. Will not be present if there are no sub-questions.</td>
     </tr>
 </table>
 
@@ -358,7 +456,7 @@
       &copy;2019+
       <a style="color: #81BEF7" href="http://mitre.org">The MITRE Corporation</a>.
       Package impact-fhir#0.0.1 based on <a style="color: #81BEF7" href="http://hl7.org/fhir/R4/">FHIR 4.0.0</a>.
-      Generated <span title="Mon, Oct 7, 2019 14:01-0400">2019-10-07</span>.
+      Generated <span title="Fri, Oct 25, 2019 14:49-0400">2019-10-25</span>.
       <br/>
       <span style="color: #FFFF77">
         Links:

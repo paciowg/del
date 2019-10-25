@@ -11,8 +11,8 @@ StandardForm maps to Questionnaire:
     constrain title to 1..1
     constrain description to 1..1
     constrain effectivePeriod to 1..1
+    constrain identifier to 1..1
 
-    constrain identifier to 0..0
     constrain subjectType to 0..0
     constrain useContext to 0..0
     constrain contact to 0..0

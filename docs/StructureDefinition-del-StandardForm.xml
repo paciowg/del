@@ -16,7 +16,7 @@
   constrain title to 1..1
   constrain description to 1..1
   constrain effectivePeriod to 1..1
-  constrain identifier to 0..0
+  constrain identifier to 1..1
   constrain subjectType to 0..0
   constrain useContext to 0..0
   constrain contact to 0..0
@@ -34,7 +34,7 @@
   <name value="StandardForm"/>
   <title value="del-StandardForm"/>
   <status value="draft"/>
-  <date value="2019-10-07T00:00:00-04:00"/>
+  <date value="2019-10-25T00:00:00-04:00"/>
   <publisher value="The MITRE Corporation"/>
   <contact>
     <telecom>
@@ -393,8 +393,8 @@
       <definition value="A formal identifier that is used to identify this questionnaire when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
       <comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this questionnaire outside of FHIR, where it is not possible to use the logical URI."/>
       <requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
-      <min value="0"/>
-      <max value="0"/>
+      <min value="1"/>
+      <max value="1"/>
       <base>
         <path value="Questionnaire.identifier"/>
         <min value="0"/>
@@ -2100,8 +2100,8 @@
     </element>
     <element id="Questionnaire.identifier">
       <path value="Questionnaire.identifier"/>
-      <min value="0"/>
-      <max value="0"/>
+      <min value="1"/>
+      <max value="1"/>
     </element>
     <element id="Questionnaire.version">
       <path value="Questionnaire.version"/>

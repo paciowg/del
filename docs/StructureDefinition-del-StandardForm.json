@@ -3,14 +3,14 @@
   "id": "del-StandardForm",
   "text": {
     "status": "generated",
-    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>StandardForm Profile</b></p>\n  <p>A DEL standard form and all of its contents. This includes sections, questions, and available question responses.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.StandardForm maps to Questionnaire:\n  constrain url to 1..1\n  constrain date to 1..1\n  constrain name to 1..1\n  constrain version to 1..1\n  constrain publisher to 1..1\n  constrain title to 1..1\n  constrain description to 1..1\n  constrain effectivePeriod to 1..1\n  constrain identifier to 0..0\n  constrain subjectType to 0..0\n  constrain useContext to 0..0\n  constrain contact to 0..0\n  constrain jurisdiction to 0..0\n  constrain purpose to 0..0\n  constrain copyright to 0..0\n  constrain item to 0..*\n  constrain item.linkId to 1..1\n  constrain item.text to 1..1\n</pre></p>\n</div>"
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>StandardForm Profile</b></p>\n  <p>A DEL standard form and all of its contents. This includes sections, questions, and available question responses.</p>\n  <p><b>Mapping Summary</b></p>\n  <p><pre>del.StandardForm maps to Questionnaire:\n  constrain url to 1..1\n  constrain date to 1..1\n  constrain name to 1..1\n  constrain version to 1..1\n  constrain publisher to 1..1\n  constrain title to 1..1\n  constrain description to 1..1\n  constrain effectivePeriod to 1..1\n  constrain identifier to 1..1\n  constrain subjectType to 0..0\n  constrain useContext to 0..0\n  constrain contact to 0..0\n  constrain jurisdiction to 0..0\n  constrain purpose to 0..0\n  constrain copyright to 0..0\n  constrain item to 0..*\n  constrain item.linkId to 1..1\n  constrain item.text to 1..1\n</pre></p>\n</div>"
   },
   "url": "https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardForm",
   "version": "0.0.1",
   "name": "StandardForm",
   "title": "del-StandardForm",
   "status": "draft",
-  "date": "2019-10-07T00:00:00-04:00",
+  "date": "2019-10-25T00:00:00-04:00",
   "publisher": "The MITRE Corporation",
   "contact": [
     {
@@ -442,8 +442,8 @@
         "definition": "A formal identifier that is used to identify this questionnaire when it is represented in other formats, or referenced in a specification, model, design or an instance.",
         "comment": "Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this questionnaire outside of FHIR, where it is not possible to use the logical URI.",
         "requirements": "Allows externally provided and/or usable business identifiers to be easily associated with the module.",
-        "min": 0,
-        "max": "0",
+        "min": 1,
+        "max": "1",
         "base": {
           "path": "Questionnaire.identifier",
           "min": 0,
@@ -2536,8 +2536,8 @@
       {
         "id": "Questionnaire.identifier",
         "path": "Questionnaire.identifier",
-        "min": 0,
-        "max": "0"
+        "min": 1,
+        "max": "1"
       },
       {
         "id": "Questionnaire.version",
