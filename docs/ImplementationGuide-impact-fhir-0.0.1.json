@@ -10,7 +10,7 @@
   "name": "CMS_Data_Element_Library_FHIR_Implementation_Guide",
   "title": "CMS Data Element Library - FHIR Implementation Guide",
   "status": "draft",
-  "date": "2019-10-25T15:38:45-04:00",
+  "date": "2019-12-04T09:30:16-05:00",
   "publisher": "The MITRE Corporation",
   "contact": [
     {
@@ -26,6 +26,13 @@
   "license": "CC0-1.0",
   "fhirVersion": [
     "4.0.0"
+  ],
+  "dependsOn": [
+    {
+      "uri": "http://hl7.org/fhir/us/core",
+      "packageId": "hl7.fhir.us.core",
+      "version": "3.0.0"
+    }
   ],
   "definition": {
     "grouping": [
@@ -49,7 +56,7 @@
         "reference": {
           "reference": "StructureDefinition/del-StandardForm"
         },
-        "name": "del-StandardForm",
+        "name": "Standard Form",
         "exampleBoolean": false
       },
       {

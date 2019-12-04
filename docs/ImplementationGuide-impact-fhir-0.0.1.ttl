@@ -17,7 +17,7 @@
   fhir:ImplementationGuide.name [ fhir:value "CMS_Data_Element_Library_FHIR_Implementation_Guide"];
   fhir:ImplementationGuide.title [ fhir:value "CMS Data Element Library - FHIR Implementation Guide"];
   fhir:ImplementationGuide.status [ fhir:value "draft"];
-  fhir:ImplementationGuide.date [ fhir:value "2019-10-25T15:38:45-04:00"^^xsd:dateTime];
+  fhir:ImplementationGuide.date [ fhir:value "2019-12-04T09:30:16-05:00"^^xsd:dateTime];
   fhir:ImplementationGuide.publisher [ fhir:value "The MITRE Corporation"];
   fhir:ImplementationGuide.contact [
      fhir:index 0;
@@ -32,6 +32,15 @@
   fhir:ImplementationGuide.fhirVersion [
      fhir:value "4.0.0";
      fhir:index 0
+  ];
+  fhir:ImplementationGuide.dependsOn [
+     fhir:index 0;
+     fhir:ImplementationGuide.dependsOn.uri [
+       fhir:value "http://hl7.org/fhir/us/core";
+       fhir:link <http://hl7.org/fhir/us/core>
+     ];
+     fhir:ImplementationGuide.dependsOn.packageId [ fhir:value "hl7.fhir.us.core" ];
+     fhir:ImplementationGuide.dependsOn.version [ fhir:value "3.0.0" ]
   ];
   fhir:ImplementationGuide.definition [
      fhir:ImplementationGuide.definition.grouping [
@@ -54,7 +63,7 @@
          fhir:link <https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardForm>;
          fhir:Reference.reference [ fhir:value "StructureDefinition/del-StandardForm" ]
        ];
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "del-StandardForm" ];
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Standard Form" ];
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
        fhir:index 1;

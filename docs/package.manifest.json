@@ -1,0 +1,6 @@
+{
+  "version": "0.0.1",
+  "fhirVersion": "[4.0.0]",
+  "date": "20191204093006",
+  "name": "impact-fhir"
+}

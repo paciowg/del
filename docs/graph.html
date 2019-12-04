@@ -106,7 +106,7 @@
       <!-- container -->
     <ul class="breadcrumb">
       <li title="home"><a href="index.html"><b>Home</b></a></li>
-      <li><b>Search Parameters</b></li>
+      <li><b>Graph Viewer</b></li>
     </ul>
   </div>
     <!-- /container -->
@@ -125,36 +125,33 @@
 
   <!-- ============CONTENT CONTENT=============== -->
 
-<h2>
-    Search Parameters defined as part of this Implementation Guide
-</h2>
-<table class="codes">
-  <thead>
-    <tr>
-      <td>
-        <b>Name</b>
-      </td>
-      <td>
-        <b>Base Resources</b>
-      </td>
-      <td>
-        <b>Type</b>
-      </td>
-      <td>
-        <b>Description</b>
-      </td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-              <td><a href="SearchParameter-QuestionnaireItemText.html">item-text</a></td>
-              <td>Questionnaire</td>
-              <td>string</td>
-              <td><p>Search for a questionnaire by item.text nested field - up to 3 levels.</p>
-</td>
-            </tr>
-  </tbody>
-</table>
+<iframe src="graph/index.html" width="100%" id="graph" title="Graph">
+</iframe>
+
+  <!-- Script to make the iframe fill the full height available to it -->
+  <!-- Adapted from https://stackoverflow.com/a/330006/489105 -->
+<script>
+//  <!-- [CDATA[
+  var graphFrame = document.getElementById('graph');
+  function pageY(elem) {
+      return elem.offsetParent ? (elem.offsetTop + pageY(elem.offsetParent)) : elem.offsetTop;
+  }
+  function resizeGraphFrame() {
+    var height = document.documentElement.clientHeight;
+    height -= pageY(graphFrame);
+    height -= document.getElementById('segment-footer').clientHeight;
+    height = (height < 0) ? 0 : height;
+    graphFrame.style.height = height + 'px';
+  }
+  // .onload doesn't work with IE8 and older.
+  if (graphFrame.attachEvent) {
+    graphFrame.attachEvent("onload", resizeGraphFrame);
+  } else {
+    graphFrame.onload = resizeGraphFrame;
+  }
+  window.onresize = resizeGraphFrame;
+//]] -->
+</script>
 
   <!-- ==============END CONTENT END CONTENT=================== -->
 
@@ -183,8 +180,8 @@
         Links:
         <a style="color: #81BEF7" href="index.html">Home</a>
         | <a style="color: #81BEF7" href="qa.html">QA Report</a>
-        | <a rel="license" style="color: #81BEF7" href="http://hl7.org/fhir/R4/license.html" target="_blank"><a name="2a937678-ae2e-462b-8355-49f86bed4a8d">​</a>
-          <img src="cc0.png" alt="CC0" style="border-style: none;"><a name="e22f831b-cec8-4591-a028-7cf3a1bbe8fa">​</a>
+        | <a rel="license" style="color: #81BEF7" href="http://hl7.org/fhir/R4/license.html" target="_blank"><a name="cd976a78-9aff-4cf9-8f8c-0af7370d3a84">​</a>
+          <img src="cc0.png" alt="CC0" style="border-style: none;"><a name="712bc789-eaf9-4c32-935a-dffe8888c5c5">​</a>
           <img src="external.png" alt="external" style="text-align: baseline">
         
       
@@ -213,4 +210,4 @@
 
 
 
-</img></img></a></span></p></div></div></div></body></link></head></html>
+ </img></img></a></span></p></div></div></div></body></link></head></html>
