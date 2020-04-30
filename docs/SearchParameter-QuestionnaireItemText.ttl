@@ -16,7 +16,7 @@
   fhir:SearchParameter.version [ fhir:value "0.0.1"];
   fhir:SearchParameter.name [ fhir:value "QuestionnaireItemText"];
   fhir:SearchParameter.status [ fhir:value "active"];
-  fhir:SearchParameter.date [ fhir:value "2019-12-04T09:30:16-05:00"^^xsd:dateTime];
+  fhir:SearchParameter.date [ fhir:value "2020-04-30T16:21:54-04:00"^^xsd:dateTime];
   fhir:SearchParameter.description [ fhir:value "Search for a questionnaire by item.text nested field - up to 3 levels."];
   fhir:SearchParameter.code [ fhir:value "item-text"];
   fhir:SearchParameter.base [
