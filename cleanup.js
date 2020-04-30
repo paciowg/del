@@ -1,7 +1,15 @@
 const request = require('request-promise-native');
 
-// const BASE_URL = 'https://impact-fhir.mitre.org/r4';
-const BASE_URL = 'http://hapi.fhir.org/baseR4';
+const username = process.env.FHIR_USERNAME;
+const password = process.env.FHIR_PASSWORD;
+
+const headers = {};
+if (username && password) {
+    headers['Authorization'] = 'Basic ' + new Buffer(username + ':' + password).toString('base64');
+}
+
+const BASE_URL = 'https://impact-fhir.mitre.org/r4';
+// const BASE_URL = 'http://hapi.fhir.org/baseR4';
 
 async function cleanup(uri) {
     const response = await request({
@@ -20,6 +28,7 @@ async function cleanup(uri) {
                 method: 'DELETE',
                 uri: `${res.fullUrl}?_cascade=delete`,
                 json: true,
+                headers,
                 resolveWithFullResponse: true,
             });
         }
