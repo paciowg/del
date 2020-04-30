@@ -1,16 +1,24 @@
 const request = require('request-promise-native');
 
+const username = process.env.FHIR_USERNAME;
+const password = process.env.FHIR_PASSWORD;
+
 async function putResource(url, resource) {
     const resourceUrl = `${url}/${resource.resourceType}/${resource.id}`;
 
     console.log('Uploading', resourceUrl);
+
+    const headers = {};
+    if (username && password) {
+        headers['Authorization'] = 'Basic ' + new Buffer(username + ':' + password).toString('base64');
+    }
 
     const response = await request({
         method: 'PUT',
         uri: resourceUrl,
         body: resource,
         json: true,
-        headers: {},
+        headers,
         resolveWithFullResponse: true,
     });
 
