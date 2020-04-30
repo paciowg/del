@@ -30,7 +30,7 @@ from (
   inner join del_data.asmt_sbst_rfrnc on asmt.asmt_id = asmt_sbst_rfrnc.asmt_id
   inner join del_data.data_ele_qstn on data_ele_qstn.data_ele_qstn_id = asmt_qstn.data_ele_qstn_id
   -- join to get section
-  inner join del_data.asmt_sect_rfrnc on asmt_sect_rfrnc.asmt_sect_id = asmt_qstn.asmt_sect_id
+  inner join del_data.asmt_sect_rfrnc on asmt_sect_rfrnc.asmt_sect_id = asmt_qstn_vrsn.asmt_sect_id
   -- join to get response type
   left join del_data.data_ele_rspns on data_ele_rspns.data_ele_rspns_id = data_ele_qstn.data_ele_qstn_id
   where
@@ -49,7 +49,6 @@ where
   "assessmentId" = $1 and
   "sectionId" = $2
 order by
-  "assessmentId",
   "parentId" nulls first,
   "questionId";
 

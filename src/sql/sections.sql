@@ -24,7 +24,7 @@ from (
     inner join del_data.asmt_sbst_rfrnc on asmt.asmt_id = asmt_sbst_rfrnc.asmt_id
     inner join del_data.data_ele_qstn on data_ele_qstn.data_ele_qstn_id = asmt_qstn.data_ele_qstn_id
     -- join to get section
-    inner join del_data.asmt_sect_rfrnc on asmt_sect_rfrnc.asmt_sect_id = asmt_qstn.asmt_sect_id
+    inner join del_data.asmt_sect_rfrnc on asmt_sect_rfrnc.asmt_sect_id = asmt_qstn_vrsn.asmt_sect_id
     where
       -- only active questions
       data_ele_qstn.qstn_stus_id = 1
@@ -40,6 +40,5 @@ left join del_data.hit_std_vrsn on
 where
   "assessmentId" = $1
 order by
-  "assessmentId",
-  "sectionId",
-  "sectionName";
+  "sectionName",
+  "sectionId";
