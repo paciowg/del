@@ -1,23 +1,24 @@
 const request = require('request-promise-native');
 
-const BASE_URL = 'https://impact-fhir.mitre.org/r4';
+// const BASE_URL = 'https://impact-fhir.mitre.org/r4';
+const BASE_URL = 'http://hapi.fhir.org/baseR4';
 
-async function cleanup(resource, page = 1) {
+async function cleanup(uri) {
     const response = await request({
         method: 'GET',
-        uri: `${BASE_URL}/${resource}?_count=50`,
+        uri,
         json: true,
         resolveWithFullResponse: true,
     });
 
-    console.log(`${resource} Page ${page}`);
+    console.log(`URL: ${uri}`);
 
     if (response.body.entry) {
         for (const res of response.body.entry) {
             console.log(res.fullUrl);
             await request({
                 method: 'DELETE',
-                uri: res.fullUrl,
+                uri: `${res.fullUrl}?_cascade=delete`,
                 json: true,
                 resolveWithFullResponse: true,
             });
@@ -30,15 +31,18 @@ async function cleanup(resource, page = 1) {
     }
 
     if (nextPage) {
-        await cleanup(nextPage.url, ++page);
+        await cleanup(nextPage.url);
     }
 }
 
+async function cleanupResource(resource, profile) {
+    const uri = `${BASE_URL}/${resource}?_count=50&_profile=${profile}`;
+
+    return cleanup(uri);
+}
+
 async function main() {
-    await cleanup('SearchParameter');
-    await cleanup('StructureDefinition');
-    await cleanup('Questionnaire');
-    await cleanup('ImplementationGuide');
+    await cleanupResource('Questionnaire', 'https://impact-fhir.mitre.org/r4/StructureDefinition/del-StandardForm');
 }
 
 main();
