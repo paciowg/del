@@ -28,6 +28,7 @@ from (
     inner join del_data.asmt_sect_rfrnc on asmt_sect_rfrnc.asmt_sect_id = asmt_qstn_vrsn.asmt_sect_id
     --join to get section order
     inner join del_data.sect_by_asmt on sect_by_asmt.asmt_sect_id =  asmt_sect_rfrnc.asmt_sect_id
+      and sect_by_asmt.asmt_id = asmt_vrsn.asmt_id
   where
       -- only active questions
       data_ele_qstn.qstn_stus_id = 1

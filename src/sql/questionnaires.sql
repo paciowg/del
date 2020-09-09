@@ -31,8 +31,10 @@ from del_data.asmt
   left join del_data.hit_std_vrsn on
   hit_std_vrsn.hit_std_vrsn_id = hit_asmt_map.hit_std_vrsn_id and
     hit_std_vrsn.hit_std_id = 1
---where asmt_stus_id = 1
-
+where asmt_stus_id = 1
+--  and asmt.asmt_shrt_name = 'FASI'
+-- and asmt_sbst_rfrnc.asmt_sbst_shrt_name = 'FA'
+--  and asmt_vrsn.asmt_vrsn_id = '1.1'
 order by
   asmt.asmt_shrt_name,
   asmt_vrsn.asmt_vrsn_id;

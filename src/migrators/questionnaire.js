@@ -84,13 +84,26 @@ async function buildSection(client, { assessmentId, sectionId, sectionName, sect
     // Find all questions for this section.
     const questionResults = await getQuestionsForSection(client, { assessmentId, sectionId });
     const questions = await buildQuestions(client, questionResults);
+    console.log('questions ', questions.length);
     if (questions && questions.length) {
         section.item = questions;
-
+        console.log('section ', section.linkId);
     }
 
     return section;
 }
+
+function contains(a, obj) {
+    var i = a.length;
+    while (i--) {
+        //  console.log('question', i, ', ', a[i].linkId, ', ', obj.linkId);
+        if (a[i].linkId === obj.linkId) {
+            return true;
+        }
+    }
+    return false;
+}
+
 
 async function buildQuestions(client, questionResults) {
     const questionMap = {};
@@ -108,7 +121,6 @@ async function buildQuestions(client, questionResults) {
         // If parent is not found in this section, skip.
         const parent = questionMap[question.parentId];
         if (!parent) {
-
             continue;
         }
         // Make sure parent has items list.
@@ -119,15 +131,20 @@ async function buildQuestions(client, questionResults) {
         // Then add this question to parent.
         const newQuestion = await buildQuestion(client, question);
         questionMap[question.questionId] = newQuestion;
+        //console.log('question', newQuestion.linkId);
 
         parent.item.push(newQuestion);
 
     }
 
+
     // Finally return a list of questions.
     const questionList = [];
     for (const question of Object.values(questionMap)) {
-        questionList.push(question);
+        // console.log('question', question.linkId, question.linkId);
+        if (!contains(questionList, question)) {
+            questionList.push(question);
+        }
     }
 
     return questionList;
