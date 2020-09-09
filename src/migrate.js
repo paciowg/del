@@ -13,7 +13,7 @@ const DATABASE = {
     database: 'postgres',
     password: 'welcome123',
     port: 5432,
-    host: 'localhost',
+    host: 'impact-fhir.mitre.org',
 };
 
 let serverUrl;
@@ -47,12 +47,12 @@ async function main(profileUrl, serverUrl) {
     }
 
     try {
-        /* const questionnaires = await questionnaireMigrator(client, profileUrl, serverUrl);
-         for (const resource of questionnaires) {
- 
-             writeFileSync(`out/json/questionnaires/${resource.id}.json`, JSON.stringify(resource, null, 2));
-         }
- */
+        const questionnaires = await questionnaireMigrator(client, profileUrl, serverUrl);
+        for (const resource of questionnaires) {
+
+            writeFileSync(`out/json/questionnaires/${resource.id}.json`, JSON.stringify(resource, null, 2));
+        }
+
         const jsonFiles = readdirSync('out/json/questionnaires/');
         for (const filename of jsonFiles) {
             const resource = require(`../out/json/questionnaires/${filename}`);
