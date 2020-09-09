@@ -86,6 +86,7 @@ async function buildSection(client, { assessmentId, sectionId, sectionName, sect
     const questions = await buildQuestions(client, questionResults);
     if (questions && questions.length) {
         section.item = questions;
+
     }
 
     return section;
@@ -96,6 +97,7 @@ async function buildQuestions(client, questionResults) {
 
     for (const question of questionResults) {
         // This is a root question or subsection. Place directly in the section.
+        // console.log('question', question.parentId, question.questionId);
         if (!question.parentId) {
             const rootQuestion = await buildQuestion(client, question);
             questionMap[question.questionId] = rootQuestion;
@@ -106,6 +108,7 @@ async function buildQuestions(client, questionResults) {
         // If parent is not found in this section, skip.
         const parent = questionMap[question.parentId];
         if (!parent) {
+
             continue;
         }
         // Make sure parent has items list.
@@ -115,7 +118,10 @@ async function buildQuestions(client, questionResults) {
 
         // Then add this question to parent.
         const newQuestion = await buildQuestion(client, question);
+        questionMap[question.questionId] = newQuestion;
+
         parent.item.push(newQuestion);
+
     }
 
     // Finally return a list of questions.
